@@ -1,0 +1,966 @@
+Номер;Логин;"Ссылка на профиль";ФИО;"Дата сохранения";Показан?;"Дата показа"
+1;erojdestvenska;https://www.facebook.com/erojdestvenska;"Екатерина Рождественская";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+2;elena.martsenyuk;https://www.facebook.com/elena.martsenyuk;"Elena Martsenyuk";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+3;pavel.efremov1;https://www.facebook.com/pavel.efremov1;"Павел Ефремов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+4;mishurarum;https://www.facebook.com/mishurarum;"Руслана Третьякова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+5;" ";https://www.facebook.com/profile.php?id=1485886387;"Инна Ройзман";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+6;veniamin.zaycev;https://www.facebook.com/veniamin.zaycev;"Вениамин Зайцев-Фридштанд";"2017.03.05 21:17:30";Да;"2017.03.09 21:25:25"
+7;Charles.L.Schreiber;https://www.facebook.com/Charles.L.Schreiber;"Кирилл Шрайбер";"2017.03.05 21:17:30";Да;"2017.03.09 21:25:25"
+8;viktor.zaharov.16;https://www.facebook.com/viktor.zaharov.16;"Виктор Захаров";"2017.03.05 21:17:30";Да;"2017.03.09 21:25:25"
+9;" ";https://www.facebook.com/profile.php?id=100005023894420;"Лилия Чернова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+10;roizmangbn;https://www.facebook.com/roizmangbn;"Евгений Ройзман";"2017.03.05 21:17:30";Да;"2017.03.09 21:25:25"
+11;sandro.masmanidi;https://www.facebook.com/sandro.masmanidi;"Sandro Masmanidi";"2017.03.05 21:17:30";Да;"2017.03.09 21:25:25"
+12;morokhovets;https://www.facebook.com/morokhovets;"Алексей Мороховец";"2017.03.05 21:17:30";" ";
+13;ruzhena.glinskaja;https://www.facebook.com/ruzhena.glinskaja;"Ружена Глинская";"2017.03.05 21:17:30";" ";
+14;hashanski;https://www.facebook.com/hashanski;"Семен Хащанский";"2017.03.05 21:17:30";" ";
+15;helon.woode;https://www.facebook.com/helon.woode;"Helon Woode";"2017.03.05 21:17:30";" ";
+16;" ";https://www.facebook.com/profile.php?id=100000480412803;"Александр Лесик";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+17;weiss.lora;https://www.facebook.com/weiss.lora;"Лариса Яковлева-Вайсзильбер";"2017.03.05 21:17:30";" ";
+18;galumov;https://www.facebook.com/galumov;"Эраст Галумов";"2017.03.05 21:17:30";" ";
+19;SergDyagilev;https://www.facebook.com/SergDyagilev;"Сергей Дягилев";"2017.03.05 21:17:30";" ";
+20;valery.ignatiev;https://www.facebook.com/valery.ignatiev;"Валерий Игнатьев";"2017.03.05 21:17:30";" ";
+21;tdonskaa;https://www.facebook.com/tdonskaa;"Тамара Донская";"2017.03.05 21:17:30";" ";
+22;" ";https://www.facebook.com/profile.php?id=100000971682414;"Ольга Ягодина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+23;rogalskiyy.fedor;https://www.facebook.com/rogalskiyy.fedor;"Федор Рогальский";"2017.03.05 21:17:30";" ";
+24;" ";https://www.facebook.com/profile.php?id=100001307145604;"Григорий Дрозд";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+25;sergey.aprelev.3;https://www.facebook.com/sergey.aprelev.3;"Сергей Апрелев";"2017.03.05 21:17:30";" ";
+26;aleksandr.potylicyn;https://www.facebook.com/aleksandr.potylicyn;"Александр Потылицын";"2017.03.05 21:17:30";" ";
+27;alex.izmodenov;https://www.facebook.com/alex.izmodenov;"Александр Измоденов";"2017.03.05 21:17:30";" ";
+28;" ";https://www.facebook.com/profile.php?id=100002169935111;"Шура Горбунов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+29;valentina.ananyeva.7;https://www.facebook.com/valentina.ananyeva.7;"Valentina Ananyeva";"2017.03.05 21:17:30";" ";
+30;sergey.stankevich;https://www.facebook.com/sergey.stankevich;"Сергей Станкевич";"2017.03.05 21:17:30";" ";
+31;comolario;https://www.facebook.com/comolario;"Игорь Юшин";"2017.03.05 21:17:30";" ";
+32;elinay.k;https://www.facebook.com/elinay.k;"Элина Коршунова Ясинская";"2017.03.05 21:17:30";" ";
+33;" ";https://www.facebook.com/profile.php?id=100010132650609;"Вильям Девлеткильдеев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+34;natalia.brailovskaya;https://www.facebook.com/natalia.brailovskaya;"Наталья Брайловская";"2017.03.05 21:17:30";" ";
+35;" ";https://www.facebook.com/profile.php?id=100005370498689;"Галина Мартиросян";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+36;anatoly.golovkov;https://www.facebook.com/anatoly.golovkov;"Anatoly Golovkov";"2017.03.05 21:17:30";" ";
+37;vld.nat.sol;https://www.facebook.com/vld.nat.sol;"So Nata";"2017.03.05 21:17:30";" ";
+38;iskander.oglu;https://www.facebook.com/iskander.oglu;"Александр Ясень-Горелов";"2017.03.05 21:17:30";" ";
+39;podgai;https://www.facebook.com/podgai;"Владимир Подгайский";"2017.03.05 21:17:30";" ";
+40;n.krasilnikova;https://www.facebook.com/n.krasilnikova;"Наталья Красильникова";"2017.03.05 21:17:30";" ";
+41;marianna.borovikova;https://www.facebook.com/marianna.borovikova;"Marianna Borovikova";"2017.03.05 21:17:30";" ";
+42;" ";https://www.facebook.com/profile.php?id=100005315072893;"Игорь Беспрозванный";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+43;arnold.giskin;https://www.facebook.com/arnold.giskin;"Arnold Giskin";"2017.03.05 21:17:30";" ";
+44;natasha.castro.5623;https://www.facebook.com/natasha.castro.5623;"Natasha Castro";"2017.03.05 21:17:30";" ";
+45;lukum21;https://www.facebook.com/lukum21;"Александр Петрик";"2017.03.05 21:17:30";" ";
+46;ioffealexandr;https://www.facebook.com/ioffealexandr;"Саша Иоффе";"2017.03.05 21:17:30";" ";
+47;dmitry.kazakov.1981;https://www.facebook.com/dmitry.kazakov.1981;"Дмитрий Казаков";"2017.03.05 21:17:30";" ";
+48;Vsemago;https://www.facebook.com/Vsemago;"Владимир Семаго";"2017.03.05 21:17:30";" ";
+49;" ";https://www.facebook.com/profile.php?id=100001601048060;"НАТАЛЬЯ БРЮХАНКОВА";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+50;maks.helper;https://www.facebook.com/maks.helper;"Макс Хелпер";"2017.03.05 21:17:30";" ";
+51;irene.danilova.3;https://www.facebook.com/irene.danilova.3;"Ирина Данилова";"2017.03.05 21:17:30";" ";
+52;pallhalldor.halldorsson;https://www.facebook.com/pallhalldor.halldorsson;"Páll Halldór Halldórsson";"2017.03.05 21:17:30";" ";
+53;" ";https://www.facebook.com/profile.php?id=100002508261564;"Сестра Керри";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+54;aasokolov.ru;https://www.facebook.com/aasokolov.ru;"Андрей Соколов";"2017.03.05 21:17:30";" ";
+55;pan3.ru;https://www.facebook.com/pan3.ru;"Антон  Пеекскилл";"2017.03.05 21:17:30";" ";
+56;delilah.domini;https://www.facebook.com/delilah.domini;"Delilah Domini";"2017.03.05 21:17:30";" ";
+57;barsukov.as;https://www.facebook.com/barsukov.as;"Александр Сергеевич Барсуков";"2017.03.05 21:17:30";" ";
+58;philipp.kirkorov;https://www.facebook.com/philipp.kirkorov;"Philipp Kirkorov";"2017.03.05 21:17:30";" ";
+59;vassiliy.stroganov;https://www.facebook.com/vassiliy.stroganov;"Vassiliy Stroganov";"2017.03.05 21:17:30";" ";
+60;startfilm;https://www.facebook.com/startfilm;"Петр Черенков";"2017.03.05 21:17:30";" ";
+61;alexander.gafin;https://www.facebook.com/alexander.gafin;"Александр Гафин";"2017.03.05 21:17:30";" ";
+62;vladim.anisimov;https://www.facebook.com/vladim.anisimov;"Владимир Константинович Анисимов";"2017.03.05 21:17:30";" ";
+63;igor.shipovskih;https://www.facebook.com/igor.shipovskih;"Игорь Шиповских";"2017.03.05 21:17:30";" ";
+64;hamdi.karim.9;https://www.facebook.com/hamdi.karim.9;"Karim Hamdi";"2017.03.05 21:17:30";" ";
+65;" ";https://www.facebook.com/profile.php?id=100005141767605;"Ирина Тулпер";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+66;OlegKireyevSaxophone;https://www.facebook.com/OlegKireyevSaxophone;"Олег Киреев Саксофон Джаз";"2017.03.05 21:17:30";" ";
+67;andrewoleinik;https://www.facebook.com/andrewoleinik;"Андрей Олейник";"2017.03.05 21:17:30";" ";
+68;priklone;https://www.facebook.com/priklone;"Ирина Приклонская";"2017.03.05 21:17:30";" ";
+69;Vi.King.I;https://www.facebook.com/Vi.King.I;"Виталий Иванов";"2017.03.05 21:17:30";" ";
+70;floramazi;https://www.facebook.com/floramazi;"Флора Мази";"2017.03.05 21:17:30";" ";
+71;pr.ruslan;https://www.facebook.com/pr.ruslan;"Руслан Прилуцкий";"2017.03.05 21:17:30";" ";
+72;" ";https://www.facebook.com/profile.php?id=100002175168294;"Валерий Синёв";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+73;pavel.shelpakov;https://www.facebook.com/pavel.shelpakov;"Павел Шелпаков";"2017.03.05 21:17:30";" ";
+74;andytur999;https://www.facebook.com/andytur999;"Андрей Турапин";"2017.03.05 21:17:30";" ";
+75;" ";https://www.facebook.com/profile.php?id=100001164360113;"Эльман Исаев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+76;" ";https://www.facebook.com/profile.php?id=100000205466687;"Борис Надеждин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+77;kirillsukhanov;https://www.facebook.com/kirillsukhanov;"Кирилл Суханов";"2017.03.05 21:17:30";" ";
+78;" ";https://www.facebook.com/profile.php?id=100007076160085;"Ваня Цуркан";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+79;jurijmur;https://www.facebook.com/jurijmur;"Юрий Мокроусов";"2017.03.05 21:17:30";" ";
+80;julia.samui;https://www.facebook.com/julia.samui;"Julia Erofeeva";"2017.03.05 21:17:30";" ";
+81;MichailSusov;https://www.facebook.com/MichailSusov;"Михаил Сусов";"2017.03.05 21:17:30";" ";
+82;oliyarskaya;https://www.facebook.com/oliyarskaya;"Светлана Черкасова-Олиярская";"2017.03.05 21:17:30";" ";
+83;el.gotovskaya;https://www.facebook.com/el.gotovskaya;"Елена Готовская";"2017.03.05 21:17:30";" ";
+84;arkadiyn;https://www.facebook.com/arkadiyn;"Аркадий Налчаджян";"2017.03.05 21:17:30";" ";
+85;waleri.mirage;https://www.facebook.com/waleri.mirage;"Merle Blanc";"2017.03.05 21:17:30";" ";
+86;sdfghjkwe;https://www.facebook.com/sdfghjkwe;"Сурен Акопян";"2017.03.05 21:17:30";" ";
+87;emma.shaginyan;https://www.facebook.com/emma.shaginyan;"Емма Шагинян";"2017.03.05 21:17:30";" ";
+88;vladek.darman;https://www.facebook.com/vladek.darman;"Vladek Darman";"2017.03.05 21:17:30";" ";
+89;" ";https://www.facebook.com/profile.php?id=100002280833339;"Diana Gayane Werk";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+90;anna.shafran;https://www.facebook.com/anna.shafran;"Anna Shafran";"2017.03.05 21:17:30";" ";
+91;bek.djamal;https://www.facebook.com/bek.djamal;"Al Imran Bek Djamal";"2017.03.05 21:17:30";" ";
+92;shveydelalex;https://www.facebook.com/shveydelalex;"Александр Швейдель";"2017.03.05 21:17:30";" ";
+93;vladlen.romanov;https://www.facebook.com/vladlen.romanov;"Владлен Романов";"2017.03.05 21:17:30";" ";
+94;tatiana.nikonorova.16;https://www.facebook.com/tatiana.nikonorova.16;"Tatiana Nikonorova";"2017.03.05 21:17:30";" ";
+95;" ";https://www.facebook.com/profile.php?id=100004882928644;"Виталий Волевой";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+96;summer.wind.942;https://www.facebook.com/summer.wind.942;"Таня Кротова";"2017.03.05 21:17:30";" ";
+97;valeriy.loskutov.1;https://www.facebook.com/valeriy.loskutov.1;"Valeriy Loskutov";"2017.03.05 21:17:30";" ";
+98;" ";https://www.facebook.com/profile.php?id=100003880871235;"Николай Зайцев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+99;inna.santalova.7;https://www.facebook.com/inna.santalova.7;"Inna Santalova";"2017.03.05 21:17:30";" ";
+100;" ";https://www.facebook.com/profile.php?id=100006906883434;"Михаил Цивин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+101;tatiana.iva.7;https://www.facebook.com/tatiana.iva.7;"Tatiana Iva";"2017.03.05 21:17:30";" ";
+102;VBSmekhov;https://www.facebook.com/VBSmekhov;"Вениамин Смехов";"2017.03.05 21:17:30";" ";
+103;" ";https://www.facebook.com/profile.php?id=100002359806813;"Александр Гарьковский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+104;alexander.saratovtsev;https://www.facebook.com/alexander.saratovtsev;"Александр Саратовцев";"2017.03.05 21:17:30";" ";
+105;aanechaev;https://www.facebook.com/aanechaev;"Андрей Нечаев";"2017.03.05 21:17:30";" ";
+106;" ";https://www.facebook.com/profile.php?id=100001286061249;"Oleg Kolomzhanov";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+107;natalia.ivanova.50364;https://www.facebook.com/natalia.ivanova.50364;"Наталья Иванова";"2017.03.05 21:17:30";" ";
+108;Nikljo;https://www.facebook.com/Nikljo;"Леонид Сафронов";"2017.03.05 21:17:30";" ";
+109;ilia.chiselev;https://www.facebook.com/ilia.chiselev;"Илья Киселёв";"2017.03.05 21:17:30";" ";
+110;tais.moskovskaya;https://www.facebook.com/tais.moskovskaya;"Таис Московская";"2017.03.05 21:17:30";" ";
+111;naumpav;https://www.facebook.com/naumpav;"Павел Науменко";"2017.03.05 21:17:30";" ";
+112;irina.barinova.31;https://www.facebook.com/irina.barinova.31;"Ирина Баринова";"2017.03.05 21:17:30";" ";
+113;theodor.kubak.9;https://www.facebook.com/theodor.kubak.9;"Theodor Kubak";"2017.03.05 21:17:30";" ";
+114;alla.nechaeva.9;https://www.facebook.com/alla.nechaeva.9;"Alla  Nechaeva";"2017.03.05 21:17:30";" ";
+115;sergeyanatolevich.kapranov;https://www.facebook.com/sergeyanatolevich.kapranov;"Сергей Анатольевич Капранов";"2017.03.05 21:17:30";" ";
+116;vladimir.mikaev;https://www.facebook.com/vladimir.mikaev;"Экстрасенс Ясновидящий";"2017.03.05 21:17:30";" ";
+117;" ";https://www.facebook.com/profile.php?id=100010697081179;"Александр Краснов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+118;" ";https://www.facebook.com/profile.php?id=100002167792433;"Марина Иванова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+119;ngbabkina;https://www.facebook.com/ngbabkina;"Надежда Бабкина";"2017.03.05 21:17:30";" ";
+120;moleva.karina;https://www.facebook.com/moleva.karina;"Карина Молева";"2017.03.05 21:17:30";" ";
+121;" ";https://www.facebook.com/profile.php?id=100005334390668;"Назар Стадник";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+122;zheltov.vlad;https://www.facebook.com/zheltov.vlad;"Владислав Желтов";"2017.03.05 21:17:30";" ";
+123;" ";https://www.facebook.com/profile.php?id=100000805233290;"Нина Евгеньевна";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+124;mila.granik;https://www.facebook.com/mila.granik;"Mila Granik";"2017.03.05 21:17:30";" ";
+125;" ";https://www.facebook.com/profile.php?id=100001279174274;"Мякотина Людмила";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+126;gtupikin;https://www.facebook.com/gtupikin;"Геннадий Тупикин";"2017.03.05 21:17:30";" ";
+127;anna.evseeva.547;https://www.facebook.com/anna.evseeva.547;"Anna Evseeva";"2017.03.05 21:17:30";" ";
+128;" ";https://www.facebook.com/profile.php?id=1561044165;"Игорь Писарский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+129;bashira.kemran.9;https://www.facebook.com/bashira.kemran.9;"Gulya Gulya Gulya";"2017.03.05 21:17:30";" ";
+130;" ";https://www.facebook.com/profile.php?id=100001056457196;"Сергей Амбатьелло";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+131;antoniusdottir;https://www.facebook.com/antoniusdottir;"Inga Rós Antoníusdóttir";"2017.03.05 21:17:30";" ";
+132;igor.butman.1;https://www.facebook.com/igor.butman.1;"Игорь Бутман";"2017.03.05 21:17:30";" ";
+133;sanam.khudaybergenova;https://www.facebook.com/sanam.khudaybergenova;"Санам Худайбергенова";"2017.03.05 21:17:30";" ";
+134;" ";https://www.facebook.com/profile.php?id=100008303160812;"Георгий Гриф";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+135;anastasiyastotskayaofficial;https://www.facebook.com/anastasiyastotskayaofficial;"Анастасия Стоцкая";"2017.03.05 21:17:30";" ";
+136;vladimir.berezin.14;https://www.facebook.com/vladimir.berezin.14;"Владимир Березин";"2017.03.05 21:17:30";" ";
+137;" ";https://www.facebook.com/profile.php?id=100001970265296;"Юрий Бобков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+138;geydardzhemal;https://www.facebook.com/geydardzhemal;"Гейдар Джемаль";"2017.03.05 21:17:30";" ";
+139;" ";https://www.facebook.com/profile.php?id=100006346003430;"Любовь Мороховец";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+140;dmitry.pshenichnykh;https://www.facebook.com/dmitry.pshenichnykh;"Dmitry Pshenichnykh";"2017.03.05 21:17:30";" ";
+141;avtandilj;https://www.facebook.com/avtandilj;"Автандил Джинджихашвили";"2017.03.05 21:17:30";" ";
+142;marina.malyar.98;https://www.facebook.com/marina.malyar.98;"Marina Malyar";"2017.03.05 21:17:30";" ";
+143;igorkretov;https://www.facebook.com/igorkretov;"Игорь Кретов";"2017.03.05 21:17:30";" ";
+144;vlad.nikonov.56;https://www.facebook.com/vlad.nikonov.56;"Влад Никонов";"2017.03.05 21:17:30";" ";
+145;nikolaj.cerkasin1;https://www.facebook.com/nikolaj.cerkasin1;"Николай Черкашин";"2017.03.05 21:17:30";" ";
+146;" ";https://www.facebook.com/profile.php?id=100003309467823;"Андрей Теленков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+147;" ";https://www.facebook.com/profile.php?id=100006812680602;"Victoria Tretyakova";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+148;viktor.rusakov.18;https://www.facebook.com/viktor.rusakov.18;"Виктор Николаевич Русаков";"2017.03.05 21:17:30";" ";
+149;swetlaja;https://www.facebook.com/swetlaja;"Svetlana Skrebowa";"2017.03.05 21:17:30";" ";
+150;leonid.pustov;https://www.facebook.com/leonid.pustov;"Леонид Пустов";"2017.03.05 21:17:30";" ";
+151;elena.martynyuk.5;https://www.facebook.com/elena.martynyuk.5;"Елена Мартынюк";"2017.03.05 21:17:30";" ";
+152;" ";https://www.facebook.com/profile.php?id=100010434278009;"Veronika Biedermann";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+153;katerina.delbosque;https://www.facebook.com/katerina.delbosque;"Katerina Del Bosque";"2017.03.05 21:17:30";" ";
+154;aleksandr.zaharov.315;https://www.facebook.com/aleksandr.zaharov.315;"Aleksander Zakharov";"2017.03.05 21:17:30";" ";
+155;yatex943;https://www.facebook.com/yatex943;"Николай Иванов";"2017.03.05 21:17:30";" ";
+156;zzalexandra;https://www.facebook.com/zzalexandra;"Александра Кочнева";"2017.03.05 21:17:30";" ";
+157;valerij.gurovic;https://www.facebook.com/valerij.gurovic;"Валерий Гурович";"2017.03.05 21:17:30";" ";
+158;" ";https://www.facebook.com/profile.php?id=100001753616549;"Ирина Мороховец";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+159;inna.razzhivina.9;https://www.facebook.com/inna.razzhivina.9;"Inna Razzhivina";"2017.03.05 21:17:30";" ";
+160;" ";https://www.facebook.com/profile.php?id=100004721434365;"Геннадий Бернадский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+161;" ";https://www.facebook.com/profile.php?id=100003481473316;"Александр Смирнов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+162;" ";https://www.facebook.com/profile.php?id=1307792745;"Владимир Вишневский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+163;maxim.rotari.9;https://www.facebook.com/maxim.rotari.9;"Maxim Rotari";"2017.03.05 21:17:30";" ";
+164;nastja.bohnhorst;https://www.facebook.com/nastja.bohnhorst;"Nastja Bohnhorst";"2017.03.05 21:17:30";" ";
+165;alexander.gutin1969;https://www.facebook.com/alexander.gutin1969;"Александр Гутин";"2017.03.05 21:17:30";" ";
+166;kirill.lopatinsky;https://www.facebook.com/kirill.lopatinsky;"Кирилл Лопатинский";"2017.03.05 21:17:30";" ";
+167;" ";https://www.facebook.com/profile.php?id=100005207133730;"Татьяна Есина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+168;daniel.kotsiubinsky;https://www.facebook.com/daniel.kotsiubinsky;"Даниил Коцюбинский";"2017.03.05 21:17:30";" ";
+169;veta.ivanova;https://www.facebook.com/veta.ivanova;"Sveta Ivanova";"2017.03.05 21:17:30";" ";
+170;Vuima;https://www.facebook.com/Vuima;"Антон Вуйма";"2017.03.05 21:17:30";" ";
+171;mantas.cyras;https://www.facebook.com/mantas.cyras;"Mantas Cyras";"2017.03.05 21:17:30";" ";
+172;andrew.denisenko.98;https://www.facebook.com/andrew.denisenko.98;"Андрей Денисенко";"2017.03.05 21:17:30";" ";
+173;irina.burd.7;https://www.facebook.com/irina.burd.7;"Ирина Бурд";"2017.03.05 21:17:30";" ";
+174;KhakamadaIrina;https://www.facebook.com/KhakamadaIrina;"Irina M. Khakamada";"2017.03.05 21:17:30";" ";
+175;maiiashalunova;https://www.facebook.com/maiiashalunova;"Майя Шалунова";"2017.03.05 21:17:30";" ";
+176;corpcollection;https://www.facebook.com/corpcollection;"Дмитрий Жданухин";"2017.03.05 21:17:30";" ";
+177;" ";https://www.facebook.com/profile.php?id=100013826915385;"Игорь Владимирович Чечеткин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+178;" ";https://www.facebook.com/profile.php?id=100000968258545;"Анатолий Емельянов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+179;iosifprigozhin;https://www.facebook.com/iosifprigozhin;"Иосиф Пригожин";"2017.03.05 21:17:30";" ";
+180;nektovjum;https://www.facebook.com/nektovjum;"Юрий Волчёк";"2017.03.05 21:17:30";" ";
+181;igor.huovinen;https://www.facebook.com/igor.huovinen;"Игорь Чехонин";"2017.03.05 21:17:30";" ";
+182;vitaliy.manski;https://www.facebook.com/vitaliy.manski;"Виталий Манский";"2017.03.05 21:17:30";" ";
+183;masha.shakhova;https://www.facebook.com/masha.shakhova;"Masha Shakhova";"2017.03.05 21:17:30";" ";
+184;" ";https://www.facebook.com/profile.php?id=100004787205323;"Helga Gísladóttir";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+185;1099MikhailTarielovich;https://www.facebook.com/1099MikhailTarielovich;"Михаил Тариэлович";"2017.03.05 21:17:30";" ";
+186;" ";https://www.facebook.com/profile.php?id=100003533121173;"Светлана Виденеева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+187;alexandr.odintsov.71;https://www.facebook.com/alexandr.odintsov.71;"Александр Одинцов";"2017.03.05 21:17:30";" ";
+188;eugene.vaninov;https://www.facebook.com/eugene.vaninov;"Eugene Vaninov";"2017.03.05 21:17:30";" ";
+189;Manonhik;https://www.facebook.com/Manonhik;"Andrei Manonnovih";"2017.03.05 21:17:30";" ";
+190;vera.mozgovaya;https://www.facebook.com/vera.mozgovaya;"Vera Mozgovaya";"2017.03.05 21:17:30";" ";
+191;boris.feldman1;https://www.facebook.com/boris.feldman1;"Борис Фелдман";"2017.03.05 21:17:30";" ";
+192;hamisya.vahitova;https://www.facebook.com/hamisya.vahitova;"Екатерина Вахитова";"2017.03.05 21:17:30";" ";
+193;irek.murtazin.9;https://www.facebook.com/irek.murtazin.9;"Ирек Муртазин";"2017.03.05 21:17:30";" ";
+194;ivan.rahmetov;https://www.facebook.com/ivan.rahmetov;"Иван Рахметов";"2017.03.05 21:17:30";" ";
+195;" ";https://www.facebook.com/profile.php?id=1374522281;"Александр Муромский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+196;tatyana.lvova;https://www.facebook.com/tatyana.lvova;"Татьяна Львова";"2017.03.05 21:17:30";" ";
+197;" ";https://www.facebook.com/profile.php?id=1797114553;"Ирина Карпенко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+198;lidia.nikol.9;https://www.facebook.com/lidia.nikol.9;"Лидия Николаева";"2017.03.05 21:17:30";" ";
+199;" ";https://www.facebook.com/profile.php?id=100001973991844;"Павел Дыбин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+200;mavis.olga;https://www.facebook.com/mavis.olga;"Ольга Мартова";"2017.03.05 21:17:30";" ";
+201;matrosovdenis;https://www.facebook.com/matrosovdenis;"Денис Матросов";"2017.03.05 21:17:30";" ";
+202;monika.chekhova;https://www.facebook.com/monika.chekhova;"Monika Fein-Mkrtchian";"2017.03.05 21:17:30";" ";
+203;" ";https://www.facebook.com/profile.php?id=100001543111416;"Лариса Голушкина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+204;" ";https://www.facebook.com/profile.php?id=100000577240905;"Александр Филиппов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+205;www.lelka.mail.ru;https://www.facebook.com/www.lelka.mail.ru;"Оля Осинцева";"2017.03.05 21:17:30";" ";
+206;" ";https://www.facebook.com/profile.php?id=1508181300;"Alexandr Malinin";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+207;elen.gavrilova7;https://www.facebook.com/elen.gavrilova7;"Elena Gavrilova";"2017.03.05 21:17:30";" ";
+208;so1973ny;https://www.facebook.com/so1973ny;"Ilya Melnikov";"2017.03.05 21:17:30";" ";
+209;alex.makhotin;https://www.facebook.com/alex.makhotin;"Александр Махотин";"2017.03.05 21:17:30";" ";
+210;quattroplus;https://www.facebook.com/quattroplus;"Дмитрий Ковалев";"2017.03.05 21:17:30";" ";
+211;" ";https://www.facebook.com/profile.php?id=1217950083;"Ольга Макарова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+212;kolyadinandrey;https://www.facebook.com/kolyadinandrey;"Андрей Колядин";"2017.03.05 21:17:30";" ";
+213;lenadev9;https://www.facebook.com/lenadev9;"Лена Девятова";"2017.03.05 21:17:30";" ";
+214;" ";https://www.facebook.com/profile.php?id=100001314519438;"Михаил Миронов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+215;" ";https://www.facebook.com/profile.php?id=100006789966577;"Игорь Карпов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+216;jeanne.vlad;https://www.facebook.com/jeanne.vlad;"Жанна Владимировна";"2017.03.05 21:17:30";" ";
+217;nsbondarchuk;https://www.facebook.com/nsbondarchuk;"Наталья Бондарчук";"2017.03.05 21:17:30";" ";
+218;aborigenart;https://www.facebook.com/aborigenart;"Lukash Niko";"2017.03.05 21:17:30";" ";
+219;" ";https://www.facebook.com/profile.php?id=100001737623900;"Анна Королева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+220;margaret.smith.90857901;https://www.facebook.com/margaret.smith.90857901;"Margaret Smith";"2017.03.05 21:17:30";" ";
+221;VadimAver;https://www.facebook.com/VadimAver;"Вадим Аверьянов";"2017.03.05 21:17:30";" ";
+222;vdanilovtsev;https://www.facebook.com/vdanilovtsev;"Валерий Даниловцев";"2017.03.05 21:17:30";" ";
+223;" ";https://www.facebook.com/profile.php?id=100002940502929;"Яна Кулькова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+224;igor.gorsky.9;https://www.facebook.com/igor.gorsky.9;"Igor Gorsky";"2017.03.05 21:17:30";" ";
+225;" ";https://www.facebook.com/profile.php?id=100011116632845;"Oleg Nikulin";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+226;" ";https://www.facebook.com/profile.php?id=100002064907660;"Олег Семаков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+227;GenGudkov;https://www.facebook.com/GenGudkov;"Геннадий Гудков";"2017.03.05 21:17:30";" ";
+228;" ";https://www.facebook.com/profile.php?id=100007276038544;"Борис Васильев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+229;sasha.nikiforov.351;https://www.facebook.com/sasha.nikiforov.351;"Саша Никифоров";"2017.03.05 21:17:30";" ";
+230;alexander.kovanov;https://www.facebook.com/alexander.kovanov;"Александр Кованов";"2017.03.05 21:17:30";" ";
+231;elena.romanoff;https://www.facebook.com/elena.romanoff;"Elena Romanoff";"2017.03.05 21:17:30";" ";
+232;levradik;https://www.facebook.com/levradik;"Lev Radik";"2017.03.05 21:17:30";" ";
+233;" ";https://www.facebook.com/profile.php?id=1785221205;"Alexander F. Skliar";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+234;nigora.normuradova;https://www.facebook.com/nigora.normuradova;"Nigora Normuradova";"2017.03.05 21:17:30";" ";
+235;cfijrba;https://www.facebook.com/cfijrba;"Александр Чебанов";"2017.03.05 21:17:30";" ";
+236;" ";https://www.facebook.com/profile.php?id=100005790783042;"Елена Трушанина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+237;alexey.talai;https://www.facebook.com/alexey.talai;"Алексей Талай";"2017.03.05 21:17:30";" ";
+238;" ";https://www.facebook.com/profile.php?id=100007403341099;"Евгений Синицин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+239;osevcov;https://www.facebook.com/osevcov;"Олег Шевцов";"2017.03.05 21:17:30";" ";
+240;" ";https://www.facebook.com/profile.php?id=100000542782136;"Александр Шевченко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+241;gkleyman;https://www.facebook.com/gkleyman;"Григорий Клейман";"2017.03.05 21:17:30";" ";
+242;weterano.grusha;https://www.facebook.com/weterano.grusha;"Михаил Очеретин";"2017.03.05 21:17:30";" ";
+243;tatyana.ivanova.71868;https://www.facebook.com/tatyana.ivanova.71868;"Tatyana Ivanova";"2017.03.05 21:17:30";" ";
+244;roman.shayhaydarov;https://www.facebook.com/roman.shayhaydarov;"Роман Шайхайдаров";"2017.03.05 21:17:30";" ";
+245;milla.sharafiy;https://www.facebook.com/milla.sharafiy;"Milla Milla";"2017.03.05 21:17:30";" ";
+246;anton.kuzkin.5;https://www.facebook.com/anton.kuzkin.5;"Anton Kuzkin";"2017.03.05 21:17:30";" ";
+247;ghazaros.grigoryan;https://www.facebook.com/ghazaros.grigoryan;"Ghazaros Grigoryan";"2017.03.05 21:17:30";" ";
+248;vadim.kislov.3;https://www.facebook.com/vadim.kislov.3;"Vadim Kislov";"2017.03.05 21:17:30";" ";
+249;nadezhda.vaulina;https://www.facebook.com/nadezhda.vaulina;"Надежда Ваулина";"2017.03.05 21:17:30";" ";
+250;" ";https://www.facebook.com/profile.php?id=100004620000703;"Светлана Медведева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+251;" ";https://www.facebook.com/profile.php?id=100011517556082;"Усачев Андрей";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+252;mammogramma;https://www.facebook.com/mammogramma;"Елена Кудинова";"2017.03.05 21:17:30";" ";
+253;" ";https://www.facebook.com/profile.php?id=100000094211693;"Раздольский Александр";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+254;alexander.lyubimov;https://www.facebook.com/alexander.lyubimov;"Александр Любимов";"2017.03.05 21:17:30";" ";
+255;alexandr.peskov.14;https://www.facebook.com/alexandr.peskov.14;"Александр Песков";"2017.03.05 21:17:30";" ";
+256;" ";https://www.facebook.com/profile.php?id=100009455238528;"Валентин Малиновский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+257;gocha.melkadze;https://www.facebook.com/gocha.melkadze;"Gocha Melkadze";"2017.03.05 21:17:30";" ";
+258;" ";https://www.facebook.com/profile.php?id=100008502047971;"Артур Нарышкин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+259;" ";https://www.facebook.com/profile.php?id=100006601357030;"Sergey Ivanko";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+260;helen.rogozina.7;https://www.facebook.com/helen.rogozina.7;"Helen Rogozina";"2017.03.05 21:17:30";" ";
+261;" ";https://www.facebook.com/profile.php?id=100003315327969;"Катерина Катерина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+262;beno.germans;https://www.facebook.com/beno.germans;"Риналдс Германс";"2017.03.05 21:17:30";" ";
+263;sergeitaratuta;https://www.facebook.com/sergeitaratuta;"сергей таратута";"2017.03.05 21:17:30";" ";
+264;kavadneprova;https://www.facebook.com/kavadneprova;"Ирина Ковалёва";"2017.03.05 21:17:30";" ";
+265;kamila.gafurova.14;https://www.facebook.com/kamila.gafurova.14;"Alimak Pro";"2017.03.05 21:17:30";" ";
+266;aleksander.bekin;https://www.facebook.com/aleksander.bekin;"Александр Бекин";"2017.03.05 21:17:30";" ";
+267;" ";https://www.facebook.com/profile.php?id=100010755888742;"Alex Gutin";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+268;" ";https://www.facebook.com/profile.php?id=100005744912363;"Александр Андреевич Добронравов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+269;docginzburg;https://www.facebook.com/docginzburg;"Денис Гинзбург";"2017.03.05 21:17:30";" ";
+270;ekaterina.karmanova.3;https://www.facebook.com/ekaterina.karmanova.3;"Ekaterina Karmanova";"2017.03.05 21:17:30";" ";
+271;rima.stankute.keiniene;https://www.facebook.com/rima.stankute.keiniene;"Ма-Ри- Са";"2017.03.05 21:17:30";" ";
+272;vasiliy.kozlov;https://www.facebook.com/vasiliy.kozlov;"продюсер Василий Козлов";"2017.03.05 21:17:30";" ";
+273;glukoza.chistyakova;https://www.facebook.com/glukoza.chistyakova;"Наталья Чистякова-Ионова";"2017.03.05 21:17:30";" ";
+274;nikolay.nikolaev.332;https://www.facebook.com/nikolay.nikolaev.332;"Николаев Николай";"2017.03.05 21:17:30";" ";
+275;d1askhan;https://www.facebook.com/d1askhan;"Dias Bay";"2017.03.05 21:17:30";" ";
+276;yra.makeev;https://www.facebook.com/yra.makeev;"Yra Makeev";"2017.03.05 21:17:30";" ";
+277;oleg.kuzminskiy;https://www.facebook.com/oleg.kuzminskiy;"Олег Кузьминский";"2017.03.05 21:17:30";" ";
+278;" ";https://www.facebook.com/profile.php?id=100007243985227;"Сергей Бураков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+279;dmitriy.molokovskiy;https://www.facebook.com/dmitriy.molokovskiy;"Дмитрий Молоковский";"2017.03.05 21:17:30";" ";
+280;svetik1970;https://www.facebook.com/svetik1970;"Светлана Молодых";"2017.03.05 21:17:30";" ";
+281;greg.limon.79;https://www.facebook.com/greg.limon.79;"Грег Лимон";"2017.03.05 21:17:30";" ";
+282;gomolkolp;https://www.facebook.com/gomolkolp;"Лариса Гомолко";"2017.03.05 21:17:30";" ";
+283;alexey.roshchanovskiy;https://www.facebook.com/alexey.roshchanovskiy;"Alexey Roshchanovskiy";"2017.03.05 21:17:30";" ";
+284;" ";https://www.facebook.com/profile.php?id=100005265916105;"Александр Иванов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+285;vladimir.voronoff;https://www.facebook.com/vladimir.voronoff;"Владимир Воронов";"2017.03.05 21:17:30";" ";
+286;sergey.terekhin.96;https://www.facebook.com/sergey.terekhin.96;"Сергей Терёхин";"2017.03.05 21:17:30";" ";
+287;" ";https://www.facebook.com/profile.php?id=100004947702362;"Ольга Черненко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+288;dimakeev;https://www.facebook.com/dimakeev;"Дима Макеев";"2017.03.05 21:17:30";" ";
+289;aleksandr.kopanev;https://www.facebook.com/aleksandr.kopanev;"Александр Копанев";"2017.03.05 21:17:30";" ";
+290;natal54197;https://www.facebook.com/natal54197;"Natalia Vladi";"2017.03.05 21:17:30";" ";
+291;dgrudinin;https://www.facebook.com/dgrudinin;"Дмитрий Грудинин";"2017.03.05 21:17:30";" ";
+292;sgolovkova;https://www.facebook.com/sgolovkova;"Svetlana Golovkova";"2017.03.05 21:17:30";" ";
+293;krs8383;https://www.facebook.com/krs8383;"Роман Ковалёв";"2017.03.05 21:17:30";" ";
+294;anna.gustova.73;https://www.facebook.com/anna.gustova.73;"Анна Густова";"2017.03.05 21:17:30";" ";
+295;" ";https://www.facebook.com/profile.php?id=100005238150652;"Юрий Галкин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+296;" ";https://www.facebook.com/profile.php?id=100002018583548;"Марина Арина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+297;lyubov.dikareva;https://www.facebook.com/lyubov.dikareva;"Люба Дикер";"2017.03.05 21:17:30";" ";
+298;osn.saturn;https://www.facebook.com/osn.saturn;"Николаев Борис";"2017.03.05 21:17:30";" ";
+299;" ";https://www.facebook.com/profile.php?id=100007399395763;"Ирина Назарова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+300;mariam.mattila;https://www.facebook.com/mariam.mattila;"Mariam Mattila";"2017.03.05 21:17:30";" ";
+301;samflanker;https://www.facebook.com/samflanker;"Владимир Ласков";"2017.03.05 21:17:30";" ";
+302;leofedtih;https://www.facebook.com/leofedtih;"Леонид Тихонов";"2017.03.05 21:17:30";" ";
+303;corneliu.melnic.3;https://www.facebook.com/corneliu.melnic.3;"Corneliu Melnic";"2017.03.05 21:17:30";" ";
+304;IvanDemidof76;https://www.facebook.com/IvanDemidof76;"Иван Демидов";"2017.03.05 21:17:30";" ";
+305;" ";https://www.facebook.com/profile.php?id=100001676289088;"Мария Латинская";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+306;hjortur.smarason;https://www.facebook.com/hjortur.smarason;"Hjörtur Smárason";"2017.03.05 21:17:30";" ";
+307;kirill.andrianov.7;https://www.facebook.com/kirill.andrianov.7;"Kirill Andrianov";"2017.03.05 21:17:30";" ";
+308;levred;https://www.facebook.com/levred;"лев кошляков";"2017.03.05 21:17:30";" ";
+309;nikolay.novichkov;https://www.facebook.com/nikolay.novichkov;"Николай Новичков";"2017.03.05 21:17:30";" ";
+310;alexandr.sutormin;https://www.facebook.com/alexandr.sutormin;"Александр Сутормин";"2017.03.05 21:17:30";" ";
+311;natalia.serova.96;https://www.facebook.com/natalia.serova.96;"Наталья Серова";"2017.03.05 21:17:30";" ";
+312;kirill.lebedev.12;https://www.facebook.com/kirill.lebedev.12;"Кирилл Лебедев";"2017.03.05 21:17:30";" ";
+313;nstrunina;https://www.facebook.com/nstrunina;"Наталья Струнина";"2017.03.05 21:17:30";" ";
+314;" ";https://www.facebook.com/profile.php?id=100005366071037;"Михаил Крамаренко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+315;yulia.bogoslovskaya;https://www.facebook.com/yulia.bogoslovskaya;"Юлия Богословская";"2017.03.05 21:17:30";" ";
+316;" ";https://www.facebook.com/profile.php?id=100001079686342;"Франчук Вячеслав";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+317;dvoryankin;https://www.facebook.com/dvoryankin;"Дворянкин Петр";"2017.03.05 21:17:30";" ";
+318;nina.roizman;https://www.facebook.com/nina.roizman;"Нина Ройзман";"2017.03.05 21:17:30";" ";
+319;alexander.shahmatov;https://www.facebook.com/alexander.shahmatov;"Александр Шахматов";"2017.03.05 21:17:30";" ";
+320;dementyluzik;https://www.facebook.com/dementyluzik;"Дементий Лузик";"2017.03.05 21:17:30";" ";
+321;" ";https://www.facebook.com/profile.php?id=100010916323656;"Елена Елена";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+322;" ";https://www.facebook.com/profile.php?id=100014528324135;"Елена Горлышкова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+323;Nigora1979;https://www.facebook.com/Nigora1979;"Нигора Мухамедова";"2017.03.05 21:17:30";" ";
+324;dmitriydimitry.ya;https://www.facebook.com/dmitriydimitry.ya;"Dmitriy Er";"2017.03.05 21:17:30";" ";
+325;" ";https://www.facebook.com/profile.php?id=100015365525713;"Сэм Хащанский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+326;anna.trohhova;https://www.facebook.com/anna.trohhova;"Анна Трохова";"2017.03.05 21:17:30";" ";
+327;grigory.korotkov;https://www.facebook.com/grigory.korotkov;"Григорий Коротков";"2017.03.05 21:17:30";" ";
+328;" ";https://www.facebook.com/profile.php?id=100015088996074;"Виктория Касперович";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+329;irena.mashina;https://www.facebook.com/irena.mashina;"Irina Mashina";"2017.03.05 21:17:30";" ";
+330;" ";https://www.facebook.com/profile.php?id=100004619133564;"Галина Рылова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+331;" ";https://www.facebook.com/profile.php?id=100010212223198;"Оль Потешонкова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+332;maria.popp.56;https://www.facebook.com/maria.popp.56;"Мария Выльдурова";"2017.03.05 21:17:30";" ";
+333;Boris.Bilskiy;https://www.facebook.com/Boris.Bilskiy;"Boris Bilskiy";"2017.03.05 21:17:30";" ";
+334;" ";https://www.facebook.com/profile.php?id=100009663041485;"Мария Соколенко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+335;" ";https://www.facebook.com/profile.php?id=100011365013434;"Александр Мосягин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+336;" ";https://www.facebook.com/profile.php?id=100005662546973;"Olia Ruvimskaya";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+337;" ";https://www.facebook.com/profile.php?id=100003108049107;"Ирина Кальниченко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+338;" ";https://www.facebook.com/profile.php?id=100009447428089;"Viktor Terechov";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+339;qalina.dyomina;https://www.facebook.com/qalina.dyomina;"Galina Dyomina";"2017.03.05 21:17:30";" ";
+340;" ";https://www.facebook.com/profile.php?id=100009750365161;"Илья Беркович";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+341;rezeda.kasymova;https://www.facebook.com/rezeda.kasymova;"Rezeda Kasymova";"2017.03.05 21:17:30";" ";
+342;" ";https://www.facebook.com/profile.php?id=100010446469304;"Светлана Краснораменская";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+343;Rasstriga;https://www.facebook.com/Rasstriga;"Расстрига Расстрига";"2017.03.05 21:17:30";" ";
+344;mariam.martirosyan.142;https://www.facebook.com/mariam.martirosyan.142;"Mariam Martirosyan";"2017.03.05 21:17:30";" ";
+345;diana.alexandrova.7;https://www.facebook.com/diana.alexandrova.7;"Диана Александрова";"2017.03.05 21:17:30";" ";
+346;" ";https://www.facebook.com/profile.php?id=100011342171461;"Надежда Пальтова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+347;blowjobgirl;https://www.facebook.com/blowjobgirl;"Галина Метельская";"2017.03.05 21:17:30";" ";
+348;zarina.ashurova;https://www.facebook.com/zarina.ashurova;"Zarina Ashurova";"2017.03.05 21:17:30";" ";
+349;" ";https://www.facebook.com/profile.php?id=100006908586628;"Юлия Лебедева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+350;" ";https://www.facebook.com/profile.php?id=1470960132;"Emmanuel Roy";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+351;" ";https://www.facebook.com/profile.php?id=100001975670920;"Александр Владимирович Ткаченко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+352;dmitry.klimov.31;https://www.facebook.com/dmitry.klimov.31;"Dmitry Klimov";"2017.03.05 21:17:30";" ";
+353;" ";https://www.facebook.com/profile.php?id=100013796498108;"Нина Субботина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+354;vladimir.ghrighoriev;https://www.facebook.com/vladimir.ghrighoriev;"Владимир Григорьев";"2017.03.05 21:17:30";" ";
+355;" ";https://www.facebook.com/profile.php?id=100008917484852;"Анна Волкова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+356;" ";https://www.facebook.com/profile.php?id=100010083277562;"Julia Zelinskaya";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+357;" ";https://www.facebook.com/profile.php?id=100014184432690;"Елена Воля";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+358;" ";https://www.facebook.com/profile.php?id=100006244458053;"Керим Маллалиев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+359;sorokoletov.sm;https://www.facebook.com/sorokoletov.sm;"Сергей Михайлович Сороколетов";"2017.03.05 21:17:30";" ";
+360;" ";https://www.facebook.com/profile.php?id=100007181010499;"Макарова Юлия";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+361;" ";https://www.facebook.com/profile.php?id=100011181790755;"Елена Соболева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+362;" ";https://www.facebook.com/profile.php?id=100006465025672;"Максим Кустов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+363;" ";https://www.facebook.com/profile.php?id=100007871166560;"Виктор Кобыльченко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+364;" ";https://www.facebook.com/profile.php?id=100012283452638;"Дмитрий Кулибин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+365;lana.ivanova.96199;https://www.facebook.com/lana.ivanova.96199;"Lana Ivanova";"2017.03.05 21:17:30";" ";
+366;sergey.perov.54;https://www.facebook.com/sergey.perov.54;"Сергей Перов";"2017.03.05 21:17:30";" ";
+367;" ";https://www.facebook.com/profile.php?id=100012854322544;"Maria Matison";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+368;krugliakov.alex;https://www.facebook.com/krugliakov.alex;"Александр Кругляков";"2017.03.05 21:17:30";" ";
+369;" ";https://www.facebook.com/profile.php?id=100013496882386;"Жанна Султанова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+370;" ";https://www.facebook.com/profile.php?id=100011368886964;"Елена Фадеева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+371;vasilina.ivanova.73;https://www.facebook.com/vasilina.ivanova.73;"Василина Иванова";"2017.03.05 21:17:30";" ";
+372;Genady;https://www.facebook.com/Genady;"Геннадий Мельников";"2017.03.05 21:17:30";" ";
+373;" ";https://www.facebook.com/profile.php?id=100008237830886;"Анна Тихонова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+374;" ";https://www.facebook.com/profile.php?id=100012176743536;"Татьяна Монахова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+375;" ";https://www.facebook.com/profile.php?id=100013511853842;"Ирина Кошкина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+376;" ";https://www.facebook.com/profile.php?id=100010873603429;"Nikolay Simonov";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+377;" ";https://www.facebook.com/profile.php?id=100013462599575;"Francoise Guilleteau";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+378;alice.black.56679;https://www.facebook.com/alice.black.56679;"Алисия Романова";"2017.03.05 21:17:30";" ";
+379;" ";https://www.facebook.com/profile.php?id=100011251905631;"Елена Горинец";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+380;" ";https://www.facebook.com/profile.php?id=100000993668777;"Джафаров Намик";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+381;" ";https://www.facebook.com/profile.php?id=100011572333818;"Ольга Белоусова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+382;renatas.zyla;https://www.facebook.com/renatas.zyla;"Renatas Zyla";"2017.03.05 21:17:30";" ";
+383;nikolay.kalanov;https://www.facebook.com/nikolay.kalanov;"Nikolay Kalanov";"2017.03.05 21:17:30";" ";
+384;albert.danilov.5;https://www.facebook.com/albert.danilov.5;"Albert Danilov";"2017.03.05 21:17:30";" ";
+385;" ";https://www.facebook.com/profile.php?id=100011618765979;"Светлана Тараторка";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+386;sergey.zazimko.100;https://www.facebook.com/sergey.zazimko.100;"Сергей Зазимко";"2017.03.05 21:17:30";" ";
+387;" ";https://www.facebook.com/profile.php?id=100010507802985;"Игорь Васильев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+388;mihramra;https://www.facebook.com/mihramra;"Михаил Рахманов";"2017.03.05 21:17:30";" ";
+389;ivv4a;https://www.facebook.com/ivv4a;"Екатерина Дронникова";"2017.03.05 21:17:30";" ";
+390;sterzhakova;https://www.facebook.com/sterzhakova;"Елена Александровна Стержакова";"2017.03.05 21:17:30";" ";
+391;" ";https://www.facebook.com/profile.php?id=100011361889280;"Антон Воропаев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+392;milena.ehm;https://www.facebook.com/milena.ehm;"Милена Эм";"2017.03.05 21:17:30";" ";
+393;" ";https://www.facebook.com/profile.php?id=100010945838699;"Иришка Павлова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+394;" ";https://www.facebook.com/profile.php?id=100009101231673;"Наталья Кузнецова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+395;" ";https://www.facebook.com/profile.php?id=100000290888254;"Фазылов Рафаэль";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+396;" ";https://www.facebook.com/profile.php?id=100010948086518;"Арина Глинина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+397;TashaShestopalova;https://www.facebook.com/TashaShestopalova;"Таша Шестопалова";"2017.03.05 21:17:30";" ";
+398;marina.vok;https://www.facebook.com/marina.vok;"Марина Волощук";"2017.03.05 21:17:30";" ";
+399;" ";https://www.facebook.com/profile.php?id=100011260808448;"Ирина К. Анастасиади";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+400;" ";https://www.facebook.com/profile.php?id=100007496791899;"Тамара Басанская";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+401;" ";https://www.facebook.com/profile.php?id=100001501252416;"Дмитрий Зимин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+402;" ";https://www.facebook.com/profile.php?id=100005690446226;"Alexander Zavarzin";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+403;" ";https://www.facebook.com/profile.php?id=100010589915069;"Татьяна Капчевская";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+404;alisyura;https://www.facebook.com/alisyura;"Андрей Лисюра";"2017.03.05 21:17:30";" ";
+405;" ";https://www.facebook.com/profile.php?id=100010806282393;"Ева Рерих";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+406;" ";https://www.facebook.com/profile.php?id=100007090636080;"Павел Астаулов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+407;harut.grigoryan.18;https://www.facebook.com/harut.grigoryan.18;"Harut Grigoryan";"2017.03.05 21:17:30";" ";
+408;" ";https://www.facebook.com/profile.php?id=100000330618350;"Леонид сивов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+409;SvetikPogorelch;https://www.facebook.com/SvetikPogorelch;"Светлана Погорельченко";"2017.03.05 21:17:30";" ";
+410;goretskaya.po;https://www.facebook.com/goretskaya.po;"Полина Горецкая";"2017.03.05 21:17:30";" ";
+411;" ";https://www.facebook.com/profile.php?id=100000236290733;"Владислав ВРУБЛЕВСКИЙ";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+412;emil.socol;https://www.facebook.com/emil.socol;"Emil Socol";"2017.03.05 21:17:30";" ";
+413;rizaporta.aleksei;https://www.facebook.com/rizaporta.aleksei;"Aleksei Riz A Porta";"2017.03.05 21:17:30";" ";
+414;" ";https://www.facebook.com/profile.php?id=100002281267075;"татьяна Булгакова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+415;" ";https://www.facebook.com/profile.php?id=100008112525229;"Мила Коновалова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+416;Sweta000000;https://www.facebook.com/Sweta000000;"Арефьева Светлана";"2017.03.05 21:17:30";" ";
+417;" ";https://www.facebook.com/profile.php?id=100003355699848;"Екатерина Жукова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+418;OrbitaOAOOK;https://www.facebook.com/OrbitaOAOOK;"Орбита Оздоровительный Комплекс";"2017.03.05 21:17:30";" ";
+419;" ";https://www.facebook.com/profile.php?id=100010729564825;"Natalia Ialavina";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+420;" ";https://www.facebook.com/profile.php?id=100011219193803;"Олеся Владимировна";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+421;" ";https://www.facebook.com/profile.php?id=100008601136341;"Николай Литау";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+422;" ";https://www.facebook.com/profile.php?id=100010674967105;"Ирина Ланина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+423;" ";https://www.facebook.com/profile.php?id=100002825795539;"Сергей Прядкин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+424;alexandra.astavina;https://www.facebook.com/alexandra.astavina;"Alexandra Astavina";"2017.03.05 21:17:30";" ";
+425;mikhail.shirvindt;https://www.facebook.com/mikhail.shirvindt;"Mikhail Shirvindt";"2017.03.05 21:17:30";" ";
+426;" ";https://www.facebook.com/profile.php?id=100006048791683;"Валерий Швагин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+427;EVHomina;https://www.facebook.com/EVHomina;"Евгения Хомина";"2017.03.05 21:17:30";" ";
+428;vladinan;https://www.facebook.com/vladinan;"Наталия Степунина";"2017.03.05 21:17:30";" ";
+429;Dikovina.art;https://www.facebook.com/Dikovina.art;"Любовь Михалева";"2017.03.05 21:17:30";" ";
+430;andrew.zaroubine;https://www.facebook.com/andrew.zaroubine;"Андрей Зарубин";"2017.03.05 21:17:30";" ";
+431;ozgur.kartal.904;https://www.facebook.com/ozgur.kartal.904;"Ozg Kartal";"2017.03.05 21:17:30";" ";
+432;igor.polyakov.374;https://www.facebook.com/igor.polyakov.374;"Игорь Поляков";"2017.03.05 21:17:30";" ";
+433;" ";https://www.facebook.com/profile.php?id=100001572021575;"Владимир Овчинников";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+434;obrechon;https://www.facebook.com/obrechon;"Евгений Коннов";"2017.03.05 21:17:30";" ";
+435;" ";https://www.facebook.com/profile.php?id=100008578998379;"Алексей Иванов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+436;mert.atakan.716;https://www.facebook.com/mert.atakan.716;"Bülent Çakır";"2017.03.05 21:17:30";" ";
+437;nlpvologda;https://www.facebook.com/nlpvologda;"Дмитрий Ющенко";"2017.03.05 21:17:30";" ";
+438;" ";https://www.facebook.com/profile.php?id=100010697315490;"Tatiana Vedeneeva";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+439;sergey.nazhegu;https://www.facebook.com/sergey.nazhegu;"Sergey Nazhegu";"2017.03.05 21:17:30";" ";
+440;konstantin.gustov;https://www.facebook.com/konstantin.gustov;"Konstantin Gustov";"2017.03.05 21:17:30";" ";
+441;" ";https://www.facebook.com/profile.php?id=100009419048320;"Боря Скидан";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+442;tatyanafreutel;https://www.facebook.com/tatyanafreutel;"Таня Фреутел";"2017.03.05 21:17:30";" ";
+443;" ";https://www.facebook.com/profile.php?id=100006993705692;"Олег Смирнов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+444;DoctorAlenaGorshkova;https://www.facebook.com/DoctorAlenaGorshkova;"Алена Горшкова";"2017.03.05 21:17:30";" ";
+445;" ";https://www.facebook.com/profile.php?id=100003866816290;"Ветер Странствий";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+446;MikhDes;https://www.facebook.com/MikhDes;"Mikhelin De Zideri";"2017.03.05 21:17:30";" ";
+447;tuse.tuse.7;https://www.facebook.com/tuse.tuse.7;"Андрей Похаленко";"2017.03.05 21:17:30";" ";
+448;" ";https://www.facebook.com/profile.php?id=100009539352470;"Наталия Расторгуева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+449;arman.jilavian;https://www.facebook.com/arman.jilavian;"Arman Jilavian";"2017.03.05 21:17:30";" ";
+450;vkrasheninnikova;https://www.facebook.com/vkrasheninnikova;"Виктория Крашенинникова";"2017.03.05 21:17:30";" ";
+451;irena.kovaleva.7;https://www.facebook.com/irena.kovaleva.7;"Irena Kovaleva";"2017.03.05 21:17:30";" ";
+452;malinovskaya.nat;https://www.facebook.com/malinovskaya.nat;"Наталья Малиновская";"2017.03.05 21:17:30";" ";
+453;kytukova;https://www.facebook.com/kytukova;"Людмила Кайтукова";"2017.03.05 21:17:30";" ";
+454;mikhail.semyonov;https://www.facebook.com/mikhail.semyonov;"Михаил Дайго Семёнов";"2017.03.05 21:17:30";" ";
+455;oksana.bliskun;https://www.facebook.com/oksana.bliskun;"Оксана Блискун";"2017.03.05 21:17:30";" ";
+456;sir.skyper;https://www.facebook.com/sir.skyper;"Николай Кузнецов";"2017.03.05 21:17:30";" ";
+457;privorot.magiya;https://www.facebook.com/privorot.magiya;"Малиновская Наталья";"2017.03.05 21:17:30";" ";
+458;natalia.malinovskaya.94;https://www.facebook.com/natalia.malinovskaya.94;"Наталья Малиновская";"2017.03.05 21:17:30";" ";
+459;" ";https://www.facebook.com/profile.php?id=100010212191608;"Наталья Васильева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+460;" ";https://www.facebook.com/profile.php?id=100010327621633;"Женя Федорова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+461;" ";https://www.facebook.com/profile.php?id=100010043522926;"Виктория Крупнова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+462;" ";https://www.facebook.com/profile.php?id=100006487525399;"Акала Астала";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+463;andre.sital;https://www.facebook.com/andre.sital;"Андре Ситаль";"2017.03.05 21:17:30";" ";
+464;kirillovamila;https://www.facebook.com/kirillovamila;"Людмила Кириллова";"2017.03.05 21:17:30";" ";
+465;seliwan.kup;https://www.facebook.com/seliwan.kup;"Владимир Болдырев";"2017.03.05 21:17:30";" ";
+466;" ";https://www.facebook.com/profile.php?id=100009010396821;"Bharat Vaghela";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+467;" ";https://www.facebook.com/profile.php?id=100004350643709;"Ольга Денисенко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+468;" ";https://www.facebook.com/profile.php?id=100005370229065;"Юля Лапкина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+469;igor.felitsin;https://www.facebook.com/igor.felitsin;"Igor Felitsin";"2017.03.05 21:17:30";" ";
+470;" ";https://www.facebook.com/profile.php?id=100001006390864;"Владимир Цветков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+471;" ";https://www.facebook.com/profile.php?id=100008024167664;"Sergey Gontcharenko";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+472;" ";https://www.facebook.com/profile.php?id=100009345005667;"Марк Спаренко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+473;alexey.lykashenko;https://www.facebook.com/alexey.lykashenko;"Алексей Лукашенко";"2017.03.05 21:17:30";" ";
+474;" ";https://www.facebook.com/profile.php?id=100009139949648;"George Tukvachinski";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+475;alexey.chemodanov2;https://www.facebook.com/alexey.chemodanov2;"Алексей Чемоданов";"2017.03.05 21:17:30";" ";
+476;" ";https://www.facebook.com/profile.php?id=100006278178423;"Сергей Минин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+477;" ";https://www.facebook.com/profile.php?id=100004395437225;"Vlad Sytchev";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+478;" ";https://www.facebook.com/profile.php?id=100000472037572;"Минеев Владимир";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+479;" ";https://www.facebook.com/profile.php?id=100007671289338;"Ольга Криваль";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+480;" ";https://www.facebook.com/profile.php?id=100000647577201;"Елена Спорягина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+481;siarhey.nosan;https://www.facebook.com/siarhey.nosan;"Сергей Носань";"2017.03.05 21:17:30";" ";
+482;galiya.imamova;https://www.facebook.com/galiya.imamova;"Galiya Imamova";"2017.03.05 21:17:30";" ";
+483;gleb.vetrov;https://www.facebook.com/gleb.vetrov;"Глеб Ветров";"2017.03.05 21:17:30";" ";
+484;stepan.v.orlov;https://www.facebook.com/stepan.v.orlov;"Степан Орлов";"2017.03.05 21:17:30";" ";
+485;" ";https://www.facebook.com/profile.php?id=100003239045004;"Семен Беляев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+486;RudoyFoto;https://www.facebook.com/RudoyFoto;"Андрей Рудой";"2017.03.05 21:17:30";" ";
+487;lena.luchniko;https://www.facebook.com/lena.luchniko;"Елена Лучникова";"2017.03.05 21:17:30";" ";
+488;valerie.ivanow;https://www.facebook.com/valerie.ivanow;"Valery Ivanov";"2017.03.05 21:17:30";" ";
+489;" ";https://www.facebook.com/profile.php?id=100009139285278;"Наталья Яременко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+490;Aqua888;https://www.facebook.com/Aqua888;"Margo Zhur";"2017.03.05 21:17:30";" ";
+491;viktor.dubiagin;https://www.facebook.com/viktor.dubiagin;"Виктор Дубягин";"2017.03.05 21:17:30";" ";
+492;sergey.lapenkov;https://www.facebook.com/sergey.lapenkov;"Сергей Лапенков";"2017.03.05 21:17:30";" ";
+493;" ";https://www.facebook.com/profile.php?id=100009566291914;"Владимир Александрович Лисичкин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+494;" ";https://www.facebook.com/profile.php?id=100009747275156;"Вардан Мартиросян";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+495;vladimir.shitov.96;https://www.facebook.com/vladimir.shitov.96;"Vladimir Shitov";"2017.03.05 21:17:30";" ";
+496;dinitridrim;https://www.facebook.com/dinitridrim;"Иван Дмитриев";"2017.03.05 21:17:30";" ";
+497;lada.ch.96;https://www.facebook.com/lada.ch.96;"Лада Чхеидзе";"2017.03.05 21:17:30";" ";
+498;andrew.vodolazoff;https://www.facebook.com/andrew.vodolazoff;"Андрей Водолазов";"2017.03.05 21:17:30";" ";
+499;" ";https://www.facebook.com/profile.php?id=100002859993009;"Poovumma Ashie";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+500;aleksandra.bure;https://www.facebook.com/aleksandra.bure;"Александра Буре";"2017.03.05 21:17:30";" ";
+501;" ";https://www.facebook.com/profile.php?id=100009719670229;"Владимир Баулин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+502;arija.pumpure;https://www.facebook.com/arija.pumpure;"Arija Pumpure";"2017.03.05 21:17:30";" ";
+503;" ";https://www.facebook.com/profile.php?id=100009266409035;"Александр Иванов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+504;dennis.reust.5;https://www.facebook.com/dennis.reust.5;"Dennis Reust";"2017.03.05 21:17:30";" ";
+505;" ";https://www.facebook.com/profile.php?id=100008992369503;"Иван Горенко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+506;" ";https://www.facebook.com/profile.php?id=100000388374094;"Оксана Горшенёва";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+507;" ";https://www.facebook.com/profile.php?id=100009418171573;"Иван Кротов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+508;tchirva;https://www.facebook.com/tchirva;"Олег Чирва";"2017.03.05 21:17:30";" ";
+509;albinaklets;https://www.facebook.com/albinaklets;"Альбина Клец";"2017.03.05 21:17:30";" ";
+510;" ";https://www.facebook.com/profile.php?id=100009190837032;"Елена Сумская";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+511;" ";https://www.facebook.com/profile.php?id=100006908806568;"Светлана Марченко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+512;volk.alex;https://www.facebook.com/volk.alex;"Александр Волк";"2017.03.05 21:17:30";" ";
+513;likunoveb;https://www.facebook.com/likunoveb;"Евгений Ликунов";"2017.03.05 21:17:30";" ";
+514;" ";https://www.facebook.com/profile.php?id=100007719637352;"Андрей Воронин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+515;" ";https://www.facebook.com/profile.php?id=100008980117538;"Инна Холод";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+516;" ";https://www.facebook.com/profile.php?id=100008987496561;"Марина Любарская";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+517;krasnoramenskisvetlana;https://www.facebook.com/krasnoramenskisvetlana;"Светлана Краснораменская";"2017.03.05 21:17:30";" ";
+518;" ";https://www.facebook.com/profile.php?id=100008886454466;"Boris Kopyltsov";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+519;alexandrssss;https://www.facebook.com/alexandrssss;"Александр Конради";"2017.03.05 21:17:30";" ";
+520;" ";https://www.facebook.com/profile.php?id=100009493152752;"Vladimir Babenko";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+521;avercom;https://www.facebook.com/avercom;"Aндрей Aверьянов";"2017.03.05 21:17:30";" ";
+522;sergey.vasilyev.148;https://www.facebook.com/sergey.vasilyev.148;"Сергей Васильев";"2017.03.05 21:17:30";" ";
+523;" ";https://www.facebook.com/profile.php?id=100008079342760;"Полина Красивая";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+524;" ";https://www.facebook.com/profile.php?id=100000616055573;"Наталья Корзун";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+525;" ";https://www.facebook.com/profile.php?id=100005628017185;"Александор Трезвый";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+526;kallikene;https://www.facebook.com/kallikene;"Лиза Вайс";"2017.03.05 21:17:30";" ";
+527;francisco.s.alcazar;https://www.facebook.com/francisco.s.alcazar;"Francisco Soto Alcazar";"2017.03.05 21:17:30";" ";
+528;elena.silakova.73;https://www.facebook.com/elena.silakova.73;"Elena Silakova";"2017.03.05 21:17:30";" ";
+529;bill.gibbs.564;https://www.facebook.com/bill.gibbs.564;"Bill Gibbs";"2017.03.05 21:17:30";" ";
+530;" ";https://www.facebook.com/profile.php?id=100007314585734;"Ревякин Дмитрий";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+531;sumybus;https://www.facebook.com/sumybus;"Юрий Перепека";"2017.03.05 21:17:30";" ";
+532;" ";https://www.facebook.com/profile.php?id=100009225274458;"Светлана Маргарян";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+533;" ";https://www.facebook.com/profile.php?id=100009264524582;"Надежда Бакаева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+534;" ";https://www.facebook.com/profile.php?id=100007405632902;"Дима Полешук";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+535;yulianna.zhemerikina;https://www.facebook.com/yulianna.zhemerikina;"Yulianna Zhemerikina";"2017.03.05 21:17:30";" ";
+536;adonnik2;https://www.facebook.com/adonnik2;"Аля Донник";"2017.03.05 21:17:30";" ";
+537;andrey.ostashkin;https://www.facebook.com/andrey.ostashkin;"Андрей Осташкин";"2017.03.05 21:17:30";" ";
+538;olga.larchevareed;https://www.facebook.com/olga.larchevareed;"Ольга Ларчева Рид";"2017.03.05 21:17:30";" ";
+539;anita.suprun;https://www.facebook.com/anita.suprun;"Анна Супрун";"2017.03.05 21:17:30";" ";
+540;" ";https://www.facebook.com/profile.php?id=100009142764298;"Владимир Кондратьев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+541;franco.rocchetta;https://www.facebook.com/franco.rocchetta;"Franco Rocchetta";"2017.03.05 21:17:30";" ";
+542;Elenia.Maslova;https://www.facebook.com/Elenia.Maslova;"Elena Pulkkinen";"2017.03.05 21:17:30";" ";
+543;" ";https://www.facebook.com/profile.php?id=1635157321;"Roland Dailly";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+544;sergej.shevcov.1;https://www.facebook.com/sergej.shevcov.1;"Sergej Shevcov";"2017.03.05 21:17:30";" ";
+545;liudmila.belykh;https://www.facebook.com/liudmila.belykh;"Liudmila Belykh";"2017.03.05 21:17:30";" ";
+546;sunofmusicru;https://www.facebook.com/sunofmusicru;"Андрей Балашов";"2017.03.05 21:17:30";" ";
+547;marine.zargarian;https://www.facebook.com/marine.zargarian;"Marina Zargarian";"2017.03.05 21:17:30";" ";
+548;" ";https://www.facebook.com/profile.php?id=100009291360677;"Мостовская Светлана";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+549;samvel.arakelyan.10;https://www.facebook.com/samvel.arakelyan.10;"Самвел Аракелян";"2017.03.05 21:17:30";" ";
+550;" ";https://www.facebook.com/profile.php?id=100008994963173;"Александр Бочоев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+551;Oniks.007;https://www.facebook.com/Oniks.007;"Denis Petukhov";"2017.03.05 21:17:30";" ";
+552;pece.cvetanovski;https://www.facebook.com/pece.cvetanovski;"Pece Cvetanovski";"2017.03.05 21:17:30";" ";
+553;" ";https://www.facebook.com/profile.php?id=100003124558968;"Владимир Высоцкий";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+554;andrey.korobov.940;https://www.facebook.com/andrey.korobov.940;"Андрей Коробов";"2017.03.05 21:17:30";" ";
+555;aleksey.ischenko;https://www.facebook.com/aleksey.ischenko;"Aleksey Ischenko";"2017.03.05 21:17:30";" ";
+556;" ";https://www.facebook.com/profile.php?id=100008962444430;"Олег Ткачев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+557;artvolga;https://www.facebook.com/artvolga;"Андрей Мишагин";"2017.03.05 21:17:30";" ";
+558;viardo.marina;https://www.facebook.com/viardo.marina;"Marina Viardo";"2017.03.05 21:17:30";" ";
+559;" ";https://www.facebook.com/profile.php?id=100006025848587;"Лариса Петрова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+560;slavaskyred;https://www.facebook.com/slavaskyred;"Вячеслав Скайред";"2017.03.05 21:17:30";" ";
+561;maria.savelieva.5;https://www.facebook.com/maria.savelieva.5;"Maria Saveliewa";"2017.03.05 21:17:30";" ";
+562;" ";https://www.facebook.com/profile.php?id=100001374542658;"Татьяна Маслова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+563;" ";https://www.facebook.com/profile.php?id=100009107318713;"Олег Жуканин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+564;olgabatschmuel;https://www.facebook.com/olgabatschmuel;"Ольга Левин";"2017.03.05 21:17:30";" ";
+565;" ";https://www.facebook.com/profile.php?id=100002516914820;"Леонид Винников";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+566;" ";https://www.facebook.com/profile.php?id=100006243438263;"Oleg Christie";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+567;demochka.g;https://www.facebook.com/demochka.g;"Галина Ванюшева";"2017.03.05 21:17:30";" ";
+568;a.i.khilchenko;https://www.facebook.com/a.i.khilchenko;"Алексей Хильченко";"2017.03.05 21:17:30";" ";
+569;almardasov;https://www.facebook.com/almardasov;"Алексей Мардасов";"2017.03.05 21:17:30";" ";
+570;michael.bebing;https://www.facebook.com/michael.bebing;"Михаил Бебинг";"2017.03.05 21:17:30";" ";
+571;evgeny.fadeev.10;https://www.facebook.com/evgeny.fadeev.10;"Evgeny Fadeev";"2017.03.05 21:17:30";" ";
+572;tomasz.ziembinski.7;https://www.facebook.com/tomasz.ziembinski.7;"Tomasz Ziembiński";"2017.03.05 21:17:30";" ";
+573;aleksei.velichko.3;https://www.facebook.com/aleksei.velichko.3;"Алексей Величко";"2017.03.05 21:17:30";" ";
+574;fnatoly.beliasov;https://www.facebook.com/fnatoly.beliasov;"Анатолий Белясов";"2017.03.05 21:17:30";" ";
+575;" ";https://www.facebook.com/profile.php?id=100000893122954;"Сергей Смирнов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+576;ballynb75;https://www.facebook.com/ballynb75;"Robert Fiolek";"2017.03.05 21:17:30";" ";
+577;pppucv;https://www.facebook.com/pppucv;"игорь нейман";"2017.03.05 21:17:30";" ";
+578;lana.vynnyk;https://www.facebook.com/lana.vynnyk;"Lana Vynnyk";"2017.03.05 21:17:30";" ";
+579;" ";https://www.facebook.com/profile.php?id=100008948045015;"Владимир Перовский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+580;alogorelyshev;https://www.facebook.com/alogorelyshev;"Александр Огорелышев";"2017.03.05 21:17:30";" ";
+581;anna.crause.9;https://www.facebook.com/anna.crause.9;"Анна Краузе";"2017.03.05 21:17:30";" ";
+582;elizaveta.saptsova;https://www.facebook.com/elizaveta.saptsova;"Elizaveta Saptsova";"2017.03.05 21:17:30";" ";
+583;" ";https://www.facebook.com/profile.php?id=100001630452468;"Эммануэль Барто";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+584;" ";https://www.facebook.com/profile.php?id=100008221808789;"Светлана Беляева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+585;" ";https://www.facebook.com/profile.php?id=100008398064494;"Zuzu Zuzu";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+586;evgeniy.simonov.7;https://www.facebook.com/evgeniy.simonov.7;"Евгений Симонов";"2017.03.05 21:17:30";" ";
+587;" ";https://www.facebook.com/profile.php?id=100006837574872;"Ваха Аджиев Ваха";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+588;ingvar.gars;https://www.facebook.com/ingvar.gars;"Ингвар Гарс";"2017.03.05 21:17:30";" ";
+589;" ";https://www.facebook.com/profile.php?id=100002325804787;"Diana Ryzhakova";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+590;" ";https://www.facebook.com/profile.php?id=100008528322511;"Людмила Власова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+591;" ";https://www.facebook.com/profile.php?id=100006566989197;"Олег Петров";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+592;" ";https://www.facebook.com/profile.php?id=100004244297129;"Татьяна Нестюк";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+593;leonidgart;https://www.facebook.com/leonidgart;"Леонид Гарценштейн";"2017.03.05 21:17:30";" ";
+594;" ";https://www.facebook.com/profile.php?id=100005776154694;"Наталия Хачатурян";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+595;JEREMIAHRUKIA;https://www.facebook.com/JEREMIAHRUKIA;"Jeremy Deen";"2017.03.05 21:17:30";" ";
+596;" ";https://www.facebook.com/profile.php?id=100001435692017;"Татьяна Владимировна";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+597;" ";https://www.facebook.com/profile.php?id=100004982775172;"Advokat Zherkov IZee";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+598;" ";https://www.facebook.com/profile.php?id=100008660558155;"Ольга Сабурова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+599;vladislav.zaharchenko;https://www.facebook.com/vladislav.zaharchenko;"Владислав Захарченко";"2017.03.05 21:17:30";" ";
+600;irina.krupskaya.5;https://www.facebook.com/irina.krupskaya.5;"Ирина Крупская";"2017.03.05 21:17:30";" ";
+601;" ";https://www.facebook.com/profile.php?id=100006676475202;"Дмитрий Левин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+602;valery.grigoriev;https://www.facebook.com/valery.grigoriev;"Valery Grigoriev";"2017.03.05 21:17:30";" ";
+603;kryshtob;https://www.facebook.com/kryshtob;"Aleksandr Kryshtob";"2017.03.05 21:17:30";" ";
+604;povalyaevm;https://www.facebook.com/povalyaevm;"Maksim Povalyaev";"2017.03.05 21:17:30";" ";
+605;viktoria.victoria.9;https://www.facebook.com/viktoria.victoria.9;"Viktoria Pleshakova";"2017.03.05 21:17:30";" ";
+606;" ";https://www.facebook.com/profile.php?id=100008166524994;"Вера Сабурова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+607;gege.demontmartre;https://www.facebook.com/gege.demontmartre;"Gege De Montmartre";"2017.03.05 21:17:30";" ";
+608;elena.gurova23;https://www.facebook.com/elena.gurova23;"Елена Гурова";"2017.03.05 21:17:30";" ";
+609;sofiadoroshina;https://www.facebook.com/sofiadoroshina;"Sofia Doroshina";"2017.03.05 21:17:30";" ";
+610;genikdok;https://www.facebook.com/genikdok;"Bondarenko Gennady";"2017.03.05 21:17:30";" ";
+611;" ";https://www.facebook.com/profile.php?id=100001286496980;"Александр Лебедев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+612;" ";https://www.facebook.com/profile.php?id=100008032395674;"Елена Гурова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+613;vlad.sytchev.3;https://www.facebook.com/vlad.sytchev.3;"Vlad Sytchev";"2017.03.05 21:17:30";" ";
+614;orest.guryanov;https://www.facebook.com/orest.guryanov;"Орест Гурьянов";"2017.03.05 21:17:30";" ";
+615;anna.demeneva.96;https://www.facebook.com/anna.demeneva.96;"Авторский-салон Анна";"2017.03.05 21:17:30";" ";
+616;oleg.vakulenko.16;https://www.facebook.com/oleg.vakulenko.16;"Oleg Vakulenko";"2017.03.05 21:17:30";" ";
+617;" ";https://www.facebook.com/profile.php?id=100000803674421;"Андрей Ведерников";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+618;roman.grin.star;https://www.facebook.com/roman.grin.star;"Роман Каширин";"2017.03.05 21:17:30";" ";
+619;" ";https://www.facebook.com/profile.php?id=100006586455238;"Николай Александрович Беляев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+620;" ";https://www.facebook.com/profile.php?id=100004966383640;"Алексей Кубасов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+621;" ";https://www.facebook.com/profile.php?id=100006831463291;"Геннадий Кирсанов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+622;tatyana.chestina;https://www.facebook.com/tatyana.chestina;"Tatyana Chestina";"2017.03.05 21:17:30";" ";
+623;" ";https://www.facebook.com/profile.php?id=100006209287521;"Юлия Сапфира";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+624;" ";https://www.facebook.com/profile.php?id=100000688006608;"Альфред Миннибаев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+625;tenGulka;https://www.facebook.com/tenGulka;"Ten Sh";"2017.03.05 21:17:30";" ";
+626;olstef;https://www.facebook.com/olstef;"Олег Степанов";"2017.03.05 21:17:30";" ";
+627;gennadj.seletkov;https://www.facebook.com/gennadj.seletkov;"гена селетков";"2017.03.05 21:17:30";" ";
+628;anatoly.anatoljevich;https://www.facebook.com/anatoly.anatoljevich;"Anatoly Anatoljevich";"2017.03.05 21:17:30";" ";
+629;" ";https://www.facebook.com/profile.php?id=100005497957500;"Михаил Соколов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+630;ilona.bojarina;https://www.facebook.com/ilona.bojarina;"Ilona Bojārina";"2017.03.05 21:17:30";" ";
+631;sergey.v.zharkov;https://www.facebook.com/sergey.v.zharkov;"Sergey V. Zharkov";"2017.03.05 21:17:30";" ";
+632;natalia.isaeva.7;https://www.facebook.com/natalia.isaeva.7;"Наталья Исаева";"2017.03.05 21:17:30";" ";
+633;viktor.mishin.1;https://www.facebook.com/viktor.mishin.1;"Виктор Мишин";"2017.03.05 21:17:30";" ";
+634;maksim.russkih;https://www.facebook.com/maksim.russkih;"Максим Русских";"2017.03.05 21:17:30";" ";
+635;" ";https://www.facebook.com/profile.php?id=100007629167105;"Александр Каштанов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+636;" ";https://www.facebook.com/profile.php?id=100007827161671;"Александр Данилов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+637;" ";https://www.facebook.com/profile.php?id=100006092468453;"Gözel Hanadowa";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+638;sarkisgor.vardamirzian;https://www.facebook.com/sarkisgor.vardamirzian;"Саркис Гор Вард Амирзян";"2017.03.05 21:17:30";" ";
+639;nkarieva;https://www.facebook.com/nkarieva;"Nargis Karieva";"2017.03.05 21:17:30";" ";
+640;olesya.cherkinskaya;https://www.facebook.com/olesya.cherkinskaya;"Олеся Черкинская";"2017.03.05 21:17:30";" ";
+641;" ";https://www.facebook.com/profile.php?id=100001160267261;"Андрей Андреевич Полищук";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+642;tatyana.andreeva.395;https://www.facebook.com/tatyana.andreeva.395;"Татьяна Андреева";"2017.03.05 21:17:30";" ";
+643;" ";https://www.facebook.com/profile.php?id=100003391253362;"Геннадий Макаров";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+644;" ";https://www.facebook.com/profile.php?id=100007049478111;"Дмитрий Одинцов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+645;george.lyakhovetsky;https://www.facebook.com/george.lyakhovetsky;"Георгий Ляховецкий";"2017.03.05 21:17:30";" ";
+646;daiga.lapko;https://www.facebook.com/daiga.lapko;"Даига Лакса Тиминска Лапко";"2017.03.05 21:17:30";" ";
+647;brusznak;https://www.facebook.com/brusznak;"Иван Брусничный";"2017.03.05 21:17:30";" ";
+648;zalyna.g;https://www.facebook.com/zalyna.g;"Залина Гетоева";"2017.03.05 21:17:30";" ";
+649;victor.olevich;https://www.facebook.com/victor.olevich;"Виктор Олевич";"2017.03.05 21:17:30";" ";
+650;" ";https://www.facebook.com/profile.php?id=100003869562098;"Виктор Баранец";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+651;oleg.zarubaev;https://www.facebook.com/oleg.zarubaev;"Олег Зарубаев";"2017.03.05 21:17:30";" ";
+652;dagbsambo;https://www.facebook.com/dagbsambo;"Магомедсултан Алиев";"2017.03.05 21:17:30";" ";
+653;andrian.toderascu;https://www.facebook.com/andrian.toderascu;"Andrian Toderascu";"2017.03.05 21:17:30";" ";
+654;oleg.goodkoff;https://www.facebook.com/oleg.goodkoff;"Oleg Goodkoff";"2017.03.05 21:17:30";" ";
+655;kartashovTim;https://www.facebook.com/kartashovTim;"Тимофей Карташов";"2017.03.05 21:17:30";" ";
+656;" ";https://www.facebook.com/profile.php?id=100004499107616;"Olya  Benef";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+657;" ";https://www.facebook.com/profile.php?id=100006364475935;"Станислав Попцов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+658;tamara.cerna.90;https://www.facebook.com/tamara.cerna.90;"Černá Tamara";"2017.03.05 21:17:30";" ";
+659;" ";https://www.facebook.com/profile.php?id=100004566736157;"Татьяна Михайлова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+660;otar.iselidze;https://www.facebook.com/otar.iselidze;"Отар Иселидзе";"2017.03.05 21:17:30";" ";
+661;victor.adamenko;https://www.facebook.com/victor.adamenko;"виктор адаменко";"2017.03.05 21:17:30";" ";
+662;oleg.karganov.7;https://www.facebook.com/oleg.karganov.7;"Олег Карганов";"2017.03.05 21:17:30";" ";
+663;" ";https://www.facebook.com/profile.php?id=100000005046925;"Андрей НЕКИПЕЛОВ";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+664;" ";https://www.facebook.com/profile.php?id=100001432509049;"Lucia Nicodemo";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+665;malhaz.tedeshvili;https://www.facebook.com/malhaz.tedeshvili;"Malhaz Tedeshvili";"2017.03.05 21:17:30";" ";
+666;" ";https://www.facebook.com/profile.php?id=100007648713811;"Наталья Осинцева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+667;" ";https://www.facebook.com/profile.php?id=100006584740538;"Гоша Суворов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+668;" ";https://www.facebook.com/profile.php?id=100004659098916;"Рав Великолепный";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+669;" ";https://www.facebook.com/profile.php?id=100001744939596;"Леонид Эпштейн";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+670;linda.tolkunova;https://www.facebook.com/linda.tolkunova;"Линда Толкунова";"2017.03.05 21:17:30";" ";
+671;akaetana;https://www.facebook.com/akaetana;"Каэтана Альба";"2017.03.05 21:17:30";" ";
+672;GenerationTP;https://www.facebook.com/GenerationTP;"Tatyana Polyakova";"2017.03.05 21:17:30";" ";
+673;rihtere;https://www.facebook.com/rihtere;"Lana Rihtere";"2017.03.05 21:17:30";" ";
+674;gala.brik;https://www.facebook.com/gala.brik;"Галина Шибикина";"2017.03.05 21:17:30";" ";
+675;komarkelov;https://www.facebook.com/komarkelov;"Константин Маркелов";"2017.03.05 21:17:30";" ";
+676;andrey.kuznetsov.965;https://www.facebook.com/andrey.kuznetsov.965;"Андрей Кузнецов";"2017.03.05 21:17:30";" ";
+677;shnaiderr;https://www.facebook.com/shnaiderr;"Anna Shnaider Perevay";"2017.03.05 21:17:30";" ";
+678;tatyana.terina.1;https://www.facebook.com/tatyana.terina.1;"Татьяна Терина";"2017.03.05 21:17:30";" ";
+679;" ";https://www.facebook.com/profile.php?id=100006963670910;"Евгений Лесник";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+680;vitaliy.popov.108;https://www.facebook.com/vitaliy.popov.108;"Vitaliy Popov";"2017.03.05 21:17:30";" ";
+681;Vladimir.Vladimirovich.PerePutin;https://www.facebook.com/Vladimir.Vladimirovich.PerePutin;"Илья Владимирович";"2017.03.05 21:17:30";" ";
+682;" ";https://www.facebook.com/profile.php?id=100004103239474;"Королева Елена";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+683;alecsandr.zarubin;https://www.facebook.com/alecsandr.zarubin;"Александр Зарубин";"2017.03.05 21:17:30";" ";
+684;nina.lev;https://www.facebook.com/nina.lev;"Nina Lev";"2017.03.05 21:17:30";" ";
+685;urij.timosenko;https://www.facebook.com/urij.timosenko;"Юрий Тимошенко";"2017.03.05 21:17:30";" ";
+686;ovodenkodv;https://www.facebook.com/ovodenkodv;"Дмитрий Оводенко";"2017.03.05 21:17:30";" ";
+687;borislav.strulev;https://www.facebook.com/borislav.strulev;"Borislav Strulev";"2017.03.05 21:17:30";" ";
+688;sueliaparecida.bertolucci;https://www.facebook.com/sueliaparecida.bertolucci;"Sueli Aparecida Bertolucci";"2017.03.05 21:17:30";" ";
+689;dlegov;https://www.facebook.com/dlegov;"дмитрий березуцкий";"2017.03.05 21:17:30";" ";
+690;gaidarmaria;https://www.facebook.com/gaidarmaria;"Мария Гайдар";"2017.03.05 21:17:30";" ";
+691;" ";https://www.facebook.com/profile.php?id=100001278738350;"Вера Ермакова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+692;" ";https://www.facebook.com/profile.php?id=100007768512080;"Андрей Мошкин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+693;igor.suntsev;https://www.facebook.com/igor.suntsev;"Igor Suntsev";"2017.03.05 21:17:30";" ";
+694;chase.winfield;https://www.facebook.com/chase.winfield;"Chase Winfield";"2017.03.05 21:17:30";" ";
+695;" ";https://www.facebook.com/profile.php?id=100007530857199;"Олег Волобуев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+696;mohovart;https://www.facebook.com/mohovart;"Александр Мохов";"2017.03.05 21:17:30";" ";
+697;byroda;https://www.facebook.com/byroda;"сергей раков";"2017.03.05 21:17:30";" ";
+698;yvaseninskij;https://www.facebook.com/yvaseninskij;"Юрий Васенинский";"2017.03.05 21:17:30";" ";
+699;dybina.tatiana;https://www.facebook.com/dybina.tatiana;"Татьяна Дыбина";"2017.03.05 21:17:30";" ";
+700;vanya.taleva;https://www.facebook.com/vanya.taleva;"Vanya Taleva";"2017.03.05 21:17:30";" ";
+701;valeri.vostrotin;https://www.facebook.com/valeri.vostrotin;"Валерий Востротин";"2017.03.05 21:17:30";" ";
+702;igorvkazantsev;https://www.facebook.com/igorvkazantsev;"Игорь Казанцев";"2017.03.05 21:17:30";" ";
+703;aptikova;https://www.facebook.com/aptikova;"Татьяна Аптыкова";"2017.03.05 21:17:30";" ";
+704;marina.veryatina;https://www.facebook.com/marina.veryatina;"Марина Гаршина Верятина";"2017.03.05 21:17:30";" ";
+705;elena.moiseeva.7140;https://www.facebook.com/elena.moiseeva.7140;"елена моисеева";"2017.03.05 21:17:30";" ";
+706;" ";https://www.facebook.com/profile.php?id=100002136833975;"Ирина Грибулина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+707;" ";https://www.facebook.com/profile.php?id=100001304343485;"Артем Тарасов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+708;BoychukAlexandr;https://www.facebook.com/BoychukAlexandr;"Александр Бойчук";"2017.03.05 21:17:30";" ";
+709;francisco.bulte;https://www.facebook.com/francisco.bulte;"Francisco Bulte";"2017.03.05 21:17:30";" ";
+710;world81;https://www.facebook.com/world81;"Игорь Валерьевич";"2017.03.05 21:17:30";" ";
+711;www.edarling.ru;https://www.facebook.com/www.edarling.ru;"Sergei Valentinovich";"2017.03.05 21:17:30";" ";
+712;" ";https://www.facebook.com/profile.php?id=100007109049641;"Paco López";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+713;" ";https://www.facebook.com/profile.php?id=100004868430106;"Олег Синчуков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+714;" ";https://www.facebook.com/profile.php?id=100008309492152;"Светлана Семененко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+715;" ";https://www.facebook.com/profile.php?id=100007885770084;"Светлана Шабалина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+716;" ";https://www.facebook.com/profile.php?id=100005293597286;"Василий Шуваев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+717;" ";https://www.facebook.com/profile.php?id=100001710482304;"Полина Басавина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+718;misharubin23;https://www.facebook.com/misharubin23;"Михаель Рубинштейн";"2017.03.05 21:17:30";" ";
+719;strukovav;https://www.facebook.com/strukovav;"Александр Струков";"2017.03.05 21:17:30";" ";
+720;" ";https://www.facebook.com/profile.php?id=100001108811855;"Надежда Найдис";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+721;semen.milstein;https://www.facebook.com/semen.milstein;"Семен Мильштейн";"2017.03.05 21:17:30";" ";
+722;" ";https://www.facebook.com/profile.php?id=100001851807593;"Ирина Судакова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+723;" ";https://www.facebook.com/profile.php?id=100006427036023;"Лариса Вербицкая";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+724;dkhaustov;https://www.facebook.com/dkhaustov;"Дмитрий Хаустов";"2017.03.05 21:17:30";" ";
+725;" ";https://www.facebook.com/profile.php?id=100001714524235;"Рифат Юнисов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+726;yossi.verdi;https://www.facebook.com/yossi.verdi;"Йосси Верди";"2017.03.05 21:17:30";" ";
+727;yanzh.nedvetsky;https://www.facebook.com/yanzh.nedvetsky;"Янж Недвецкий";"2017.03.05 21:17:30";" ";
+728;dalskaya;https://www.facebook.com/dalskaya;"Svetlana Dalskaya";"2017.03.05 21:17:30";" ";
+729;" ";https://www.facebook.com/profile.php?id=100001399797555;"Игорь Тихомиров";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+730;vladimir.medvedovskiy;https://www.facebook.com/vladimir.medvedovskiy;"Vladimir Medvedovskiy";"2017.03.05 21:17:30";" ";
+731;" ";https://www.facebook.com/profile.php?id=100005095302321;"Ирина Рыбакова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+732;irina.makhina.7;https://www.facebook.com/irina.makhina.7;"Ирина Махина";"2017.03.05 21:17:30";" ";
+733;" ";https://www.facebook.com/profile.php?id=100000578983769;"Сергей Избаш";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+734;natalya.hendrix;https://www.facebook.com/natalya.hendrix;"Наталья Хендрикс";"2017.03.05 21:17:30";" ";
+735;" ";https://www.facebook.com/profile.php?id=100001633030681;"Гурген Закоян";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+736;VAlksnis;https://www.facebook.com/VAlksnis;"Виктор Имантович Алкснис";"2017.03.05 21:17:30";" ";
+737;Veengitse;https://www.facebook.com/Veengitse;"Денис Евстигнеев";"2017.03.05 21:17:30";" ";
+738;paramon.pzb;https://www.facebook.com/paramon.pzb;"Владимир Парамонов";"2017.03.05 21:17:30";" ";
+739;roxy.babayan;https://www.facebook.com/roxy.babayan;"Роксана Бабаян";"2017.03.05 21:17:30";" ";
+740;" ";https://www.facebook.com/profile.php?id=100000806206482;"Наталия Власова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+741;" ";https://www.facebook.com/profile.php?id=100005896483031;"Артем Попов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+742;" ";https://www.facebook.com/profile.php?id=100002159401513;"Владимир Белин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+743;tatyana.b.milovidova;https://www.facebook.com/tatyana.b.milovidova;"Татьяна Миловидова";"2017.03.05 21:17:30";" ";
+744;aleksej.smirnov.94;https://www.facebook.com/aleksej.smirnov.94;"Алексей Смирнов";"2017.03.05 21:17:30";" ";
+745;biryukov.va;https://www.facebook.com/biryukov.va;"Виктор Бирюков";"2017.03.05 21:17:30";" ";
+746;neverko.tanya;https://www.facebook.com/neverko.tanya;"Татьяна Неверко";"2017.03.05 21:17:30";" ";
+747;" ";https://www.facebook.com/profile.php?id=100001985650322;"валерий Казейкин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+748;nikolay.chudinov.3;https://www.facebook.com/nikolay.chudinov.3;"Николай Чудинов";"2017.03.05 21:17:30";" ";
+749;egor.beroev;https://www.facebook.com/egor.beroev;"Егор Бероев";"2017.03.05 21:17:30";" ";
+750;horalov;https://www.facebook.com/horalov;"Аркадий Хоралов";"2017.03.05 21:17:30";" ";
+751;" ";https://www.facebook.com/profile.php?id=100004916103842;"Екатерина Баринова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+752;" ";https://www.facebook.com/profile.php?id=100007029548236;"Александр Левшин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+753;aleksandrprohanov;https://www.facebook.com/aleksandrprohanov;"Александр Проханов";"2017.03.05 21:17:30";" ";
+754;" ";https://www.facebook.com/profile.php?id=100001972198045;"Виктория Пьер-Мари";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+755;yoogah;https://www.facebook.com/yoogah;"Андрей Кочнев";"2017.03.05 21:17:30";" ";
+756;" ";https://www.facebook.com/profile.php?id=100001380057251;"Николай Бабенков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+757;jbalkovskaya;https://www.facebook.com/jbalkovskaya;"Julia Balkovskaya";"2017.03.05 21:17:30";" ";
+758;syabitova;https://www.facebook.com/syabitova;"Роза Сябитова";"2017.03.05 21:17:30";" ";
+759;zamir.gotta;https://www.facebook.com/zamir.gotta;"Замир Готта";"2017.03.05 21:17:30";" ";
+760;" ";https://www.facebook.com/profile.php?id=100004711382694;"Максим Макаров";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+761;nataly.vinnikova.5;https://www.facebook.com/nataly.vinnikova.5;"Наталья Винникова";"2017.03.05 21:17:30";" ";
+762;elena.dvoryashina;https://www.facebook.com/elena.dvoryashina;"Елена Дворяшина";"2017.03.05 21:17:30";" ";
+763;" ";https://www.facebook.com/profile.php?id=1748578557;"Бируте Ненартавичюте";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+764;abdulatipov05;https://www.facebook.com/abdulatipov05;"Рамазан Гаджимурадович Абдулатипов";"2017.03.05 21:17:30";" ";
+765;RozhkovaLN;https://www.facebook.com/RozhkovaLN;"Людмила Рожкова";"2017.03.05 21:17:30";" ";
+766;zoya.kolesnik.3;https://www.facebook.com/zoya.kolesnik.3;"Zoya Kolesnik";"2017.03.05 21:17:30";" ";
+767;" ";https://www.facebook.com/profile.php?id=1211735857;"Юрий Симонов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+768;elena.shikula;https://www.facebook.com/elena.shikula;"Елена Шикула";"2017.03.05 21:17:30";" ";
+769;mitvol;https://www.facebook.com/mitvol;"Олег Митволь";"2017.03.05 21:17:30";" ";
+770;guy.eames;https://www.facebook.com/guy.eames;"Гай Имз";"2017.03.05 21:17:30";" ";
+771;" ";https://www.facebook.com/profile.php?id=100006740551621;"Галина Ковалева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+772;" ";https://www.facebook.com/profile.php?id=100000908101084;"долгих любовь";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+773;" ";https://www.facebook.com/profile.php?id=100000863138071;"Оля Утешева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+774;yulie.nikulina;https://www.facebook.com/yulie.nikulina;"Юлия Никулина Жеффруа";"2017.03.05 21:17:30";" ";
+775;galina.martirosyn;https://www.facebook.com/galina.martirosyn;"Galina Martirosyn";"2017.03.05 21:17:30";" ";
+776;" ";https://www.facebook.com/profile.php?id=100005726586400;"Надежда Кищенко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+777;VadimAveryan;https://www.facebook.com/VadimAveryan;"Вадим Юрьевич Аверьянов";"2017.03.05 21:17:30";" ";
+778;yshchegolkov;https://www.facebook.com/yshchegolkov;"Юрий Щегольков";"2017.03.05 21:17:30";" ";
+779;philip.rybin;https://www.facebook.com/philip.rybin;"Philip Rybin";"2017.03.05 21:17:30";" ";
+780;alexander.ladonin;https://www.facebook.com/alexander.ladonin;"Александр Ладонин";"2017.03.05 21:17:30";" ";
+781;archbishop.sergey.zhuravlev;https://www.facebook.com/archbishop.sergey.zhuravlev;"Сергей Журавлев";"2017.03.05 21:17:30";" ";
+782;" ";https://www.facebook.com/profile.php?id=100004965942789;"Игорь Александрович";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+783;stas.lis.3;https://www.facebook.com/stas.lis.3;"Stas Lis";"2017.03.05 21:17:30";" ";
+784;lady.milyaeva;https://www.facebook.com/lady.milyaeva;"Алла Миляева";"2017.03.05 21:17:30";" ";
+785;" ";https://www.facebook.com/profile.php?id=100000667962161;"Дискавери Клаб";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+786;" ";https://www.facebook.com/profile.php?id=100000974605582;"Aleksandra Mitneva";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+787;tania.zagorulko.5;https://www.facebook.com/tania.zagorulko.5;"Tania Zagorulko";"2017.03.05 21:17:30";" ";
+788;" ";https://www.facebook.com/profile.php?id=100001770647017;"Анатолий Бабушкин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+789;mariobrindizi;https://www.facebook.com/mariobrindizi;"Dmitry Marin";"2017.03.05 21:17:30";" ";
+790;www.marianna.k;https://www.facebook.com/www.marianna.k;"Марианна Коломейцева";"2017.03.05 21:17:30";" ";
+791;svetlana.straroverova;https://www.facebook.com/svetlana.straroverova;"Svetlana Straroverova";"2017.03.05 21:17:30";" ";
+792;maria.belousova.7;https://www.facebook.com/maria.belousova.7;"Мария Белоусова";"2017.03.05 21:17:30";" ";
+793;andrei6211;https://www.facebook.com/andrei6211;"Андрей Смирнов";"2017.03.05 21:17:30";" ";
+794;villa.belek.3;https://www.facebook.com/villa.belek.3;"Kerim Durmaz";"2017.03.05 21:17:30";" ";
+795;" ";https://www.facebook.com/profile.php?id=100005371693288;"Redseahotels Ru";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+796;igor.batyrev;https://www.facebook.com/igor.batyrev;"Игорь Батырев";"2017.03.05 21:17:30";" ";
+797;knyzev.vg;https://www.facebook.com/knyzev.vg;"Владимир Князев";"2017.03.05 21:17:30";" ";
+798;hovanes.galustyan;https://www.facebook.com/hovanes.galustyan;"Ованес Галустян";"2017.03.05 21:17:30";" ";
+799;elena.vinner;https://www.facebook.com/elena.vinner;"Елена Виннер";"2017.03.05 21:17:30";" ";
+800;justine.widman;https://www.facebook.com/justine.widman;"Justine Widman";"2017.03.05 21:17:30";" ";
+801;" ";https://www.facebook.com/profile.php?id=100001595048783;"Анатолий Труш";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+802;oksanafartuna;https://www.facebook.com/oksanafartuna;"Оксана Тарасенко";"2017.03.05 21:17:30";" ";
+803;" ";https://www.facebook.com/profile.php?id=100001631527284;"Виталий Григорьев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+804;tajusper;https://www.facebook.com/tajusper;"Татьяна Фирсова";"2017.03.05 21:17:30";" ";
+805;Alexey0108;https://www.facebook.com/Alexey0108;"Алексей Клименко";"2017.03.05 21:17:30";" ";
+806;aleksey.o.dvornikov;https://www.facebook.com/aleksey.o.dvornikov;"Алексей Дворников";"2017.03.05 21:17:30";" ";
+807;" ";https://www.facebook.com/profile.php?id=100001450612774;"Анатолий Владимирович Алексеенко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+808;alexandre.ivanov.752;https://www.facebook.com/alexandre.ivanov.752;"Александре Иванов";"2017.03.05 21:17:30";" ";
+809;natalija.tihomirova.1;https://www.facebook.com/natalija.tihomirova.1;"Наталия Тихомирова";"2017.03.05 21:17:30";" ";
+810;valeriy.zimin.9;https://www.facebook.com/valeriy.zimin.9;"Валерий Зимин";"2017.03.05 21:17:30";" ";
+811;edgars.dauksts;https://www.facebook.com/edgars.dauksts;"Edgars Dauksts";"2017.03.05 21:17:30";" ";
+812;advokatproskurin;https://www.facebook.com/advokatproskurin;"Виктор Проскурин";"2017.03.05 21:17:30";" ";
+813;dommramora;https://www.facebook.com/dommramora;"Маргарита Другова";"2017.03.05 21:17:30";" ";
+814;" ";https://www.facebook.com/profile.php?id=100001560956348;"ольга мороз";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+815;" ";https://www.facebook.com/profile.php?id=100000329715599;"Олег Левчуков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+816;" ";https://www.facebook.com/profile.php?id=100002423893166;"Евгений Назаров";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+817;a.sergievv;https://www.facebook.com/a.sergievv;"Андрей Сергиев";"2017.03.05 21:17:30";" ";
+818;staskmk;https://www.facebook.com/staskmk;"Станислав Шершнев";"2017.03.05 21:17:30";" ";
+819;yulia.malysheva.167;https://www.facebook.com/yulia.malysheva.167;"Юлия Малышева";"2017.03.05 21:17:30";" ";
+820;georgij.karaman;https://www.facebook.com/georgij.karaman;"Георгий Караман";"2017.03.05 21:17:30";" ";
+821;ShamilBahteev;https://www.facebook.com/ShamilBahteev;"Шамиль Бахтеев";"2017.03.05 21:17:30";" ";
+822;alex.chernicov;https://www.facebook.com/alex.chernicov;"Алексей Черников";"2017.03.05 21:17:30";" ";
+823;gorsky.narod;https://www.facebook.com/gorsky.narod;"Альберт Исаев";"2017.03.05 21:17:30";" ";
+824;" ";https://www.facebook.com/profile.php?id=100004117958752;"Арсений Брюханков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+825;Metovmusic;https://www.facebook.com/Metovmusic;"Кай Метов";"2017.03.05 21:17:30";" ";
+826;natalia.straroverova;https://www.facebook.com/natalia.straroverova;"Natalia Straroverova";"2017.03.05 21:17:30";" ";
+827;" ";https://www.facebook.com/profile.php?id=100001203699979;"Александр Лыков";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+828;pasha.mirniy;https://www.facebook.com/pasha.mirniy;"Pasha  Mirniy";"2017.03.05 21:17:30";" ";
+829;oprokofieva;https://www.facebook.com/oprokofieva;"Olga Prokofieva";"2017.03.05 21:17:30";" ";
+830;vereshak;https://www.facebook.com/vereshak;"Vitaly Vereshak";"2017.03.05 21:17:30";" ";
+831;samkoan.samkoan;https://www.facebook.com/samkoan.samkoan;"Samkoan Samkoan";"2017.03.05 21:17:30";" ";
+832;arina.sarapova;https://www.facebook.com/arina.sarapova;"Арина Шарапова";"2017.03.05 21:17:30";" ";
+833;" ";https://www.facebook.com/profile.php?id=100002492956875;"Почтовая Ирина";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+834;aishat.chekunova;https://www.facebook.com/aishat.chekunova;"Aishat  Chekunova";"2017.03.05 21:17:30";" ";
+835;loumah1;https://www.facebook.com/loumah1;"Lydiah Oumah";"2017.03.05 21:17:30";" ";
+836;vladimir.rsd;https://www.facebook.com/vladimir.rsd;"Владимир Русаков";"2017.03.05 21:17:30";" ";
+837;sergeypolonsky;https://www.facebook.com/sergeypolonsky;"Сергей Полонский";"2017.03.05 21:17:30";" ";
+838;Vitalis.Bar;https://www.facebook.com/Vitalis.Bar;"Vitalis Baranauskas";"2017.03.05 21:17:30";" ";
+839;galina.stupnikova;https://www.facebook.com/galina.stupnikova;"Галина Ступникова";"2017.03.05 21:17:30";" ";
+840;viktor.ponyakov;https://www.facebook.com/viktor.ponyakov;"Виктор Поняков";"2017.03.05 21:17:30";" ";
+841;sergei.vaulin.3;https://www.facebook.com/sergei.vaulin.3;"Sergei Vaulin";"2017.03.05 21:17:30";" ";
+842;boris.moskalev.1;https://www.facebook.com/boris.moskalev.1;"Борис Москалев";"2017.03.05 21:17:30";" ";
+843;muganceva;https://www.facebook.com/muganceva;"Светлана Муганцева";"2017.03.05 21:17:30";" ";
+844;" ";https://www.facebook.com/profile.php?id=100001219174224;"Илья Добровольский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+845;sanya.lavrov;https://www.facebook.com/sanya.lavrov;"Александр Лавров";"2017.03.05 21:17:30";" ";
+846;" ";https://www.facebook.com/profile.php?id=100000765012352;"Александр Мальцев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+847;ravilmakeev;https://www.facebook.com/ravilmakeev;"Равиль Макеев";"2017.03.05 21:17:30";" ";
+848;kholoptsev;https://www.facebook.com/kholoptsev;"Алексей Холопцев";"2017.03.05 21:17:30";" ";
+849;sstolarenko;https://www.facebook.com/sstolarenko;"Светлана Столяренко";"2017.03.05 21:17:30";" ";
+850;" ";https://www.facebook.com/profile.php?id=1655884995;"Алексей Бобровский";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+851;sergey.popov.908;https://www.facebook.com/sergey.popov.908;"Сергей Попов";"2017.03.05 21:17:30";" ";
+852;aleksej.romanenko1;https://www.facebook.com/aleksej.romanenko1;"Алексей Романенко";"2017.03.05 21:17:30";" ";
+853;" ";https://www.facebook.com/profile.php?id=100001785228375;"Илья Дмитриев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+854;polza.polza.polza;https://www.facebook.com/polza.polza.polza;"Семён Транковский";"2017.03.05 21:17:30";" ";
+855;gena.basov.7;https://www.facebook.com/gena.basov.7;"Gena Basov";"2017.03.05 21:17:30";" ";
+856;George.Leontiev;https://www.facebook.com/George.Leontiev;"Георгий Леонтьев";"2017.03.05 21:17:30";" ";
+857;renna.averd;https://www.facebook.com/renna.averd;"Renna Averd";"2017.03.05 21:17:30";" ";
+858;ekaterina.konovalova.35;https://www.facebook.com/ekaterina.konovalova.35;"Ekaterina Konovalova";"2017.03.05 21:17:30";" ";
+859;konstantin.zhikharev;https://www.facebook.com/konstantin.zhikharev;"Константин Жихарев";"2017.03.05 21:17:30";" ";
+860;t.yumasheva;https://www.facebook.com/t.yumasheva;"Татьяна Юмашева";"2017.03.05 21:17:30";" ";
+861;igor.bukharov;https://www.facebook.com/igor.bukharov;"Игорь Бухаров";"2017.03.05 21:17:30";" ";
+862;oleg.zaichenko.7;https://www.facebook.com/oleg.zaichenko.7;"Олег Заиченко";"2017.03.05 21:17:30";" ";
+863;gegelsky;https://www.facebook.com/gegelsky;"Гегельский Людовик О. П.";"2017.03.05 21:17:30";" ";
+864;vlladimir.volkov;https://www.facebook.com/vlladimir.volkov;"Владимир Волков";"2017.03.05 21:17:30";" ";
+865;hometc.info;https://www.facebook.com/hometc.info;"Максим Парфеньев";"2017.03.05 21:17:30";" ";
+866;igor.sidorov1;https://www.facebook.com/igor.sidorov1;"Игорь Сидоров";"2017.03.05 21:17:30";" ";
+867;andrei.piontkovsky;https://www.facebook.com/andrei.piontkovsky;"Андрей Пионтковский";"2017.03.05 21:17:30";" ";
+868;sivonenko.bogdan;https://www.facebook.com/sivonenko.bogdan;"Ствоненко Богдан";"2017.03.05 21:17:30";" ";
+869;ryumrymuryum;https://www.facebook.com/ryumrymuryum;"Андрей Переправин";"2017.03.05 21:17:30";" ";
+870;anna.kumacheva;https://www.facebook.com/anna.kumacheva;"Анна Кумачева";"2017.03.05 21:17:30";" ";
+871;victoria.golder.1;https://www.facebook.com/victoria.golder.1;"Victoria Golder";"2017.03.05 21:17:30";" ";
+872;agafonovun;https://www.facebook.com/agafonovun;"Юрий Агафонов";"2017.03.05 21:17:30";" ";
+873;" ";https://www.facebook.com/profile.php?id=100001775248827;"Сергей Ляшин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+874;" ";https://www.facebook.com/profile.php?id=100001404004634;"Алексей Афонин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+875;" ";https://www.facebook.com/profile.php?id=100001356485222;"Ирина Ефремова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+876;zaytsevigor;https://www.facebook.com/zaytsevigor;"Игорь Зайцев";"2017.03.05 21:17:30";" ";
+877;" ";https://www.facebook.com/profile.php?id=100001654943797;"Владимир иванов";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+878;sergey.savchenko.58;https://www.facebook.com/sergey.savchenko.58;"Sergey Savchenko";"2017.03.05 21:17:30";" ";
+879;snezhanna.komarova;https://www.facebook.com/snezhanna.komarova;"Snezhanna Komarova";"2017.03.05 21:17:30";" ";
+880;PrytkovAlexey;https://www.facebook.com/PrytkovAlexey;"Алексей Прытков";"2017.03.05 21:17:30";" ";
+881;anna.abramovich.52;https://www.facebook.com/anna.abramovich.52;"Anna  Abramovich";"2017.03.05 21:17:30";" ";
+882;" ";https://www.facebook.com/profile.php?id=100001652695927;"Наталья Степановна Гурецкая";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+883;igruzdeva;https://www.facebook.com/igruzdeva;"Irina Gruzdeva";"2017.03.05 21:17:30";" ";
+884;vadim.kolobov;https://www.facebook.com/vadim.kolobov;"Вадим Колобов";"2017.03.05 21:17:30";" ";
+885;natalia.nat.12;https://www.facebook.com/natalia.nat.12;"Natalia Nat";"2017.03.05 21:17:30";" ";
+886;diana.locmonova;https://www.facebook.com/diana.locmonova;"Diana Legkovska";"2017.03.05 21:17:30";" ";
+887;oleg.tog;https://www.facebook.com/oleg.tog;"Oleg  Tog";"2017.03.05 21:17:30";" ";
+888;BiryukovaAS;https://www.facebook.com/BiryukovaAS;"Александра Бирюкова";"2017.03.05 21:17:30";" ";
+889;stanislav.plotnikov.7;https://www.facebook.com/stanislav.plotnikov.7;"Станислав Плотников";"2017.03.05 21:17:30";" ";
+890;galina.nefagina;https://www.facebook.com/galina.nefagina;"Галина Нефагина";"2017.03.05 21:17:30";" ";
+891;olga.yussova;https://www.facebook.com/olga.yussova;"Ольга Юоссова";"2017.03.05 21:17:30";" ";
+892;ant.mikhin;https://www.facebook.com/ant.mikhin;"Антон Матюхин";"2017.03.05 21:17:30";" ";
+893;vladimir.sosnin.98;https://www.facebook.com/vladimir.sosnin.98;"Vladimir Sosnin";"2017.03.05 21:17:30";" ";
+894;" ";https://www.facebook.com/profile.php?id=100002655408128;"игорь шахин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+895;" ";https://www.facebook.com/profile.php?id=100001907997559;"Ольга Столярова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+896;ovkirillov;https://www.facebook.com/ovkirillov;"Олег Кириллов";"2017.03.05 21:17:30";" ";
+897;ol.chibisov;https://www.facebook.com/ol.chibisov;"Олег Чибисов";"2017.03.05 21:17:30";" ";
+898;" ";https://www.facebook.com/profile.php?id=100001424066959;"Сергей Кондратьев";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+899;Sogdiec;https://www.facebook.com/Sogdiec;"Сергей Чумаков";"2017.03.05 21:17:30";" ";
+900;sabinamusicpro;https://www.facebook.com/sabinamusicpro;"Ольга Прохорова";"2017.03.05 21:17:30";" ";
+901;alexander.yatsko;https://www.facebook.com/alexander.yatsko;"Alexander Yatsko";"2017.03.05 21:17:30";" ";
+902;andrey.afonin.585;https://www.facebook.com/andrey.afonin.585;"Андрей Афонин";"2017.03.05 21:17:30";" ";
+903;faqchapa;https://www.facebook.com/faqchapa;"Кирилл Шашурин";"2017.03.05 21:17:30";" ";
+904;" ";https://www.facebook.com/profile.php?id=100002552949384;"Михайло Приданников";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+905;nagiev.aleksandr;https://www.facebook.com/nagiev.aleksandr;"Александр Нагиев";"2017.03.05 21:17:30";" ";
+906;Semipyatnov;https://www.facebook.com/Semipyatnov;"Александр Семипятнов";"2017.03.05 21:17:30";" ";
+907;marina.rizaeva;https://www.facebook.com/marina.rizaeva;"Марина Ризаева";"2017.03.05 21:17:30";" ";
+908;yuri.rus;https://www.facebook.com/yuri.rus;"Юрий Сухов";"2017.03.05 21:17:30";" ";
+909;Berezovskyi;https://www.facebook.com/Berezovskyi;"Игорь Березовский";"2017.03.05 21:17:30";" ";
+910;vidicor;https://www.facebook.com/vidicor;"Alexey Zhdanov";"2017.03.05 21:17:30";" ";
+911;oksana.grinda;https://www.facebook.com/oksana.grinda;"Oksana  Grinda";"2017.03.05 21:17:30";" ";
+912;natali.klyuchnikova;https://www.facebook.com/natali.klyuchnikova;"Natali Klyuchnikova";"2017.03.05 21:17:30";" ";
+913;" ";https://www.facebook.com/profile.php?id=100001988838363;"Виктория Анипченко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+914;nino.popkhadze.7;https://www.facebook.com/nino.popkhadze.7;"Нино-Владимир Попхадзе-Путин";"2017.03.05 21:17:30";" ";
+915;" ";https://www.facebook.com/profile.php?id=100002222444976;"Наталья Власова";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+916;aberkovits1;https://www.facebook.com/aberkovits1;"Anna Berkovits";"2017.03.05 21:17:30";" ";
+917;marina.kabanova;https://www.facebook.com/marina.kabanova;"Marina Kabanova";"2017.03.05 21:17:30";" ";
+918;v.larionoff;https://www.facebook.com/v.larionoff;"Vladimir Larionoff";"2017.03.05 21:17:30";" ";
+919;arcticspiegel;https://www.facebook.com/arcticspiegel;"Станислав Яковлев";"2017.03.05 21:17:30";" ";
+920;alex.che.31;https://www.facebook.com/alex.che.31;"Alex Che";"2017.03.05 21:17:30";" ";
+921;beregafest;https://www.facebook.com/beregafest;"Телевизионный фестиваль Берега";"2017.03.05 21:17:30";" ";
+922;vahovski;https://www.facebook.com/vahovski;"Сергей Ваховски";"2017.03.05 21:17:30";" ";
+923;luba.voropaeva;https://www.facebook.com/luba.voropaeva;"Любовь Воропаева";"2017.03.05 21:17:30";" ";
+924;darja.gordon;https://www.facebook.com/darja.gordon;"Дарья Гордон";"2017.03.05 21:17:30";" ";
+925;fishmarta;https://www.facebook.com/fishmarta;"Татьяна Китаева";"2017.03.05 21:17:30";" ";
+926;" ";https://www.facebook.com/profile.php?id=100002134917515;"Татьяна Ткаченко";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+927;lilia.makela;https://www.facebook.com/lilia.makela;"Lilia Mäkelä";"2017.03.05 21:17:30";" ";
+928;elena.vinogradova.7;https://www.facebook.com/elena.vinogradova.7;"Елена Виннер";"2017.03.05 21:17:30";" ";
+929;" ";https://www.facebook.com/profile.php?id=100001266578179;"Александр Шаравин";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+930;sergej.matroskin;https://www.facebook.com/sergej.matroskin;"Сергей Матроскин";"2017.03.05 21:17:30";" ";
+931;leonid.gozman.77;https://www.facebook.com/leonid.gozman.77;"Леонид Гозман";"2017.03.05 21:17:30";" ";
+932;" ";https://www.facebook.com/profile.php?id=100001816087312;"Юлия Черняева";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+933;hans.gebert1;https://www.facebook.com/hans.gebert1;"Hans Gebert";"2017.03.05 21:17:30";" ";
+934;GulkinaOfficial;https://www.facebook.com/GulkinaOfficial;"Наталия Гулькина";"2017.03.05 21:17:30";" ";
+935;esadolin;https://www.facebook.com/esadolin;"ЕВГЕНИЙ САДОЛИН";"2017.03.05 21:17:30";" ";
+936;luminitsa.taburtsa;https://www.facebook.com/luminitsa.taburtsa;"Луминица Табурца";"2017.03.05 21:17:30";" ";
+937;guskov.aleksei;https://www.facebook.com/guskov.aleksei;"Алексей Гуськов";"2017.03.05 21:17:30";" ";
+938;boris.utekhin;https://www.facebook.com/boris.utekhin;"Борис Утехин";"2017.03.05 21:17:30";" ";
+939;diana.kazaryan.9;https://www.facebook.com/diana.kazaryan.9;"Diana Kazaryan";"2017.03.05 21:17:30";" ";
+940;reshetnikow;https://www.facebook.com/reshetnikow;"Сергей Решетников";"2017.03.05 21:17:30";" ";
+941;sergey.terloev;https://www.facebook.com/sergey.terloev;"Sergey Terloev";"2017.03.05 21:17:30";" ";
+942;albert.plotnikov.1;https://www.facebook.com/albert.plotnikov.1;"Альберт Плотников";"2017.03.05 21:17:30";" ";
+943;elena.kool.9;https://www.facebook.com/elena.kool.9;"Елена Кооль";"2017.03.05 21:17:30";" ";
+944;yulchakmv;https://www.facebook.com/yulchakmv;"Юлия Рекунова";"2017.03.05 21:17:30";" ";
+945;AleksanderKutikov;https://www.facebook.com/AleksanderKutikov;"Александр Кутиков";"2017.03.05 21:17:30";" ";
+946;emil.blank;https://www.facebook.com/emil.blank;"Emil Blank";"2017.03.05 21:17:30";" ";
+947;k.leisering;https://www.facebook.com/k.leisering;"Kerstin Leisering";"2017.03.05 21:17:30";" ";
+948;ivanov.angio;https://www.facebook.com/ivanov.angio;"Владимир Иванов";"2017.03.05 21:17:30";" ";
+949;ybezrukova;https://www.facebook.com/ybezrukova;"Yana Gottofrey";"2017.03.05 21:17:30";" ";
+950;kristina.b.nielsen.1;https://www.facebook.com/kristina.b.nielsen.1;"Kristina Buhl Nielsen";"2017.03.05 21:17:30";" ";
+951;rdzandarova;https://www.facebook.com/rdzandarova;"Рената Джандарова";"2017.03.05 21:17:30";" ";
+952;andrey.toroev;https://www.facebook.com/andrey.toroev;"Андрей Тороев";"2017.03.05 21:17:30";" ";
+953;elena.kruglova.3511;https://www.facebook.com/elena.kruglova.3511;"Елена Круглова";"2017.03.05 21:17:30";" ";
+954;kevinboconnor;https://www.facebook.com/kevinboconnor;"Kevin O'Connor";"2017.03.05 21:17:30";" ";
+955;ria.gilday;https://www.facebook.com/ria.gilday;"Ria Gilday";"2017.03.05 21:17:30";" ";
+956;" ";https://www.facebook.com/profile.php?id=100001944093618;"DevelopmentAcademy Nagid";"2017.03.05 21:17:30";Да;"2017.03.05 21:22:16"
+957;perovaelena;https://www.facebook.com/perovaelena;"Elena Perova";"2017.03.05 21:17:30";" ";
+958;zolkina.elena;https://www.facebook.com/zolkina.elena;"Елена Золкина";"2017.03.05 21:17:30";" ";
+959;nadia.soloukhina;https://www.facebook.com/nadia.soloukhina;"Nadia Sol";"2017.03.05 21:17:30";" ";
+960;gasanovfm;https://www.facebook.com/gasanovfm;"Firuz Gasanov";"2017.03.05 21:17:30";" ";
+961;ekaterina.karsakova.1;https://www.facebook.com/ekaterina.karsakova.1;"Ekaterina Cars";"2017.03.05 21:17:30";" ";
+962;denis.bryukhankov;https://www.facebook.com/denis.bryukhankov;"Денис Брюханков";"2017.03.05 21:17:30";" ";
+963;sitnianski;https://www.facebook.com/sitnianski;"Андрей Ситнянский";"2017.03.05 21:17:30";" ";
+964;rusimplant;https://www.facebook.com/rusimplant;"Дмитрий Калачев";"2017.03.05 21:17:30";" ";
+965;alexey.kalachev.77;https://www.facebook.com/alexey.kalachev.77;"Alexey Kalachev";"2017.03.05 21:17:30";" ";

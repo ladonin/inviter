@@ -1,0 +1,98 @@
+php_value upload_max_filesize 64M
+php_value post_max_size 64M
+php_value memory_limit 2048M
+php_value max_execution_time 30000
+php_value max_input_time 30000
+php_value session.gc_maxlifetime 120000
+
+
+
+
+
+
+
+
+
+
+
+AddDefaultCharset UTF-8
+Options -Indexes
+
+
+
+
+
+
+
+
+
+
+
+
+
+RewriteEngine on
+
+
+RewriteRule ^(javascript|css|img)\/(.+)$  $1/$2 [L]
+
+RewriteRule ^(gatherer|odnoklassniki)\/instruction(.+?).html$  instruction_ok$2.php [L]
+RewriteRule ^facebook\/instruction(.+?).html$  instruction_fb$1.php [L]
+
+RewriteRule ^instruction$  intro.php?%{QUERY_STRING} [L]
+RewriteRule ^help  help.php [L]
+RewriteRule ^contacts  contacts.php [L]
+
+RewriteRule ^(gatherer|odnoklassniki)\/(.+)$  ok.php?client_code=$2&%{QUERY_STRING} [L]
+RewriteRule ^facebook\/(.+)$  fb.php?client_code=$1&%{QUERY_STRING} [L]
+RewriteRule ^main\/(.+)$  main.php?client_code=$1&%{QUERY_STRING} [L]
+
+
+RewriteRule ^(gatherer|odnoklassniki)  ok.php [L]
+RewriteRule ^facebook  fb.php [L]
+
+RewriteRule ^adminscollector$  adminscollector.php [L]
+
+RewriteRule ^main  main.php [L]
+RewriteRule ^welcome$  welcome.php [L]
+
+RewriteRule ^$  welcome.php [L]
+
+RewriteRule ^save_email.php$  save_email.php [L]
+RewriteRule ^register_user.php$  register_user.php [L]
+
+
+RewriteRule ^restore_password_by_email.php$  restore_password_by_email.php [L]
+
+RewriteRule ^auth_control.php$  auth_control.php [L]
+
+
+RewriteRule ^wy5be6un_collect_ok.php$  ok_collect.php [L]
+RewriteRule ^ok_get_category_type_users_count.php$  ok_get_category_type_users_count.php [L]
+
+RewriteRule ^import_users_from_base.php$  import_users_from_base.php [L]
+
+RewriteRule ^robokassa_cw54ub6e5unb.php$  robokassa_cw54ub6e5unb.php [L]
+RewriteRule ^cw54ub6e5unb.php$  cw54ub6e5unb.php [L]
+RewriteRule ^balance_success.php$  balance_success.php [L]
+RewriteRule ^balance_fail.php$  balance_fail.php [L]
+
+RewriteRule ^enter  enter.php [L]
+RewriteRule ^login  login.php [L]
+RewriteRule ^logout$  logout.php [L]
+RewriteRule ^registration  registration.php [L]
+RewriteRule ^confirm_email/(.+)$  confirm_email.php?code=$1 [L]
+RewriteRule ^restore_password/([0-9]+)/(.+)$  restore_password.php?id=$1&hash=$2 [L]
+
+RewriteRule ^save_new_password$  save_new_password.php [L]
+RewriteRule ^change_password  change_password.php [L]
+RewriteRule ^ok_get_loaded_types_users_count_by_category  ok_get_loaded_types_users_count_by_category.php [L]
+RewriteRule ^ok_show_users  ok_show_users.php [L]
+RewriteRule ^fb_show_users  fb_show_users.php [L]
+
+
+
+RewriteRule ^robokassa_cw54ub6e5unb_demo1  robokassa_cw54ub6e5unb_demo1.php [L]
+RewriteRule ^robokassa_cw54ub6e5unb_demo2  robokassa_cw54ub6e5unb_demo2.php [L]
+RewriteRule ^robokassa_cw54ub6e5unb_fail  robokassa_cw54ub6e5unb_fail.php [L]
+RewriteRule ^robokassa_cw54ub6e5unb_result  robokassa_cw54ub6e5unb_result.php [L]
+RewriteRule ^robokassa_cw54ub6e5unb_success  robokassa_cw54ub6e5unb_success.php [L]
