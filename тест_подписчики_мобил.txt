@@ -1,0 +1,184 @@
+<ul id="member-list" class="list-block l" prev-url="" aria-live="polite" role="log" next-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=9&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=2261" data-avpos="1">
+    <li class="item it icp" data-page-url="https://m.ok.ru/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;_prevCmd=altGroupMain&amp;tkn=513&amp;_aid=groupProfMenu"><a href="/dk?st.cmd=friendMain&amp;st.friendId=579357352360&amp;_prevCmd=altGroupActiveMembers&amp;tkn=4242" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=855233804200&amp;t=32&amp;plc=MOBILE&amp;tkn=*6PuB4hDuZ7Tm6-LVZjGslP0zTvY" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Ада Сергевна</span></span>
+                    </span><span class="ic_w"><img class="ic-img ic8 ol ol __mobile ollm" src="//st.mycdn.me/mres/img/t/olblu.gif"></span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_579357352360&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=6863#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="https://m.ok.ru/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;_prevCmd=altGroupMain&amp;tkn=513&amp;_aid=groupProfMenu"><a href="/dk?st.cmd=friendMain&amp;st.friendId=579335534088&amp;_prevCmd=altGroupActiveMembers&amp;tkn=2240" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=851306680840&amp;t=32&amp;plc=MOBILE&amp;tkn=*V2EAcTjHnPI2gP9VCFgSB75gQHE" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Галина Дудко (Обрезанова)</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_579335534088&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=1383#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="https://m.ok.ru/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;_prevCmd=altGroupMain&amp;tkn=513&amp;_aid=groupProfMenu"><a href="/dk?st.cmd=friendMain&amp;st.friendId=574375365521&amp;_prevCmd=altGroupActiveMembers&amp;tkn=755" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=855078490001&amp;t=32&amp;plc=MOBILE&amp;tkn=*sda-BNqnqDXnbU15thnOThWe6OA" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Владимир Грибас</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_574375365521&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=1054#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="https://m.ok.ru/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;_prevCmd=altGroupMain&amp;tkn=513&amp;_aid=groupProfMenu"><a href="/dk?st.cmd=friendMain&amp;st.friendId=539320318704&amp;_prevCmd=altGroupActiveMembers&amp;tkn=1822" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=856065497072&amp;t=32&amp;plc=MOBILE&amp;tkn=*dGxvAslJL4uI2khog1e6Ww7xlYM" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">ТУТ Сервис</span></span>
+                    </span><span class="ic_w"><img class="ic-img ic8 ol ol __web ollm" src="//st.mycdn.me/mres/img/t/olorg.gif"></span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_539320318704&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=7871#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=2&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5110"><a href="/dk?st.cmd=friendMain&amp;st.friendId=558404336978&amp;_prevCmd=altGroupActiveMembers&amp;tkn=1876" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=585378849618&amp;t=32&amp;plc=MOBILE&amp;tkn=*q100qXEECR7ZW5GtGA9fiSjjikk" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Рустами Сухроб</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_558404336978&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=8231#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=2&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5110"><a href="/dk?st.cmd=friendMain&amp;st.friendId=575718137780&amp;_prevCmd=altGroupActiveMembers&amp;tkn=4735" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//st.mycdn.me/mres/img/stb2/female_50.png" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Светлана Богданова</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_575718137780&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=6961#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=3&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=9658"><a href="/dk?st.cmd=friendMain&amp;st.friendId=554129804617&amp;_prevCmd=altGroupActiveMembers&amp;tkn=4031" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=855397429321&amp;t=32&amp;plc=MOBILE&amp;tkn=*HbZy15fkSz-tU1cRCJNEpqpuD1s" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">ﻬ♥ﻬUMIDA ﻬ♥ﻬ</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_554129804617&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=322#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=5&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5233"><a href="/dk?st.cmd=friendMain&amp;st.friendId=565944737485&amp;_prevCmd=altGroupActiveMembers&amp;tkn=3640" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=856452398541&amp;t=32&amp;plc=MOBILE&amp;tkn=*nPLRe_GgJsDU4SNkfGFLEfV-6xE" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">👑Джамиля Манезова👑</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_565944737485&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=442#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=5&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5233"><a href="/dk?st.cmd=friendMain&amp;st.friendId=590087725863&amp;_prevCmd=altGroupActiveMembers&amp;tkn=6583" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//st.mycdn.me/mres/img/stb2/female_50.png" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Милана Ахмедова</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_590087725863&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=3021#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=5&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5233"><a href="/dk?st.cmd=friendMain&amp;st.friendId=560755559159&amp;_prevCmd=altGroupActiveMembers&amp;tkn=265" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=855477687031&amp;t=32&amp;plc=MOBILE&amp;tkn=*kcO4FZj3b9MtywZmf8NMRwniN5M" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Ольга Захарова</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_560755559159&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=7166#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=5&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5233"><a href="/dk?st.cmd=friendMain&amp;st.friendId=560766303216&amp;_prevCmd=altGroupActiveMembers&amp;tkn=3262" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=855721578992&amp;t=32&amp;plc=MOBILE&amp;tkn=*EN6zKP1bDxTllhfIgT9hQVFPD1w" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Лидия Раймер(Буянова)</span></span>
+                    </span><span class="ic_w"><img class="ic-img ic8 ol ol __mobile ollm" src="//st.mycdn.me/mres/img/t/olblu.gif"></span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_560766303216&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=4249#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=5&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5233"><a href="/dk?st.cmd=friendMain&amp;st.friendId=575659435441&amp;_prevCmd=altGroupActiveMembers&amp;tkn=8310" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=856373050801&amp;t=32&amp;plc=MOBILE&amp;tkn=*LCbmEdxEIFPlgCkYCgHnqCaHg74" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Я люблю  Тебя</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_575659435441&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=9277#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=5&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=5233"><a href="/dk?st.cmd=friendMain&amp;st.friendId=574132182764&amp;_prevCmd=altGroupActiveMembers&amp;tkn=3048" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=855962575084&amp;t=32&amp;plc=MOBILE&amp;tkn=*KPo499Tmy7cq7SoqsZgD_3dsT9Q" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">))) ((( инна</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_574132182764&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=2075#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="item it icp" data-page-url="/dk?st.cmd=altGroupActiveMembers&amp;st.groupId=52015006417057&amp;st.page=8&amp;st.dir=FORWARD&amp;_prevCmd=altGroupActiveMembers&amp;tkn=4629"><a href="/dk?st.cmd=friendMain&amp;st.friendId=571485489770&amp;_prevCmd=altGroupActiveMembers&amp;tkn=9415" class="clickarea"></a>
+        <div class="clickarea_content">
+            <div class="group-member">
+                <div class="sz32 common-avatar">
+                    <div class="u-ava"><img class="sz32 u-ava_img" src="//i.mycdn.me/image?id=855678025066&amp;t=32&amp;plc=MOBILE&amp;tkn=*87LrydcvgzK8Jf5FFb8z8kpRemQ" alt=""></div>
+                </div>
+                <div class="group-member-content"><span class="icons-set"><span class="ic-set_tx"><span class="emphased usr">Маша Женская Обувь</span></span>
+                    </span>
+                    <div class="group-member-act"><a href="/dk?st.cmd=userChat&amp;st.convId=PRIVATE_571485489770&amp;st.grp=off&amp;st.edit=off&amp;st.rpl=off&amp;_prevCmd=altGroupActiveMembers&amp;tkn=1818#lst" class="link alnk ai"><span class="ic  ic-msg ic16"><span class="ic_tx">Написать сообщение</span></span></a></div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

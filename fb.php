@@ -12,82 +12,64 @@ $invite_table = 'fb_imports';
 
 include('generic/auth_control.php');
 
+if (isset($_POST['export_users'])) {
 
-
-    if (isset($_POST['export_users'])) {
-
-        $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE user_id=:user_id order by id ASC");
-        $stmt->execute(array('user_id' => $user_id));
+        $stmt = $connect->prepare("SELECT * FROM fb_imports WHERE user_id=$user_id order by id DESC");
+        $stmt->execute();
         $result = $stmt->fetchAll();
-        $file_name = 'reports/facebook_'.$user_id.'.csv';
+        $file_name = 'reports/fb_friends_' . uniqid() . $user_id . '.csv';
         $fp = fopen($file_name, 'w');
-        fputcsv($fp, array(
-        'Номер',
-        'Логин',
-        'Ссылка на профиль',
-        'ФИО',
-        'Дата сохранения',
-        'Показан?',
-        'Дата показа'), ';');
 
-        foreach ($result as $key => $row) {
+        if ($_POST['report_type'] == 1) {
+            // Excel
             fputcsv($fp, array(
-                $key + 1,
-                $row['profile_id'] ?: ' ',
-                $row['user_url'],
-                $row['user_fio'],
-                date("Y.m.d H:i:s", $row['created']),
-                $row['is_invited'] ? 'Да' : ' ',
-                $row['modified'] ? date("Y.m.d H:i:s", $row['modified']) : ''
-                ), ';'
-            );
+                'Date upload',
+                'Login',
+                'Url',
+                'Is shown',
+                'Date show'), ';');
+
+            foreach ($result as $key => $row) {
+                fputcsv($fp, array(
+                    date("H:i:s d.m.Y", $row['created']),
+                    $row['profile_id'] ?: ' ',
+                    $row['user_url'],
+                    $row['is_invited'] ? '+' : ' ',
+                    !$row['is_invited'] ? ' ' : ($row['modified'] ? date("H:i:s d.m.Y", $row['modified']) : '')
+                    ), ';'
+                );
+            }
+
+        } else if ($_POST['report_type'] == 2) {
+            // CSV
+            fputcsv($fp, array(
+                'Дата сохранения',
+                'Логин',
+                'Ссылка на профиль',
+                'ФИО',
+                'Показан?',
+                'Дата показа'), ';');
+
+            foreach ($result as $key => $row) {
+                fputcsv($fp, array(
+                    date("H:i:s d.m.Y", $row['created']),
+                    $row['profile_id'] ?: ' ',
+                    $row['user_url'],
+                    $row['user_fio'],
+                    $row['is_invited'] ? 'Да' : ' ',
+                    !$row['is_invited'] ? ' ' : ($row['modified'] ? date("H:i:s d.m.Y", $row['modified']) : '')
+                        ), ';'
+                );
+            }
         }
         fclose($fp);
-
         header("Content-type: text/csv");
-        header("Content-Disposition: attachment; filename=".$file_name);
+        header("Content-Disposition: attachment; filename=" . $file_name);
         header("Content-Length: " . filesize($file_name));
         readfile($file_name);
         exit();
+
     }
-
-
-    if (isset($_POST['export_users_excel'])) {
-
-        $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE user_id=:user_id order by id ASC");
-        $stmt->execute(array('user_id' => $user_id));
-        $result = $stmt->fetchAll();
-        $file_name = 'reports/facebook_'.$user_id.'.csv';
-        $fp = fopen($file_name, 'w');
-        fputcsv($fp, array(
-        'Number',
-        'Login',
-        'Url',
-        'Date upload',
-        'Shown',
-        'Date showing'), ';');
-
-        foreach ($result as $key => $row) {
-            fputcsv($fp, array(
-                $key + 1,
-                $row['profile_id'] ?: ' ',
-                $row['user_url'],
-                date("Y.m.d H:i:s", $row['created']),
-                $row['is_invited'] ? '+' : ' ',
-                $row['modified'] ? date("Y.m.d H:i:s", $row['modified']) : ''
-                ), ';'
-            );
-        }
-        fclose($fp);
-
-        header("Content-type: text/csv");
-        header("Content-Disposition: attachment; filename=".$file_name);
-        header("Content-Length: " . filesize($file_name));
-        readfile($file_name);
-        exit();
-    }
-
-
 
 
     if (isset($_POST['html_text']) && $_POST['html_text']) {
@@ -195,6 +177,71 @@ include('generic/header.php');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important; margin-top:20px !important;">
+    <h3>Скачать отчет</h3>
+    <br>
+
+            <div id="report_self_loaded_block">
+                <div style="display:inline-block; width:200px; margin-right: 10px;margin-bottom: 5px;">Формат файла</div>
+                <br>
+                <form action='' method="post" style="margin-bottom: 10px;" class="form-inline">
+                    <input type="hidden" name="load_type" value="1">
+                    <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
+                        <option value="1">для Excel</option>
+                        <option value="2">для CSV редакторов</option>
+                    </select><button
+                        name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+                </form>
+            </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
     <h3>Импорт пользователей</h3><br>
     <?php
@@ -262,6 +309,7 @@ $(document).on('click','#show_users', function(){
             });
 
 });
+
 </script>
 
 <table style="display:none;">

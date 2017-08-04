@@ -1,4 +1,4 @@
-        <?php
+<div id="loaded_users_buttons_down">        <?php
 
 
 
@@ -23,8 +23,8 @@
 
             <div class="row">
                 <div class="alert alert-info col-md-5" role="alert" style="width: 640px;">
-                Всего показано: <?php echo($count_invited);?><br>
-                Осталось: <?php echo($count_non_invited);?>
+                <?php //Всего показано: <?php echo($count_invited);<br>?>
+                Осталось всего: <?php echo($count_non_invited);?>
                 </div>
             </div>
 
@@ -51,30 +51,27 @@ if($count_non_invited){
 
     ?>
 
+        <div class="row">
+            <div class="col-xs-4" style="padding-left:0; padding-right:0;">
+                <div class="input-group" style="margin-bottom:10px;">
+
+                    <select class="form-control" id="show_users_number" style="width:200px">
+                        <option value='5' <?php if (!empty($show_users_number) && $show_users_number == 5) { ?>selected<?php } ?>>5 пользователей</option>
+                        <option value='10'<?php if (!empty($show_users_number) && $show_users_number == 10) { ?>selected<?php } ?>>10 пользователей</option>
+                    </select>
+    <?php //echo $button_1_added_text;   ?>
+                    <span class="input-group-btn pull-left"><button id='show_users' class="btn btn-success" style="margin-left:10px; border-radius:4px;"><span class="glyphicon glyphicon-chevron-down" style="top:2px; padding-right:5px" aria-hidden="true"></span>Показать</button></span>
+                </div>
+            </div>
+        </div>
 
 
-<div style="margin-bottom:20px;">
-    <button id='show_users' class="btn btn-success"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span> Вывести</button>
-    <select class="form-control" id="show_users_number" style="width:84px; display:inline;">
-        <option value='5' <?php if(!empty($show_users_number) && $show_users_number==5){?>selected<?php } ?>>5</option>
-        <option value='10'<?php if(!empty($show_users_number) && $show_users_number==10){?>selected<?php } ?>>10</option>
-    </select>
-<?php //echo $button_1_added_text; ?> пользователей
-</div>
 
 
 
 
-
-<div class="row">
-    <form action='' method="post" style="margin-bottom: 10px;">
-        <button name='export_users_excel' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Отчет (для Excel)</button>
-    </form>
-    <form action='' method="post" style="margin-bottom: 10px;">
-        <button name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Отчет (для CSV редакторов)</button>
-    </form>
-
-</div>
 
 
 <?php } ?>
+
+    </div>

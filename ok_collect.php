@@ -6,7 +6,7 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 $title = $page_name = 'Получить подписчиков в группу';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
-
+require_once('generic/functions.php');
 
 
 
@@ -46,36 +46,82 @@ require_once('generic' . MY_DS . 'connection.php');
     if (isset($_POST['html_text']) && $_POST['html_text'] && $_POST['category_id']) {
         if ($_POST['type_users'] === 'classes') {
 
-            preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+            preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
             $user_type = 1;
         }
         else if ($_POST['type_users'] === 'group_users') {
 
-            preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        preg_match_all("#class=\"photoWrapper\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?id=\"hook_ShortcutMenu(?:.+?)<!--{(?:.*?)\"groupId\":\"(.+?)\"(?:.+?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+
+            ////берем только с фото
+            //preg_match_all("#<img src=\"(.+?)\" alt=(?:.+?)id=\"hook_ShortcutMenu(?:.+?)<!--{\"groupId\":\"(.+?)\"(?:.+?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
             $user_type = 2;
+
+            foreach ($users_result as &$user) {
+                $var1 = $user[1];
+                $var2 = $user[2];
+                $var3 = $user[3];
+                $var4 = $user[4];
+
+                $user[1] = $var3;
+                $user[2] = $var1;
+                $user[3] = $var4;
+                $user[4] = $var2;
+            }
+
         }
         else if ($_POST['type_users'] === 'search_results') {
-
-            preg_match_all("#href=\"/(?:profile/)?(.+?)\" class=\"dblock\" (?:.+?)<img class=\"photo_img\" src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        //!!!вроде проверил //берем всех, включая и без фото
+            preg_match_all("#<div data-l=(?:.+?)(?:<img class=\"photo_img(?:.+?)src=\"(.+?)\" alt=(?:.+?))?<div class=\"hookData(?:.+?)<!--{(?:.*?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
             $user_type = 3;
+
+            foreach ($users_result as &$user) {
+                $var1 = $user[1];
+                $var2 = $user[2];
+                $var3 = $user[3];
+
+
+                $user[1] = $var2;
+                $user[2] = $var1;
+                $user[3] = $var3;
+
+            }
         } else if ($_POST['type_users'] === 'group_users_mob') {
 
-            preg_match_all("#<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+            preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
             $user_type = 2;
-        } else if ($_POST['type_users'] === 'surveys') {
 
-            preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+            foreach ($users_result as &$user) {
+                $var1 = $user[1];
+                $var2 = $user[2];
+                $var3 = $user[3];
+                $var4 = $user[4];
+
+                $user[1] = $var2;
+                $user[2] = $var3;
+                $user[3] = $var4;
+                $user[4] = $var1;
+            }
+
+
+        } else if ($_POST['type_users'] === 'surveys') {
+            //!!!вроде проверил //берем всех, включая и без фото
+            preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
             $user_type = 5;
         } else if ($_POST['type_users'] === 'comments') {
 
+            //!!!вроде проверил //берем всех, включая и без фото
             preg_match_all("#<img uid=\"goToUserFromComment\"(?:.+?)data-query=\"\{&quot;userId&quot;:&quot;(.+?)&quot;\}\"(?:.+?)src=\"(.+?)\"(?:.+?)<span(?:.+?) uid=\"goToUserFromComment\"(?:.+?)>(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
             $user_type = 6;
         }
 
 
         $i = 0;
-        $category_id = $_POST['category_id'];
-
+        $category_id = (int)$_POST['category_id'];
+        $url = strip_tags($_POST['url']);
+        if (!$url) {
+            echo 'забыл url';exit();
+        }
         foreach ($users_result as $user) {
             $profile_id = $user[1];
             $user_avatar = strip_tags($user[2]);
@@ -84,34 +130,57 @@ require_once('generic' . MY_DS . 'connection.php');
             // replace тут не подойдет
 
 
-            $stmt = $connect->prepare("SELECT * FROM ok_collections WHERE profile_id=:profile_id AND category_id=:category_id");
+            $stmt = $connect->prepare("SELECT * FROM ok_collections_$category_id WHERE profile_id=:profile_id");
+            $stmt->execute(array('profile_id' => $profile_id));
 
-
-
-
-            $stmt->execute(array('profile_id' => $profile_id, 'category_id' => $category_id));
-
-            $result = $stmt->fetchColumn();
+            $result = $stmt->fetch();
             if (!$result) {
                 $i++;
 
 
-                $stmt = $connect->prepare("INSERT into ok_collections (
 
-                profile_id,
-                user_fio,
-                user_avatar,
-                    user_type,
-                     	category_id,
+
+
+                //тут он будет писаться с нуля
+                $data_array = array();
+
+                if ($url) {
+                    $data_array['urls'][$user_type] = $url;
+                }
+
+
+                if ($data_array){
+                     $data = json_encode($data_array, JSON_UNESCAPED_UNICODE);
+                } else {
+                    $data = '';
+                }
+
+
+
+
+
+
+
+
+
+
+
+                $stmt = $connect->prepare("INSERT into ok_collections_$category_id (
+
+                    profile_id,
+                    user_fio,
+                    user_avatar,
+                    {$types_fields_inv[$user_type]},
+                    data,
                     created
 
                 ) VALUES(
 
-                :profile_id,
-                :user_fio,
-                :user_avatar,
-                    :user_type,
-                    :category_id,
+                    :profile_id,
+                    :user_fio,
+                    :user_avatar,
+                    1,
+                    :data,
                     '".time()."'
 
                 )");
@@ -119,11 +188,56 @@ require_once('generic' . MY_DS . 'connection.php');
                 'profile_id' => $profile_id,
                 'user_fio' => $user_fio,
                 'user_avatar' => $user_avatar,
-                'user_type' => $user_type,
-                'category_id' => $category_id
+                'data' => $data
                 ));
 
-            }
+            } else {
+            //если есть, то обновляем его
+            //обновляем user_type и data
+
+            $data_array = json_decode($result['data'], true);
+
+
+                if ($url) {
+                    $data_array['urls'][$user_type] = $url;
+                }
+
+
+                if ($data_array){
+                     $data = json_encode($data_array, JSON_UNESCAPED_UNICODE);
+                } else {
+                    $data = '';
+                }
+
+
+            $stmt = $connect->prepare("
+                UPDATE
+                    ok_collections_$category_id
+                SET
+                    {$types_fields_inv[$user_type]} = 1,
+                    data = :data,
+                    modified = '" . time() . "'
+                WHERE
+                    profile_id=:profile_id
+                ");
+            $stmt->execute(array(
+                'data' => $data,
+                'profile_id' => $profile_id
+            ));
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
         }
 
     }
@@ -193,7 +307,7 @@ include('generic/header.php');
 
                 <li class="list-group-item list-group-item-warning">
                     <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($users_result) - $i)); ?></span>
-                    Пользователей, уже присутствующих в базе
+                    Обновлено пользователей
                 </li>
 
 
@@ -210,7 +324,7 @@ include('generic/header.php');
              <form action='' method="post">
 
                     <h4>Категория:</h4>
-                <select name="category_id" class="form-control" style="width:400px;">
+                <select name="category_id" class="form-control" required style="width:400px;">
                 <option value="">выберите категорию
                 <?php
 
@@ -265,12 +379,12 @@ include('generic/header.php');
                             Подписчики
                         </label>
                     </div>
-                    <div class="radio">
+                   <!-- <div class="radio">
                         <label>
                             <input type="radio" required value='search_results' name="type_users">
                             Пользователи из результата поиска
                         </label>
-                    </div>
+                    </div>-->
 
                     <div class="radio">
                         <label>
@@ -279,6 +393,14 @@ include('generic/header.php');
                         </label>
                     </div>
                     <br>
+
+
+                    <h4>URL:</h4>
+                    <input type="text"  required maxlength="50" name="url" class="form-control" style="max-width:500px">
+                    <br>
+
+
+
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Импорт</button>
 
                 </form>

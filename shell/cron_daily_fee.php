@@ -15,15 +15,19 @@ require_once(realpath(dirname(__FILE__)) . MY_DS . '../generic' . MY_DS . 'conne
 
 
 // собираем данные всех пользователей
-$stmt = $connect->prepare("SELECT id, balance FROM users");
+$stmt = $connect->prepare("SELECT id, balance, koeff_daily_withdrawal FROM users");
 $stmt->execute();
 $result = $stmt->fetchAll();
 
 //пишем данные о пользователях в массив и снимаем деньги тут же
 $data = array();
 
+
+
 //для каждого пользователя
 foreach($result as $user) {
+
+    $fee = MY_USER_DAILY_FEE_COST - $user['koeff_daily_withdrawal'];
 
     // --> снимаем деньги
     //если баланс до снятия не был нулевым
@@ -31,10 +35,10 @@ foreach($result as $user) {
 
         $data[$user['id']] = array(
             'balance' => $user['balance'],
-            'fee' => MY_USER_DAILY_FEE_COST,
+            'fee' => $fee,
         );
 
-        $resulted_balance = $user['balance'] - MY_USER_DAILY_FEE_COST;
+        $resulted_balance = $user['balance'] - $fee;
 
         //если баланс обнулился
         if ($resulted_balance <= 0) {

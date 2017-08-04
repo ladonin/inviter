@@ -11,7 +11,6 @@ require_once('generic/functions.php');
 $invite_table = 'ok_imports';
 include('generic/auth_control.php');
 
-
 function get_type_name($user_type, $excel = false)
 {
 
@@ -52,109 +51,179 @@ function get_type_name($user_type, $excel = false)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 if (isset($_POST['export_users'])) {
 
-    $stmt = $connect->prepare("SELECT t1.*, t2.name as category_name FROM $invite_table t1
-        LEFT JOIN ok_collections_categories t2 ON t1.category_id = t2.category_id
+    if ($_POST['load_type'] == 1) {
+        # Для загруженного мной
+        $stmt = $connect->prepare("SELECT * FROM ok_imports WHERE user_id=$user_id order by id DESC");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $file_name = 'reports/ok_self_loaded_' . uniqid() . $user_id . '.csv';
+        $fp = fopen($file_name, 'w');
+
+        if ($_POST['report_type'] == 1) {
+            // Excel
+            fputcsv($fp, array(
+                'Date upload',
+                'Url',
+                'Is shown',
+                'Date show'), ';');
+
+            foreach ($result as $key => $row) {
+                fputcsv($fp, array(
+                    date("H:i:s d.m.Y", $row['created']),
+                    'https://ok.ru/profile/' . $row['profile_id'],
+                    $row['is_invited'] ? '+' : ' ',
+                    !$row['is_invited'] ? ' ' : ($row['modified'] ? date("H:i:s d.m.Y", $row['modified']) : '')
+                    ), ';'
+                );
+            }
+        } else if ($_POST['report_type'] == 2) {
+            // CSV
+            fputcsv($fp, array(
+                'Дата сохранения',
+                'Ссылка на профиль',
+                'ФИО',
+                'Показан?',
+                'Дата показа'), ';');
+
+            foreach ($result as $key => $row) {
+                fputcsv($fp, array(
+                    date("H:i:s d.m.Y", $row['created']),
+                    'https://ok.ru/profile/' . $row['profile_id'],
+                    $row['user_fio'],
+                    $row['is_invited'] ? 'Да' : ' ',
+                    !$row['is_invited'] ? ' ' : ($row['modified'] ? date("H:i:s d.m.Y", $row['modified']) : '')
+                        ), ';'
+                );
+            }
+        }
+        fclose($fp);
+        header("Content-type: text/csv");
+        header("Content-Disposition: attachment; filename=" . $file_name);
+        header("Content-Length: " . filesize($file_name));
+        readfile($file_name);
+        exit();
+
+    } else if (($_POST['load_type'] == 2) && ($category = (int)$_POST['category'])) {
+        # Для импортированного из коллекции
+
+        $stmt = $connect->prepare("SELECT ids,ids_not_invited FROM ok_collections_imports WHERE user_id=$user_id AND category_id=$category");
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        $ids_not_invited_array = explode(',',$result['ids_not_invited']);
+        $ids_condition = Kits_Converter::convert_to_intenvals($result['ids'], '', false);
+        $ids_condition = $ids_condition['sql_condition'];
 
 
-        WHERE user_id=:user_id order by is_invited DESC, modified DESC, is_imported ASC, category_id ASC, user_type ASC, id ASC");
-    $stmt->execute(array('user_id' => $user_id));
-    $result = $stmt->fetchAll();
-    $file_name = 'reports/odnoklassniki_' . $user_id . '.csv';
-    $fp = fopen($file_name, 'w');
-    fputcsv($fp, array(
-        'Номер',
-        'Дата сохранения',
-        'Ссылка на профиль',
-        'ФИО',
-        'Тип пользователя',
-        'Взят из коллекции',
-        'Категория',
-        'Показан?',
-        'Дата показа'), ';');
+        $stmt = $connect->prepare("SELECT * FROM ok_collections_$category WHERE $ids_condition order by id DESC LIMIT " . MY_REPORT_USERS_COLLECTION_LIMIT);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $file_name = 'reports/ok_imported_' . uniqid() . $user_id . '.csv';
+        $fp = fopen($file_name, 'w');
 
-    foreach ($result as $key => $row) {
-        fputcsv($fp, array(
-            $key + 1,
-            date("Y.m.d H:i:s", $row['created']),
-            'https://ok.ru/profile/' . $row['profile_id'],
-            $row['user_fio'],
-            get_type_name($row['user_type']),
-            $row['is_imported'] ? 'Да' : ' ',
-            $row['category_name'] ? : ' ',
-            $row['is_invited'] ? 'Да' : ' ',
-            !$row['is_invited'] ? ' ' : ($row['modified'] ? date("Y.m.d H:i:s", $row['modified']) : '')
-                ), ';'
-        );
+        if ($_POST['report_type'] == 1) {
+            // Excel
+            fputcsv($fp, array(
+                'Date import',
+                'Url',
+                'Is shown'), ';');
+            foreach ($result as $key => $row) {
+                $is_invited = !in_array($row['id'],$ids_not_invited_array);
+                fputcsv($fp, array(
+                    date("H:i:s d.m.Y", $row['created']),
+                    'https://ok.ru/profile/' . $row['profile_id'],
+                    $is_invited ? '+' : ' '), ';'
+                );
+            }
+        } else if ($_POST['report_type'] == 2) {
+            // CSV
+            fputcsv($fp, array(
+                'Дата импорта',
+                'Ссылка на профиль',
+                'ФИО',
+                'Показан?'), ';');
+            foreach ($result as $key => $row) {
+                $is_invited = !in_array($row['id'],$ids_not_invited_array);
+                fputcsv($fp, array(
+                    date("H:i:s d.m.Y", $row['created']),
+                    'https://ok.ru/profile/' . $row['profile_id'],
+                    $row['user_fio'],
+                    $is_invited ? 'Да' : ' '), ';'
+                );
+            }
+        }
+        fclose($fp);
+        header("Content-type: text/csv");
+        header("Content-Disposition: attachment; filename=" . $file_name);
+        header("Content-Length: " . filesize($file_name));
+        readfile($file_name);
+        exit();
+
     }
-    fclose($fp);
-
-    header("Content-type: text/csv");
-    header("Content-Disposition: attachment; filename=" . $file_name);
-    header("Content-Length: " . filesize($file_name));
-    readfile($file_name);
-    exit();
 }
 
 
-
-
-
-
-if (isset($_POST['export_users_excel'])) {
-
-    $stmt = $connect->prepare("SELECT t1.*, t2.name_en as category_name FROM $invite_table t1
-        LEFT JOIN ok_collections_categories t2 ON t1.category_id = t2.category_id
-
-        WHERE user_id=:user_id order by is_invited DESC, modified DESC, is_imported ASC, category_id ASC, user_type ASC, id ASC");
-    $stmt->execute(array('user_id' => $user_id));
-    $result = $stmt->fetchAll();
-    $file_name = 'reports/odnoklassniki_' . $user_id . '.csv';
-    $fp = fopen($file_name, 'w');
-    fputcsv($fp, array(
-        'Number',
-        'Date upload',
-        'Url',
-        'Type',
-        'From collection',
-        'Category',
-        'Is shown',
-        'Date show'), ';');
-
-    foreach ($result as $key => $row) {
-        fputcsv($fp, array(
-            $key + 1,
-            date("Y.m.d H:i:s", $row['created']),
-            'https://ok.ru/profile/' . $row['profile_id'],
-            get_type_name($row['user_type'], true),
-            $row['is_imported'] ? '+' : ' ',
-            $row['category_name'] ? : ' ',
-            $row['is_invited'] ? '+' : ' ',
-            !$row['is_invited'] ? ' ' : ($row['modified'] ? date("Y.m.d H:i:s", $row['modified']) : '')
-                ), ';'
-        );
-    }
-    fclose($fp);
-
-    header("Content-type: text/csv");
-    header("Content-Disposition: attachment; filename=" . $file_name);
-    header("Content-Length: " . filesize($file_name));
-    readfile($file_name);
-    exit();
-}
 
 if (isset($_POST['html_text']) && $_POST['html_text']) {
     if ($_POST['type_users'] == 1) {//classes
-        preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        //!!!вроде проверил //берем всех, включая и без фото
+        preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 1;
+
     } else if ($_POST['type_users'] == 2) {//group_users
-        preg_match_all("#st\.groupId=(.+?)&amp;(?:.+?)class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        //!!!вроде проверил //берем всех, включая и без фото
+        preg_match_all("#class=\"photoWrapper\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?id=\"hook_ShortcutMenu(?:.+?)<!--{(?:.*?)\"groupId\":\"(.+?)\"(?:.+?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+
+        $user_type = 2;
+        foreach ($users_result as &$user) {
+            $var1 = $user[1];
+            $var2 = $user[2];
+            $var3 = $user[3];
+            $var4 = $user[4];
+
+            $user[1] = $var3;
+            $user[2] = $var1;
+            $user[3] = $var4;
+            $user[4] = $var2;
+        }
+
+    } else if ($_POST['type_users'] == 3) {//search_results
+        //!!!вроде проверил //берем всех, включая и без фото
+        preg_match_all("#<div data-l=(?:.+?)(?:<img class=\"photo_img(?:.+?)src=\"(.+?)\" alt=(?:.+?))?<div class=\"hookData(?:.+?)<!--{(?:.*?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 3;
 
         foreach ($users_result as &$user) {
-            /*
-             $group_id - необязательный, но первый элемент, поэтому надо переместить его в конец
-             */
+            $var1 = $user[1];
+            $var2 = $user[2];
+            $var3 = $user[3];
+
+
+            $user[1] = $var2;
+            $user[2] = $var1;
+            $user[3] = $var3;
+
+        }
+
+    } else if ($_POST['type_users'] == 4) {//group_users mobile
+        //!!!вроде проверил //берем всех, включая и без фото
+        preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 2;
+
+        foreach ($users_result as &$user) {
             $var1 = $user[1];
             $var2 = $user[2];
             $var3 = $user[3];
@@ -165,26 +234,19 @@ if (isset($_POST['html_text']) && $_POST['html_text']) {
             $user[3] = $var4;
             $user[4] = $var1;
         }
-        $user_type = 2;
-    } else if ($_POST['type_users'] == 3) {//search_results
-        preg_match_all("#href=\"/(?:profile/)?(.+?)\" class=\"dblock\" (?:.+?)<img class=\"photo_img\" src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-        $user_type = 3;
-    } else if ($_POST['type_users'] == 4) {//group_users mobile
-        preg_match_all("#<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-        $user_type = 2;
 
     } else if ($_POST['type_users'] == 5) {//surveys
-        preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        //!!!вроде проверил //берем всех, включая и без фото
+        preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 5;
     } else if ($_POST['type_users'] == 6) {//comments
+
+        //!!!вроде проверил //берем всех, включая и без фото
         preg_match_all("#<img uid=\"goToUserFromComment\"(?:.+?)data-query=\"\{&quot;userId&quot;:&quot;(.+?)&quot;\}\"(?:.+?)src=\"(.+?)\"(?:.+?)<span(?:.+?) uid=\"goToUserFromComment\"(?:.+?)>(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 6;
     }
 
-
-my_pre($users_result);
-
-
+    $comment = strip_tags($_POST['comment']);
 
     $i = 0;
     foreach ($users_result as $user) {
@@ -192,15 +254,33 @@ my_pre($users_result);
         $user_avatar = strip_tags($user[2]);
         $user_fio = strip_tags($user[3]);
 
+        $group_id = !empty($user[4]) ? strip_tags($user[4]) : '';
         // replace тут не подойдет
 
-
+        // есть ли такой пользователь у клиента уже или нет
         $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE profile_id=:profile_id AND user_id=:user_id");
         $stmt->execute(array('profile_id' => $profile_id, 'user_id' => $user_id));
 
-        $result = $stmt->fetchColumn();
+        $result = $stmt->fetch();
         if (!$result) {
+            //если нет, то просто записываем его клиенту
             $i++;
+
+            //тут он будет писаться с нуля
+            $data_array = array();
+            if ($group_id) {
+                $data_array['group_id'] = $group_id;
+            }
+            if ($comment) {
+                $data_array['comments'][$user_type] = $comment;
+            }
+
+
+            if ($data_array){
+                 $data = json_encode($data_array, JSON_UNESCAPED_UNICODE);
+            } else {
+                $data = '';
+            }
 
 
             $stmt = $connect->prepare("INSERT into $invite_table (
@@ -208,27 +288,68 @@ my_pre($users_result);
                 profile_id,
                 user_fio,
                 user_avatar,
-                    user_type,
-                    user_id,
-                    created
+                {$types_fields_inv[$user_type]},
+                data,
+                user_id,
+                created
 
                 ) VALUES(
 
                 :profile_id,
                 :user_fio,
                 :user_avatar,
-                    :user_type,
-                    :user_id,
-                    '" . time() . "'
+                1,
+                :data,
+                :user_id,
+                '" . time() . "'
 
                 )");
             $stmt->execute(array(
                 'profile_id' => $profile_id,
                 'user_fio' => $user_fio,
                 'user_avatar' => $user_avatar,
-                'user_type' => $user_type,
+                'data' => $data,
                 'user_id' => $user_id
             ));
+        } else {
+            //если есть, то обновляем его у клиента
+            //обновляем user_type и data
+
+            $data_array = json_decode($result['data'], true);
+
+            if ($group_id) {
+                //обновляем группу
+                $data_array['group_id'] = $group_id;
+            }
+            if ($comment) {
+                $data_array['comments'][$user_type] = $comment;
+            }
+
+
+            if($data_array) {
+                $data = json_encode($data_array, JSON_UNESCAPED_UNICODE);
+            } else {
+                $data = '';
+            }
+
+
+            $stmt = $connect->prepare("
+                UPDATE
+                    $invite_table
+                SET
+                    {$types_fields_inv[$user_type]} = 1,
+                    data = :data,
+                    modified = '" . time() . "'
+                WHERE
+                    profile_id=:profile_id AND user_id=:user_id
+                ");
+            $stmt->execute(array(
+                'data' => $data,
+                'profile_id' => $profile_id,
+                'user_id' => $user_id
+            ));
+
+
         }
     }
 }
@@ -257,12 +378,7 @@ include('generic/header.php');
     </div>
     <div style="margin:10px;">
 
-
-
-<?php $non_instruction = 1;
-require('generic/ok_instruction_menu.php'); ?>
-
-
+        <?php $non_instruction = 1; require('generic/ok_instruction_menu.php'); ?>
 
     </div>
 </div>
@@ -274,12 +390,93 @@ require('generic/ok_instruction_menu.php'); ?>
 <div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
     <h3>Пригласить пользователей</h3><br>
     <div id='show_users_block'>
-<?php $button_1_added_text = '';
-require('generic/ok_show_users.php'); ?>
-
-
+    <?php $button_1_added_text = ''; require('generic/ok_show_users.php'); ?>
     </div>
 </div>
+
+
+
+
+
+
+
+<?php $client_imported_categories = get_client_imported_categories(); ?>
+<div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
+    <h3>Скачать отчет</h3>
+    <br>
+    <div style="width: 640px;">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a style="cursor:pointer" id='report_self_loaded_nav'>Загруженные мной</a></li>
+            <?php if ($client_imported_categories) { ?>
+                <li role="presentation"><a style="cursor:pointer"  id='report_collection_loaded_nav'>Взятые из коллекции</a></li>
+            <?php } ?>
+        </ul>
+        <div class="bs-block">
+            <div id="report_self_loaded_block">
+                <div style="display:inline-block; width:200px; margin-right: 10px;margin-bottom: 5px;">Формат файла</div>
+                <br>
+                <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
+                    <input type="hidden" name="load_type" value="1">
+                    <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
+                        <option value="1">для Excel</option>
+                        <option value="2">для CSV редакторов</option>
+                    </select><button
+                        name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+                </form>
+            </div>
+            <?php if ($client_imported_categories) { ?>
+                <div id="report_collection_loaded_block" style="display:none">
+                    <div style="display:inline-block; width:200px; margin-right: 10px;;margin-bottom: 5px;">Формат файла</div>
+                    <div style="display:inline-block;;margin-bottom: 5px;">Категория</div>
+                    <br>
+                    <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
+                        <input type="hidden" name="load_type" value="2">
+                        <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
+                            <option value="1">для Excel</option>
+                            <option value="2">для CSV редакторов</option>
+                        </select><select
+                            class="form-control" name="category" style="width:200px; margin-right: 10px;">
+                            <?php foreach ($client_imported_categories as $client_imported_category) { ?>
+                                <option value='<?php echo($client_imported_category['category_id']); ?>'><?php echo($client_imported_category['name']); ?></option>
+                            <?php } ?>
+                        </select><button
+                            name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+                    </form>
+
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
@@ -315,7 +512,7 @@ if (isset($_POST['html_text']) && $_POST['html_text'] && $_POST['type_users']) {
 
                 <li class="list-group-item list-group-item-warning">
                     <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($users_result) - $i)); ?></span>
-                    Пользователей, уже присутствующих в базе
+                    Обновлено пользователей
                 </li>
 
 
@@ -351,6 +548,20 @@ if (isset($_POST['html_text']) && $_POST['html_text'] && $_POST['type_users']) {
                         </label>
                     </div>
                     <br>
+
+
+
+
+                    <h4>Комментарий:</h4>
+                    <input type="text"  maxlength="50" name="comment" class="form-control" style="max-width:500px">
+                    <br>
+
+
+
+
+
+
+
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Импорт</button>
 
                 </form>
@@ -410,11 +621,12 @@ foreach ($categories as $key => $category) {
                     </select>
 
                     <div style="padding-top:10px">
-<?php require('generic' . MY_DS . 'ok_users_types.php'); ?>
+<?php require('generic' . MY_DS . 'ok_users_types_checkbox.php'); ?>
                     </div>
 
                     <div id="collection_category_func_buttons" style="padding-top:5px;">
                         <div id="ok_get_category_type_users_count" style="margin-bottom: 10px;color: #4c77af;font-size: 21px;"></div>
+                        <div id="ok_get_category_type_user_cost" style="margin-bottom: 10px;font-size: 16px;"></div>
                         <button type="submit" disabled class="btn btn-success" id="collection_importer">Импортировать</button>
                         <div class="form-group"><input style="width:100px;" id="collection_importer_count" class="form-control " value="" type="text">
                             <label for="collection_importer_count" id="collection_importer_count_people">человек</label> <b style="color:#4c77af" id="collection_importer_cost"></b>
@@ -444,6 +656,10 @@ foreach ($categories as $key => $category) {
 
 <script>
 
+
+
+$( document ).ready(function(){
+
     var show_users_reset = 0;
 
 
@@ -452,8 +668,160 @@ foreach ($categories as $key => $category) {
 
     $(document).on('click', '#reset_users_list', function () {
         show_users_reset = 1;
-        load_uses_list();
+        reset_users_list();
     });
+
+
+
+
+
+
+
+    $('#report_self_loaded_nav').click(function () {
+        $('#report_collection_loaded_nav').closest('li').removeClass('active');
+        $('#report_self_loaded_nav').closest('li').addClass('active');
+
+        $('#report_self_loaded_block').show();
+        $('#report_collection_loaded_block').hide();
+    });
+
+    $('#report_collection_loaded_nav').click(function () {
+        $('#report_collection_loaded_nav').closest('li').addClass('active');
+        $('#report_self_loaded_nav').closest('li').removeClass('active');
+
+        $('#report_self_loaded_block').hide();
+        $('#report_collection_loaded_block').show();
+    });
+
+
+
+function reset_users_list() {
+
+        $.ajax({
+            url: "/ok_reset_users_list.php",
+            data: {
+            }
+        }).done(function (data) {
+            $("#show_users_block").html(data);
+            $('#show_type_load').trigger('change');
+            $('#show_imported_categories').trigger('change', ['reset_users_list']);
+            show_users_reset = 0;
+        });
+}
+
+
+
+
+function alert_about_change_selection_users_view(step,status){
+
+    if (typeof(status) == 'undefined') {
+        status = 'none';
+    }
+
+
+
+
+
+
+
+
+    var show_type_load = $("#show_type_load").val();
+    var show_self_load_users_types = $("#show_self_load_users_types").val();
+
+
+    var show_self_load_users_types_text = $("#show_self_load_users_types :selected").text();
+    var show_imported_categories_text = $("#show_imported_categories :selected").text();
+
+
+
+
+
+
+    if (step==1) {
+        if (status_types_load_users_not_changed === false) {
+
+            // если тип загрузки изменен
+            // и теперь равен html
+            if (show_type_load==1) {
+                swal({
+                    title: "Внимание",
+                    text: 'Пользователи, <b style="color: #bc6060;">загруженные из коллекции</b> закончились.<br><br>Далее будут показываться пользователи, <br><b style="color: #6085bc;">загруженные вами</b>. <br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_self_load_users_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                return;
+            }
+        }
+        // если тип пользователей изменен и тип загрузки == html
+        if (((status_self_load_users_type_not_changed === false)
+                || ((get_requested_show_self_load_users_types === '0' && show_self_load_users_types > 0))) && show_type_load==1) {
+                swal({
+                    title: "Внимание",
+                    text: 'Произошла смена типа пользователей на: <br><b>' + show_self_load_users_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                return;
+        }
+
+
+
+
+    }
+
+
+    // если после обновления списка пользователей (status === 'load_uses_list') и обновления типа пользователей (step ==2) для импортнутых ихз колллекции
+    if ((step ==2) && (status === 'load_uses_list')) {
+        var show_imported_categories_text = $("#show_imported_categories :selected").text();
+        var show_imported_types_text = $("#show_imported_types :selected").text();
+
+
+        if (status_types_load_users_not_changed === false) {
+            if (show_type_load==2) {
+                swal({
+                    title: "Внимание",
+                    text: 'Пользователи, <b style="color: #6085bc;">загруженные вами</b> закончились.<br><br>Далее будут показываться пользователи,<br> <b style="color: #bc6060;">загруженные из коллекции</b>.<br><br>Выбранная по умолчанию категория: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+            }
+        }
+
+        // если изменилась категория и тип загрузки == 2
+        if ((status_client_imported_enabled_category_not_changed === false) && show_type_load==2) {
+                swal({
+                    title: "Внимание",
+                    text: 'Произошла смена категории на: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                return;
+        }
+
+        // если изменился тип пользователей и тип загрузки == 2
+        if ((status_types_load_users_by_collection_not_changed === false)  && show_type_load==2) {
+                swal({
+                    title: "Внимание",
+                    text: 'Произошла смена типа пользователей на: <br><b>' + show_imported_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                status_types_load_users_by_collection_not_changed = null;
+                return;
+            }
+
+
+    }
+
+
+
+
+}
+
+
+
+
+
 
 
     function load_uses_list() {
@@ -466,7 +834,7 @@ foreach ($categories as $key => $category) {
 
 
         if (!show_type_load) {
-            show_type_load = 1;
+            show_type_load = 0;
         }
 
 
@@ -482,8 +850,25 @@ foreach ($categories as $key => $category) {
             }
         }).done(function (data) {
             $("#show_users_block").html(data);
+
+
+            alert_about_change_selection_users_view(1);
+
+
+
+
+
             $('#show_type_load').trigger('change');
-            $('#show_imported_categories').trigger('change');
+            $('#show_imported_categories').trigger('change', ['load_uses_list']);
+
+
+  $('[data-toggle="tooltip"]').tooltip();
+  $('#loaded_users_buttons_up').html($('#loaded_users_buttons_down').html());
+    $('#loaded_users_buttons_down').html('');
+
+
+
+
             show_users_reset = 0;
         });
     }
@@ -502,46 +887,111 @@ foreach ($categories as $key => $category) {
         var type_load = $(this).val();
 
         if (type_load == 1) {
-            $('#show_self_load_users_types').closest('div').hide();
-            $('#show_imported_categories').closest('div').hide();
-            $('#show_imported_types').closest('div').hide();
-        } else if (type_load == 2) {
             $('#show_self_load_users_types').closest('div').show();
             $('#show_imported_categories').closest('div').hide();
             $('#show_imported_types').closest('div').hide();
-        } else if (type_load == 3) {
+        } else if (type_load == 2) {
             $('#show_self_load_users_types').closest('div').hide();
             $('#show_imported_categories').closest('div').show();
             $('#show_imported_types').closest('div').show();
+            $('#show_imported_categories').trigger('change', ['show_type_load']);
         }
     });
 
-    $(document).on('change', '#show_imported_categories', function () {
-        var imported_category = $(this).val();
-        var current_type = $("#show_imported_types").val();
+
+
+
+
+
+
+
+    $(document).on('change', '#show_imported_types', function () {
+        setcookie('show_imported_type', $(this).val());
+    });
+
+
+
+    $(document).on('change', '#show_imported_categories', function (event, status) {
+
+
+    if (typeof(status) == 'undefined') {
+        status = 'none';
+    }
+
+        if ($("#show_type_load").val() != 2){
+            return false;
+        }
+
+
+
+        var imported_category = parseFloat($(this).val());
+        if (!(imported_category)) {
+            return false;
+        }
+        //var current_type = $("#show_imported_types").val();
         $.ajax({
-            url: "/ok_get_loaded_types_users_count_by_category.php",
+            url: "/ok_get_imported_types_users_by_category.php",
             data: {
                 'category_id': imported_category,
             }
         }).done(function (data) {
             var result = JSON.parse(data);
-            $("#show_imported_types").val(1);
-            $("#show_imported_types option").hide();
-            $("#show_imported_types option[value=1]").show();
-            $.each(result, function (index, value) {
-                $("#show_imported_types option[value=" + value.user_type + "]").show();
-                if (current_type == value.user_type) {
-                    $("#show_imported_types").val(value.user_type);
+            $('#show_imported_types').remove();
+
+            if (result) {
+                var select = $("<select></select>").attr("id", 'show_imported_types').attr("class", 'form-control');
+                if (result.length > 1) {select.append("<option value='0'>Все пользователи</option>");}
+                $("#block_imported_types").append(select);
+                var old_type = getCookie('show_imported_type');
+
+                if (status === 'load_uses_list') {
+                    // не касается "все пользователи"
+                    status_types_load_users_by_collection_not_changed = false;
                 }
-            });
+
+                $.each(result, function (index, value) {
+                    var selected = '';
+                    if ((old_type > 0) && (old_type == value[0])) {
+
+                        if (status === 'load_uses_list') {
+                            status_types_load_users_by_collection_not_changed = true;
+                        }
+
+                        selected = 'selected';
+                    }
+
+                    select.append("<option value='"+value[0]+"' " + selected + ">" + value[1] + "</option>");
+
+                });
+if (status === 'load_uses_list') {
+console.log(getCookie('show_imported_type'));
+                // если несколько раз покажем "все пользователи"
+                if ((old_type == 0) && (status_types_load_users_by_collection_not_changed === false)) {
+                    status_types_load_users_by_collection_not_changed = null;
+                }
+
+                // если со "все пользователи" перейдем на конкретный тип
+                if ((old_type == 0) && ($('#show_imported_types').val() > 0)) {
+                    status_types_load_users_by_collection_not_changed = false;
+                }
+
+
+
+                $('#show_imported_types').trigger('change');}
+
+            }
+
+if (status === 'load_uses_list') {
+alert_about_change_selection_users_view(2, status);
+}
+
+
+
+
 
 
         });
     });
-
-
-
 
     $("#balance_import").html($("#balance").html());
 
@@ -557,11 +1007,9 @@ foreach ($categories as $key => $category) {
             value = $(this).val();
         }
         var users_count = parseFloat(value).toFixed(0);
-        var cost = round_cost(users_count * <?php echo(MY_USER_IMPORT_COST); ?>);
+
+        var cost = round_cost(users_count * get_ok_import_collection_request_cost_per_one_user());
         var users_max = Number($('#ok_get_category_type_users_count').attr('data-count'));
-
-
-
 
         if (users_count >= 1) {
             $('#collection_importer_count').val(users_count);
@@ -594,45 +1042,80 @@ foreach ($categories as $key => $category) {
 
 
 
-    $('#collection_category_selector,input[type=radio][name=type_users]').change(function () {
+
+
+
+
+
+
+
+    $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').change(function() {
+        $('input[type=checkbox][name=user_type_all]').removeAttr("checked");
+});
+
+    $('input[type=checkbox][name=user_type_all]').change(function() {
+        $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').removeAttr("checked");
+});
+
+
+
+
+    $('#collection_category_selector,input[type=checkbox]').change(function () {
 
 
         var category_id = $('#collection_category_selector').val();
-        var user_type = $('input[type=radio][name=type_users]:checked', '#collection_import_form').val();
 
-        if (category_id == 0 || !user_type) {
+        var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
+        var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
+        var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
+        var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
+        var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
+
+
+
+        if (category_id == 0 ||
+                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_all)) {
             $("#collection_category_func_buttons").hide();
             return false;
         }
 
-
-
+        if (user_type_all) {
+            user_type_klass = -1;
+            user_type_subscriber = -1;
+            user_type_survey = -1;
+            user_type_comment = -1;
+            $('input[type=checkbox][name=type_users_1]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_2]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_5]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_6]').removeAttr("checked");
+        }
 
         $("#collection_category_func_buttons").show();
 
 
 //$('#ok_get_category_type_users_count').html('<span class="text-muted">идет подсчет...</span>');
 
-
         $.ajax({
             url: "/ok_get_category_type_users_count.php",
             data: {
                 'category_id': category_id,
-                'user_type': user_type,
+                'user_type_1': user_type_klass,
+                'user_type_2': user_type_subscriber,
+                'user_type_5': user_type_survey,
+                'user_type_6': user_type_comment
             }
         }).done(function (data) {
             $('#ok_get_category_type_users_count').html('Доступно: ' + data);
             $('#ok_get_category_type_users_count').attr('data-count', data);
 
+var cost = round_cost(get_ok_import_collection_request_cost_per_one_user());
+$('#ok_get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.');
             if (data > 0) {
 
 //$("#collection_importer").prop('disabled', false);
 
                 $("#collection_importer_count").show().val('');
                 $("#collection_importer_count_people").show();
-
-
-
 
             } else {
                 $("#collection_importer").prop('disabled', true);
@@ -664,22 +1147,39 @@ foreach ($categories as $key => $category) {
 
         var users_count = $('#collection_importer_count').val();
         var category_id = $('#collection_category_selector').val();
-        var user_type = $('input[type=radio][name=type_users]:checked', '#collection_import_form').val();
+        //var user_type = $('input[type=radio][name=type_users]:checked', '#collection_import_form').val();
         var category_name = $('#collection_category_selector').find('option:selected').data('name');
-        var user_type_name = $('input[type=radio][name=type_users]:checked').data('name');
+
+        //var user_type_name = $('input[type=radio][name=type_users]:checked').data('name');
+
+        var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
+        var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
+        var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
+        var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
+        var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
 
 
-        if (category_id == 0 || !user_type) {
+        if (category_id == 0 ||
+                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_all)) {
             return false;
         }
 
+        if (user_type_all) {
+            user_type_klass = -1;
+            user_type_subscriber = -1;
+            user_type_survey = -1;
+            user_type_comment = -1;
+        }
 
 
         $.ajax({
             url: "/import_users_from_base.php",
             data: {
                 'category_id': category_id,
-                'user_type': user_type,
+                'user_type_1': user_type_klass,
+                'user_type_2': user_type_subscriber,
+                'user_type_5': user_type_survey,
+                'user_type_6': user_type_comment,
                 'users_count': users_count,
                 'user_id': '<?php echo($user_id); ?>',
             }
@@ -690,48 +1190,59 @@ foreach ($categories as $key => $category) {
                 $('#collection_category_selector').trigger('change');
 
                 var text = "Импортировано <b>" + data + "</b> человек";
-                if (data == 1) {
-                    text = "Импортирован <b>" + data + "</b> человек";
-                } else if ((data > 1) && (data < 5)) {
+                if ((data > 1) && (data < 5)) {
                     text = "Импортировано <b>" + data + "</b> человека";
                 }
 
-                $('#balance').html((parseFloat($('#balance').html()) - data * <?php echo(MY_USER_IMPORT_COST); ?>).toFixed(2));
+                $('#balance').html((parseFloat($('#balance').html()) - data * get_ok_import_collection_request_cost_per_one_user()).toFixed(2));
                 $("#balance_import").html($("#balance").html());
 
 
                 if (!$('#loaded_users_list').length) {
                     show_users_reset = 1;
-                    load_uses_list();
+                    reset_users_list();
                 } else {
                     $('#reset_users_list').show();
                 }
 
-
-
-
-
+                var user_type_name = '';
+                var types_count = 0;
+                var type_text;
+                if (user_type_all) {
+                    user_type_name = get_type_name_by_id(-1);
+                    types_count++;
+                } else {
+                    if (user_type_klass) {
+                        user_type_name += get_type_name_by_id(1) + '<br>';
+                        types_count++;
+                    }
+                    if (user_type_subscriber) {
+                        user_type_name += get_type_name_by_id(2) + '<br>';
+                        types_count++;
+                    }
+                    if (user_type_survey) {
+                        user_type_name += get_type_name_by_id(5) + '<br>';
+                        types_count++;
+                    }
+                    if (user_type_comment) {
+                        user_type_name += get_type_name_by_id(6) + '<br>';
+                        types_count++;
+                    }
+                    user_type_name = user_type_name.slice(0,-4);
+                }
+                if (types_count>1) {
+                    type_text = 'Типы';
+                } else {
+                    type_text = 'Тип';
+                }
                 swal({
                     title: "",
-                    text: text + ' <br> Категория: <b>' + category_name + '</b><br> Тип: <b>' + user_type_name + '</b>',
+                    text: text + ' <br> Категория: <b>' + category_name + '</b><br>'+ type_text + ': <br><b>' + user_type_name + '</b>',
                     html: true,
                     type: "success"
                 });
-
-
-
-
-
-
-
             }
-
-
-
-
         });
-
-
 
         return false;
 
@@ -740,9 +1251,9 @@ foreach ($categories as $key => $category) {
 
 
     $('#show_type_load').trigger('change');
-    $('#show_imported_categories').trigger('change');
+    $('#show_imported_categories').trigger('change', ['background']);
     $('#collection_category_selector').trigger('change');
-
+});
 
 </script>
 

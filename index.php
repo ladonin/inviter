@@ -403,7 +403,7 @@ swal({
 
             <div class="row">
                 <div class="alert alert-info col-md-5" role="alert">
-                Всего показано: <?php echo($count_invited);?><br>
+                <?php //Всего показано: <?php echo($count_invited);<br>?>
                 Осталось: <?php echo($count_non_invited);?>
                 </div>
             </div>

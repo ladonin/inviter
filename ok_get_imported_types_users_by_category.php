@@ -11,10 +11,9 @@ if (auth_control() !==1){
     exit();
 }
 
-$category_id = !empty($_GET['category_id']) ? $_GET['category_id'] : null;
+$category_id = isset($_GET['category_id']) ? (int)$_GET['category_id'] : 0;
 
-
-if (!$category_id || !$user_id) {
+if (!$user_id) {
     return;
 }
 

@@ -216,7 +216,23 @@ body {
     color: #5bc0de;
     }
 
-    
+
     .bs-callout p:last-child{
         margin-bottom:0;
     }
+
+
+
+.bs-block {
+    padding:20px;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+}

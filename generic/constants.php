@@ -55,11 +55,23 @@ define('MY_FTP_DEFAULT_SERVER_NAME', 'default_server');
 
 
 
+// стоимость 1 дня пользования
+define('MY_REPORT_USERS_COLLECTION_LIMIT', 5000);
+
 
 
 
 // стоимость 1 импортированного пользователя
-define('MY_USER_IMPORT_COST', 0.25);
+define('MY_USER_IMPORT_COST', array(
+    'GENERIC'       => 0.25,
+    'COMMENT'       => 0.25,
+    'SURVEY'        => 0.20,
+    'SUBSCRIBER'    => 0.15,
+    'KLASS'         => 0.30,
+    'SEARCH'        => 0.15));
+
+// коэффициент суммы 1 дополнительного типа к самому дорогому типу в составной цене
+define('MY_USER_IMPORT_COST_ADDITIONAL_KOEF', 0.25);
 
 // стоимость 1 дня пользования
 define('MY_USER_DAILY_FEE_COST', 3.3);
