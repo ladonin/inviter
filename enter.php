@@ -9,7 +9,7 @@ require_once('generic' . MY_DS . 'connection.php');
 require_once('generic' . MY_DS . 'actions.php');
 $invite_table = 'ok_imports';
 $register = !empty($_GET['register']) ? $_GET['register'] : null;
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');
 if (auth_control() === 1) {
         header("Location: /main");
         exit();

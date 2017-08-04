@@ -7,7 +7,7 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 require_once('generic' . MY_DS . 'phpmailer.php');
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');
 
 $old_password = !empty($_POST['old_password']) ? $_POST['old_password'] : null;
 $new_password = !empty($_POST['new_password']) ? $_POST['new_password'] : null;

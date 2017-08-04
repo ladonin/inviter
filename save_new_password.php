@@ -7,7 +7,7 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 require_once('generic' . MY_DS . 'phpmailer.php');
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');
 
 $user_id = !empty($_POST['id']) ? (int)$_POST['id'] : null;
 $hash_md5 = !empty($_POST['hash']) ? $_POST['hash'] : null;

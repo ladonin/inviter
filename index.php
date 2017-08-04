@@ -6,488 +6,72 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 $title = $page_name = 'Получить подписчиков в группу';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
-$invite_table = 'ok_imports';
-$client_code = !empty($_GET['client_code']) ? $_GET['client_code'] : null;
-
-require_once('generic/functions.php');
-
-    function get_type_name($user_type, $excel=false){
-
-
-    if ($excel){
-                    if ($user_type == 1) {
-                        return 'Klass!';
-                    } elseif ($user_type == 2) {
-                        return 'group subscriber';
-                    } elseif ($user_type == 3) {
-                        return 'from search';
-                    }
-
-
-    }
-
-
-
-
-
-
-
-                    if ($user_type == 1) {
-                        return 'поставил "Класс"';
-                    } elseif ($user_type == 2) {
-                        return 'участник группы';
-                    } elseif ($user_type == 3) {
-                        return 'из результатов поиска';
-                    }
-
-    }
-
-
-
-
-    // Экспорт в csv всех пользователей этого логина
-
-
-
-    if (isset($_POST['export_users'])) {
-
-        $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE client_code=:client_code order by id ASC");
-        $stmt->execute(array('client_code' => $client_code));
-        $result = $stmt->fetchAll();
-        $file_name = 'reports/odnoklassniki_'.$client_code.'.csv';
-        $fp = fopen($file_name, 'w');
-        fputcsv($fp, array(
-        'Номер',
-        'Ссылка на профиль',
-
-        'ФИО',
-        'Тип пользоватлея',
-
-        'Дата сохранения',
-        'Показан?',
-        'Дата показа'), ';');
-
-        foreach ($result as $key => $row) {
-            fputcsv($fp, array(
-                $key + 1,
-                'https://ok.ru/profile/' . $row['profile_id'],
-
-                $row['user_fio'],
-
-                get_type_name($row['user_type']),
-
-
-                date("Y.m.d H:i:s", $row['created']),
-                $row['is_invited'] ? 'да' : 'нет',
-                $row['modified'] ? date("Y.m.d H:i:s", $row['modified']) : ''
-                ), ';'
-            );
-        }
-        fclose($fp);
-
-        header("Content-type: text/csv");
-        header("Content-Disposition: attachment; filename=".$file_name);
-        header("Content-Length: " . filesize($file_name));
-        readfile($file_name);
-        exit();
-    }
-
-
-
-
-
-
-    if (isset($_POST['export_users_excel'])) {
-
-        $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE client_code=:client_code order by id ASC");
-        $stmt->execute(array('client_code' => $client_code));
-        $result = $stmt->fetchAll();
-        $file_name = 'reports/odnoklassniki_'.$client_code.'.csv';
-        $fp = fopen($file_name, 'w');
-        fputcsv($fp, array(
-        'Number',
-        'Url',
-
-        'Type',
-
-        'Date upload',
-        'Shown',
-        'Date showing'), ';');
-
-        foreach ($result as $key => $row) {
-            fputcsv($fp, array(
-                $key + 1,
-                'https://ok.ru/profile/' . $row['profile_id'],
-
-
-
-                get_type_name($row['user_type'], true),
-
-
-                date("Y.m.d H:i:s", $row['created']),
-                $row['is_invited'] ? 'yes' : 'no',
-                $row['modified'] ? date("Y.m.d H:i:s", $row['modified']) : ''
-                ), ';'
-            );
-        }
-        fclose($fp);
-
-        header("Content-type: text/csv");
-        header("Content-Disposition: attachment; filename=".$file_name);
-        header("Content-Length: " . filesize($file_name));
-        readfile($file_name);
-        exit();
-    }
-
-    if (isset($_POST['html_text']) && $_POST['html_text']) {
-        if ($_POST['type_users'] === 'classes') {
-
-            preg_match_all("#class=\"photoWrapper\" href=\"/profile/([0-9]+)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-            $user_type = 1;
-        }
-        else if ($_POST['type_users'] === 'group_users') {
-
-            preg_match_all("#class=\"photoWrapper\" href=\"/profile/([0-9]+)\"(?:.+?)<img src=\"(.+?)\" alt=\"(.+?)\"#", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-            $user_type = 2;
-        }
-        else if ($_POST['type_users'] === 'search_results') {
-
-            preg_match_all("#href=\"/profile/([0-9]+)\" class=\"dblock\" (?:.+?)<img class=\"photo_img\" src=\"(.+?)\" alt=\"(.+?)\"#", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-            $user_type = 3;
-        }
-
-        $i = 0;
-        foreach ($users_result as $user) {
-            $profile_id = $user[1];
-            $user_avatar = strip_tags($user[2]);
-            $user_fio = strip_tags($user[3]);
-
-            // replace тут не подойдет
-
-
-            $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE profile_id=:profile_id AND client_code=:client_code");
-            $stmt->execute(array('profile_id' => $profile_id, 'client_code' => $client_code));
-
-            $result = $stmt->fetchColumn();
-            if (!$result) {
-                $i++;
-
-
-                $stmt = $connect->prepare("INSERT into $invite_table (
-
-                profile_id,
-                user_fio,
-                user_avatar,
-                    user_type,
-                    client_code,
-                    created
-
-                ) VALUES(
-
-                :profile_id,
-                :user_fio,
-                :user_avatar,
-                    :user_type,
-                    :client_code,
-                    '".time()."'
-
-                )");
-                $stmt->execute(array(
-                'profile_id' => $profile_id,
-
-                'user_fio' => $user_fio,
-                'user_avatar' => $user_avatar,
-                'user_type' => $user_type,
-
-                'client_code' => $client_code
-                ));
-
-            }
-        }
-
-    }
-
-
-
-
-
-
+require_once('generic' . MY_DS . 'actions.php');
+
+require_once('generic/generic_functions.php');
+require_once('generic/net_functions.php');
+require_once("generic/{$net_code}_functions.php");
+include('generic/auth_control.php');
+report_init();
+$import_result = import_users_init();
 include('generic/header.php');
-
 ?>
-<div class="alert alert-info" role="alert" style="text-align:center; margin-bottom:0;">Ваш персональный код: <b><big><?php echo($client_code);?></big></b></div>
 
-    <div class="btn-group" style="margin:10px;">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Инструкция <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-            <li><a href="/img/scheme.png" target="_blank">Наглядное описание работы</a></li>
-            <li class="dropdown-header"><h4>Как получить, а затем пригласить в свою группу:</h4></li>
-            <li><a href="/odnoklassniki/instruction1.html" target="_blank">участников группы, релевантной вашей</a></li>
-            <li><a href="/odnoklassniki/instruction2.html" target="_blank">пользователей, поставивших "Kласс!"</a></li>
-            <li><a href="/odnoklassniki/instruction3.html" target="_blank">пользователей из результата поиска</a></li>
-        </ul>
+<div class="well" style="text-align:center; margin-bottom:0; padding:10px; background-color:#<?=get_net_header_background_color();?> ">
+    <div class="row">
+        <div class="pull-left">
+            <a href="/odnoklassniki"><img src="/img/ok_logo.jpg" width="50" style="opacity:1"></a>
+            <a href="/facebook"><img src="/img/fb_logo.jpg" width="50" style="opacity:1"></a>
+            <a href="/vkontakte"><img src="/img/vk_logo.jpg" width="50" style="opacity:1"></a>
+        </div>
+        <div class="pull-right">
+            <?php include('generic/user_data.php'); ?>
+        </div>
     </div>
+</div>
 
-
-
-<?php if (!$client_code) { ?>
-
-
-
-<script type="text/javascript">
-
-swal({
-  title: "Добро пожаловать!",
-  text: "Введите свой персональный код:",
-  type: "input",
-  showCancelButton: true,
-  closeOnConfirm: false,
-  animation: "slide-from-top",
-  inputPlaceholder: ""
-},
-function(inputValue){
-  if (inputValue === false) return false;
-
-  if (inputValue) {
-
-    document.location.href = 'http://inviter.mapstore.org/odnoklassniki/' + inputValue;
-
-  }
-  return false;
-
-});
-</script>
 <div class="row">
-
-    <div class="alert alert-warning col-xs-12" role="alert" style="text-align:center;">Необходимо указать ваш персональный код. Если вы его забыли, можете написать в
-    <a href="https://ok.ru/messages/509040024720" target="_blank">поддержку</a>, вам обязательно помогут.</div>
+    <div class="pull-left" style="margin:10px;">
+        <h5><b><?=get_net_title();?></b></h5>
+    </div>
+    <div style="margin:10px;">
+        <?php $non_instruction = 1; require("generic/{$net_code}_instruction_menu.php"); ?>
+    </div>
 </div>
-
-            <div class="row">
-<div class="сol-xs-12" style="text-align:center;">
-<a class="btn btn-success dropdown-toggle" href="http://inviter.mapstore.org/odnoklassniki/<?php echo(my_create_password());?>?firstly=1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Создать аккаунт</a>
-</div>
-</div>
-
-
-<?php }  else { ?>
-
-
-
-
-<?php if (!empty($_GET['firstly'])) { ?>
-  <script type="text/javascript">
-swal({
-  title: "Добро пожаловать на вашу персональную страницу!",
-  text: "Вы сможете заходить на неё по прямой ссылке или со страницы <a href='http://inviter.mapstore.org/odnoklassniki'>inviter.mapstore.org/odnoklassniki</a>, используя ваш персональный код: <b><?php echo($client_code);?></b><br><i>(код присутствует в адресе)</i><br><br>Пожалуйста, запомните его.",
-  html: true
-},function(){
-  document.location.href = 'http://inviter.mapstore.org/odnoklassniki/<?php echo($client_code);?>';
-  });
-</script>
- <?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
-    <h3>Сохраненные пользователи</h3><br>
-    <?php
-
-
-
-
-
-
-
-    $button_1_added_text = '';
-    if (isset($_POST['show_users'])) {
-        $button_1_added_text = ' следующие';
-
-        //$sql = "SELECT * FROM $invite_table WHERE is_invited=0 order by id ASC limit 10";
-        $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE is_invited=0 AND client_code=:client_code order by id ASC limit 5");
-        $stmt->execute(array('client_code' => $client_code));
-        $result = $stmt->fetchAll();
-
-
-
-
-        ?>
-
-        <div class="row">
-        <div class="row">
-            <div class="alert alert-warning col-md-6" role="alert">Внимание! Пользователи ниже выводятся только один раз.</div>
-            </div>
-
-                <?php
-                if ($result) { ?>
-
-
-
-            <div class="row">
-            <script>var links = new Array();</script>
-            <div class="list-group col-md-5" style="padding-right:0;">
-                <?php
-
-
-
-                foreach ($result as $user) {
-                    $link = 'https://ok.ru/profile/' . $user['profile_id'];
-
-
-                    $type_name = get_type_name($user['user_type']);
-
-
-                    echo('<a target="_blank" style="color:#337ab7 !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false">
-
-<div class="media">
-
-  <div class="media-left">
-      <img class="media-object" style="width:50px; border-radius:5px;" src="' . $user['user_avatar'] . '" title="' . $user['user_fio'] . '">
-  </div>
-
-  <div class="media-body">
-    <h4 class="media-heading">' . ($user['user_fio'] ?: $user['profile_id'])  . '</h4>
-    <div class="text-muted">' . $type_name . '</div>
-  </div>
+    <h3>Пригласить пользователей</h3><br>
+    <div id='show_users_block'>
+    <?php $button_1_added_text = ''; require("generic/show_users.php"); ?>
+    </div>
 </div>
-                    </a><script>links.push(\'' . $link . '\');</script>');
-
-                    $stmt = $connect->prepare("update $invite_table set is_invited=1, modified = '".time()."' where profile_id = :profile_id AND client_code=:client_code");
-                    $stmt->execute(array('profile_id' => $user['profile_id'], 'client_code' => $client_code));
-                }
-                ?>
-
-                    <script>
-                        function open_ok_users() {
-
-                            for (index = 0; index < links.length; index++) {
-                                window.open(links[index], '_blank', 'left=300, top=100, width=900, height=800');
-                            }
-
-
-                        }
-                    </script>
-                    <a style="cursor:pointer" class="list-group-item list-group-item-success" onclick='open_ok_users();'>Открыть всех</a>
-</div>
-            </div>
-                    <?php
-                }
-                ?>
-            </div>
-        <?php
-    }
-            $stmt = $connect->prepare("SELECT count(*) as count FROM $invite_table WHERE is_invited=1 AND client_code=:client_code");
-            $stmt->execute(array('client_code' => $client_code));
-            $count_invited = $stmt->fetchColumn();
-
-
-            $stmt = $connect->prepare("SELECT count(*) as count FROM $invite_table WHERE is_invited=0 AND client_code=:client_code");
-            $stmt->execute(array('client_code' => $client_code));
-            $count_non_invited = $stmt->fetchColumn();
-    ?>
-
-            <div class="row">
-                <div class="alert alert-info col-md-5" role="alert">
-                <?php //Всего показано: <?php echo($count_invited);<br>?>
-                Осталось: <?php echo($count_non_invited);?>
-                </div>
-            </div>
-
-
-
-
-
-    <?php
-
-
-    if (!$count_non_invited) {?>
-
-
-                     <div class="row">
-                        <div class="alert alert-danger col-md-6" role="alert">Список пользователей пуст, добавьте их через форму ниже</div>
-
-                    </div>
-
-
-    <?php }
-
-if($count_non_invited){
-
-
-    ?>
-<div class="row">
-    <form action='' method="post">
-
-
-
-<button name='show_users' type="submit" class="btn btn-success" style="margin-bottom:20px;"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span> Показать <?php echo $button_1_added_text; ?> 5 сохраненных пользователей</button>
-
-
-    </form>
-</div>
-
-<div class="row">
-    <form action='' method="post">
-        <button name='export_users_excel' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Отчет (для Excel)</button>
-    </form>
-    <form action='' method="post">
-        <button name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Отчет (для CSV редакторов)</button>
-    </form>
-
-</div>
-
-
-<?php } ?>
-
-</div>
-
 
 
 <div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
-    <h3>Импорт пользователей</h3><br>
-    <?php
-    if (isset($_POST['html_text']) && $_POST['html_text']) {
-        ?>
-
+    <h3>Импорт пользователей<span style="margin-left:20px" class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></h3><br>
+<?php
+if ($import_result) {
+    ?>
         <div class="col-md-4" style="padding-left:0 !important">
-
-
             <ul class="list-group">
 
                 <li class="list-group-item list-group-item-info">
-                    <span class="badge" style="background-color: #FFF;color:rgb(30, 30, 203);"><?php echo(count($users_result)); ?></span>
+                    <span class="badge" style="background-color: #FFF;color:rgb(30, 30, 203);"><?php echo(count($import_result['users_result'])); ?></span>
                     Найдено пользователей
                 </li>
 
                 <li class="list-group-item list-group-item-success">
-                    <span class="badge" style="background-color: #FFF;color: #000;"><?php echo($i); ?></span>
+                    <span class="badge" style="background-color: #FFF;color: #000;"><?php echo($import_result['inserts_count']); ?></span>
                     Добавлено пользователей
                 </li>
 
                 <li class="list-group-item list-group-item-warning">
-                    <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($users_result) - $i)); ?></span>
-                    Пользователей, уже присутствующих в базе
+                    <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($import_result['users_result']) - $import_result['inserts_count'])); ?></span>
+                    Обновлено пользователей
                 </li>
-
-
             </ul></div>
-    <?php }
-    ?>
+<?php }
+?>
 
 
 
@@ -496,35 +80,15 @@ if($count_non_invited){
             <td width="50%" align="left" valign="top">
                 <h4>HTML код</h4>
                 <form action='' method="post">
-
-
                     <textarea cols="80" rows="5" name="html_text" class="form-control"></textarea>
-
                     <br>
                     <h4>Откуда взят HTML код:</h4>
-
-                    <div class="radio">
-                        <label>
-                            <input type="radio" value='classes' name="type_users" checked>
-                            Пользователи, поставившие "класс!"
-                        </label>
-                    </div>
-
-                    <div class="radio">
-                        <label>
-                            <input type="radio" value='group_users' name="type_users">
-                            Список пользователей группы
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" value='search_results' name="type_users">
-                            Пользователи из результата поиска
-                        </label>
-                    </div>
+                    <?php require('generic' . MY_DS . $net_code . '_users_types.php'); ?>
+                    <br>
+                    <h4>Комментарий:</h4>
+                    <input type="text"  maxlength="50" name="comment" class="form-control" style="max-width:500px">
                     <br>
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Импорт</button>
-
                 </form>
             </td>
         </tr>
@@ -532,27 +96,735 @@ if($count_non_invited){
 </div>
 
 
+
+<!-- Modal -->
+<div class="modal fade" id="collectionsModal" tabindex="-1" role="dialog" style="text-align:left;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius:0;">
+            <div class="modal-header" style="background-color:#4C77AF; color:#fff;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;
+                        opacity: 1;
+                        border: 0;
+                        font-weight: 400;"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Перенести пользователей из готовой коллекции</h4>
+            </div>
+            <div class="modal-body">
+                <form action='' method="post"  id='collection_import_form' class="form-inline">
+                    <h4>Категория:</h4>
+                    <select required name="category_id" id='collection_category_selector' class="form-control" style="width:400px;">
+                        <option value="0">Выберите категорию...
+<?php
+$stmt = $connect->prepare("SELECT * FROM {$net_code}_collections_categories order by name ASC");
+$stmt->execute();
+$categories = $stmt->fetchAll();
+foreach ($categories as $key => $category) {
+    ?>
+                            <option value="<?php echo($category['id']); ?>" data-name="<?php echo($category['name']); ?>"><?php echo($category['name']); ?>
+<?php }
+?>
+
+                    </select>
+
+                    <div style="padding-top:10px">
+<?php require('generic' . MY_DS . $net_code . '_users_types_checkbox.php'); ?>
+                    </div>
+
+                    <div id="collection_category_func_buttons" style="padding-top:5px;">
+                        <div id="get_category_type_users_count" style="margin-bottom: 10px;color: #4c77af;font-size: 21px;"></div>
+                        <div id="get_category_type_user_cost" style="margin-bottom: 10px;font-size: 16px;"></div>
+                        <button type="submit" disabled class="btn btn-success" id="collection_importer">Импортировать</button>
+                        <div class="form-group"><input style="width:100px;" id="collection_importer_count" class="form-control " value="" type="text">
+                            <label for="collection_importer_count" id="collection_importer_count_people">человек</label> <b style="color:#4c77af" id="collection_importer_cost"></b>
+                        </div>
+                    </div>
+                </form>
+
+
+                <div style="margin-top:10px">
+                    <img src="/img/balance.png" width="20"> <b style="color:#636363;">Баланс:</b> <big id='balance_import'></big> <a style="cursor:pointer;" data-toggle="collapse" data-target="#balance_import_expander">пополнить</a>
+
+                    <div id="balance_import_expander" style="margin-top:10px" class="collapse">
+<?php require('generic' . MY_DS . 'balance_deposit.php'); ?>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<?php
+$client_imported_categories = get_client_imported_categories();
+$has_loaded_users = has_loaded_users();
+$has_imported_users = $client_imported_categories ? true : false;
+if ($has_imported_users || $has_loaded_users) {
+?>
+<div class="well well-lg" style="padding-top:10px !important;padding-bottom:30px !important;  margin-bottom:20px !important; margin-top:20px !important;">
+    <h3>Скачать отчет</h3>
+    <br>
+    <div style="width: 640px;">
+        <ul class="nav nav-tabs">
+            <?php if ($has_loaded_users) { ?>
+                <li role="presentation"><a style="cursor:pointer" id='report_self_loaded_nav'>Загруженные мной</a></li>
+            <?php } ?>
+
+            <?php if ($has_imported_users) { ?>
+                <li role="presentation"><a style="cursor:pointer"  id='report_collection_loaded_nav'>Взятые из коллекции</a></li>
+            <?php } ?>
+        </ul>
+        <div class="bs-block">
+            <?php if ($has_loaded_users) { ?>
+            <div id="report_self_loaded_block">
+                <div style="display:inline-block; width:200px; margin-right: 10px;margin-bottom: 5px;">Формат файла</div>
+                <br>
+                <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
+                    <input type="hidden" name="load_type" value="1">
+                    <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
+                        <option value="1">для Excel</option>
+                        <option value="2">для CSV редакторов</option>
+                    </select><button
+                        name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+                </form>
+            </div>
+            <?php } ?>
+            <?php if ($has_imported_users) { ?>
+                <div id="report_collection_loaded_block">
+                    <div style="display:inline-block; width:200px; margin-right: 10px;;margin-bottom: 5px;">Формат файла</div>
+                    <div style="display:inline-block;;margin-bottom: 5px;">Категория</div>
+                    <br>
+                    <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
+                        <input type="hidden" name="load_type" value="2">
+                        <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
+                            <option value="1">для Excel</option>
+                            <option value="2">для CSV редакторов</option>
+                        </select><select
+                            class="form-control" name="category" style="width:200px; margin-right: 10px;">
+                            <?php foreach ($client_imported_categories as $client_imported_category) { ?>
+                                <option value='<?php echo($client_imported_category['category_id']); ?>'><?php echo($client_imported_category['name']); ?></option>
+                            <?php } ?>
+                        </select><button
+                            name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+                    </form>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>
 <?php } ?>
 
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+
+
+    if ($('#report_self_loaded_nav').length){
+        $('#report_self_loaded_nav').closest('li').addClass('active');
+        $('#report_collection_loaded_block').hide();
+    } else if($('#report_collection_loaded_nav').length){
+        $('#report_collection_loaded_nav').closest('li').addClass('active');
+        $('#report_self_loaded_block').hide();
+    }
+
+    var show_users_reset = 0;
+
+    $(document).on('click', '#reset_users_list', function () {
+        show_users_reset = 1;
+        reset_users_list();
+    });
+
+    $('#report_self_loaded_nav').click(function () {
+        $('#report_collection_loaded_nav').closest('li').removeClass('active');
+        $('#report_self_loaded_nav').closest('li').addClass('active');
+
+        $('#report_self_loaded_block').show();
+        $('#report_collection_loaded_block').hide();
+    });
+
+    $('#report_collection_loaded_nav').click(function () {
+        $('#report_collection_loaded_nav').closest('li').addClass('active');
+        $('#report_self_loaded_nav').closest('li').removeClass('active');
+
+        $('#report_self_loaded_block').hide();
+        $('#report_collection_loaded_block').show();
+    });
+
+
+
+function reset_users_list() {
+    $.ajax({
+        url: "/reset_users_list.php?net_code=<?=$net_code;?>",
+        data: {
+        }
+    }).done(function (data) {
+        $("#show_users_block").html(data);
+        $('#show_type_load').trigger('change');
+        $('#show_imported_categories').trigger('change', ['reset_users_list']);
+        show_users_reset = 0;
+    });
+}
+
+
+
+
+function alert_about_change_selection_users_view(step,status){
+
+    if (typeof(status) == 'undefined') {
+        status = 'none';
+    }
+
+    var show_type_load = $("#show_type_load").val();
+    var show_self_load_users_types = $("#show_self_load_users_types").val();
+
+    var show_self_load_users_types_text = $("#show_self_load_users_types :selected").text();
+    var show_imported_categories_text = $("#show_imported_categories :selected").text();
+
+    if (step==1) {
+        if (status_types_load_users_not_changed === false) {
+
+            // если тип загрузки изменен
+            // и теперь равен html
+            if (show_type_load==1) {
+                swal({
+                    title: "Внимание",
+                    text: 'Пользователи, <b style="color: #bc6060;">загруженные из коллекции</b> закончились.<br><br>Далее будут показываться пользователи, <br><b style="color: #6085bc;">загруженные вами</b>. <br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_self_load_users_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                return;
+            }
+        }
+        // если тип пользователей изменен и тип загрузки == html
+        if (((status_self_load_users_type_not_changed === false)
+                || ((get_requested_show_self_load_users_types === '0' && show_self_load_users_types > 0))) && show_type_load==1) {
+                swal({
+                    title: "Внимание",
+                    text: 'Произошла смена типа пользователей на: <br><b>' + show_self_load_users_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                return;
+        }
+    }
+
+
+    // если после обновления списка пользователей (status === 'load_uses_list') и обновления типа пользователей (step ==2) для импортнутых ихз колллекции
+    if ((step ==2) && (status === 'load_uses_list')) {
+        var show_imported_categories_text = $("#show_imported_categories :selected").text();
+        var show_imported_types_text = $("#show_imported_types :selected").text();
+
+        if (status_types_load_users_not_changed === false) {
+            if (show_type_load==2) {
+                swal({
+                    title: "Внимание",
+                    text: 'Пользователи, <b style="color: #6085bc;">загруженные вами</b> закончились.<br><br>Далее будут показываться пользователи,<br> <b style="color: #bc6060;">загруженные из коллекции</b>.<br><br>Выбранная по умолчанию категория: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+            }
+        }
+
+        // если изменилась категория и тип загрузки == 2
+        if ((status_client_imported_enabled_category_not_changed === false) && show_type_load==2) {
+                swal({
+                    title: "Внимание",
+                    text: 'Произошла смена категории на: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                return;
+        }
+
+        // если изменился тип пользователей и тип загрузки == 2
+        if ((status_types_load_users_by_collection_not_changed === false)  && show_type_load==2) {
+                swal({
+                    title: "Внимание",
+                    text: 'Произошла смена типа пользователей на: <br><b>' + show_imported_types_text + '</b>',
+                    html: true,
+                    type: "warning"
+                });
+                status_types_load_users_by_collection_not_changed = null;
+                return;
+            }
+    }
+}
+
+    function load_uses_list() {
+
+        var show_type_load = $("#show_type_load").val();
+        var show_self_load_users_types = $("#show_self_load_users_types").val();
+        var show_imported_categories = $("#show_imported_categories").val();
+        var show_imported_types = $("#show_imported_types").val();
+        var show_users_number = $("#show_users_number").val();
+
+
+        if (!show_type_load) {
+            show_type_load = 0;
+        }
+
+
+        $.ajax({
+            url: "/show_users.php?net_code=<?=$net_code;?>",
+            data: {
+                'show_type_load': show_type_load,
+                'show_self_load_users_types': show_self_load_users_types,
+                'show_imported_categories': show_imported_categories,
+                'show_imported_types': show_imported_types,
+                'show_users_reset': show_users_reset,
+                'show_users_number': show_users_number
+            }
+        }).done(function (data) {
+            $("#show_users_block").html(data);
+
+            alert_about_change_selection_users_view(1);
+
+            $('#show_type_load').trigger('change');
+            $('#show_imported_categories').trigger('change', ['load_uses_list']);
+
+
+  $('[data-toggle="tooltip"]').tooltip();
+  $('#loaded_users_buttons_up').html($('#loaded_users_buttons_down').html());
+    $('#loaded_users_buttons_down').html('');
+
+
+
+
+            show_users_reset = 0;
+        });
+    }
+
+
+
+
+    $(document).on('click', '#show_users', function () {
+
+        load_uses_list();
+
+    });
+
+
+    $(document).on('change', '#show_type_load', function () {
+        var type_load = $(this).val();
+
+        if (type_load == 1) {
+            $('#show_self_load_users_types').closest('div').show();
+            $('#show_imported_categories').closest('div').hide();
+            $('#show_imported_types').closest('div').hide();
+        } else if (type_load == 2) {
+            $('#show_self_load_users_types').closest('div').hide();
+            $('#show_imported_categories').closest('div').show();
+            $('#show_imported_types').closest('div').show();
+            $('#show_imported_categories').trigger('change', ['show_type_load']);
+        }
+    });
+
+
+
+
+
+
+
+
+    $(document).on('change', '#show_imported_types', function () {
+        setcookie('show_imported_type_<?=$net_code;?>', $(this).val());
+    });
+
+
+
+    $(document).on('change', '#show_imported_categories', function (event, status) {
+
+
+    if (typeof(status) == 'undefined') {
+        status = 'none';
+    }
+
+        if ($("#show_type_load").val() != 2){
+            return false;
+        }
+
+
+
+        var imported_category = parseFloat($(this).val());
+        if (!(imported_category)) {
+            return false;
+        }
+        //var current_type = $("#show_imported_types").val();
+        $.ajax({
+            url: "/get_imported_types_users_by_category.php?net_code=<?=$net_code;?>",
+            data: {
+                'category_id': imported_category,
+            }
+        }).done(function (data) {
+            var result = JSON.parse(data);
+            $('#show_imported_types').remove();
+
+            if (result) {
+                var select = $("<select></select>").attr("id", 'show_imported_types').attr("class", 'form-control');
+                if (result.length > 1) {select.append("<option value='0'>Все пользователи</option>");}
+                $("#block_imported_types").append(select);
+                var old_type = getCookie('show_imported_type_<?=$net_code;?>');
+
+                if (status === 'load_uses_list') {
+                    // не касается "все пользователи"
+                    status_types_load_users_by_collection_not_changed = false;
+                }
+
+                $.each(result, function (index, value) {
+                    var selected = '';
+                    if ((old_type > 0) && (old_type == value[0])) {
+
+                        if (status === 'load_uses_list') {
+                            status_types_load_users_by_collection_not_changed = true;
+                        }
+
+                        selected = 'selected';
+                    }
+
+                    select.append("<option value='"+value[0]+"' " + selected + ">" + value[1] + "</option>");
+
+                });
+if (status === 'load_uses_list') {
+console.log(getCookie('show_imported_type_<?=$net_code;?>'));
+                // если несколько раз покажем "все пользователи"
+                if ((old_type == 0) && (status_types_load_users_by_collection_not_changed === false)) {
+                    status_types_load_users_by_collection_not_changed = null;
+                }
+
+                // если со "все пользователи" перейдем на конкретный тип
+                if ((old_type == 0) && ($('#show_imported_types').val() > 0)) {
+                    status_types_load_users_by_collection_not_changed = false;
+                }
+
+
+
+                $('#show_imported_types').trigger('change');}
+
+            }
+
+if (status === 'load_uses_list') {
+alert_about_change_selection_users_view(2, status);
+}
+
+
+
+
+
+
+        });
+    });
+
+    $("#balance_import").html($("#balance").html());
+
+
+
+
+
+    $("#collection_importer_count").keyup(function () {
+        var value;
+        if (!$(this).val()) {
+            value = 0;
+        } else {
+            value = $(this).val();
+        }
+        var users_count = parseFloat(value).toFixed(0);
+
+        var cost = 0;
+
+        var users_max = Number($('#get_category_type_users_count').attr('data-count'));
+
+        if (users_count >= 1) {
+
+
+            //если не хватает денег или превышено количество запрашиваемых пользователей -->
+            if (cost > round_cost($('#balance').html())) {
+                $("#collection_importer_cost").css('color', '#e43a3a');
+            } else {
+                $("#collection_importer_cost").css('color', '#4c77af');
+            }
+
+            if (users_count > users_max) {
+                users_count = users_max;
+            }
+
+            $('#collection_importer_count').val(users_count);
+
+            cost = round_cost(users_count * get_import_collection_request_cost_per_one_user());
+            $("#collection_importer_cost").html('= ' + cost + ' руб.');
+
+            if (cost > round_cost($('#balance').html())) {
+                $("#collection_importer").prop('disabled', true);
+            } else {
+                $("#collection_importer").prop('disabled', false);
+            }
+            // <--
+
+        } else {
+            $("#collection_importer_cost").html('');
+            $("#collection_importer").prop('disabled', true);
+        }
+    });
+    $("#collection_importer_count").trigger('keyup');
+
+
+
+
+
+
+
+
+
+
+    $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').change(function() {
+        $('input[type=checkbox][name=user_type_all]').removeAttr("checked");
+});
+
+    $('input[type=checkbox][name=user_type_all]').change(function() {
+        $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').removeAttr("checked");
+});
+
+
+
+
+    $('#collection_category_selector,input[type=checkbox]').change(function () {
+
+
+        var category_id = $('#collection_category_selector').val();
+
+        var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
+        var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
+        var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
+        var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
+        var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
+
+
+
+        if (category_id == 0 ||
+                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_all)) {
+            $("#collection_category_func_buttons").hide();
+            return false;
+        }
+
+        if (user_type_all) {
+            user_type_klass = -1;
+            user_type_subscriber = -1;
+            user_type_survey = -1;
+            user_type_comment = -1;
+            $('input[type=checkbox][name=type_users_1]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_2]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_5]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_6]').removeAttr("checked");
+        }
+
+        $("#collection_category_func_buttons").show();
+
+
+//$('#get_category_type_users_count').html('<span class="text-muted">идет подсчет...</span>');
+
+        $.ajax({
+            url: "/get_category_type_users_count.php?net_code=<?=$net_code;?>",
+            data: {
+                'category_id': category_id,
+                'user_type_1': user_type_klass,
+                'user_type_2': user_type_subscriber,
+                'user_type_5': user_type_survey,
+                'user_type_6': user_type_comment
+            }
+        }).done(function (data) {
+            $('#get_category_type_users_count').html('Доступно: ' + data);
+            $('#get_category_type_users_count').attr('data-count', data);
+
+var cost = round_cost(get_import_collection_request_cost_per_one_user());
+$('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.');
+            if (data > 0) {
+
+//$("#collection_importer").prop('disabled', false);
+
+                $("#collection_importer_count").show().val('');
+                $("#collection_importer_count_people").show();
+
+            } else {
+                $("#collection_importer").prop('disabled', true);
+                $("#collection_importer_count").hide().val(0);
+                $("#collection_importer_count_people").hide();
+            }
+
+
+            $("#collection_importer_count").trigger('keyup');
+        });
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+    $('#collection_importer').click(function (e) {
+        e.preventDefault;
+
+
+
+
+        var users_count = $('#collection_importer_count').val();
+        var category_id = $('#collection_category_selector').val();
+        //var user_type = $('input[type=radio][name=type_users]:checked', '#collection_import_form').val();
+        var category_name = $('#collection_category_selector').find('option:selected').data('name');
+
+        //var user_type_name = $('input[type=radio][name=type_users]:checked').data('name');
+
+        var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
+        var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
+        var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
+        var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
+        var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
+
+
+        if (category_id == 0 ||
+                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_all)) {
+            return false;
+        }
+
+        if (user_type_all) {
+            user_type_klass = -1;
+            user_type_subscriber = -1;
+            user_type_survey = -1;
+            user_type_comment = -1;
+        }
+
+
+        $.ajax({
+            url: "/import_users_from_base.php?net_code=<?=$net_code;?>",
+            data: {
+                'category_id': category_id,
+                'user_type_1': user_type_klass,
+                'user_type_2': user_type_subscriber,
+                'user_type_5': user_type_survey,
+                'user_type_6': user_type_comment,
+                'users_count': users_count,
+                'user_id': '<?php echo($user_id); ?>',
+            }
+        }).done(function (data) {
+
+            if (data > 0) {
+
+                $('#collection_category_selector').trigger('change');
+
+                var text = "Импортировано <b>" + data + "</b> человек";
+                if ((data > 1) && (data < 5)) {
+                    text = "Импортировано <b>" + data + "</b> человека";
+                }
+
+                $('#balance').html((parseFloat($('#balance').html()) - data * get_import_collection_request_cost_per_one_user()).toFixed(2));
+                $("#balance_import").html($("#balance").html());
+
+
+                if (!$('#loaded_users_list').length) {
+                    show_users_reset = 1;
+                    reset_users_list();
+                } else {
+                    $('#reset_users_list').show();
+                }
+
+                var user_type_name = '';
+                var types_count = 0;
+                var type_text;
+                if (user_type_all) {
+                    user_type_name = get_type_name_by_id(-1);
+                    types_count++;
+                } else {
+                    if (user_type_klass) {
+                        user_type_name += get_type_name_by_id(1) + '<br>';
+                        types_count++;
+                    }
+                    if (user_type_subscriber) {
+                        user_type_name += get_type_name_by_id(2) + '<br>';
+                        types_count++;
+                    }
+                    if (user_type_survey) {
+                        user_type_name += get_type_name_by_id(5) + '<br>';
+                        types_count++;
+                    }
+                    if (user_type_comment) {
+                        user_type_name += get_type_name_by_id(6) + '<br>';
+                        types_count++;
+                    }
+                    user_type_name = user_type_name.slice(0,-4);
+                }
+                if (types_count>1) {
+                    type_text = 'Типы';
+                } else {
+                    type_text = 'Тип';
+                }
+                swal({
+                    title: "",
+                    text: text + ' <br> Категория: <b>' + category_name + '</b><br>'+ type_text + ': <br><b>' + user_type_name + '</b>',
+                    html: true,
+                    type: "success"
+                });
+            }
+        });
+
+        return false;
+
+    });
+
+
+
+    $('#show_type_load').trigger('change');
+    $('#show_imported_categories').trigger('change', ['background']);
+    $('#collection_category_selector').trigger('change');
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
 <table style="display:none;">
-        <tr>
-            <td align="center" valign="top" style="padding:10px;">
+    <tr>
+        <td align="center" valign="top" style="padding:10px;">
 
-<!--LiveInternet counter--><script type="text/javascript">
-document.write("<a href='//www.liveinternet.ru/click' "+
-"target=_blank><img src='//counter.yadro.ru/hit?t25.2;r"+
-escape(document.referrer)+((typeof(screen)=="undefined")?"":
-";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-";"+Math.random()+
-"' alt='' title='LiveInternet: показано число посетителей за"+
-" сегодня' "+
-"border='0' width='88' height='15'><\/a>")
-</script><!--/LiveInternet-->
+            <!--LiveInternet counter--><script type="text/javascript">
+                document.write("<a href='//www.liveinternet.ru/click' " +
+                        "target=_blank><img src='//counter.yadro.ru/hit?t25.2;r" +
+                        escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+                        ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                                screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+                        ";" + Math.random() +
+                        "' alt='' title='LiveInternet: показано число посетителей за" +
+                        " сегодня' " +
+                        "border='0' width='88' height='15'><\/a>")
+            </script><!--/LiveInternet-->
 
 
-            </td>
-        </tr>
+        </td>
+    </tr>
 </table>
 
 <?php include('generic/footer.php'); ?>

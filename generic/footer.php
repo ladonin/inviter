@@ -77,7 +77,7 @@ var MY_USER_IMPORT_COST = new Object();
     MY_USER_IMPORT_COST.<?=$type;?> = <?=$amount;?>;
 <?php } ?>
 
-function get_ok_import_collection_request_cost_per_one_user() {
+function get_import_collection_request_cost_per_one_user() {
 
     var data = new Object();
 

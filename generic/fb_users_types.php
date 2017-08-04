@@ -28,9 +28,10 @@
                             <?=get_type_name_by_id(3);?>
                         </label>
                     </div>
+                    <!--
                     <div class="radio">
                         <label>
                             <input type="radio" required value='4' name="type_users" data-name="Участники группы - мобильная версия сайта - http://m.ok.ru">
                             Участники группы - мобильная версия сайта - http://m.ok.ru
                         </label>
-                    </div>
+                    </div>-->

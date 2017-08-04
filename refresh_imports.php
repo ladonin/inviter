@@ -5,7 +5,9 @@ set_time_limit(9999999);
 define('MY_DS', DIRECTORY_SEPARATOR);
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
-require_once('generic/functions.php');
+
+require_once('generic/generic_functions.php');
+
 
 
 $sql = "

@@ -7,7 +7,7 @@ $title = $page_name = 'Получить подписчиков в группу';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 require_once('generic' . MY_DS . 'actions.php');
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');
 $invite_table = 'fb_imports';
 
 include('generic/auth_control.php');

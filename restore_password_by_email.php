@@ -35,7 +35,7 @@ if (!$result) {
         $subject = 'Восстановление доступа';
 
         $body = '
-        <div style=""><a href="http://inviter.biz/restore_password/' . $result['id'] . '/' . md5($result['hash']) . '" style="">Сменить пароль</a> для своего акаунта</div>';
+        <div style=""><a href="' . MY_DOMEN . '/restore_password/' . $result['id'] . '/' . md5($result['hash']) . '" style="">Сменить пароль</a> для своего акаунта</div>';
         $alt_body = '';
 
         $mailer->setFrom('info@inviter.biz', 'Inviter');

@@ -5,7 +5,9 @@ set_time_limit(9999999);
 define('MY_DS', DIRECTORY_SEPARATOR);
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
-require_once('generic/functions.php');
+
+require_once('generic/generic_functions.php');require_once('generic/net_functions.php');
+require_once("generic/{$net_code}_functions.php");
 
 if (auth_control() !== 1) {
     exit();
@@ -31,187 +33,24 @@ if (!$show_type_load){
 
 $is_loaded_status = 0;
 $from_collection_status = 0;
-
-
-
-
-
 ?>
-<div id="loaded_users_buttons_up">
-</div><?php
-
-
-function ok_show_users_get_loaded_users()
-{
-    global  $types_fields_inv;
-    global $user_id;
-    global $connect;
-    global $show_self_load_users_types;
-    global $show_users_number;
-
-    // берем все записи из таблицы
-    $condition = "WHERE is_invited=0 AND user_id=:user_id ";
-    if ($show_self_load_users_types > 0) {
-        $condition .= " AND {$types_fields_inv[$show_self_load_users_types]}=1";
-    }
-
-    $sql = "SELECT * FROM ok_imports " . $condition;
-    $stmt = $connect->prepare($sql . " order by id ASC limit " . $show_users_number);
-    $stmt->execute(array('user_id' => $user_id));
-    $result = $stmt->fetchAll();
-
-    // ищем сколько осталось по данному критерию
-    $sql = "SELECT count(*) FROM ok_imports $condition";
-    $stmt = $connect->prepare($sql);
-    $stmt->execute(array('user_id' => $user_id));
-    $count = $stmt->fetchColumn() - $show_users_number;
-    $count = $count > 0 ? $count : 0;
-
-
-
-
-
-    //помечаем их как просмотренные
-    $list = '';
-    foreach($result as $user) {
-        $list .= $user['profile_id'] . ',';
-    }
-    $list = trim($list,',');
-    $stmt = $connect->prepare("update ok_imports set is_invited=1, modified = '" . time() . "' where profile_id IN ($list) AND user_id=:user_id");
-    $stmt->execute(array('user_id' => $user_id));
-
-return array(
-    'result' => $result,
-    'count_reserve' => $count
-        );
-}
-
-// также помечаем их как просмотренные
-function ok_show_users_get_imported_users_from_collection()
-{
-    global  $types_fields_inv;
-    global  $show_imported_categories;
-    global $user_id;
-    global $connect;
-    global $show_imported_types;
-    global $show_users_number;
-    // если импортированы из коллекции
-    // берем условия выборки
-    // !!! --> заметка
-    // 100 000 непросмотренных пользователей с десятизначными ids = (100 000 (количество ids) * 10 (разряды) + 100 000 (запятые) + 100 (сам код)) * 4 (количество байт в символе - это максимум)= 4 МБ
-    // max_allowed_packet = обычно равен 16 МБ
-    // !!! <-- заметка
-
-    $sql = "SELECT ids_not_invited FROM ok_collections_imports WHERE category_id = $show_imported_categories AND user_id = $user_id";
-    $stmt = $connect->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetch();
-    $ids_not_invited = $result['ids_not_invited'];
-
-
-
-
-    $condition = '';
-
-    if ($ids_not_invited) {
-        $condition .= " id IN ($ids_not_invited) ";
-    } else {
-        $condition .= " 1 ";
-
-    }
-
-    // теперь мы знаем кого можно показать
-
-
-    //  если указали тип пользователя (при просмотре только один тип выбирается)
-    if ($show_imported_types > 0) {
-        $condition .= " AND {$types_fields_inv[$show_imported_types]}=1";
-    }
-    $sql = "SELECT * FROM ok_collections_$show_imported_categories WHERE $condition  order by id ASC limit " . $show_users_number;
-
-
-
-
-
-    $stmt = $connect->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-
-
-
-
-    // ищем сколько осталось по данному критерию
-    $sql = "SELECT count(*) FROM ok_collections_$show_imported_categories WHERE $condition";
-    $stmt = $connect->prepare($sql);
-    $stmt->execute();
-    $count = $stmt->fetchColumn() - $show_users_number;
-    $count = $count > 0 ? $count : 0;
-
-
-
-
-
-
-
-
-
-
-
-    //помечаем их как просмотренные
-    $new_ids_not_invited = array();
-
-    foreach(explode(',',$ids_not_invited) as $id_not_invited) {
-        $new_ids_not_invited[$id_not_invited] = $id_not_invited;
-    }
-
-
-    foreach($result as $row) {
-        unset($new_ids_not_invited[$row['id']]);
-    }
-    $new_ids_not_invited = implode(',',$new_ids_not_invited);
-
-    $sql = "UPDATE ok_collections_imports SET ids_not_invited = '$new_ids_not_invited' WHERE category_id = $show_imported_categories AND user_id = $user_id";
-    $stmt = $connect->prepare($sql);
-    $stmt->execute();
-
-
-return array(
-    'result' => $result,
-    'count_reserve' => $count
-        );
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div id="loaded_users_buttons_up"></div><?php
 
 
 if (!$show_users_reset) {
-
-
 
     //разделяем логику по типам загрузки пользователей
     // если загруженные мной
     if ($show_type_load == 1) {
 
 
-        $data = ok_show_users_get_loaded_users();
+        $data = show_users_get_loaded_users();
         $result = $data['result'];
         $count_reserve = $data['count_reserve'];
 
         $is_loaded_status = 1;
     } elseif (($show_type_load == 2) && $show_imported_categories) {
-        $data = ok_show_users_get_imported_users_from_collection();
+        $data = show_users_get_imported_users_from_collection();
         $result = $data['result'];
         $count_reserve = $data['count_reserve'];
 
@@ -236,7 +75,7 @@ if (!$show_users_reset) {
 
 
 
-<?php if (!empty($_SESSION['ok']['last_viewed_users'])) { ?>
+<?php if (!empty($_SESSION[$net_code]['last_viewed_users'])) { ?>
 <div style="padding-bottom:10px;">
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     Предыдущие пользователи
@@ -247,7 +86,7 @@ if (!$show_users_reset) {
             <div class="row">
                 <div class="list-group col-md-5" style="padding-right:0; width: 640px; border-radius: 4px;border: 1px solid #337ab7; padding: 10px;background-color: #fff;">
                     <?php
-                    foreach ($_SESSION['ok']['last_viewed_users'] as $last_viewed_user) {
+                    foreach ($_SESSION[$net_code]['last_viewed_users'] as $last_viewed_user) {
                         echo($last_viewed_user);
                     }
                     ?>
@@ -259,7 +98,7 @@ if (!$show_users_reset) {
 
             <?php
             //затем их затираем, чтобы новых записать
-            $_SESSION['ok']['last_viewed_users'] = null;
+            $_SESSION[$net_code]['last_viewed_users'] = null;
 
         ?>
 </div>
@@ -292,15 +131,8 @@ if (!$show_users_reset) {
                 <div class="list-group col-md-5" style="padding-right:0; width: 640px; border-radius: 4px;border: 1px solid #ddd; padding: 10px;background-color: #fff;">
         <?php
         foreach ($result as $user) {
-            $link = 'https://ok.ru/';
-            // если профиль только из цифр
-            if (ctype_digit($user['profile_id'])) {
-                $link .= 'profile/' . $user['profile_id'];
-            } else {
-                //если пользователь задал себе имя в url
-                $link .= $user['profile_id'];
-            }
-            '';
+
+            $link = prepare_link_to_user($user['profile_id']);
             $type_images = '';
 
 
@@ -318,7 +150,7 @@ if (!$show_users_reset) {
                 if ($is_loaded_status == 1) {
                     if ($user_type == 2) {
                         if (!empty($data_array['group_id'])) {
-                            $user_type_link = 'https://ok.ru/group/' . $data_array['group_id'];
+                            $user_type_link = constant('GROUP_URL_' . strtoupper($net_code)) . $data_array['group_id'];
                         }
                     }
                 } else {
@@ -408,7 +240,7 @@ if (!$show_users_reset) {
                         <div style="border-top:1px solid #ddd; margin:10px 0"></div>
 
                         <?php
-                        $_SESSION['ok']['last_viewed_users'][] = ob_get_contents();
+                        $_SESSION[$net_code]['last_viewed_users'][] = ob_get_contents();
                         ?>
 
 
@@ -428,7 +260,7 @@ if (!$show_users_reset) {
 
                     <script>
 
-                        function open_ok_users() {
+                        function open_users() {
 
                             var time = 1;
                             for (index = 0; index < links.length; index++) {
@@ -440,7 +272,7 @@ if (!$show_users_reset) {
                             }
                         }
                     </script>
-                    <a style="cursor:pointer; border-radius:0; margin-top:10px; border:0; text-align:center;" class="list-group-item list-group-item-success" onclick='open_ok_users();'>Открыть всех</a>
+                    <a style="cursor:pointer; border-radius:0; margin-top:10px; border:0; text-align:center;" class="list-group-item list-group-item-success" onclick='open_users();'>Открыть всех</a>
                 </div>
             </div>
             <!--<div class="alert alert-warning" role="alert" style="width: 640px;">Внимание! Пользователи выше выводятся только один раз.</div>-->
@@ -453,5 +285,5 @@ if (!$show_users_reset) {
 
 <?php
 
-require('generic/ok_show_users.php');
+require('generic/show_users.php');
 ?>

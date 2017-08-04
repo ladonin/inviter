@@ -6,7 +6,7 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 $title = $page_name = 'Получить подписчиков в группу';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');
 
 
 

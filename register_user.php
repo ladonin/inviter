@@ -7,7 +7,7 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 require_once('generic' . MY_DS . 'phpmailer.php');
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');
 $email = !empty($_GET['email']) ? $_GET['email'] : null;
 $password = !empty($_GET['password']) ? $_GET['password'] : null;
 
@@ -69,7 +69,7 @@ $stmt = $connect->prepare("INSERT into users_registration_temp (
             Теперь собирать активных подписчиков станет намного проще!
         </div>
         <div style="margin-bottom:10px;">Ваш пароль: <b style="color:#000">' . $password . '</b></div>
-        <div style=""><a href="http://inviter.biz/confirm_email/' . $unique_code . '" style="">закончить регистрацию и войти в личный кабинет</a></div>';
+        <div style=""><a href="' . MY_DOMEN . '/confirm_email/' . $unique_code . '" style="">закончить регистрацию и войти в личный кабинет</a></div>';
 
         //$alt_body = '';
         $mailer->setFrom('info@inviter.biz', 'Inviter');

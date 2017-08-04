@@ -5,7 +5,9 @@ set_time_limit(9999999);
 define('MY_DS', DIRECTORY_SEPARATOR);
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');require_once('generic/net_functions.php');
+require_once("generic/{$net_code}_functions.php");
+include('generic/auth_control.php');
 
 if (auth_control() !==1){
     exit();
@@ -22,7 +24,7 @@ if (!$category_id || (!$user_type_klass && !$user_type_subscriber && !$user_type
 }
 
 
-$result = ok_get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
+$result = get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
 
 
     echo $result;

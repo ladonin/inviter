@@ -6,7 +6,9 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 
-require_once('generic/functions.php');
+require_once('generic/generic_functions.php');
+require_once('generic/net_functions.php');
+require_once("generic/{$net_code}_functions.php");
 
 if (auth_control() !==1){
     exit();
@@ -38,7 +40,7 @@ if (!$user_id) {
 }
 
 
-$user_import_cost = get_ok_import_collection_request_cost_per_one_user([
+$user_import_cost = get_import_collection_request_cost_per_one_user([
         'KLASS' => $user_type_klass,
         'SUBSCRIBER' => $user_type_subscriber,
         'SURVEY' => $user_type_survey,
@@ -61,7 +63,7 @@ if ($balance < $cost) {
 
 
 //сколько всего можно импортировать пользователей данного типа и категории
-$import_max = ok_get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
+$import_max = get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
 
 
 
