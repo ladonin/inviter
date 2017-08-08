@@ -22,7 +22,7 @@ RewriteRule ^help  help.php [L]
 RewriteRule ^contacts  contacts.php [L]
 
 
-RewriteRule ^facebook\/(.+)$  fb.php?client_code=$1&%{QUERY_STRING} [L]
+
 RewriteRule ^main\/(.+)$  main.php?client_code=$1&%{QUERY_STRING} [L]
 
 
@@ -34,7 +34,6 @@ RewriteRule ^main\/(.+)$  main.php?client_code=$1&%{QUERY_STRING} [L]
 
 
 
-RewriteRule ^facebook  fb.php [L]
 
 RewriteRule ^adminscollector$  adminscollector.php [L]
 
