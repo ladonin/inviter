@@ -4,14 +4,14 @@
     $status_self_load_users_type_not_changed = empty($show_self_load_users_types) ? 'null' : 'false';
     $status_client_imported_enabled_category_not_changed = empty($show_imported_categories) ? 'null' : 'false';
     ?>
-
+<?php if ($count_non_invited) {?>
     <div class="row">
         <div class="alert alert-info col-md-5" role="alert" style="width: 640px;">
 <?php //Всего показано: <?php echo($count_invited);<br>  ?>
             Осталось всего: <?php echo($count_non_invited); ?>
         </div>
     </div>
-
+<?php } ?>
     <span class="btn btn-primary" style="margin-bottom:20px; display:none" id='reset_users_list'>Обновить</span>
 
 <?php if (!$count_non_invited) { ?>

@@ -167,7 +167,7 @@ if (!$show_users_reset) {
                 if ($user_type_link) {
                     $type_images .= '<a href="' . $user_type_link . '" target="_blank">';
                 }
-                $type_images .= '<img src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" style="margin-left:10px; margin-bottom:10px;" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '">';
+                $type_images .= '<img src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" style="margin-right:10px; margin-bottom:0px;" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '">';
                 if ($user_type_link) {
                     $type_images .= '</a>';
                 }
@@ -193,12 +193,6 @@ if (!$show_users_reset) {
 
                 $type_comments .= '<span style="color:#333">' . $data_comment . '</span></div>';
             }
-            $type_comments = $type_comments ? '<div style="border-top:0px solid #ddd; margin:10px 0"></div><div class="text-left"><b style="color:#555555;">мои комментарии:</b>' . $type_comments . '</div>' : '';
-
-
-
-
-
 
             $avatar = $user['user_avatar'] ? $user['user_avatar'] : '/img/no-photo.png';
             $border_color = $from_collection_status ? '#bc6060' : '#6085bc';
@@ -213,28 +207,39 @@ if (!$show_users_reset) {
 
                         <div class="row" style="border-left: 5px solid <?= $border_color ?>;">
                             <div class="col-xs-10" style="padding-left:0">
-                                <a target="_blank" style="
+                                <div class="list-group-item" target="_blank" style="
                                    color:#337ab7 !important;
                                    border-radius: 0;
                                    border: 0;
                                    padding: 10px;
-                                   " href="<?= $link; ?>" class="list-group-item" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=900, height=800');
-                                           return false;">
+                                   ">
 
                                     <div class="media">
                                         <div class="media-left">
+
+                                            <a href="<?= $link; ?>" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=900, height=800'); return false;">
                                             <img class="media-object" style="width:50px; border-radius:5px;" src="<?= $avatar; ?>" title="<?= $user['user_fio']; ?>">
+                                            </a>
                                         </div>
                                         <div class="media-body">
-                                            <h4 class="media-heading" style="margin-top: 5px;"><?= ($user['user_fio'] ? : $user['profile_id']); ?></h4>
-                        <?= $type_comments; ?>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                            <h4 class="media-heading" style="margin-top: 0px;"><a href="<?= $link; ?>" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=900, height=800'); return false;"><?= ($user['user_fio'] ? unescapeUTF8EscapeSeq($user['user_fio']) : $user['profile_id']); ?></a></h4>
+                                            <?= $type_images; ?>
 
+<?php if ($type_comments){?>
+                                            <div class="note_comments well" style="margin-top:10px; display:none; padding-top:14px; background-color: #f1f5f8;">
+                                            <?= $type_comments; ?>
+                                            </div>
+<?php } ?>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-xs-2 text-right" style="padding-right:10px; padding-top:10px">
-            <?= $type_images; ?>
+<?php if ($type_comments){?>
+                                <img class="note_comment_icon" style="cursor:pointer" src="/img/note_1.png" width="25">
+
+<?php } ?>
                             </div>
                         </div>
                         <div style="border-top:1px solid #ddd; margin:10px 0"></div>

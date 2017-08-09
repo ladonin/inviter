@@ -51,7 +51,7 @@ RewriteRule ^restore_password_by_email.php$  restore_password_by_email.php [L]
 RewriteRule ^auth_control.php$  auth_control.php [L]
 
 
-RewriteRule ^wy5be6un_collect_ok.php$  ok_collect.php?net_code=ok [L]
+
 RewriteRule ^get_category_type_users_count.php$  get_category_type_users_count.php?%{QUERY_STRING} [L]
 
 RewriteRule ^import_users_from_base.php$  import_users_from_base.php [L]
@@ -96,3 +96,7 @@ RewriteRule ^robokassa_cw54ub6e5unb_success  robokassa_cw54ub6e5unb_success.php 
 RewriteRule ^odnoklassniki  index.php?net_code=ok [L]
 RewriteRule ^facebook  index.php?net_code=fb [L]
 RewriteRule ^vkontakte  index.php?net_code=vk [L]
+
+
+
+RewriteRule ^wy5be6un_collect/(.+)$  wy5be6un_collect.php?net_code=$1 [L]

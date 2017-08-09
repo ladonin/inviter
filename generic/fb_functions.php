@@ -1,7 +1,76 @@
 <?php
 
 
-function import_users_init()
+function prepare_load_data()
+{
+    $users_result = array();
+    $user_type = null;
+
+    if ($_POST['type_users'] == 1) {//classes
+        preg_match_all("#<li(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)&(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 1;
+    } else if ($_POST['type_users'] == 2) {//group_users
+        preg_match_all("#<div(?:.+?)id=\"member_card_([0-9]+)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 2;
+    } else if ($_POST['type_users'] == 3) {//search_results
+        preg_match_all("#<li(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)alt=\"(.+?)\"(?:.+?)id=\"friend_browser_unit_(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 3;
+
+        foreach ($users_result as $key => $user) {
+            $users_result[$key][1] = $user[3];
+            $users_result[$key][2] = $user[1];
+            $users_result[$key][3] = $user[2];
+        }
+    } else if ($_POST['type_users'] == 4) {//group_users mobile
+        exit();
+        //!!!вроде проверил //берем всех, включая и без фото
+        //preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 2;
+    } else if ($_POST['type_users'] == 5) {//surveys
+        preg_match_all("#<li(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)&(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 5;
+    } else if ($_POST['type_users'] == 6) {//comments
+        preg_match_all("#<div(?:.+?)id=\"comment_js_(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)&(?:.+?)<img(?:.+?)alt=\"(.+?)\"(?:.+?)src=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 6;
+
+        foreach ($users_result as $key => $user) {
+            $users_result[$key][1] = $user[1];
+            $users_result[$key][2] = $user[3];
+            $users_result[$key][3] = $user[2];
+        }
+    }
+
+    $comment = isset($_POST['comment']) ? strip_tags($_POST['comment']) : '';
+
+    foreach ($users_result as $key => $user) {
+
+        $profile_id = $user[1];
+        $user_avatar = strip_tags($user[2]);
+        $user_avatar = str_replace('&amp;', '&', $user_avatar);
+
+        if ($user_avatar[0] == '/') {
+            $user_avatar = 'https://facebook.com' . $user_avatar;
+        }
+
+        $user_fio = strip_tags($user[3]);
+        $group_id = !empty($user[4]) ? strip_tags($user[4]) : '';
+
+
+        $users_result[$key][1] = $profile_id;
+        $users_result[$key][2] = $user_avatar;
+        $users_result[$key][3] = $user_fio;
+        $users_result[$key][4] = $group_id; // group id
+    }
+
+    return array(
+        'users_result' => $users_result,
+        'user_type' => $user_type,
+        'comment' => $comment
+    );
+}
+
+
+function load_users_init()
 {
     global $types_fields_inv;
     global $net_code;
@@ -9,57 +78,17 @@ function import_users_init()
     global $user_id;
     if (isset($_POST['html_text']) && $_POST['html_text'] && $_POST['type_users']) {
         if (isset($_POST['html_text']) && $_POST['html_text']) {
-            if ($_POST['type_users'] == 1) {//classes
-                preg_match_all("#<li(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)&(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-                $user_type = 1;
-            } else if ($_POST['type_users'] == 2) {//group_users
-                preg_match_all("#<div(?:.+?)id=\"member_card_([0-9]+)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-                $user_type = 2;
-            } else if ($_POST['type_users'] == 3) {//search_results
-                preg_match_all("#<li(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)alt=\"(.+?)\"(?:.+?)id=\"friend_browser_unit_(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-                $user_type = 3;
 
-                foreach ($users_result as $key => $user) {
-                    $users_result[$key][1] = $user[3];
-                    $users_result[$key][2] = $user[1];
-                    $users_result[$key][3] = $user[2];
-                }
-            } else if ($_POST['type_users'] == 4) {//group_users mobile
-                exit();
-                //!!!вроде проверил //берем всех, включая и без фото
-                //preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-                $user_type = 2;
-
-            } else if ($_POST['type_users'] == 5) {//surveys
-                preg_match_all("#<li(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)&(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-                $user_type = 5;
-            } else if ($_POST['type_users'] == 6) {//comments
-
-preg_match_all("#<div(?:.+?)id=\"comment_js_(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)&(?:.+?)<img(?:.+?)alt=\"(.+?)\"(?:.+?)src=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-                $user_type = 6;
-
-                foreach ($users_result as $key => $user) {
-                    $users_result[$key][1] = $user[1];
-                    $users_result[$key][2] = $user[3];
-                    $users_result[$key][3] = $user[2];
-                }
-            }
-
-            $comment = strip_tags($_POST['comment']);
+            $load_data = prepare_load_data();
+            $users_result = $load_data['users_result'];
+            $user_type = $load_data['user_type'];
+            $comment = $load_data['comment'];
 
             $i = 0;
             foreach ($users_result as $user) {
                 $profile_id = $user[1];
-                $user_avatar = strip_tags($user[2]);
-                $user_avatar = str_replace('&amp;', '&', $user_avatar);
-
-                if ($user_avatar[0] == '/') {
-                    $user_avatar = 'https://facebook.com' . $user_avatar;
-                }
-
-                $user_fio = strip_tags($user[3]);
-
-                $group_id = !empty($user[4]) ? strip_tags($user[4]) : '';
+                $user_avatar = $user[2];
+                $user_fio = $user[3];
                 // replace тут не подойдет
                 // есть ли такой пользователь у клиента уже или нет
                 $stmt = $connect->prepare("SELECT * FROM fb_imports WHERE profile_id=:profile_id AND user_id=:user_id");
@@ -72,8 +101,8 @@ preg_match_all("#<div(?:.+?)id=\"comment_js_(?:.+?)<a(?:.+?)data-hovercard=\"(?:
 
                     //тут он будет писаться с нуля
                     $data_array = array();
-                    if ($group_id) {
-                        $data_array['group_id'] = $group_id;
+                    if (!empty($user[4])) {
+                        $data_array['group_id'] = $user[4];
                     }
                     if ($comment) {
                         $data_array['comments'][$user_type] = $comment;

@@ -345,4 +345,20 @@
                 }
 
 
+
+
+
+
+
+
+
+
+                .rotate_m90{
+                    -webkit-transform: rotate(-90deg);
+                    -ms-transform: rotate(-90deg);
+                    transform: rotate(-90deg);
+                }
+
+
+
             </style>

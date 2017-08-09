@@ -1,5 +1,21 @@
 <?php
 
+
+
+
+function unescapeUTF8EscapeSeq($str) {
+    return preg_replace_callback("/\\\u([0-9a-f]{4})/i",
+        create_function('$matches',
+            'return html_entity_decode(\'&#x\'.$matches[1].\';\', ENT_QUOTES, \'UTF-8\');'
+        ), $str);
+}
+
+
+
+
+
+
+
 function my_create_password()
 {
     $gl = array(

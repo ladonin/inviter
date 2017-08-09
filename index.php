@@ -13,7 +13,7 @@ require_once('generic/net_functions.php');
 require_once("generic/{$net_code}_functions.php");
 include('generic/auth_control.php');
 report_init();
-$import_result = import_users_init();
+$load_users_result = load_users_init();
 include('generic/header.php');
 ?>
 
@@ -50,23 +50,23 @@ include('generic/header.php');
 <div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
     <h3>Импорт пользователей<span style="margin-left:20px" class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></h3><br>
 <?php
-if ($import_result) {
+if ($load_users_result) {
     ?>
         <div class="col-md-4" style="padding-left:0 !important">
             <ul class="list-group">
 
                 <li class="list-group-item list-group-item-info">
-                    <span class="badge" style="background-color: #FFF;color:rgb(30, 30, 203);"><?php echo(count($import_result['users_result'])); ?></span>
+                    <span class="badge" style="background-color: #FFF;color:rgb(30, 30, 203);"><?php echo(count($load_users_result['users_result'])); ?></span>
                     Найдено пользователей
                 </li>
 
                 <li class="list-group-item list-group-item-success">
-                    <span class="badge" style="background-color: #FFF;color: #000;"><?php echo($import_result['inserts_count']); ?></span>
+                    <span class="badge" style="background-color: #FFF;color: #000;"><?php echo($load_users_result['inserts_count']); ?></span>
                     Добавлено пользователей
                 </li>
 
                 <li class="list-group-item list-group-item-warning">
-                    <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($import_result['users_result']) - $import_result['inserts_count'])); ?></span>
+                    <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($load_users_result['users_result']) - $load_users_result['inserts_count'])); ?></span>
                     Обновлено пользователей
                 </li>
             </ul></div>
@@ -86,7 +86,7 @@ if ($import_result) {
                     <?php require('generic' . MY_DS . $net_code . '_users_types.php'); ?>
                     <br>
                     <h4>Комментарий:</h4>
-                    <input type="text"  maxlength="50" name="comment" class="form-control" style="max-width:500px">
+                    <input type="text"  maxlength="200" name="comment" class="form-control" style="max-width:500px">
                     <br>
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Импорт</button>
                 </form>
@@ -548,14 +548,6 @@ alert_about_change_selection_users_view(2, status);
 
         if (users_count >= 1) {
 
-
-            //если не хватает денег или превышено количество запрашиваемых пользователей -->
-            if (cost > round_cost($('#balance').html())) {
-                $("#collection_importer_cost").css('color', '#e43a3a');
-            } else {
-                $("#collection_importer_cost").css('color', '#4c77af');
-            }
-
             if (users_count > users_max) {
                 users_count = users_max;
             }
@@ -564,6 +556,15 @@ alert_about_change_selection_users_view(2, status);
 
             cost = round_cost(users_count * get_import_collection_request_cost_per_one_user());
             $("#collection_importer_cost").html('= ' + cost + ' руб.');
+
+            //если не хватает денег или превышено количество запрашиваемых пользователей -->
+            if (cost > round_cost($('#balance').html())) {
+                $("#collection_importer_cost").css('color', '#e43a3a');
+            } else {
+                $("#collection_importer_cost").css('color', '#4c77af');
+            }
+
+
 
             if (cost > round_cost($('#balance').html())) {
                 $("#collection_importer").prop('disabled', true);
@@ -792,6 +793,20 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
     $('#show_type_load').trigger('change');
     $('#show_imported_categories').trigger('change', ['background']);
     $('#collection_category_selector').trigger('change');
+
+
+
+
+
+
+
+
+
+    $(document).on('click','.note_comment_icon', function(){
+        $(this).toggleClass('rotate_m90');
+        $(this).closest('.row').find('.note_comments').toggle();
+
+    });
 });
 
 </script>
