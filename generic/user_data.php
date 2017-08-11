@@ -26,27 +26,17 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     }
 </style>
 
-<button type="button" class="btn btn-default" data-toggle="modal" data-target="#userDataModal">
-
-
-
-
+<button type="button" class="btn btn-default" style="color: #fff;
+background-color: #449d44;
+border-color: #ccc;
+" data-toggle="modal" data-target="#userDataModal">
     <span class="glyphicon glyphicon-warning-sign" style="margin-right:5px; color: #ff6d02; <?php echo($result['email'] ? 'display:none;' : ''); ?>"></span>
-
-
-
-
-
     <span class="glyphicon glyphicon-user" style="margin-right:5px;"></span>Персональные данные
 </button>
 
-<a href="/logout" class="btn btn-default">
+<a href="/logout" class="btn btn-default" style="background-color: #6d5d71;color:#fff">
     <span class="glyphicon glyphicon-log-out" style="margin-right:5px;"></span>Выход
 </a>
-
-
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="userDataModal" tabindex="-1" role="dialog" style="text-align:left;">
@@ -87,51 +77,12 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 <div>
                     <img src="/img/balance.png" width="20" style="margin-right:10px;"><span style="color:#636363;">Баланс:</span> <big id='balance'><?php echo($result['balance']); ?> руб.</big>
                     <a style="cursor:pointer;" data-toggle="collapse" data-target="#balance_expander">пополнить</a>
-
-
-
-
                     <div id="balance_expander" style="margin-top:10px" class="collapse">
-
-
                         <div class="well">
-
-
-
-
-
-
-
-
                             <?php require('generic' . MY_DS . 'balance_deposit.php'); ?>
-
-
-
-
-
                         </div>
-
-
-
-
-
-
                     </div>
-
-
-
-
-
-
-
                 </div>
-
-
-
-
-
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>

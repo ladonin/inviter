@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="alert alert-info col-md-5" role="alert" style="width: 640px;">
                 <?php //Всего показано: <?php echo($count_invited);<br>?>
-                Осталось всего: <?php echo($count_non_invited);?>
+                    Осталось всего: <b><?php echo($count_non_invited);?></b>
                 </div>
             </div>
 

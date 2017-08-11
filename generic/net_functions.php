@@ -289,7 +289,7 @@ function get_not_invited_count()
 
 
 //берем доступные типы загрузки пользователей
-function get_types_loads_users()
+function get_types_loads_users($styled = true)
 {
     global $user_id;
     global $connect;
@@ -301,15 +301,24 @@ function get_types_loads_users()
     $stmt->execute(array('user_id' => $user_id));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($result['count'] > 0) {
-        $return[] = 1; // load
+    if ($styled) {
+        $return[1] = ($result['count'] > 0) ? '' : 'disabled'; // load
+    } else {
+        if ($result['count'] > 0) {
+            $return[] = 1; // load
+        }
     }
 
     $stmt = $connect->prepare("SELECT count(*) as count FROM {$net_code}_collections_imports WHERE user_id=:user_id AND ids_not_invited!=''");
     $stmt->execute(array('user_id' => $user_id));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($result['count'] > 0) {
-        $return[] = 2; // import
+
+    if ($styled) {
+        $return[2] = ($result['count'] > 0) ? '' : 'disabled'; // import
+    } else {
+        if ($result['count'] > 0) {
+            $return[] = 2; // import
+        }
     }
 
     return $return;
@@ -358,7 +367,7 @@ function get_load_type_name_by_id($id)
     if ($id == 1) {
         return 'Загруженные мной';
     } elseif ($id == 2) {
-        return 'Взятые из коллекции';
+        return 'Из коллекции';
     }
 }
 
@@ -404,20 +413,20 @@ function get_type_name_by_id($user_type)
     if ($user_type == 1) {
 
         if ($net_code === NET_CODE_OK) {
-            return "Пользователи, поставившие 'Класс!'";
+            return "Поставили 'Класс!'";
         } elseif ($net_code === NET_CODE_VK) {
-            return "Пользователи, поставившие 'Мне нравится'";
+            return "Поставили 'Мне нравится'";
         }
 
-        return "Пользователи, поставившие 'Like'";
+        return "Поставили 'Like'";
     } elseif ($user_type == 2) {
-        return 'Участники группы ';
+        return 'Подписчики';
     } elseif ($user_type == 3) {
-        return 'Пользователи из результата поиска';
+        return 'Из результата поиска';
     } elseif ($user_type == 5) {
-        return 'Пользователи, учавствующие в опросах';
+        return 'Учавствуют в опросах';
     } elseif ($user_type == 6) {
-        return 'Пользователи, оставляющие комментарии';
+        return 'Оставляют комментарии';
     }
 }
 

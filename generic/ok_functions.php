@@ -8,7 +8,7 @@ function prepare_load_data()
 
     if ($_POST['type_users'] == 1) {//classes
         //!!!вроде проверил //берем всех, включая и без фото
-        preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        preg_match_all("#class=\"photoWrapper\"(?:.+?)st.friendId=([0-9]+?)&(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 1;
     } else if ($_POST['type_users'] == 2) {//group_users
         //!!!вроде проверил //берем всех, включая и без фото
@@ -59,7 +59,7 @@ function prepare_load_data()
         }
     } else if ($_POST['type_users'] == 5) {//surveys
         //!!!вроде проверил //берем всех, включая и без фото
-        preg_match_all("#class=\"photoWrapper\" href=\"/(?:profile/)?(.+?)\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        preg_match_all("#class=\"photoWrapper\"(?:.+?)st.friendId=([0-9]+?)&(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 5;
     } else if ($_POST['type_users'] == 6) {//comments
         //!!!вроде проверил //берем всех, включая и без фото

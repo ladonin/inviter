@@ -195,6 +195,6 @@ function load_users_init()
 
 function prepare_link_to_user($profile_id)
 {
-    $link = 'https://www.facebook.com/profile.php?id=' . $profile_id;
+    $link = PROFILE_URL_FB . $profile_id;
     return $link;
 }

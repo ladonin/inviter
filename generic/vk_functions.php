@@ -190,6 +190,6 @@ function load_users_init()
 
 function prepare_link_to_user($profile_id)
 {
-    $link = 'https://vk.com/id' . $profile_id;
+    $link = PROFILE_URL_VK . $profile_id;
     return $link;
 }

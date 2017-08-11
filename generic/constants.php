@@ -31,9 +31,9 @@ if (isset($_SERVER['SERVER_NAME'])) {
 
 
 
-define('NET_HEADER_BACKGROUND_COLOR_OK', 'ffebd6');
-define('NET_HEADER_BACKGROUND_COLOR_FB', 'dbe2f3');
-define('NET_HEADER_BACKGROUND_COLOR_VK', 'bfccda');
+define('NET_HEADER_BACKGROUND_COLOR_OK', 'f07d00');
+define('NET_HEADER_BACKGROUND_COLOR_FB', '3b5999');
+define('NET_HEADER_BACKGROUND_COLOR_VK', '4d76a4');
 
 
 define('NET_TITLE_OK', 'одноклассники');
@@ -48,8 +48,8 @@ define('NET_CODE_VK', 'vk');
 // ###MORE NETS
 
 define('PROFILE_URL_OK', 'https://ok.ru/profile/');
-define('PROFILE_URL_FB', 'FIXME');
-define('PROFILE_URL_VK', 'FIXME');
+define('PROFILE_URL_FB', 'https://www.facebook.com/profile.php?id=');
+define('PROFILE_URL_VK', 'https://vk.com/id');
 // ###MORE NETS
 
 

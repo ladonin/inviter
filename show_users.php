@@ -34,6 +34,7 @@ if (!$show_type_load){
 $is_loaded_status = 0;
 $from_collection_status = 0;
 ?>
+<div class="row">
 <div id="loaded_users_buttons_up"></div><?php
 
 
@@ -61,13 +62,13 @@ if (!$show_users_reset) {
     ?>
 
 
-
+<div class="col-xs-12 col-md-6 p-0">
     <div class="row" id='loaded_users_list'>
 
+        <div class="col-xs-12 p-0">
 
 
-
-    <div class="alert alert-warning" role="alert" style="width: 640px;">Осталось пользователей по данному критерию: <?php echo($count_reserve);?></div>
+    <div class="alert alert-warning" role="alert" style="/*width: 640px;*/">Осталось пользователей по данному критерию: <b><?php echo($count_reserve);?></b></div>
 
 
 
@@ -84,7 +85,7 @@ if (!$show_users_reset) {
 <div class="collapse" id="collapseExample">
 
             <div class="row">
-                <div class="list-group col-md-5" style="padding-right:0; width: 640px; border-radius: 4px;border: 1px solid #337ab7; padding: 10px;background-color: #fff;">
+                <div class="list-group col-xs-12" style="padding-right:0; /*width: 640px;*/ border-radius: 4px;border: 1px solid #337ab7; padding: 10px;background-color: #fff;">
                     <?php
                     foreach ($_SESSION[$net_code]['last_viewed_users'] as $last_viewed_user) {
                         echo($last_viewed_user);
@@ -128,7 +129,7 @@ if (!$show_users_reset) {
 
             <div class="row">
                 <script>var links = new Array();</script>
-                <div class="list-group col-md-5" style="padding-right:0; width: 640px; border-radius: 4px;border: 1px solid #ddd; padding: 10px;background-color: #fff;">
+                <div class="list-group col-xs-12" style="padding-right:0; /*width: 640px;*/ border-radius: 4px;border: 1px solid #ddd; padding: 10px;background-color: #fff;">
         <?php
         foreach ($result as $user) {
 
@@ -226,7 +227,7 @@ if (!$show_users_reset) {
                                             <?= $type_images; ?>
 
 <?php if ($type_comments){?>
-                                            <div class="note_comments well" style="margin-top:10px; display:none; padding-top:14px; background-color: #f1f5f8;">
+                                            <div class="note_comments well pl-10 pr-10 pb-10 pt-5" style="margin-top:10px; display:none; background-color: #f1f5f8;">
                                             <?= $type_comments; ?>
                                             </div>
 <?php } ?>
@@ -285,6 +286,7 @@ if (!$show_users_reset) {
                 }
                 ?>
     </div>
+        </div>
                 <?php }
             ?>
 
@@ -292,3 +294,5 @@ if (!$show_users_reset) {
 
 require('generic/show_users.php');
 ?>
+    </div>
+</div>

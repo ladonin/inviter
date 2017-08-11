@@ -17,12 +17,12 @@ $load_users_result = load_users_init();
 include('generic/header.php');
 ?>
 
-<div class="well" style="text-align:center; margin-bottom:0; padding:10px; background-color:#<?=get_net_header_background_color();?> ">
+<div class="well p-20-sm p-10" style="text-align:center; margin-bottom:0; background-color:#<?=get_net_header_background_color();?> ">
     <div class="row">
         <div class="pull-left">
-            <a href="/odnoklassniki"><img src="/img/ok_logo.jpg" width="50" style="opacity:1"></a>
-            <a href="/facebook"><img src="/img/fb_logo.jpg" width="50" style="opacity:1"></a>
-            <a href="/vkontakte"><img src="/img/vk_logo.jpg" width="50" style="opacity:1"></a>
+            <a href="/odnoklassniki"><img src="/img/ok_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
+            <a href="/facebook"><img src="/img/fb_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
+            <a href="/vkontakte"><img src="/img/vk_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
         </div>
         <div class="pull-right">
             <?php include('generic/user_data.php'); ?>
@@ -31,28 +31,30 @@ include('generic/header.php');
 </div>
 
 <div class="row">
-    <div class="pull-left" style="margin:10px;">
+    <div class="pull-left mh-20-sm m-10">
         <h5><b><?=get_net_title();?></b></h5>
     </div>
-    <div style="margin:10px;">
+    <div class="mh-20-sm m-10">
         <?php $non_instruction = 1; require("generic/{$net_code}_instruction_menu.php"); ?>
     </div>
 </div>
 
-<div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
+<div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
     <h3>Пригласить пользователей</h3><br>
-    <div id='show_users_block'>
-    <?php $button_1_added_text = ''; require("generic/show_users.php"); ?>
+    <div class="row">
+        <div id='show_users_block' class="col-xs-12 col-md-12 col-lg-12 p-0">
+        <?php $button_1_added_text = ''; require("generic/show_users.php"); ?>
+        </div>
     </div>
 </div>
 
 
-<div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
+<div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
     <h3>Импорт пользователей<span style="margin-left:20px" class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></h3><br>
 <?php
 if ($load_users_result) {
     ?>
-        <div class="col-md-4" style="padding-left:0 !important">
+        <div class="col-xs-12" style="padding-left:0 !important">
             <ul class="list-group">
 
                 <li class="list-group-item list-group-item-info">
@@ -168,51 +170,51 @@ $has_loaded_users = has_loaded_users();
 $has_imported_users = $client_imported_categories ? true : false;
 if ($has_imported_users || $has_loaded_users) {
 ?>
-<div class="well well-lg" style="padding-top:10px !important;padding-bottom:30px !important;  margin-bottom:20px !important; margin-top:20px !important;">
+<div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:30px !important;  margin-bottom:20px !important; margin-top:20px !important;">
     <h3>Скачать отчет</h3>
     <br>
-    <div style="width: 640px;">
+    <div style="/*width: 640px;*/">
         <ul class="nav nav-tabs">
             <?php if ($has_loaded_users) { ?>
                 <li role="presentation"><a style="cursor:pointer" id='report_self_loaded_nav'>Загруженные мной</a></li>
             <?php } ?>
 
             <?php if ($has_imported_users) { ?>
-                <li role="presentation"><a style="cursor:pointer"  id='report_collection_loaded_nav'>Взятые из коллекции</a></li>
+                <li role="presentation"><a style="cursor:pointer"  id='report_collection_loaded_nav'>Из коллекции</a></li>
             <?php } ?>
         </ul>
         <div class="bs-block">
             <?php if ($has_loaded_users) { ?>
             <div id="report_self_loaded_block">
-                <div style="display:inline-block; width:200px; margin-right: 10px;margin-bottom: 5px;">Формат файла</div>
-                <br>
+                <!--<div style="display:inline-block; width:200px; margin-right: 10px;margin-bottom: 5px;">Формат файла</div>
+                <br>-->
                 <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
                     <input type="hidden" name="load_type" value="1">
                     <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
                         <option value="1">для Excel</option>
                         <option value="2">для CSV редакторов</option>
                     </select><button
-                        name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+                        name='export_users' type="submit" class="btn btn-info mt-10-xs"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
                 </form>
             </div>
             <?php } ?>
             <?php if ($has_imported_users) { ?>
                 <div id="report_collection_loaded_block">
-                    <div style="display:inline-block; width:200px; margin-right: 10px;;margin-bottom: 5px;">Формат файла</div>
+                    <!--<div style="display:inline-block; width:200px; margin-right: 10px;;margin-bottom: 5px;">Формат файла</div>
                     <div style="display:inline-block;;margin-bottom: 5px;">Категория</div>
-                    <br>
+                    <br>-->
                     <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
                         <input type="hidden" name="load_type" value="2">
                         <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
                             <option value="1">для Excel</option>
                             <option value="2">для CSV редакторов</option>
                         </select><select
-                            class="form-control" name="category" style="width:200px; margin-right: 10px;">
+                            class="form-control mt-10-xs" name="category" style="width:200px; margin-right: 10px;">
                             <?php foreach ($client_imported_categories as $client_imported_category) { ?>
                                 <option value='<?php echo($client_imported_category['category_id']); ?>'><?php echo($client_imported_category['name']); ?></option>
                             <?php } ?>
                         </select><button
-                            name='export_users' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+                            name='export_users' type="submit" class="btn btn-info mt-10-xs"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
                     </form>
                 </div>
             <?php } ?>
@@ -424,12 +426,14 @@ function alert_about_change_selection_users_view(step,status){
             $('#show_self_load_users_types').closest('div').show();
             $('#show_imported_categories').closest('div').hide();
             $('#show_imported_types').closest('div').hide();
+            $('#block_imported_types').hide();
         } else if (type_load == 2) {
             $('#show_self_load_users_types').closest('div').hide();
             $('#show_imported_categories').closest('div').show();
             $('#show_imported_types').closest('div').show();
             $('#show_imported_categories').trigger('change', ['show_type_load']);
         }
+
     });
 
 
@@ -462,6 +466,7 @@ function alert_about_change_selection_users_view(step,status){
         if (!(imported_category)) {
             return false;
         }
+
         //var current_type = $("#show_imported_types").val();
         $.ajax({
             url: "/get_imported_types_users_by_category.php?net_code=<?=$net_code;?>",
@@ -471,7 +476,7 @@ function alert_about_change_selection_users_view(step,status){
         }).done(function (data) {
             var result = JSON.parse(data);
             $('#show_imported_types').remove();
-
+            $('#block_imported_types').show().html('');
             if (result) {
                 var select = $("<select></select>").attr("id", 'show_imported_types').attr("class", 'form-control');
                 if (result.length > 1) {select.append("<option value='0'>Все пользователи</option>");}
@@ -807,6 +812,29 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
         $(this).closest('.row').find('.note_comments').toggle();
 
     });
+
+
+                function get_type_name_by_id(user_type) {
+                    if (user_type == -1) {
+                        return "Любой";
+                    } else if (user_type == 1) {
+                        return "<?=get_type_name_by_id(1);?>";
+                    } else if (user_type == 2) {
+                        return "<?=get_type_name_by_id(2);?>";
+                    } else if (user_type == 3) {
+                        return "<?=get_type_name_by_id(3);?>";
+                    } else if (user_type == 5) {
+                        return "<?=get_type_name_by_id(5);?>";
+                    } else if (user_type == 6) {
+                        return "<?=get_type_name_by_id(6);?>";
+                    }
+                }
+
+
+
+
+
+
 });
 
 </script>

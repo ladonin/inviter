@@ -125,12 +125,13 @@ background-color: #788799;
 }
 
 .logo{
-    padding: 30px;
-    background-color: #fff;
-    width: 210px;
-    border-radius: 1000px;
-    margin-left: -105px;
-    margin-top: -330px;
+padding: 15px;
+background-color: #fff;
+width: 180px;
+border-radius: 1000px;
+margin-left: -90px;
+margin-top: -300px;
+
 }
 
 .button-register,
