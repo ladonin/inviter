@@ -395,7 +395,7 @@ function alert_about_change_selection_users_view(step,status){
             alert_about_change_selection_users_view(1);
 
             $('#show_type_load').trigger('change');
-            $('#show_imported_categories').trigger('change', ['load_uses_list']);
+            //////////$('#show_imported_categories').trigger('change', ['load_uses_list']);
 
 
   $('[data-toggle="tooltip"]').tooltip();
@@ -466,7 +466,7 @@ function alert_about_change_selection_users_view(step,status){
         if (!(imported_category)) {
             return false;
         }
-
+////////////alert(status);
         //var current_type = $("#show_imported_types").val();
         $.ajax({
             url: "/get_imported_types_users_by_category.php?net_code=<?=$net_code;?>",
@@ -796,7 +796,7 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
 
 
     $('#show_type_load').trigger('change');
-    $('#show_imported_categories').trigger('change', ['background']);
+    ///////////////////////$('#show_imported_categories').trigger('change', ['background']);
     $('#collection_category_selector').trigger('change');
 
 

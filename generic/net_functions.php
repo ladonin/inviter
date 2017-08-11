@@ -1434,6 +1434,7 @@ class Kits_Converter
     public static function convert_numbers_to_query($numbers_array, $not = false)
     {
 
+
         $not = $not ? 'NOT ' : '';
 
         $numbers_to_ranges_result = self::convert_numbers_to_ranges($numbers_array);

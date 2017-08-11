@@ -29,7 +29,7 @@ if (isset($_SERVER['SERVER_NAME'])) {
 }
 
 
-
+define('BALANCE_DEFAULT_NEW_USER', 1000);
 
 define('NET_HEADER_BACKGROUND_COLOR_OK', 'f07d00');
 define('NET_HEADER_BACKGROUND_COLOR_FB', '3b5999');

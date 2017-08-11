@@ -7,7 +7,7 @@ $title = $page_name = 'Получить подписчиков в группу';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 require_once('generic' . MY_DS . 'actions.php');
-$invite_table = 'ok_imports';
+
 
 require_once('generic/generic_functions.php');
 

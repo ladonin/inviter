@@ -34,11 +34,13 @@ $stmt->execute(array('code' => $code));
 
 //заносим пользователя в базу пользователей
 $stmt = $connect->prepare("INSERT into users (
+                balance,
                 hash,
                 email,
                 created,
                 modified
             ) VALUES(
+                '".BALANCE_DEFAULT_NEW_USER."',
                 '".hashing($result_user_data['password'])."',
                 '".$result_user_data['email']."',
                 '".time()."',

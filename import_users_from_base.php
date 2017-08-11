@@ -27,12 +27,12 @@ if (!$category_id || !$user_id || !$users_count || (!$user_type_klass && !$user_
 }
 
 //берем данные покупателя
-$stmt = $connect->prepare("SELECT id,balance,koeff_ok_import_collection FROM users WHERE id = :user_id");
+$stmt = $connect->prepare("SELECT id,balance,koeff_{$net_code}_import_collection FROM users WHERE id = :user_id");
 $stmt->execute(array('user_id' => $user_id));
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 $user_id = $result['id'];
 $balance = $result['balance'];
-$koeff_ok_import_collection = $result['koeff_ok_import_collection'];
+$koeff_net_import_collection = $result['koeff_'.$net_code.'_import_collection'];
 
 //если не найден
 if (!$user_id) {
@@ -48,7 +48,7 @@ $user_import_cost = get_import_collection_request_cost_per_one_user([
     );
 
 // сколько будет все это стоить
-$cost = $user_import_cost * $koeff_ok_import_collection * $users_count;
+$cost = $user_import_cost * $koeff_net_import_collection * $users_count;
 
 //хватит денег или нет
 if ($balance < $cost) {
@@ -109,20 +109,20 @@ if (empty($result['id'])) {
     //берем те, что уже загруженные нами
     $stmt = $connect->prepare("
         SELECT ids, ids_condition, ids_not_invited
-    FROM ok_collections_imports
+    FROM {$net_code}_collections_imports
         WHERE user_id = $user_id AND category_id = $category_id");
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $has_record_in_ok_collections_imports = isset($result['ids_condition']) ? true : false;
+    $has_record_in_net_collections_imports = isset($result['ids_condition']) ? true : false;
     $ids_condition_collections_imports = $result['ids_condition'] ? $result['ids_condition'] : '';
     $ids_collections_imports = $result['ids'] ? $result['ids'] : '';
     $old_ids_not_invited = $result['ids_not_invited'] ? $result['ids_not_invited'] : '';
 
-    // берем те id-шники, которые можем добавить в ok_collections_imports
+    // берем те id-шники, которые можем добавить в {$net_code}_collections_imports
     $sql = "SELECT
                 id
             FROM
-                ok_collections_$category_id
+                {$net_code}_collections_$category_id
             WHERE 1 " . ($ids_condition_collections_imports ? (" AND " . $ids_condition_collections_imports) : '') . " " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
 
     $sql .= " ORDER by id ASC LIMIT $users_count";
@@ -148,10 +148,10 @@ $ids_conditions_array = Kits_Converter::convert_to_intenvals($ids_collections_im
 $new_ids_not_invited = Kits_Converter::add_new_numbers_to_numbers(explode(',', $old_ids_not_invited), $ids);
 
 // смотрим - есть ли у клиента строка с записанными ранее пользователями из данной категории
-if (!$has_record_in_ok_collections_imports){
+if (!$has_record_in_net_collections_imports){
     //создаем
     $stmt = $connect->prepare("
-    INSERT INTO ok_collections_imports
+    INSERT INTO {$net_code}_collections_imports
     (
         user_id,
         ids,
@@ -176,7 +176,7 @@ if (!$has_record_in_ok_collections_imports){
     //добавляем
     $stmt = $connect->prepare("
     UPDATE
-        ok_collections_imports
+        {$net_code}_collections_imports
     SET
         ids = '" . $ids_conditions_array['stroke'] . "',
         ids_condition = '" . $ids_conditions_array['sql_condition'] . "',

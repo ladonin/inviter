@@ -1638,8 +1638,7 @@
 
 
 select option:disabled {
-    color: #0f0;
-    font-weight: bold;
+color: #c5c5c5;
 }
 
 
