@@ -6,6 +6,12 @@
                     </div>
                     <div class="radio" style="display: block;">
                         <label>
+                            <input type="radio" required value='4' name="type_users" data-name='<?=get_type_name_by_id(4);?>'>
+                            <?=get_type_name_by_id(4);?>
+                        </label>
+                    </div>
+                    <div class="radio" style="display: block;">
+                        <label>
                             <input type="radio" required value='5' name="type_users" data-name="<?=get_type_name_by_id(5);?>">
                             <?=get_type_name_by_id(5);?>
                         </label>

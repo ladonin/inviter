@@ -12,6 +12,9 @@ function prepare_load_data()
     } else if ($_POST['type_users'] == 2) {//group_users
         preg_match_all("#id=\"fans_fan_row(?:.+?)data-id=\"([0-9]+)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 2;
+    } else if ($_POST['type_users'] == 4) {//repost
+        preg_match_all("#class=\"post_header\"(?:.+?)<a(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)class=\"post_author\"(?:.+?)data-from-id=\"(.+?)\"(?:.+?)>(.+?)</a>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 4;
     } else if ($_POST['type_users'] == 3) {//search_results
         preg_match_all("#class=\"people_row(?:.+?)\"uiPhotoZoom.over\(this,(?:[ ]?)([0-9]+)\)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 3;
@@ -145,9 +148,8 @@ function load_users_init()
 
                     $data_array = json_decode($result['data'], true);
 
-                    if ($group_id) {
-                        //обновляем группу
-                        $data_array['group_id'] = $group_id;
+                    if (!empty($user[4])) {
+                        $data_array['group_id'] = $user[4];
                     }
                     if ($comment) {
                         $data_array['comments'][$user_type] = $comment;

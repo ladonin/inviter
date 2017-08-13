@@ -7,6 +7,12 @@
     </div>
     <div class="checkbox" style="display: block;">
         <label>
+            <input type="checkbox"  value='4' name="type_users_4" data-name="<?=get_type_name_by_id(4);?>">
+            <?=get_type_name_by_id(4);?>
+        </label>
+    </div>
+    <div class="checkbox" style="display: block;">
+        <label>
             <input type="checkbox"  value='5' name="type_users_5" data-name="<?=get_type_name_by_id(5);?>">
             <?=get_type_name_by_id(5);?>
         </label>

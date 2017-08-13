@@ -81,6 +81,7 @@ function get_import_collection_request_cost_per_one_user() {
 
     var data = new Object();
 
+    var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#collection_import_form').val();
     var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
     var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
     var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
@@ -90,7 +91,7 @@ function get_import_collection_request_cost_per_one_user() {
     var most_expensive = 0;
     var most_expensive_type = '';
 
-
+    data['REPOST'] = user_type_repost;
     data['KLASS'] = user_type_klass;
     data['SUBSCRIBER'] = user_type_subscriber;
     data['SURVEY'] = user_type_survey;

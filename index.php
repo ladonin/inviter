@@ -51,10 +51,12 @@ include('generic/header.php');
 
 <div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
     <h3>Импорт пользователей<span style="margin-left:20px" class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></h3><br>
+    <div class="row">
+        <div class="col-xs-12 col-md-6 pr-10-md p-0">
 <?php
 if ($load_users_result) {
     ?>
-        <div class="col-xs-12" style="padding-left:0 !important">
+        <div>
             <ul class="list-group">
 
                 <li class="list-group-item list-group-item-info">
@@ -96,7 +98,8 @@ if ($load_users_result) {
         </tr>
     </table>
 </div>
-
+    </div>
+</div>
 
 
 <!-- Modal -->
@@ -173,6 +176,8 @@ if ($has_imported_users || $has_loaded_users) {
 <div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:30px !important;  margin-bottom:20px !important; margin-top:20px !important;">
     <h3>Скачать отчет</h3>
     <br>
+    <div class="row">
+        <div class="col-xs-12 col-lg-6 p-0">
     <div style="/*width: 640px;*/">
         <ul class="nav nav-tabs">
             <?php if ($has_loaded_users) { ?>
@@ -220,7 +225,7 @@ if ($has_imported_users || $has_loaded_users) {
             <?php } ?>
         </div>
     </div>
-</div>
+</div></div></div>
 <?php } ?>
 
 
@@ -615,11 +620,11 @@ alert_about_change_selection_users_view(2, status);
         var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
         var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
         var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
-
+        var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#collection_import_form').val();
 
 
         if (category_id == 0 ||
-                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_all)) {
+                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_repost && !user_type_all)) {
             $("#collection_category_func_buttons").hide();
             return false;
         }
@@ -629,10 +634,12 @@ alert_about_change_selection_users_view(2, status);
             user_type_subscriber = -1;
             user_type_survey = -1;
             user_type_comment = -1;
+            user_type_repost = -1;
             $('input[type=checkbox][name=type_users_1]').removeAttr("checked");
             $('input[type=checkbox][name=type_users_2]').removeAttr("checked");
             $('input[type=checkbox][name=type_users_5]').removeAttr("checked");
             $('input[type=checkbox][name=type_users_6]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_4]').removeAttr("checked");
         }
 
         $("#collection_category_func_buttons").show();
@@ -645,6 +652,7 @@ alert_about_change_selection_users_view(2, status);
             data: {
                 'category_id': category_id,
                 'user_type_1': user_type_klass,
+                'user_type_4': user_type_repost,
                 'user_type_2': user_type_subscriber,
                 'user_type_5': user_type_survey,
                 'user_type_6': user_type_comment
@@ -702,15 +710,16 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
         var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
         var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
         var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
-
+        var user_type_repost = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
 
         if (category_id == 0 ||
-                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_all)) {
+                (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_repost && !user_type_all)) {
             return false;
         }
 
         if (user_type_all) {
             user_type_klass = -1;
+            user_type_repost = -1;
             user_type_subscriber = -1;
             user_type_survey = -1;
             user_type_comment = -1;
@@ -722,6 +731,7 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
             data: {
                 'category_id': category_id,
                 'user_type_1': user_type_klass,
+                'user_type_4': user_type_repost,
                 'user_type_2': user_type_subscriber,
                 'user_type_5': user_type_survey,
                 'user_type_6': user_type_comment,
@@ -771,6 +781,10 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
                     }
                     if (user_type_comment) {
                         user_type_name += get_type_name_by_id(6) + '<br>';
+                        types_count++;
+                    }
+                    if (user_type_repost) {
+                        user_type_name += get_type_name_by_id(4) + '<br>';
                         types_count++;
                     }
                     user_type_name = user_type_name.slice(0,-4);
@@ -827,6 +841,8 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
                         return "<?=get_type_name_by_id(5);?>";
                     } else if (user_type == 6) {
                         return "<?=get_type_name_by_id(6);?>";
+                    } else if (user_type == 4) {
+                        return "<?=get_type_name_by_id(4);?>";
                     }
                 }
 

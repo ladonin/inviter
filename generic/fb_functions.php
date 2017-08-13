@@ -9,7 +9,11 @@ function prepare_load_data()
     if ($_POST['type_users'] == 1) {//classes
         preg_match_all("#<li(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)&(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 1;
-    } else if ($_POST['type_users'] == 2) {//group_users
+    } else if ($_POST['type_users'] == 4) {//repost
+        preg_match_all("#clearfix _5va3(?:.+?)<a(?:.+?)data-hovercard=\"(?:.+?)\?id=([0-9]+)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 4;
+    }
+    else if ($_POST['type_users'] == 2) {//group_users
         preg_match_all("#<div(?:.+?)id=\"member_card_([0-9]+)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)aria-label=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 2;
     } else if ($_POST['type_users'] == 3) {//search_results
@@ -150,9 +154,8 @@ function load_users_init()
 
                     $data_array = json_decode($result['data'], true);
 
-                    if ($group_id) {
-                        //обновляем группу
-                        $data_array['group_id'] = $group_id;
+                    if (!empty($user[4])) {
+                        $data_array['group_id'] = $user[4];
                     }
                     if ($comment) {
                         $data_array['comments'][$user_type] = $comment;

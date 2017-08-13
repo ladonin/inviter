@@ -18,13 +18,14 @@ $user_type_klass = !empty($_GET['user_type_1']) ? $_GET['user_type_1'] : null;
 $user_type_subscriber = !empty($_GET['user_type_2']) ? $_GET['user_type_2'] : null;
 $user_type_survey = !empty($_GET['user_type_5']) ? $_GET['user_type_5'] : null;
 $user_type_comment = !empty($_GET['user_type_6']) ? $_GET['user_type_6'] : null;
+$user_type_repost = !empty($_GET['user_type_4']) ? $_GET['user_type_4'] : null;
 
-if (!$category_id || (!$user_type_klass && !$user_type_subscriber && !$user_type_survey && !$user_type_comment)) {
+if (!$category_id || (!$user_type_klass && !$user_type_subscriber && !$user_type_survey && !$user_type_comment && !$user_type_repost)) {
     return;
 }
 
 
-$result = get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
+$result = get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
 
 
     echo $result;

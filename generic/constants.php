@@ -73,11 +73,12 @@ define('MY_REPORT_USERS_COLLECTION_LIMIT', 5000);
 
 // стоимость 1 импортированного пользователя
 define('MY_USER_IMPORT_COST', array(
-    'GENERIC'       => 0.25,
+    'GENERIC'       => 0.20,
     'COMMENT'       => 0.25,
     'SURVEY'        => 0.20,
     'SUBSCRIBER'    => 0.15,
     'KLASS'         => 0.30,
+    'REPOST'        => 0.35,
     'SEARCH'        => 0.15));
 
 // коэффициент суммы 1 дополнительного типа к самому дорогому типу в составной цене

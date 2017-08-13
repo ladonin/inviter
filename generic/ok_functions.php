@@ -10,7 +10,13 @@ function prepare_load_data()
         //!!!вроде проверил //берем всех, включая и без фото
         preg_match_all("#class=\"photoWrapper\"(?:.+?)st.friendId=([0-9]+?)&(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 1;
-    } else if ($_POST['type_users'] == 2) {//group_users
+    } else if ($_POST['type_users'] == 4) {//repost
+        preg_match_all("#<li(?:.+?)<a(?:.+?)st.friendId=([0-9]+?)&(?:.+?)(?:<img src=\"(.+?)\"(?:.+?))?\"ucard_info\"(?:.+?)<span(?:.+?)>(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        $user_type = 4;
+    }
+
+
+    else if ($_POST['type_users'] == 2) {//group_users
         //!!!вроде проверил //берем всех, включая и без фото
         preg_match_all("#class=\"photoWrapper\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?id=\"hook_ShortcutMenu(?:.+?)<!--{(?:.*?)\"groupId\":\"(.+?)\"(?:.+?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
 
@@ -43,7 +49,7 @@ function prepare_load_data()
         }
     } else if ($_POST['type_users'] == 4) {//group_users mobile
         //!!!вроде проверил //берем всех, включая и без фото
-        preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a(?:.+?)href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div(?:.+?)class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 2;
 
         foreach ($users_result as &$user) {
@@ -63,8 +69,13 @@ function prepare_load_data()
         $user_type = 5;
     } else if ($_POST['type_users'] == 6) {//comments
         //!!!вроде проверил //берем всех, включая и без фото
-        preg_match_all("#<img uid=\"goToUserFromComment\"(?:.+?)data-query=\"\{&quot;userId&quot;:&quot;(.+?)&quot;\}\"(?:.+?)src=\"(.+?)\"(?:.+?)<span(?:.+?) uid=\"goToUserFromComment\"(?:.+?)>(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        preg_match_all("#<img(?:.+?)uid=\"goToUserFromComment\"(?:.+?)data-query=\"\{&quot;userId&quot;:&quot;(.+?)&quot;\}\"(?:.+?)src=\"(.+?)\"(?:.+?)<span(?:.+?) uid=\"goToUserFromComment\"(?:.+?)>(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 6;
+
+        // будем искать в разных местах - под постом или в комментах у себя во вкладке
+        if (!$users_result) {
+            preg_match_all("#\"ucard\"(?:.+?)<a(?:.+?)st.friendId=([0-9]+?)&(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        }
     }
     $comment = isset($_POST['comment']) ? strip_tags($_POST['comment']) : '';
 
@@ -163,9 +174,8 @@ function load_users_init()
 
                     $data_array = json_decode($result['data'], true);
 
-                    if ($group_id) {
-                        //обновляем группу
-                        $data_array['group_id'] = $group_id;
+                    if (!empty($user[4])) {
+                        $data_array['group_id'] = $user[4];
                     }
                     if ($comment) {
                         $data_array['comments'][$user_type] = $comment;

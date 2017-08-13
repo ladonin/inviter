@@ -8,14 +8,16 @@ $types_fields = array(
     'is_survey' => 5,
     'is_subscriber' => 2,
     'is_klass' => 1,
-    'is_search' => 3
+    'is_search' => 3,
+    'is_repost' => 4,
 );
 $types_fields_inv = array(
     6 => 'is_comment',
     5 => 'is_survey',
     2 => 'is_subscriber',
     1 => 'is_klass',
-    3 => 'is_search'
+    3 => 'is_search',
+    4 => 'is_repost'
 );
 
 
@@ -86,7 +88,10 @@ function get_type_name($user_type, $eng = false)
             return 'surveys';
         } elseif ($user_type == 6) {
             return 'comments';
+        } elseif ($user_type == 4) {
+            return 'repost';
         }
+
     }
 
     if ($user_type == 1) {
@@ -99,6 +104,8 @@ function get_type_name($user_type, $eng = false)
         return 'опросы';
     } elseif ($user_type == 6) {
         return 'комментарии';
+    } elseif ($user_type == 4) {
+        return 'поделился постом';
     }
 }
 
@@ -325,7 +332,7 @@ function get_types_loads_users($styled = true)
 }
 
 
-function get_category_type_users_count_collections($category_id, $user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment)
+function get_category_type_users_count_collections($category_id, $user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost)
 {
 
     global $net_code;
@@ -350,7 +357,7 @@ function get_category_type_users_count_collections($category_id, $user_type_klas
                 COUNT(0) as count
             FROM
                 {$net_code}_collections_$category_id
-            WHERE 1 " . ($result['ids_condition'] ? (" AND " . $result['ids_condition']) : '') . " " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
+            WHERE 1 " . ($result['ids_condition'] ? (" AND " . $result['ids_condition']) : '') . " " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
 
     //echo($sql);
     $stmt = $connect->prepare($sql);
@@ -427,6 +434,8 @@ function get_type_name_by_id($user_type)
         return 'Учавствуют в опросах';
     } elseif ($user_type == 6) {
         return 'Оставляют комментарии';
+    } elseif ($user_type == 4) {
+        return 'Репост';
     }
 }
 
@@ -647,6 +656,8 @@ function get_type_code_by_id($user_type)
         return 'survey';
     } elseif ($user_type == 6) {
         return 'comment';
+    } elseif ($user_type == 4) {
+        return 'repost';
     }
 }
 
@@ -719,7 +730,7 @@ function get_available_collection_imported_types_from_base_not_invited($user_id,
 function get_import_collection_request_cost_per_one_user($data)
 {
 
-    if (($data['KLASS'] == -1) && ($data['SUBSCRIBER'] == -1) && ($data['SURVEY'] == -1) && ($data['COMMENT'] == -1)) {
+    if (($data['KLASS'] == -1) && ($data['SUBSCRIBER'] == -1) && ($data['SURVEY'] == -1) && ($data['COMMENT'] == -1) && ($data['REPOST'] == -1)) {
         return MY_USER_IMPORT_COST['GENERIC'];
     }
 
@@ -760,7 +771,7 @@ function get_import_collection_request_cost_per_one_user($data)
 }
 
 
-function prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment)
+function prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost)
 {
 
     $sql = "";
@@ -785,12 +796,16 @@ function prepare_import_types_condition($user_type_klass, $user_type_subscriber,
             $user_type_klass = $user_type_klass ? 1 : 0;
             $sql .= " AND is_klass = $user_type_klass";
         }
+        if (!is_null($user_type_repost)) {
+            $user_type_repost = $user_type_repost ? 1 : 0;
+            $sql .= " AND is_repost = $user_type_repost";
+        }
     }
     return $sql;
 }
 
 
-function import_needed_types_list($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment)
+function import_needed_types_list($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost)
 {
 
     $list = "";
@@ -814,6 +829,10 @@ function import_needed_types_list($user_type_klass, $user_type_subscriber, $user
         if (!is_null($user_type_klass)) {
             $user_type_klass = $user_type_klass ? 1 : 0;
             $list .= "is_klass:$user_type_klass,";
+        }
+        if (!is_null($user_type_repost)) {
+            $user_type_repost = $user_type_repost ? 1 : 0;
+            $list .= "is_repost:$user_type_repost,";
         }
     }
     return trim($list, ',');

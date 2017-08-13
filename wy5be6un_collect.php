@@ -142,7 +142,7 @@ $load_users_collection_result = load_users_collection_init();
 
 
 
-        $stmt = $connect->prepare("SELECT * FROM ok_collections_categories order by name ASC");
+        $stmt = $connect->prepare("SELECT * FROM {$net_code}_collections_categories order by name ASC");
         $stmt->execute();
         $categories = $stmt->fetchAll();
 

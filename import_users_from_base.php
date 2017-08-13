@@ -19,10 +19,11 @@ $user_type_klass = !empty($_GET['user_type_1']) ? $_GET['user_type_1'] : null;
 $user_type_subscriber = !empty($_GET['user_type_2']) ? $_GET['user_type_2'] : null;
 $user_type_survey = !empty($_GET['user_type_5']) ? $_GET['user_type_5'] : null;
 $user_type_comment = !empty($_GET['user_type_6']) ? $_GET['user_type_6'] : null;
+$user_type_repost = !empty($_GET['user_type_4']) ? $_GET['user_type_4'] : null;
 
 $users_count = !empty($_GET['users_count']) ? (int)$_GET['users_count'] : null;
 
-if (!$category_id || !$user_id || !$users_count || (!$user_type_klass && !$user_type_subscriber && !$user_type_survey && !$user_type_comment)) {
+if (!$category_id || !$user_id || !$users_count || (!$user_type_klass && !$user_type_subscriber && !$user_type_survey && !$user_type_comment && !$user_type_repost)) {
     return;
 }
 
@@ -44,7 +45,9 @@ $user_import_cost = get_import_collection_request_cost_per_one_user([
         'KLASS' => $user_type_klass,
         'SUBSCRIBER' => $user_type_subscriber,
         'SURVEY' => $user_type_survey,
-        'COMMENT' => $user_type_comment]
+        'COMMENT' => $user_type_comment,
+        'REPOST' => $user_type_repost,
+    ]
     );
 
 // сколько будет все это стоить
@@ -63,7 +66,7 @@ if ($balance < $cost) {
 
 
 //сколько всего можно импортировать пользователей данного типа и категории
-$import_max = get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
+$import_max = get_category_type_users_count_collections($category_id,$user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
 
 
 
@@ -123,7 +126,7 @@ if (empty($result['id'])) {
                 id
             FROM
                 {$net_code}_collections_$category_id
-            WHERE 1 " . ($ids_condition_collections_imports ? (" AND " . $ids_condition_collections_imports) : '') . " " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment);
+            WHERE 1 " . ($ids_condition_collections_imports ? (" AND " . $ids_condition_collections_imports) : '') . " " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
 
     $sql .= " ORDER by id ASC LIMIT $users_count";
 
@@ -202,7 +205,7 @@ $stmt = $connect->prepare("INSERT INTO expenditures
 )
 VALUES (
 :user_id,
-'".json_encode(['category_id' => $category_id,'user_types' => import_needed_types_list($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment), 'import_max' => $import_max, 'users_count' => $users_count, 'cost' => $cost, 'balance' => $balance])."',
+'".json_encode(['category_id' => $category_id,'user_types' => import_needed_types_list($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost), 'import_max' => $import_max, 'users_count' => $users_count, 'cost' => $cost, 'balance' => $balance])."',
 1,
 " . time() . "
 )");
