@@ -32,7 +32,7 @@ include('generic/header.php');
 
 <div class="row">
     <div class="pull-left mh-20-sm m-10">
-        <h5><b><?=get_net_title();?></b></h5>
+        <div class="pull-left mr-10"><img src="/img/<?=$net_code;?>_logo.jpg" width="26" style="border-radius: 1000px; width: 24px; margin: 5px 0;"></div><div class="pull-left"><h5><b><?=get_net_title();?></b></h5></div><div class="clearfix"></div>
     </div>
     <div class="mh-20-sm m-10">
         <?php $non_instruction = 1; require("generic/{$net_code}_instruction_menu.php"); ?>
@@ -710,7 +710,7 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
         var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
         var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
         var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
-        var user_type_repost = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
+        var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#collection_import_form').val();
 
         if (category_id == 0 ||
                 (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_repost && !user_type_all)) {
