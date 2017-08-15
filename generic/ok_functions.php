@@ -13,56 +13,42 @@ function prepare_load_data()
     } else if ($_POST['type_users'] == 4) {//repost
         preg_match_all("#<li(?:.+?)<a(?:.+?)st.friendId=([0-9]+?)&(?:.+?)(?:<img src=\"(.+?)\"(?:.+?))?\"ucard_info\"(?:.+?)<span(?:.+?)>(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 4;
-    }
-
-
-    else if ($_POST['type_users'] == 2) {//group_users
+    } else if ($_POST['type_users'] == 2) {//group_users
         //!!!вроде проверил //берем всех, включая и без фото
         preg_match_all("#class=\"photoWrapper\"(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?id=\"hook_ShortcutMenu(?:.+?)<!--{(?:.*?)\"groupId\":\"(.+?)\"(?:.+?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
 
         $user_type = 2;
-        foreach ($users_result as &$user) {
-            $var1 = $user[1];
-            $var2 = $user[2];
-            $var3 = $user[3];
-            $var4 = $user[4];
 
-            $user[1] = $var3;
-            $user[2] = $var1;
-            $user[3] = $var4;
-            $user[4] = $var2;
+        foreach ($users_result as $key => $user) {
+            $users_result[$key][1] = $user[3];
+            $users_result[$key][2] = $user[1];
+            $users_result[$key][3] = $user[4];
+            $users_result[$key][4] = $user[2];
         }
+
     } else if ($_POST['type_users'] == 3) {//search_results
         //!!!вроде проверил //берем всех, включая и без фото
         preg_match_all("#<div data-l=(?:.+?)(?:<img class=\"photo_img(?:.+?)src=\"(.+?)\" alt=(?:.+?))?<div class=\"hookData(?:.+?)<!--{(?:.*?)\"userId\":\"(.+?)\"(?:.+?)\"fio\":\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 3;
 
-        foreach ($users_result as &$user) {
-            $var1 = $user[1];
-            $var2 = $user[2];
-            $var3 = $user[3];
-
-
-            $user[1] = $var2;
-            $user[2] = $var1;
-            $user[3] = $var3;
+        foreach ($users_result as $key => $user) {
+            $users_result[$key][1] = $user[2];
+            $users_result[$key][2] = $user[1];
+            $users_result[$key][3] = $user[3];
         }
-    } else if ($_POST['type_users'] == 4) {//group_users mobile
+
+    } else if ($_POST['type_users'] == 7) {//group_users mobile
         //!!!вроде проверил //берем всех, включая и без фото
         preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a(?:.+?)href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div(?:.+?)class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 2;
 
-        foreach ($users_result as &$user) {
-            $var1 = $user[1];
-            $var2 = $user[2];
-            $var3 = $user[3];
-            $var4 = $user[4];
-
-            $user[1] = $var2;
-            $user[2] = $var3;
-            $user[3] = $var4;
-            $user[4] = $var1;
+        foreach ($users_result as $key => $user) {
+            $users_result[$key][1] = $user[2];
+            $users_result[$key][2] = $user[3];
+            $users_result[$key][3] = $user[4];
+            $users_result[$key][4] = $user[1];
         }
+
     } else if ($_POST['type_users'] == 5) {//surveys
         //!!!вроде проверил //берем всех, включая и без фото
         preg_match_all("#class=\"photoWrapper\"(?:.+?)st.friendId=([0-9]+?)&(?:.+?)(?:<img src=\"(.+?)\" alt=(?:.+?))?class=\"o\"(?:.+?)>(.+?)<#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
@@ -79,7 +65,14 @@ function prepare_load_data()
     }
     $comment = isset($_POST['comment']) ? strip_tags($_POST['comment']) : '';
 
+
     foreach ($users_result as $key => $user) {
+
+        if (!$user[2]) {
+            unset($users_result[$key]);
+            continue;
+        }
+
         $users_result[$key][1] = $user[1];
         $users_result[$key][2] = strip_tags($user[2]);
         $users_result[$key][3] = strip_tags($user[3]);

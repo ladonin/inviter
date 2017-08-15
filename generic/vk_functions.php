@@ -14,11 +14,17 @@ function prepare_load_data()
         $user_type = 2;
     } else if ($_POST['type_users'] == 4) {//repost
         preg_match_all("#class=\"post_header\"(?:.+?)<a(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)class=\"post_author\"(?:.+?)data-from-id=\"(.+?)\"(?:.+?)>(.+?)</a>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+
+        foreach ($users_result as $key => $user) {
+            $users_result[$key][1] = $user[2];
+            $users_result[$key][2] = $user[1];
+            $users_result[$key][3] = $user[3];
+        }
         $user_type = 4;
     } else if ($_POST['type_users'] == 3) {//search_results
         preg_match_all("#class=\"people_row(?:.+?)\"uiPhotoZoom.over\(this,(?:[ ]?)([0-9]+)\)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 3;
-    } else if ($_POST['type_users'] == 4) {//group_users mobile
+    } else if ($_POST['type_users'] == 7) {//group_users mobile
         //!!!вроде проверил //берем всех, включая и без фото
         //preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
         $user_type = 2;
@@ -44,6 +50,15 @@ function prepare_load_data()
     $comment = isset($_POST['comment']) ? strip_tags($_POST['comment']) : '';
 
     foreach ($users_result as $key => $user) {
+
+        if ((stristr($user[2], '/images/camera_') !== FALSE)
+                || (stristr($user[2], '/images/deactivated_') !== FALSE)
+                || (stristr($user[2], '/images/community_') !== FALSE)
+                ) {
+            unset($users_result[$key]);
+            continue;
+        }
+
         $profile_id = $user[1];
         $user_avatar = strip_tags($user[2]);
 

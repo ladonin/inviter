@@ -28,7 +28,7 @@ if (isset($_SERVER['SERVER_NAME'])) {
     define('MY_DOMEN', MY_PROTOCOL . MY_DOMEN_NAME);
 }
 
-
+define('MAX_USERS_COUNT_PER_IMPORT', '5000');
 define('BALANCE_DEFAULT_NEW_USER', 1000);
 
 define('NET_HEADER_BACKGROUND_COLOR_OK', 'f07d00');
@@ -74,10 +74,10 @@ define('MY_REPORT_USERS_COLLECTION_LIMIT', 5000);
 // стоимость 1 импортированного пользователя
 define('MY_USER_IMPORT_COST', array(
     'GENERIC'       => 0.20,
-    'COMMENT'       => 0.25,
-    'SURVEY'        => 0.20,
+    'COMMENT'       => 0.30,
+    'SURVEY'        => 0.25,
     'SUBSCRIBER'    => 0.15,
-    'KLASS'         => 0.30,
+    'KLASS'         => 0.25,
     'REPOST'        => 0.35,
     'SEARCH'        => 0.15));
 

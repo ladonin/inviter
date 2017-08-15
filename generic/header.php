@@ -1633,7 +1633,9 @@
 
 
 
-
+                .text-muted{
+                    color: #777 !important;
+                }
 
 
 
@@ -1641,7 +1643,16 @@ select option:disabled {
 color: #c5c5c5;
 }
 
+button:disabled {
 
+opacity: 1 !important;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
 
 
 

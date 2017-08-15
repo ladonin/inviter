@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="9">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="13">
         <file>
             <url>ok_show_users.php</url>
             <bookmark id="2">
                 <name/>
                 <line>23</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>index.php</url>
+            <bookmark id="11">
+                <name/>
+                <line>303</line>
+                <key/>
+            </bookmark>
+            <bookmark id="10">
+                <name/>
+                <line>754</line>
+                <key/>
+            </bookmark>
+            <bookmark id="12">
+                <name/>
+                <line>756</line>
+                <key/>
+            </bookmark>
+            <bookmark id="13">
+                <name/>
+                <line>778</line>
                 <key/>
             </bookmark>
         </file>
@@ -24,32 +47,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/reset_users_list.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/fb_users_types_checkbox.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/fb_users_types.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/show_users.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/auth_control.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/index.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/.htaccess</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/constants.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/refresh_imports.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/show_users.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/footer.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/generic_functions.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/vk_users_types_checkbox.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/ok_functions.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/fb_instruction_menu.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/ok_users_types.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/vk_functions.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/vk_instruction_menu.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/get_imported_types_users_by_category.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/fb_functions.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/ok_instruction_menu.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/import_users_from_base.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/fb.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/get_category_type_users_count.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/vk_users_types.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

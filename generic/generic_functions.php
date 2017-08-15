@@ -226,3 +226,10 @@ function auth_control()
         return -2;
     }
 }
+
+
+function write_to_log($message)
+{
+    $file = MY_DOCROOT . '/../log/log.txt';
+    file_put_contents($file, date(DATE_RFC2822) . ': ' . $message . "\n\r", FILE_APPEND);
+}

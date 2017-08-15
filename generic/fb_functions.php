@@ -25,7 +25,7 @@ function prepare_load_data()
             $users_result[$key][2] = $user[1];
             $users_result[$key][3] = $user[2];
         }
-    } else if ($_POST['type_users'] == 4) {//group_users mobile
+    } else if ($_POST['type_users'] == 7) {//group_users mobile
         exit();
         //!!!вроде проверил //берем всех, включая и без фото
         //preg_match_all("#<li class=\"item(?:.+?)st\.groupId=(.+?)&amp;(?:.+?)<a href=\"/dk\?st\.cmd=friendMain&amp;st\.friendId=(.+?)&amp;(?:.+?)<div class=\"clickarea_content\">(?:.+?)<img (?:.+?)src=\"(.+?)\"(?:.+?)\"(?:.+?)<span class=\"emphased usr\">(.+?)</span>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);

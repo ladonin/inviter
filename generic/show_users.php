@@ -38,7 +38,7 @@
                 <div class="row">
 
 
-                    <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*margin-right:10px;margin-bottom:5px;*/">
+                    <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*111margin-right:10px;margin-bottom:5px;*/">
                         <select class="form-control" id="show_type_load">
                             <?php
                             $types_loads_users = get_types_loads_users($styled = true);
@@ -58,7 +58,7 @@
                     <?php
                     $self_load_users_types = get_client_self_load_enabled_users_types();
                     if ($self_load_users_types) {
-                        ?><div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*margin-right:10px;margin-bottom:5px;*/">
+                        ?><div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*2222margin-right:10px;margin-bottom:5px;*/">
 
                             <select class="form-control" id="show_self_load_users_types">
                                 <?php if (count($self_load_users_types) > 1) { ?><option value='0'>Все пользователи</option><?php } ?>
@@ -73,11 +73,12 @@
                         </div>
                         <?php } ?>
 
-                    <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*margin-right:10px;margin-bottom:5px;*/">
+
                         <?php
                         $client_imported_enabled_categories = get_client_imported_enabled_categories();
                         if ($client_imported_enabled_categories) {
                             ?>
+                    <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*333margin-right:10px;margin-bottom:5px;*/">
                             <select class="form-control" id="show_imported_categories">
                                 <?php foreach ($client_imported_enabled_categories as $client_imported_enabled_category) { ?>
                                     <option value='<?php echo($client_imported_enabled_category['category_id']); ?>'
@@ -87,9 +88,10 @@
                                             ><?php echo($client_imported_enabled_category['name']); ?></option>
         <?php } ?>
                             </select>
-    <?php } ?>
                     </div>
-                    <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="margin-bottom:5px; height:34px;" id="block_imported_types">
+    <?php } ?>
+
+                    <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*444*/margin-bottom:5px; height:34px;" id="block_imported_types">
                             <select class="form-control" style="color:#c8c8c8 !important">
                                 <option value='0' disabled selected>Обновление...</option>
                             </select>

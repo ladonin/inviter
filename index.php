@@ -50,7 +50,8 @@ include('generic/header.php');
 
 
 <div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
-    <h3>Импорт пользователей<span style="margin-left:20px" class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></h3><br>
+    <h3>Импорт пользователей</h3>
+    <div class="pv-10"><span class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></div>
     <div class="row">
         <div class="col-xs-12 col-md-6 pr-10-md p-0">
 <?php
@@ -116,7 +117,7 @@ if ($load_users_result) {
             <div class="modal-body">
                 <form action='' method="post"  id='collection_import_form' class="form-inline">
                     <h4>Категория:</h4>
-                    <select required name="category_id" id='collection_category_selector' class="form-control" style="width:400px;">
+                    <select required name="category_id" id='collection_category_selector' class="form-control" style="width:100%; max-width: 400px;">
                         <option value="0">Выберите категорию...
 <?php
 $stmt = $connect->prepare("SELECT * FROM {$net_code}_collections_categories order by name ASC");
@@ -130,15 +131,15 @@ foreach ($categories as $key => $category) {
 
                     </select>
 
-                    <div style="padding-top:10px">
+
 <?php require('generic' . MY_DS . $net_code . '_users_types_checkbox.php'); ?>
-                    </div>
+
 
                     <div id="collection_category_func_buttons" style="padding-top:5px;">
                         <div id="get_category_type_users_count" style="margin-bottom: 10px;color: #4c77af;font-size: 21px;"></div>
                         <div id="get_category_type_user_cost" style="margin-bottom: 10px;font-size: 16px;"></div>
                         <button type="submit" disabled class="btn btn-success" id="collection_importer">Импортировать</button>
-                        <div class="form-group"><input style="width:100px;" id="collection_importer_count" class="form-control " value="" type="text">
+                        <div class="form-group" style="display: inline-block;"><input style="width:100px;" id="collection_importer_count" class="form-control" value="" type="text">
                             <label for="collection_importer_count" id="collection_importer_count_people">человек</label> <b style="color:#4c77af" id="collection_importer_cost"></b>
                         </div>
                     </div>
@@ -270,6 +271,96 @@ $(document).ready(function(){
         $('#report_collection_loaded_block').show();
     });
 
+//обновление доступных для импорта категорий
+//$('#collectionsModal').on('shown.bs.modal', function() {
+//    prepare_available_imported_categories();
+//})
+//
+//function prepare_available_imported_categories(){
+//
+//    $.ajax({
+//        url: "/get_available_imported_categories.php?net_code=<?= $net_code; ?>",
+//        data: {}
+//    }).done(function (data) {
+//
+//        var data = JSON.parse(data);
+//        var selected_id = $("#collection_category_selector :selected").val();
+//        $("#collection_category_selector").empty();
+//        var select = $('#collection_category_selector');
+//
+//        $.each(data, function (index, value) {
+//            var is_selected = '';
+//            if (selected_id == value.category_id) {
+//                is_selected = 'selected';
+//            }
+//            select.append("<option value='"+value.category_id+"' " + is_selected + ">" + value.name + "</option>");
+//        });
+//    });
+//}
+
+
+
+function prepare_available_imported_category_types(){
+    var category_id = $('#collection_category_selector').val();
+    if (category_id == 0){
+        $('#collection_import_form .condition').hide();
+        $("#collection_category_func_buttons").hide();
+        $('#collection_import_form .type_users_checkbox .checkbox').hide();
+        $('#collection_import_form input[type=checkbox]').removeAttr("checked");
+        $('#collection_import_form .notice').html('Выберите категорию выше').show();
+    } else {
+
+    $.ajax({
+        url: "/get_available_collection_imported_types_from_base_for_import.php?net_code=<?= $net_code; ?>",
+        data: {category_id: category_id}
+    }).done(function (data) {
+console.log(data);
+        var data = JSON.parse(data);
+
+
+        var has_types = false;
+        var types_count = 0;
+        $('#collection_import_form .type_users_checkbox .checkbox').hide();
+
+        // снимаем выбор с выбранных
+        $.each($('#collection_import_form .type_users_checkbox .checkbox input[type=checkbox]:checked'), function (index, value) {
+            // если чекбокс пустой, то снимаем с него checked
+            if(!data[$(this).val()]) {
+                $(this).removeAttr("checked");
+            }
+        });
+        // в итоге теперь со всех пустых снят checked
+
+        // открываем непустые
+        $.each(data, function (index, value) {
+            $('#collection_import_form .type_users_checkbox .checkbox.type_'+value[0]).show();
+            has_types = true;
+            types_count++;
+        });
+
+
+        if (types_count > 1) {
+            $('#collection_import_form .type_users_checkbox .checkbox.type_0').show();
+    }
+
+
+        if (!has_types) {
+            $('#collection_import_form .condition').hide();
+        $('#collection_import_form .notice').html('Новых пользователей по данной категории не найдено. Информация поступила в обработку. <br>Приносим свои извинения, вскоре данная коллекция будет пополнена.').show();
+        } else {
+                $('#collection_import_form .notice').hide();
+            }
+
+calculate_price();
+    });
+    }
+}
+
+
+
+
+
+
 
 
 function reset_users_list() {
@@ -369,49 +460,54 @@ function alert_about_change_selection_users_view(step,status){
             }
     }
 }
-
+var loaded_users_status = true;
     function load_uses_list() {
 
-        var show_type_load = $("#show_type_load").val();
-        var show_self_load_users_types = $("#show_self_load_users_types").val();
-        var show_imported_categories = $("#show_imported_categories").val();
-        var show_imported_types = $("#show_imported_types").val();
-        var show_users_number = $("#show_users_number").val();
+        if (loaded_users_status === true) {
+            loaded_users_status = false;
+            var show_type_load = $("#show_type_load").val();
+            var show_self_load_users_types = $("#show_self_load_users_types").val();
+            var show_imported_categories = $("#show_imported_categories").val();
+            var show_imported_types = $("#show_imported_types").val();
+            var show_users_number = $("#show_users_number").val();
 
 
-        if (!show_type_load) {
-            show_type_load = 0;
-        }
-
-
-        $.ajax({
-            url: "/show_users.php?net_code=<?=$net_code;?>",
-            data: {
-                'show_type_load': show_type_load,
-                'show_self_load_users_types': show_self_load_users_types,
-                'show_imported_categories': show_imported_categories,
-                'show_imported_types': show_imported_types,
-                'show_users_reset': show_users_reset,
-                'show_users_number': show_users_number
+            if (!show_type_load) {
+                show_type_load = 0;
             }
-        }).done(function (data) {
-            $("#show_users_block").html(data);
+            $('#show_users').attr('disabled', true);
 
-            alert_about_change_selection_users_view(1);
+            $.ajax({
+                url: "/show_users.php?net_code=<?=$net_code;?>",
+                data: {
+                    'show_type_load': show_type_load,
+                    'show_self_load_users_types': show_self_load_users_types,
+                    'show_imported_categories': show_imported_categories,
+                    'show_imported_types': show_imported_types,
+                    'show_users_reset': show_users_reset,
+                    'show_users_number': show_users_number
+                }
+            }).done(function (data) {
+                $("#show_users_block").html(data);
 
-            $('#show_type_load').trigger('change');
-            //////////$('#show_imported_categories').trigger('change', ['load_uses_list']);
+                alert_about_change_selection_users_view(1);
+
+                $('#show_type_load').trigger('change', ['load_uses_list']);
+                //////////$('#show_imported_categories').trigger('change', ['load_uses_list']);
 
 
-  $('[data-toggle="tooltip"]').tooltip();
-  $('#loaded_users_buttons_up').html($('#loaded_users_buttons_down').html());
-    $('#loaded_users_buttons_down').html('');
+      $('[data-toggle="tooltip"]').tooltip();
+      $('#loaded_users_buttons_up').html($('#loaded_users_buttons_down').html());
+        $('#loaded_users_buttons_down').html('');
 
 
 
 
-            show_users_reset = 0;
-        });
+                show_users_reset = 0;
+                $('#show_users').attr('disabled', false);
+                loaded_users_status = true;
+            });
+        }
     }
 
 
@@ -424,7 +520,7 @@ function alert_about_change_selection_users_view(step,status){
     });
 
 
-    $(document).on('change', '#show_type_load', function () {
+    $(document).on('change', '#show_type_load', function (event, status) {
         var type_load = $(this).val();
 
         if (type_load == 1) {
@@ -436,7 +532,13 @@ function alert_about_change_selection_users_view(step,status){
             $('#show_self_load_users_types').closest('div').hide();
             $('#show_imported_categories').closest('div').show();
             $('#show_imported_types').closest('div').show();
-            $('#show_imported_categories').trigger('change', ['show_type_load']);
+
+
+                if (typeof(status) == 'undefined') {
+                    status = 'show_type_load';
+                }
+
+            $('#show_imported_categories').trigger('change', [status]);
         }
 
     });
@@ -507,8 +609,8 @@ function alert_about_change_selection_users_view(step,status){
                     select.append("<option value='"+value[0]+"' " + selected + ">" + value[1] + "</option>");
 
                 });
-if (status === 'load_uses_list') {
-console.log(getCookie('show_imported_type_<?=$net_code;?>'));
+        if (status === 'load_uses_list') {
+                //console.log(getCookie('show_imported_type_<?=$net_code;?>'));
                 // если несколько раз покажем "все пользователи"
                 if ((old_type == 0) && (status_types_load_users_by_collection_not_changed === false)) {
                     status_types_load_users_by_collection_not_changed = null;
@@ -525,14 +627,9 @@ console.log(getCookie('show_imported_type_<?=$net_code;?>'));
 
             }
 
-if (status === 'load_uses_list') {
-alert_about_change_selection_users_view(2, status);
-}
-
-
-
-
-
+            if (status === 'load_uses_list') {
+                alert_about_change_selection_users_view(2, status);
+            }
 
         });
     });
@@ -561,6 +658,11 @@ alert_about_change_selection_users_view(2, status);
             if (users_count > users_max) {
                 users_count = users_max;
             }
+            if (users_count > <?=MAX_USERS_COUNT_PER_IMPORT?>) {
+                users_count = <?=MAX_USERS_COUNT_PER_IMPORT?>;
+            }
+
+
 
             $('#collection_importer_count').val(users_count);
 
@@ -588,6 +690,7 @@ alert_about_change_selection_users_view(2, status);
             $("#collection_importer").prop('disabled', true);
         }
     });
+
     $("#collection_importer_count").trigger('keyup');
 
 
@@ -599,22 +702,16 @@ alert_about_change_selection_users_view(2, status);
 
 
 
-    $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').change(function() {
+    $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').change(function() {
         $('input[type=checkbox][name=user_type_all]').removeAttr("checked");
-});
+    });
 
     $('input[type=checkbox][name=user_type_all]').change(function() {
-        $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').removeAttr("checked");
-});
+        $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').removeAttr("checked");
+    });
 
-
-
-
-    $('#collection_category_selector,input[type=checkbox]').change(function () {
-
-
+    $('#collection_import_form input[type=checkbox]').change(function () {
         var category_id = $('#collection_category_selector').val();
-
         var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
         var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
         var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
@@ -622,12 +719,78 @@ alert_about_change_selection_users_view(2, status);
         var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
         var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#collection_import_form').val();
 
-
         if (category_id == 0 ||
                 (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_repost && !user_type_all)) {
             $("#collection_category_func_buttons").hide();
             return false;
         }
+
+        if (user_type_all) {
+
+        } else {
+
+            var condition_text='';
+
+            if (user_type_klass) {
+                condition_text += get_type_name_by_id(user_type_klass) + ' <b>И</b> ';
+            }
+            if (user_type_repost) {
+                condition_text += get_type_name_by_id(user_type_repost) + ' <b>И</b> ';
+            }
+            if (user_type_survey) {
+                condition_text += get_type_name_by_id(user_type_survey) + ' <b>И</b> ';
+            }
+            if (user_type_comment) {
+                condition_text += get_type_name_by_id(user_type_comment) + ' <b>И</b> ';
+            }
+            if (user_type_subscriber) {
+                condition_text += get_type_name_by_id(user_type_subscriber) + ' <b>И</b> ';
+            }
+            $('#collection_import_form .condition').html(condition_text.slice(0, condition_text.length -10)).show();
+        }
+        $("#collection_category_func_buttons").show();
+        calculate_price();
+    });
+
+
+    $('#collection_import_form #collection_category_selector').change(function () {
+        prepare_available_imported_category_types();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function calculate_price(){
+        var category_id = $('#collection_category_selector').val();
+        var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
+        var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
+        var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
+        var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#collection_import_form').val();
+        var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#collection_import_form').val();
+        var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#collection_import_form').val();
+//$('#get_category_type_users_count').html('<span class="text-muted">идет подсчет...</span>');
+
+
+
+    if (!category_id || (!user_type_klass && !user_type_repost && !user_type_subscriber && !user_type_survey && !user_type_comment && !user_type_all)) {
+
+                $('#collection_import_form .condition').hide();
+                $("#collection_category_func_buttons").hide();
+                return false;
+    }
+
 
         if (user_type_all) {
             user_type_klass = -1;
@@ -640,13 +803,8 @@ alert_about_change_selection_users_view(2, status);
             $('input[type=checkbox][name=type_users_5]').removeAttr("checked");
             $('input[type=checkbox][name=type_users_6]').removeAttr("checked");
             $('input[type=checkbox][name=type_users_4]').removeAttr("checked");
+            $('#collection_import_form .condition').hide();
         }
-
-        $("#collection_category_func_buttons").show();
-
-
-//$('#get_category_type_users_count').html('<span class="text-muted">идет подсчет...</span>');
-
         $.ajax({
             url: "/get_category_type_users_count.php?net_code=<?=$net_code;?>",
             data: {
@@ -669,8 +827,11 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
 
                 $("#collection_importer_count").show().val('');
                 $("#collection_importer_count_people").show();
-
+                $('#get_category_type_users_count').removeClass('text-muted');
             } else {
+
+                $('#get_category_type_users_count').addClass('text-muted');
+
                 $("#collection_importer").prop('disabled', true);
                 $("#collection_importer_count").hide().val(0);
                 $("#collection_importer_count_people").hide();
@@ -681,12 +842,9 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
         });
 
 
-    });
 
 
-
-
-
+    }
 
 
 
@@ -696,7 +854,7 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
         e.preventDefault;
 
 
-
+        $('#collection_importer').attr('disabled', true);
 
         var users_count = $('#collection_importer_count').val();
         var category_id = $('#collection_category_selector').val();
@@ -800,6 +958,7 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
                     html: true,
                     type: "success"
                 });
+                $('#collection_importer').attr('disabled', false);
             }
         });
 

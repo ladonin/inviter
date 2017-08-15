@@ -251,6 +251,7 @@ function report_init()
 
 function get_category_name($category)
 {
+    global $connect;
     global $net_code;
     $stmt = $connect->prepare("SELECT name FROM {$net_code}_collections_categories WHERE category_id=$category");
     $stmt->execute();
@@ -693,7 +694,7 @@ function get_available_collection_imported_types_from_base_not_invited($user_id,
     $stmt = $connect->prepare($sql);
     $stmt->execute(array('user_id' => $user_id));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $ids_not_invited = $result['ids_not_invited'];
+    $ids_not_invited = $result['ids_not_invited'] ?: 0;
     // !!! --> заметка
     // 100 000 непросмотренных пользователей с десятизначными ids = (100 000 (количество ids) * 10 (разряды) + 100 000 (запятые) + 100 (сам код)) * 4 (количество байт в символе - это максимум)= 4 МБ
     // max_allowed_packet = обычно равен 16 МБ
@@ -720,6 +721,69 @@ function get_available_collection_imported_types_from_base_not_invited($user_id,
     }
     return $return ? : array();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function get_available_collection_imported_types_from_base_for_import($category_id)
+{
+
+    global $connect;
+    global $types_fields;
+    global $net_code;
+    global $user_id;
+    $category_id = (int) $category_id;
+    $return = array();
+
+    // берем его неприглашенных пользователей из таблицы ok_collections_imports
+    $sql = "SELECT ids_condition FROM {$net_code}_collections_imports WHERE user_id=:user_id AND category_id=$category_id";
+
+    $stmt = $connect->prepare($sql);
+    $stmt->execute(array('user_id' => $user_id));
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $ids_condition = $result['ids_condition'] ?: 1;
+    // !!! --> заметка
+    // 100 000 непросмотренных пользователей с десятизначными ids = (100 000 (количество ids) * 10 (разряды) + 100 000 (запятые) + 100 (сам код)) * 4 (количество байт в символе - это максимум)= 4 МБ
+    // max_allowed_packet = обычно равен 16 МБ
+    // !!! <-- заметка
+
+    // преобразуем в условие
+    //$condition_query = Kits_Converter::convert_numbers_to_query($numbers_array = explode(',', $ids), $not = false);
+    //$condition_query = $condition_query ? : '';
+
+
+
+
+    // теперь берем все записи из таблицы ok_collections_{$category_id} также как и из ok_imports
+    foreach ($types_fields as $type_field => $number_type) {
+        if ($type_field == 'is_search') {
+            continue;
+        }
+        $stmt = $connect->prepare("SELECT count(*) as count FROM {$net_code}_collections_{$category_id} WHERE $ids_condition AND $type_field = 1");
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result['count'] > 0) {
+            $return[$number_type] = [$number_type, get_type_name_by_id($number_type)];
+        }
+    }
+    return $return ? : array();
+}
+
+
+
+
+
+
 
 
 // стоимость за одного пользователя по заданным параметрам
