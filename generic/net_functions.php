@@ -19,7 +19,11 @@ $types_fields_inv = array(
     3 => 'is_search',
     4 => 'is_repost'
 );
-
+$nets = array(
+    1 => NET_CODE_OK,
+    2 => NET_CODE_FB,
+    3 => NET_CODE_VK
+);
 
 function prepare_net_code()
 {
@@ -784,8 +788,6 @@ function get_available_collection_imported_types_from_base_for_import($category_
 
 
 
-
-
 // стоимость за одного пользователя по заданным параметрам
 // > метод, позволяющий при импорте определять стоимость 1 пользователя по его типам ,что указали в чекбоксах, (чем больше в его составе типов, тем дороже)
 //>> что делаем: берем самый дорогой тип, делаем цену = его стоимости, потом прибавляем к нему остальные помноженнные, скажем, на 30%
@@ -795,7 +797,7 @@ function get_import_collection_request_cost_per_one_user($data)
 {
 
     if (($data['KLASS'] == -1) && ($data['SUBSCRIBER'] == -1) && ($data['SURVEY'] == -1) && ($data['COMMENT'] == -1) && ($data['REPOST'] == -1)) {
-        return MY_USER_IMPORT_COST['GENERIC'];
+        return get_user_import_cost('GENERIC');
     }
 
 
@@ -809,15 +811,15 @@ function get_import_collection_request_cost_per_one_user($data)
         if ($value) {
             $count_types++;
             $tmp_type = $type;
-            if ($most_expensive < MY_USER_IMPORT_COST[$type]) {
-                $most_expensive = MY_USER_IMPORT_COST[$type];
+            if ($most_expensive < get_user_import_cost($type)) {
+                $most_expensive = get_user_import_cost($type);
                 $most_expensive_type = $type;
             }
         }
     }
     // если выбран 1 тип
     if ($count_types == 1) {
-        return round(MY_USER_IMPORT_COST[$tmp_type], 2);
+        return round(get_user_import_cost($tmp_type), 2);
     }
     if ($count_types == 0) {
         return null;
@@ -826,7 +828,7 @@ function get_import_collection_request_cost_per_one_user($data)
     // если выбрано 2+ типа
     $price = $most_expensive;
 
-    foreach (MY_USER_IMPORT_COST as $type => $amount) {
+    foreach (get_user_import_costs() as $type => $amount) {
         if ((!empty($data[$type])) && ($most_expensive_type != $type)) {
             $price += $amount * MY_USER_IMPORT_COST_ADDITIONAL_KOEF;
         }
@@ -1572,6 +1574,20 @@ class Kits_Converter
 
         return $result;
     }
+}
+
+function get_user_import_cost($type){
+    global $net_code;
+    return MY_USER_IMPORT_COST[$type] - constant('MY_IMPORT_USER_CORRECTION_' . strtoupper($net_code));
+}
+
+function get_user_import_costs(){
+    global $net_code;
+    $result = array();
+    foreach (MY_USER_IMPORT_COST as $type => $amount) {
+        $result[$type] = get_user_import_cost($type);
+    }
+    return $result;
 }
 
 prepare_net_code();

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="13">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="16">
         <file>
             <url>ok_show_users.php</url>
             <bookmark id="2">
@@ -11,24 +11,14 @@
         </file>
         <file>
             <url>index.php</url>
-            <bookmark id="11">
+            <bookmark id="16">
                 <name/>
-                <line>303</line>
+                <line>451</line>
                 <key/>
             </bookmark>
-            <bookmark id="10">
+            <bookmark id="14">
                 <name/>
-                <line>754</line>
-                <key/>
-            </bookmark>
-            <bookmark id="12">
-                <name/>
-                <line>756</line>
-                <key/>
-            </bookmark>
-            <bookmark id="13">
-                <name/>
-                <line>778</line>
+                <line>615</line>
                 <key/>
             </bookmark>
         </file>
@@ -47,6 +37,12 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/ok_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/vk_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/fb_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/net_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/wy5be6un_collect.php</file>
+        </group>
     </open-files>
 </project-private>

@@ -68,17 +68,19 @@ define('GROUP_URL_VK', 'FIXME');
 // стоимость 1 дня пользования
 define('MY_REPORT_USERS_COLLECTION_LIMIT', 5000);
 
-
-
+//разница от осноной стоимости тип пользователя относительно типа соцсети
+define('MY_IMPORT_USER_CORRECTION_OK', 0);
+define('MY_IMPORT_USER_CORRECTION_VK', 0.1);
+define('MY_IMPORT_USER_CORRECTION_FB', 0.05);
 
 // стоимость 1 импортированного пользователя
 define('MY_USER_IMPORT_COST', array(
-    'GENERIC'       => 0.20,
+    'GENERIC'       => 0.25,
     'COMMENT'       => 0.30,
     'SURVEY'        => 0.25,
     'SUBSCRIBER'    => 0.15,
-    'KLASS'         => 0.25,
-    'REPOST'        => 0.35,
+    'KLASS'         => 0.20,
+    'REPOST'        => 0.30,
     'SEARCH'        => 0.15));
 
 // коэффициент суммы 1 дополнительного типа к самому дорогому типу в составной цене

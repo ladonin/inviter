@@ -11,6 +11,9 @@ function prepare_load_data()
         $user_type = 1;
     } else if ($_POST['type_users'] == 2) {//group_users
         preg_match_all("#id=\"fans_fan_row(?:.+?)data-id=\"([0-9]+)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)alt=\"(.+?)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        if (!$users_result){
+            preg_match_all("#class=\"people_row(?:[ ]*?)(?:.*?)uiPhotoZoom.over\(this,(?:[ ]*?)([0-9]+?)\)\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)class=\"info\"(?:.+?)class=\"labeled(?:.*?)<a(?:.*?)>(.+?)</a>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+        }
         $user_type = 2;
     } else if ($_POST['type_users'] == 4) {//repost
         preg_match_all("#class=\"post_header\"(?:.+?)<a(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)class=\"post_author\"(?:.+?)data-from-id=\"(.+?)\"(?:.+?)>(.+?)</a>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
@@ -34,14 +37,29 @@ function prepare_load_data()
         $user_type = 5;
     } else if ($_POST['type_users'] == 6) {//comments
         preg_match_all("#<img(?:.+?)src=\"(.+?)\"(?:.+?)class=\"bp_author\"(?:.+?)>(.+?)<(?:.+?)return Board.replyPost\((?:[0-9]+),(?:[ ]?)([\-0-9]+)\)\"#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
-        foreach ($users_result as $key => $user) {
-            if ($user[3] < 0) {
-                unset($users_result[$key]);
-                continue;
+
+        if (!$users_result){
+            preg_match_all("#class=\"reply_wrap(?:[ ]*?)(?:.*?)\"reply_image\"(?:.+?)<img(?:.+?)src=\"(.+?)\"(?:.+?)class=\"author\"(?:.+?)data-from-id=\"([0-9]+?)\"(?:.*?)>(.+?)</a>#is", $_POST['html_text'], $users_result, PREG_SET_ORDER);
+            foreach ($users_result as $key => $user) {
+                if ($user[2] < 0) {
+                    unset($users_result[$key]);
+                    continue;
+                }
+                $users_result[$key][1] = $user[2];
+                $users_result[$key][2] = $user[1];
+                $users_result[$key][3] = $user[3];
             }
-            $users_result[$key][1] = $user[3];
-            $users_result[$key][2] = $user[1];
-            $users_result[$key][3] = $user[2];
+        } else {
+
+            foreach ($users_result as $key => $user) {
+                if ($user[3] < 0) {
+                    unset($users_result[$key]);
+                    continue;
+                }
+                $users_result[$key][1] = $user[3];
+                $users_result[$key][2] = $user[1];
+                $users_result[$key][3] = $user[2];
+            }
         }
 
         $user_type = 6;

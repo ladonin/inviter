@@ -1,4 +1,4 @@
-<div class="type_users_checkbox">
+<div class="type_users_checkbox pl-5">
     <div class="mt-10">
         <div class="checkbox type_1" style="display: block;">
             <label>
@@ -38,5 +38,6 @@
         </div>
     </div>
 </div>
+<div id="collection_import_form_status" class="pl-5" style="width:100%; max-width: 400px;"></div>
 <div class="alert p-10 alert-info condition mt-10 mb-0" style="width:100%; max-width: 400px; display:none"></div>
 <div class="alert p-10 alert-warning notice mt-10 mb-0" style="width:100%; max-width: 400px;"></div>

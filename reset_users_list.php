@@ -12,4 +12,5 @@ require_once("generic/{$net_code}_functions.php");
 if (auth_control() !== 1) {
     exit();
 }
+$show_type_load = @(int) $_GET['show_type_load'];
 require('generic/show_users.php');

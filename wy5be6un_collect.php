@@ -22,7 +22,6 @@ function load_users_collection_init()
     global $types_fields_inv;
     global $net_code;
     global $connect;
-    global $user_id;
 
     if (isset($_POST['html_text']) && $_POST['html_text'] && $_POST['category_id']) {
         $load_data = prepare_load_data();
@@ -44,7 +43,7 @@ function load_users_collection_init()
             // replace тут не подойдет
 
 
-            $stmt = $connect->prepare("SELECT * FROM {$net_code}_collections_$category_id WHERE profile_id=:profile_id");
+            $stmt = $connect->prepare("SELECT * FROM {$net_code}_collections_temp_$category_id WHERE profile_id=:profile_id");
             $stmt->execute(array('profile_id' => $profile_id));
 
             $result = $stmt->fetch();
@@ -65,7 +64,7 @@ function load_users_collection_init()
                     $data = '';
                 }
 
-                $stmt = $connect->prepare("INSERT into {$net_code}_collections_$category_id (
+                $stmt = $connect->prepare("INSERT into {$net_code}_collections_temp_$category_id (
 
                     profile_id,
                     user_fio,
@@ -92,12 +91,12 @@ function load_users_collection_init()
                 ));
             } else {
                 //если есть, то обновляем его
-                //обновляем user_type и data
+                //обновляем user_type и добавляем новые данные data (не обновляем старые)
 
                 $data_array = json_decode($result['data'], true);
 
 
-                if ($url) {
+                if ($url && empty($data_array['urls'][$user_type])) {
                     $data_array['urls'][$user_type] = $url;
                 }
 
@@ -111,7 +110,7 @@ function load_users_collection_init()
 
                 $stmt = $connect->prepare("
                 UPDATE
-                    {$net_code}_collections_$category_id
+                    {$net_code}_collections_temp_$category_id
                 SET
                     {$types_fields_inv[$user_type]} = 1,
                     data = :data,
@@ -130,9 +129,179 @@ function load_users_collection_init()
             'inserts_count' => $i
         );
     }
+    return false;
 }
 
 
+
+
+
+function publish_temp_init(){
+
+    global $net_code;
+    global $connect;
+    global $nets;
+
+    if (isset($_POST['publish_temp']) && $_POST['publish_temp'] == 1) {
+        $result = array();
+
+        // по каждой соцсети
+        foreach($nets as $net) {
+            // по каждой категории
+            $stmt = $connect->prepare("SELECT * FROM {$net}_collections_categories");
+            $stmt->execute();
+            $categories = $stmt->fetchAll();
+            foreach($categories as $category) {
+                // берем всех пользователей категории
+                $stmt2 = $connect->prepare("SELECT * FROM {$net}_collections_temp_{$category['id']}");
+                $stmt2->execute();
+                $users = $stmt2->fetchAll();
+                foreach($users as $user) {
+                    // пишем в массив
+                    $result[$net][$category['id']][] = $user;
+                }
+                // перемешиваем всех пользователей temp для каждой таблицы категории соцсети если есть данные в temp по этой категории и соцсети
+                if (!empty($result[$net][$category['id']])) {
+                    shuffle($result[$net][$category['id']]);
+                }
+            }
+        }
+        // имеем массив пользователей, отсортированных по соцсетям и категориям
+
+        $added = 0;
+        $updated = 0;
+
+        foreach($result as $net => $categories) {
+
+            foreach($categories as $category_id => $users) {
+
+                foreach($users as $user) {
+
+                    // replace тут не подойдет
+
+                    // Ишем - есть ли уже такой пользователь среди опубликованных
+                    $stmt = $connect->prepare("SELECT * FROM {$net}_collections_{$category_id} WHERE profile_id=:profile_id");
+                    $stmt->execute(array('profile_id' => $user['profile_id']));
+
+                    $enabled_user = $stmt->fetch();
+                    if (!$enabled_user) {
+                        $added++;
+
+                        $stmt = $connect->prepare("INSERT into {$net}_collections_{$category_id} (
+                            profile_id,
+                            user_fio,
+                            user_avatar,
+                            is_comment,
+                            is_survey,
+                            is_subscriber,
+                            is_klass,
+                            is_repost,
+                            data,
+                            created
+
+                        ) VALUES(
+                            :profile_id,
+                            :user_fio,
+                            :user_avatar,
+                            :is_comment,
+                            :is_survey,
+                            :is_subscriber,
+                            :is_klass,
+                            :is_repost,
+                            :data,
+                            '" . time() . "'
+                        )");
+                        $stmt->execute(array(
+                            'profile_id' => $user['profile_id'],
+                            'user_fio' => $user['user_fio'],
+                            'user_avatar' => $user['user_avatar'],
+                            'is_comment' => $user['is_comment'],
+                            'is_survey' => $user['is_survey'],
+                            'is_subscriber' => $user['is_subscriber'],
+                            'is_klass' => $user['is_klass'],
+                            'is_repost' => $user['is_repost'],
+                            'data' => $user['data']
+                        ));
+
+                    } else {
+                        $updated++;
+
+                        //если есть, то обновляем его
+                        //обновляем user_type и добавляем новые данные data (не обновляем старые)
+
+                        $data_array_published = json_decode($enabled_user['data'], true);
+                        $data_array_temp = json_decode($user['data'], true);
+
+                        // проходимся по temp и смотрим - есть ли уже какие данные в published по типам из temp
+                        foreach($data_array_temp['urls'] as $type => $url){
+                            // если в published для этого типа нет данных, то  пишем
+                            if (empty($data_array_published['urls'][$type])) {
+                                $data_array_published['urls'][$type] = $url;
+                            }
+                        }
+
+                        if ($data_array_published) {
+                            $new_data = json_encode($data_array_published, JSON_UNESCAPED_UNICODE);
+                        } else {
+                            $new_data = '';
+                        }
+
+                        $is_comment_new = $enabled_user['is_comment'] == 1 ?: $user['is_comment'];
+                        $is_survey_new = $enabled_user['is_survey'] == 1 ?: $user['is_survey'];
+                        $is_subscriber_new = $enabled_user['is_subscriber'] == 1 ?: $user['is_subscriber'];
+                        $is_klass_new = $enabled_user['is_klass'] == 1 ?: $user['is_klass'];
+                        $is_repost_new = $enabled_user['is_repost'] == 1 ?: $user['is_repost'];
+
+                        $stmt = $connect->prepare("
+                        UPDATE
+                            {$net}_collections_{$category_id}
+                        SET
+                            user_fio = :user_fio,
+                            user_avatar = :user_avatar,
+                            is_comment = :is_comment,
+                            is_survey = :is_survey,
+                            is_subscriber = :is_subscriber,
+                            is_klass = :is_klass,
+                            is_repost = :is_repost,
+                            data = :data,
+                            modified = '" . time() . "'
+                        WHERE
+                            profile_id=:profile_id
+                        ");
+                        $stmt->execute(array(
+                            'profile_id' => $user['profile_id'],
+                            'user_fio' => $user['user_fio'],
+                            'user_avatar' => $user['user_avatar'],
+                            'is_comment' => $is_comment_new,
+                            'is_survey' => $is_survey_new,
+                            'is_subscriber' => $is_subscriber_new,
+                            'is_klass' => $is_klass_new,
+                            'is_repost' => $is_repost_new,
+                            'data' => $new_data
+                        ));
+                    }
+
+                    $stmt = $connect->prepare("
+                    DELETE FROM {$net}_collections_temp_{$category_id}
+                    WHERE
+                        profile_id=:profile_id
+                    ");
+                    $stmt->execute(array(
+                        'profile_id' => $user['profile_id']
+                    ));
+
+                }
+            }
+        }
+        return array(
+            'added' => $added,
+            'updated' => $updated
+        );
+    }
+    return false;
+}
+
+$publish_temp_init = publish_temp_init();
 
 $load_users_collection_result = load_users_collection_init();
 
@@ -172,7 +341,7 @@ include('generic/header.php');
 <div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:0px !important;">
     <h3>Импорт пользователей</h3><br>
     <?php
-    if (isset($_POST['html_text']) && $_POST['html_text']) {
+    if ($load_users_collection_result) {
         ?>
 
         <div class="col-md-4" style="padding-left:0 !important">
@@ -213,10 +382,20 @@ include('generic/header.php');
                 <option value="">выберите категорию
                 <?php
 
-                foreach ($categories as $key => $category) {?>
+                foreach ($categories as $key => $category) {
+
+
+                    if ($category['name']=='спорт') {/////////////////////////////////////////////////////////
+
+
+
+
+
+                    ?>
 
                     <option value="<?php echo($category['id']);?>"><?php echo($category['name']);?>
                 <?php }
+                }
 
 
                 ?>
@@ -258,7 +437,53 @@ include('generic/header.php');
     </table>
 </div>
 
+<div class="well well-lg" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
+    <h3>Опубликовать данные</h3><br>
 
+    <table width="100%">
+        <tr>
+            <td align="right" valign="top">
+
+             <form action='' method="post">
+
+                 <input type="hidden" name="publish_temp" value='1'>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Вперед!</button>
+
+                </form>
+
+            </td>
+        </tr>
+
+        <?php if ($publish_temp_init) { ?>
+            <tr>
+                <td align="left" valign="top">
+                    <div class="col-md-4 mt-20" style="padding-left:0 !important">
+
+
+                        <ul class="list-group">
+
+                            <li class="list-group-item list-group-item-info">
+                                <span class="badge" style="background-color: #FFF;color:rgb(30, 30, 203);"><?php echo($publish_temp_init['added'] + $publish_temp_init['updated']); ?></span>
+                                Всего
+                            </li>
+
+                            <li class="list-group-item list-group-item-success">
+                                <span class="badge" style="background-color: #FFF;color: #000;"><?php echo($publish_temp_init['added']); ?></span>
+                                Добавлено новых пользователей
+                            </li>
+
+                            <li class="list-group-item list-group-item-warning">
+                                <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo($publish_temp_init['updated']); ?></span>
+                                Обновлено пользователей
+                            </li>
+
+                        </ul></div>
+                </td>
+            </tr>
+        <?php } ?>
+
+    </table>
+</div>
 
 
 <table style="display:none;">

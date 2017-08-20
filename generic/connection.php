@@ -2,7 +2,8 @@
 
 try {
     $pdo = new \PDO(
-            'mysql:host=localhost;dbname=quitecorg_invite;charset=UTF8', 'quitecorg_invite', 'neirvaafem', array(
+            //'mysql:host=localhost;dbname=quitecorg_invite;charset=UTF8', 'quitecorg_invite', 'neirvaafem', array(
+            'mysql:host=localhost;dbname=quitecorg_invite;charset=UTF8', 'root', '', array(
         \PDO::ATTR_PERSISTENT => false,
         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION)
     );

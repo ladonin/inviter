@@ -16,7 +16,7 @@ report_init();
 $load_users_result = load_users_init();
 include('generic/header.php');
 ?>
-
+<?php include('generic/net_js.php'); ?>
 <div class="well p-20-sm p-10" style="text-align:center; margin-bottom:0; background-color:#<?=get_net_header_background_color();?> ">
     <div class="row">
         <div class="pull-left">
@@ -310,11 +310,14 @@ function prepare_available_imported_category_types(){
         $('#collection_import_form .notice').html('Выберите категорию выше').show();
     } else {
 
+    $('#collection_import_form_status').html('загрузка...');
+
     $.ajax({
         url: "/get_available_collection_imported_types_from_base_for_import.php?net_code=<?= $net_code; ?>",
         data: {category_id: category_id}
     }).done(function (data) {
-console.log(data);
+//console.log(data);
+        $('#collection_import_form_status').html('');
         var data = JSON.parse(data);
 
 
@@ -367,6 +370,7 @@ function reset_users_list() {
     $.ajax({
         url: "/reset_users_list.php?net_code=<?=$net_code;?>",
         data: {
+            'show_type_load': $('#show_type_load').val()
         }
     }).done(function (data) {
         $("#show_users_block").html(data);
@@ -393,7 +397,8 @@ function alert_about_change_selection_users_view(step,status){
 
     if (step==1) {
         if (status_types_load_users_not_changed === false) {
-
+                                                                                                                    console.log(step);
+                                                                                                                    console.log(status_types_load_users_not_changed);
             // если тип загрузки изменен
             // и теперь равен html
             if (show_type_load==1) {
@@ -409,6 +414,9 @@ function alert_about_change_selection_users_view(step,status){
         // если тип пользователей изменен и тип загрузки == html
         if (((status_self_load_users_type_not_changed === false)
                 || ((get_requested_show_self_load_users_types === '0' && show_self_load_users_types > 0))) && show_type_load==1) {
+                                                                                                                    console.log(get_requested_show_self_load_users_types);
+                                                                                                                    console.log(show_self_load_users_types);
+                                                                                                                    console.log(show_type_load);
                 swal({
                     title: "Внимание",
                     text: 'Произошла смена типа пользователей на: <br><b>' + show_self_load_users_types_text + '</b>',
@@ -425,8 +433,14 @@ function alert_about_change_selection_users_view(step,status){
         var show_imported_categories_text = $("#show_imported_categories :selected").text();
         var show_imported_types_text = $("#show_imported_types :selected").text();
 
+
+
         if (status_types_load_users_not_changed === false) {
             if (show_type_load==2) {
+
+            console.log(status_types_load_users_not_changed);
+            console.log(show_type_load);
+
                 swal({
                     title: "Внимание",
                     text: 'Пользователи, <b style="color: #6085bc;">загруженные вами</b> закончились.<br><br>Далее будут показываться пользователи,<br> <b style="color: #bc6060;">загруженные из коллекции</b>.<br><br>Выбранная по умолчанию категория: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
@@ -438,6 +452,10 @@ function alert_about_change_selection_users_view(step,status){
 
         // если изменилась категория и тип загрузки == 2
         if ((status_client_imported_enabled_category_not_changed === false) && show_type_load==2) {
+
+
+            console.log(status_client_imported_enabled_category_not_changed);
+            console.log(show_type_load);
                 swal({
                     title: "Внимание",
                     text: 'Произошла смена категории на: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
@@ -449,6 +467,9 @@ function alert_about_change_selection_users_view(step,status){
 
         // если изменился тип пользователей и тип загрузки == 2
         if ((status_types_load_users_by_collection_not_changed === false)  && show_type_load==2) {
+            console.log(status_types_load_users_by_collection_not_changed);
+            console.log(show_type_load);
+
                 swal({
                     title: "Внимание",
                     text: 'Произошла смена типа пользователей на: <br><b>' + show_imported_types_text + '</b>',
@@ -589,8 +610,11 @@ var loaded_users_status = true;
                 if (result.length > 1) {select.append("<option value='0'>Все пользователи</option>");}
                 $("#block_imported_types").append(select);
                 var old_type = getCookie('show_imported_type_<?=$net_code;?>');
+console.log(status);
+console.log('old_type [show_imported_type_<?=$net_code;?>]:'+old_type);
 
-                if (status === 'load_uses_list') {
+
+                if (status === 'load_uses_list') {console.log('3455895748');
                     // не касается "все пользователи"
                     status_types_load_users_by_collection_not_changed = false;
                 }
@@ -599,7 +623,7 @@ var loaded_users_status = true;
                     var selected = '';
                     if ((old_type > 0) && (old_type == value[0])) {
 
-                        if (status === 'load_uses_list') {
+                        if (status === 'load_uses_list') {console.log('234324');
                             status_types_load_users_by_collection_not_changed = true;
                         }
 
@@ -612,12 +636,12 @@ var loaded_users_status = true;
         if (status === 'load_uses_list') {
                 //console.log(getCookie('show_imported_type_<?=$net_code;?>'));
                 // если несколько раз покажем "все пользователи"
-                if ((old_type == 0) && (status_types_load_users_by_collection_not_changed === false)) {
+                if ((old_type == 0) && (status_types_load_users_by_collection_not_changed === false)) {console.log('765484');
                     status_types_load_users_by_collection_not_changed = null;
                 }
 
                 // если со "все пользователи" перейдем на конкретный тип
-                if ((old_type == 0) && ($('#show_imported_types').val() > 0)) {
+                if ((old_type == 0) && ($('#show_imported_types').val() > 0)) {console.log('1455474');
                     status_types_load_users_by_collection_not_changed = false;
                 }
 
