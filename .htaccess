@@ -97,6 +97,7 @@ RewriteRule ^odnoklassniki  index.php?net_code=ok [L]
 RewriteRule ^facebook  index.php?net_code=fb [L]
 RewriteRule ^vkontakte  index.php?net_code=vk [L]
 
+RewriteRule ^user_data/(ok|fb|vk)/([0-9]+)/(.+)  user_data.php?net_code=$1&category_id=$2&profile_id=$3 [L]
 
 
 RewriteRule ^wy5be6un_collect/(.+)$  wy5be6un_collect.php?net_code=$1 [L]

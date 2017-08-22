@@ -143,7 +143,7 @@ if (!$show_users_reset) {
             $data_array = json_decode($user['data'], true);
 
 
-
+            $count_imported_type_links = 0;
             foreach ($user_types as $user_type) {
 
                 $user_type_link = '';
@@ -157,18 +157,16 @@ if (!$show_users_reset) {
                 } else {
 
                     if (!empty($data_array['urls'][$user_type])) {
-                        $user_type_link = $data_array['urls'][$user_type];
+                        $user_type_link = 'user_data/' . $net_code . '/' . $show_imported_categories . '/' . $user['profile_id'] . '#type_' .$user_type;
+                        $count_imported_type_links = count($data_array['urls'][$user_type]);
                     }
                 }
-
-
-
 
 
                 if ($user_type_link) {
                     $type_images .= '<a href="' . $user_type_link . '" target="_blank">';
                 }
-                $type_images .= '<img src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" style="margin-right:10px; margin-bottom:0px;" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '">';
+                $type_images .= '<span style="margin-right:10px; margin-bottom:0px;"><img style="margin-right:5px;" src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '">' . $count_imported_type_links . '</span>';
                 if ($user_type_link) {
                     $type_images .= '</a>';
                 }

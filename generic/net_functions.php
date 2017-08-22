@@ -257,11 +257,27 @@ function get_category_name($category)
 {
     global $connect;
     global $net_code;
-    $stmt = $connect->prepare("SELECT name FROM {$net_code}_collections_categories WHERE category_id=$category");
-    $stmt->execute();
+    $category = (int)$category;
+    $stmt = $connect->prepare("SELECT name FROM {$net_code}_collections_categories WHERE category_id=:category");
+    $stmt->execute(array(':category' => $category));
     return $stmt->fetchColumn();
 }
 
+function get_imported_user_data($category_id, $profile_id, $net = null)
+{
+    global $connect;
+    global $net_code;
+
+    if (is_null($net)) {
+        $net = $net_code;
+    }
+    $category_id = (int)$category_id;
+    $profile_id = (int)$profile_id;
+
+    $stmt = $connect->prepare("SELECT * FROM {$net}_collections_{$category_id} WHERE profile_id='{$profile_id}'");
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 
 function get_not_invited_count()
 {

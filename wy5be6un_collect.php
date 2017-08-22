@@ -31,6 +31,7 @@ function load_users_collection_init()
         $i = 0;
         $category_id = (int) $_POST['category_id'];
         $url = strip_tags($_POST['url']);
+        $url = rtrim($url, '/');
         if (!$url) {
             echo 'забыл url';
             exit();
@@ -54,7 +55,7 @@ function load_users_collection_init()
                 $data_array = array();
 
                 if ($url) {
-                    $data_array['urls'][$user_type] = $url;
+                    $data_array['urls'][$user_type][] = $url;
                 }
 
 
@@ -95,9 +96,12 @@ function load_users_collection_init()
 
                 $data_array = json_decode($result['data'], true);
 
-
-                if ($url && empty($data_array['urls'][$user_type])) {
-                    $data_array['urls'][$user_type] = $url;
+                if ($url) {
+                    // [Имеем новый url]
+                    // Надо проверить, что его нет среди существующих urls
+                    if (!isset($data_array['urls'][$user_type]) || !in_array($url, $data_array['urls'][$user_type])){
+                        $data_array['urls'][$user_type][] = $url;
+                    }
                 }
 
 
@@ -166,6 +170,7 @@ function publish_temp_init(){
                 }
             }
         }
+
         // имеем массив пользователей, отсортированных по соцсетям и категориям
 
         $added = 0;
@@ -225,7 +230,6 @@ function publish_temp_init(){
 
                     } else {
                         $updated++;
-
                         //если есть, то обновляем его
                         //обновляем user_type и добавляем новые данные data (не обновляем старые)
 
@@ -233,10 +237,13 @@ function publish_temp_init(){
                         $data_array_temp = json_decode($user['data'], true);
 
                         // проходимся по temp и смотрим - есть ли уже какие данные в published по типам из temp
-                        foreach($data_array_temp['urls'] as $type => $url){
-                            // если в published для этого типа нет данных, то  пишем
-                            if (empty($data_array_published['urls'][$type])) {
-                                $data_array_published['urls'][$type] = $url;
+                        foreach($data_array_temp['urls'] as $temp_type => $temp_urls){
+                            // $temp_urls - темповые урлы каждого типа, которые мы хотим добавить
+                            foreach ($temp_urls as $temp_url) {
+                                // для каждого $temp_url смотрим - есть ли он уже среди опубликованных
+                                if (!isset($data_array_published['urls'][$temp_type]) || !in_array($temp_url, $data_array_published['urls'][$temp_type])){
+                                    $data_array_published['urls'][$temp_type][] = $temp_url;
+                                }
                             }
                         }
 
@@ -385,7 +392,7 @@ include('generic/header.php');
                 foreach ($categories as $key => $category) {
 
 
-                    if ($category['name']=='спорт') {/////////////////////////////////////////////////////////
+                    //if ($category['name']=='спорт') {/////////////////////////////////////////////////////////
 
 
 
@@ -395,7 +402,7 @@ include('generic/header.php');
 
                     <option value="<?php echo($category['id']);?>"><?php echo($category['name']);?>
                 <?php }
-                }
+               // }
 
 
                 ?>

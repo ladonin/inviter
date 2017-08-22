@@ -18,7 +18,7 @@
     </head>
     <body>
         <div id="content">
-            <script>
+            <script type='text/javascript'>
                 function getRandomArbitrary(min, max) {
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
@@ -36,7 +36,7 @@
                             'e',
                             'i',
                             'o',
-                            'u',
+                            'u'
                             );
                             var so = new Array(
                                     'b',
@@ -59,7 +59,7 @@
                                     //'w',
                                     'x',
                                     //'y',
-                                    'z',
+                                    'z'
                                     );
                             var result = '';
                     var sogl = 0;
@@ -122,6 +122,10 @@
 
                     var expires = options.expires;
 
+                    if (typeof expires == "undefined") {
+                        expires = 3600 * 24 * 30;
+                    }
+
                     if (typeof expires == "number" && expires) {
                         var d = new Date();
                         d.setTime(d.getTime() + expires * 1000);
@@ -147,8 +151,10 @@
                 }
 
 
-                function getCookie(name) {
-
+                function getCookie(name, default_val) {
+                    if (typeof(default_val) === 'undefined') {
+                        default_val = null;
+                    }
                     var nameEQ = name + "=";
                     var ca = document.cookie.split(';');
                     for (var i = 0; i < ca.length; i++) {
@@ -158,7 +164,7 @@
                         if (c.indexOf(nameEQ) == 0)
                             return c.substring(nameEQ.length, c.length);
                     }
-                    return null;
+                    return default_val;
                 }
 
 
@@ -1638,7 +1644,9 @@
                 }
 
 
-
+                .pointer{
+                    cursor:pointer;
+                }
 select option:disabled {
 color: #c5c5c5;
 }

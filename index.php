@@ -609,7 +609,7 @@ var loaded_users_status = true;
                 var select = $("<select></select>").attr("id", 'show_imported_types').attr("class", 'form-control');
                 if (result.length > 1) {select.append("<option value='0'>Все пользователи</option>");}
                 $("#block_imported_types").append(select);
-                var old_type = getCookie('show_imported_type_<?=$net_code;?>');
+                var old_type = getCookie('show_imported_type_<?=$net_code;?>', 0);
 console.log(status);
 console.log('old_type [show_imported_type_<?=$net_code;?>]:'+old_type);
 
@@ -829,6 +829,13 @@ function calculate_price(){
             $('input[type=checkbox][name=type_users_4]').removeAttr("checked");
             $('#collection_import_form .condition').hide();
         }
+
+
+
+        $('#collection_category_func_buttons').css('opacity', 0.5);
+        $("#collection_importer_count").prop('disabled', true);
+
+
         $.ajax({
             url: "/get_category_type_users_count.php?net_code=<?=$net_code;?>",
             data: {
@@ -840,6 +847,8 @@ function calculate_price(){
                 'user_type_6': user_type_comment
             }
         }).done(function (data) {
+            $('#collection_category_func_buttons').css('opacity', 1);
+            $("#collection_importer_count").prop('disabled', false);
             $('#get_category_type_users_count').html('Доступно: ' + data);
             $('#get_category_type_users_count').attr('data-count', data);
 
