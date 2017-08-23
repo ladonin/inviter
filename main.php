@@ -21,9 +21,10 @@ include('generic/header.php');
 
 
         <div class="row">
-<div class="col-xs-12 text-center" style="padding-bottom:10px"><h3>Выберите соцсеть</h3></div>
-            <div class="col-xs-6 text-right"><a href="/odnoklassniki<?php //echo($client_code ? '/' . $client_code : '');?>"><img src="/img/odnoklassniki_logo.jpg" style="border-radius:5px;" width="200"></a></div>
-            <div class="col-xs-6 text-left"><a href="/facebook<?php //echo($client_code ? '/' . $client_code : '');?>"><img src="/img/facebook_logo.jpg" style="border-radius:5px;" width="200"></a></div>
+<div class="col-xs-12 text-center mb-20"><h3>Выберите соцсеть</h3></div>
+            <div class="col-xs-12 mb-20  text-center"><a href="/odnoklassniki<?php //echo($client_code ? '/' . $client_code : '');?>"><img src="/img/odnoklassniki_logo.jpg" style="border-radius:5px;" width="200"></a></div>
+            <div class="col-xs-12 mb-20 text-center"><a href="/facebook<?php //echo($client_code ? '/' . $client_code : '');?>"><img src="/img/facebook_logo.jpg" style="border-radius:5px;" width="200"></a></div>
+            <div class="col-xs-12 mb-20  text-center"><a href="/vkontakte<?php //echo($client_code ? '/' . $client_code : '');?>"><img src="/img/vkontakte_logo.jpg" style="border-radius:5px;" width="200"></a></div>
         </div>
 
 
