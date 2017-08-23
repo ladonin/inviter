@@ -1,7 +1,7 @@
 <script type="text/javascript">
    swal({
       title: "Добро пожаловать!",
-      text: "<input style='display:block' type='email' placeholder='Email' id='email_swal' reguired><input style='display:block' type='text' placeholder='Пароль' id='password_swal' reguired><div style='text-align:center;' id='forgot_code_button' class='btn btn-link btn-sm'>забыл пароль</div>",
+      text: "<input style='display:block' type='email' placeholder='Email' id='email_swal' reguired><input style='display:block' type='password' placeholder='Пароль' id='password_swal' reguired><div style='text-align:center;' id='forgot_code_button' class='btn btn-link btn-sm'>забыл пароль</div>",
       confirmButtonText: "Войти",
       showCancelButton: false,
       closeOnConfirm: false,
@@ -28,25 +28,25 @@
             });
         }
     });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $('#forgot_code_button').click(function(){
 swal({
   title: "Введите свой Email",
@@ -59,7 +59,7 @@ swal({
 },
 function(inputValue){
   if (inputValue === false) return false;
-  
+
   if (inputValue === "") {
     swal.showInputError("Необходимо ввести ваш email, если вы его указывали");
     return false
@@ -67,19 +67,19 @@ function(inputValue){
 $.ajax({
                 url: "/restore_password_by_email.php",
                 data: {
-                    'email':inputValue               
+                    'email':inputValue
                     }
             }).done(function(data) {
-              
+
 //если email не найден
 if (data == 0) {
-    
+
     swal.showInputError("Данный email не зарегистрирован на сайте.");
     return false
-    
-    
-    
-    
+
+
+
+
 }
 else if (data == 1) {
 
@@ -87,7 +87,7 @@ else if (data == 1) {
     return false
 
 }    else {
-    
+
    swal({
       title: "Готово",
       text: "Проверьте свой почтовый ящик",
