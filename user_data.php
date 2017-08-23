@@ -58,7 +58,7 @@ include('generic/header.php');
     ?>
     <div class=row">
         <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 pr-10-md p-0">
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-info" role="alert" style="max-width: 300px;">
                 <div class="media mb-0">
                     <div class="media-left">
 

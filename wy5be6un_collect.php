@@ -392,7 +392,7 @@ include('generic/header.php');
                 foreach ($categories as $key => $category) {
 
 
-                    //if ($category['name']=='спорт') {/////////////////////////////////////////////////////////
+                    if ($category['name']=='кулинария') {/////////////////////////////////////////////////////////
 
 
 
@@ -402,7 +402,7 @@ include('generic/header.php');
 
                     <option value="<?php echo($category['id']);?>"><?php echo($category['name']);?>
                 <?php }
-               // }
+                }
 
 
                 ?>
