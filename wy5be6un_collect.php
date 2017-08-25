@@ -23,7 +23,22 @@ function load_users_collection_init()
     global $net_code;
     global $connect;
 
-    if (isset($_POST['html_text']) && $_POST['html_text'] && $_POST['category_id']) {
+    if (((isset($_POST['html_text']) && $_POST['html_text']) || !empty($_FILES['file'])) && $_POST['category_id']) {
+
+
+
+        if (!empty($_FILES['file']['tmp_name'])) {
+            $fp = file_get_contents($_FILES['file']['tmp_name']);
+            $_POST['html_text'] = $fp;
+
+
+
+
+        }
+
+
+
+
         $load_data = prepare_load_data();
         $users_result = $load_data['users_result'];
         $user_type = $load_data['user_type'];
@@ -382,7 +397,7 @@ include('generic/header.php');
         <tr>
             <td width="50%" align="left" valign="top">
 
-             <form action='' method="post">
+             <form action='' method="post" enctype="multipart/form-data">
 
                     <h4>Категория:</h4>
                 <select name="category_id" class="form-control" required style="width:400px;">
@@ -392,7 +407,7 @@ include('generic/header.php');
                 foreach ($categories as $key => $category) {
 
 
-                    if ($category['name']=='кулинария') {/////////////////////////////////////////////////////////
+                    if ($category['name']=='полезные советы') {/////////////////////////////////////////////////////////
 
 
 
@@ -422,6 +437,17 @@ include('generic/header.php');
 
 
                     <textarea cols="80" rows="5" name="html_text" class="form-control"></textarea>
+
+                     <br>
+                    <h4>Файл:</h4>
+                    <input type="file" name="file">
+
+
+
+
+
+
+
 
                     <br>
                     <h4>Откуда взят HTML код:</h4>

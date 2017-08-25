@@ -374,8 +374,12 @@ function reset_users_list() {
         }
     }).done(function (data) {
         $("#show_users_block").html(data);
+
+
+        if (prepare_imported_categories_select() === true) {
+            $('#show_imported_categories').trigger('change', ['reset_users_list']);
+        }
         $('#show_type_load').trigger('change');
-        $('#show_imported_categories').trigger('change', ['reset_users_list']);
         show_users_reset = 0;
     });
 }
@@ -579,6 +583,10 @@ var loaded_users_status = true;
 
     $(document).on('change', '#show_imported_categories', function (event, status) {
 
+        if (typeof(status)==='undefined'){
+
+        setcookie('show_imported_category_<?=$net_code;?>', $(this).val());
+    }
 
     if (typeof(status) == 'undefined') {
         status = 'none';
@@ -999,8 +1007,17 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
 
     });
 
-
-
+function prepare_imported_categories_select() {
+        if($("#show_imported_categories").length) {
+            var show_imported_category = getCookie('show_imported_category_<?=$net_code;?>', 0);
+            if (show_imported_category) {
+                $("#show_imported_categories").val(show_imported_category);
+                return true;
+            }
+        }
+        return false;
+}
+prepare_imported_categories_select();
     $('#show_type_load').trigger('change');
     ///////////////////////$('#show_imported_categories').trigger('change', ['background']);
     $('#collection_category_selector').trigger('change');

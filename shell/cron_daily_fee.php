@@ -4,7 +4,8 @@ ini_set("display_errors", 1);
 set_time_limit(9999999);
 define('MY_DS', DIRECTORY_SEPARATOR);
 
-
+echo('пока не снимаем');
+exit();
 
 require_once(realpath(dirname(__FILE__)) . MY_DS . '../generic' . MY_DS . 'constants.php');
 require_once(realpath(dirname(__FILE__)) . MY_DS . '../generic' . MY_DS . 'connection.php');
@@ -27,7 +28,7 @@ $data = array();
 //для каждого пользователя
 foreach($result as $user) {
 
-    $fee = MY_USER_DAILY_FEE_COST - $user['koeff_daily_withdrawal'];
+    $fee = MY_USER_DAILY_FEE_COST * $user['koeff_daily_withdrawal'];
 
     // --> снимаем деньги
     //если баланс до снятия не был нулевым
