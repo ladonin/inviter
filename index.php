@@ -72,7 +72,7 @@ if ($load_users_result) {
 
                 <li class="list-group-item list-group-item-warning">
                     <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($load_users_result['users_result']) - $load_users_result['inserts_count'])); ?></span>
-                    Обновлено пользователей
+                    Уже присутствующих пользователей
                 </li>
             </ul></div>
 <?php }
@@ -1011,7 +1011,13 @@ function prepare_imported_categories_select() {
         if($("#show_imported_categories").length) {
             var show_imported_category = getCookie('show_imported_category_<?=$net_code;?>', 0);
             if (show_imported_category) {
-                $("#show_imported_categories").val(show_imported_category);
+
+
+                if ($('select#show_imported_categories option[value='+show_imported_category+']').length) {
+
+
+                    $("#show_imported_categories").val(show_imported_category);
+                }
                 return true;
             }
         }

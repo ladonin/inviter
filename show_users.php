@@ -143,7 +143,7 @@ if (!$show_users_reset) {
             $data_array = json_decode($user['data'], true);
 
 
-            $count_imported_type_links = 0;
+            $count_imported_type_links = '';
             foreach ($user_types as $user_type) {
 
                 $user_type_link = '';
