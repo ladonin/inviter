@@ -74,22 +74,7 @@
                         <?php } ?>
 
 
-                        <?php
-                        $client_imported_enabled_categories = get_client_imported_enabled_categories();
-                        if ($client_imported_enabled_categories) {
-                            ?>
-                    <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*333margin-right:10px;margin-bottom:5px;*/">
-                            <select class="form-control" id="show_imported_categories">
-                                <?php foreach ($client_imported_enabled_categories as $client_imported_enabled_category) { ?>
-                                    <option value='<?php echo($client_imported_enabled_category['category_id']); ?>'
-                                            <?php if (!empty($show_imported_categories) && $show_imported_categories == $client_imported_enabled_category['category_id']) {
-                                                $status_client_imported_enabled_category_not_changed = 'true';
-                                                ?>selected<?php } ?>
-                                            ><?php echo($client_imported_enabled_category['name']); ?></option>
-        <?php } ?>
-                            </select>
-                    </div>
-    <?php } ?>
+                        <?php include('generic/client_imported_enabled_categories.php'); ?>
 
                     <div class="col-xs-12 col-sm-12 p-0 pr-10 mb-10" style="/*444*/margin-bottom:5px; height:34px;" id="block_imported_types">
                             <select class="form-control" style="color:#c8c8c8 !important">
@@ -121,7 +106,7 @@
                     <div class="col-xs-12 col-sm-5 p-0" style="padding-left:0; padding-right:0;">
 
     <?php //echo $button_1_added_text;     ?>
-                        <span class="input-group-btn"><button id='show_users' class="btn btn-success" style="border-radius:4px; width:100%"><span class="glyphicon glyphicon-chevron-down" style="top:2px; padding-right:5px" aria-hidden="true"></span>Показать</button></span>
+                        <span class="input-group-btn"><button id='show_users' class="btn btn-success" style="border-radius:4px; width:100%">Показать</button></span>
                     </div>
                 </div>
             </div>

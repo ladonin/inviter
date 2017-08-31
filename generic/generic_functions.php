@@ -1,6 +1,26 @@
 <?php
 
-
+$types_fields = array(
+    'is_comment' => 6,
+    'is_survey' => 5,
+    'is_subscriber' => 2,
+    'is_klass' => 1,
+    'is_search' => 3,
+    'is_repost' => 4,
+);
+$types_fields_inv = array(
+    6 => 'is_comment',
+    5 => 'is_survey',
+    2 => 'is_subscriber',
+    1 => 'is_klass',
+    3 => 'is_search',
+    4 => 'is_repost'
+);
+$nets = array(
+    1 => NET_CODE_OK,
+    2 => NET_CODE_FB,
+    3 => NET_CODE_VK
+);
 
 
 function unescapeUTF8EscapeSeq($str) {
@@ -233,4 +253,3 @@ function write_to_log($message)
     $file = MY_DOCROOT . '/../log/log.txt';
     file_put_contents($file, date(DATE_RFC2822) . ': ' . $message . "\n\r", FILE_APPEND);
 }
-

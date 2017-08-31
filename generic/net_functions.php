@@ -3,27 +3,7 @@ session_start();
 $net_code = '';
 $net_profile_url = '';
 
-$types_fields = array(
-    'is_comment' => 6,
-    'is_survey' => 5,
-    'is_subscriber' => 2,
-    'is_klass' => 1,
-    'is_search' => 3,
-    'is_repost' => 4,
-);
-$types_fields_inv = array(
-    6 => 'is_comment',
-    5 => 'is_survey',
-    2 => 'is_subscriber',
-    1 => 'is_klass',
-    3 => 'is_search',
-    4 => 'is_repost'
-);
-$nets = array(
-    1 => NET_CODE_OK,
-    2 => NET_CODE_FB,
-    3 => NET_CODE_VK
-);
+
 
 function prepare_net_code()
 {
@@ -201,11 +181,9 @@ function report_init()
             $result = $stmt->fetch();
 
             $ids_not_invited_array = explode(',', $result['ids_not_invited']);
-            $ids_condition = Kits_Converter::convert_to_intenvals($result['ids'], '', false);
-            $ids_condition = $ids_condition['sql_condition'];
+            $ids = $result['ids'] ?: '0';
 
-
-            $stmt = $connect->prepare("SELECT * FROM {$net_code}_collections_$category WHERE $ids_condition order by id DESC LIMIT " . MY_REPORT_USERS_COLLECTION_LIMIT);
+            $stmt = $connect->prepare("SELECT * FROM {$net_code}_collections_$category WHERE id IN (" . $ids . ") order by id DESC LIMIT " . MY_REPORT_USERS_COLLECTION_LIMIT);
             $stmt->execute();
             $result = $stmt->fetchAll();
             $file_name = "reports/{$net_code}_imported_" . uniqid() . $user_id . '.csv';
@@ -365,20 +343,20 @@ function get_category_type_users_count_collections($category_id, $user_type_klas
 
 
     $stmt = $connect->prepare("
-            SELECT ids_condition
+            SELECT ids
         FROM {$net_code}_collections_imports
             WHERE user_id = $user_id AND category_id = $category_id");
 
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+    $ids = $result['ids'] ?: 0;
 
     $sql = "SELECT
                 COUNT(0) as count
             FROM
                 {$net_code}_collections_$category_id
-            WHERE 1 " . ($result['ids_condition'] ? (" AND " . $result['ids_condition']) : '') . " " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
+            WHERE id NOT IN (" . $ids . ") " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
 
     //echo($sql);
     $stmt = $connect->prepare($sql);
@@ -766,12 +744,12 @@ function get_available_collection_imported_types_from_base_for_import($category_
     $return = array();
 
     // берем его неприглашенных пользователей из таблицы ok_collections_imports
-    $sql = "SELECT ids_condition FROM {$net_code}_collections_imports WHERE user_id=:user_id AND category_id=$category_id";
+    $sql = "SELECT ids FROM {$net_code}_collections_imports WHERE user_id=:user_id AND category_id=$category_id";
 
     $stmt = $connect->prepare($sql);
     $stmt->execute(array('user_id' => $user_id));
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $ids_condition = $result['ids_condition'] ?: 1;
+    $sql_condition = $result['ids'] ? 'id NOT IN('.$result['ids'].')' : 1;
     // !!! --> заметка
     // 100 000 непросмотренных пользователей с десятизначными ids = (100 000 (количество ids) * 10 (разряды) + 100 000 (запятые) + 100 (сам код)) * 4 (количество байт в символе - это максимум)= 4 МБ
     // max_allowed_packet = обычно равен 16 МБ
@@ -789,7 +767,7 @@ function get_available_collection_imported_types_from_base_for_import($category_
         if ($type_field == 'is_search') {
             continue;
         }
-        $stmt = $connect->prepare("SELECT count(*) as count FROM {$net_code}_collections_{$category_id} WHERE $ids_condition AND $type_field = 1");
+        $stmt = $connect->prepare("SELECT count(*) as count FROM {$net_code}_collections_{$category_id} WHERE $sql_condition AND $type_field = 1");
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($result['count'] > 0) {
@@ -853,12 +831,13 @@ function get_import_collection_request_cost_per_one_user($data)
 }
 
 
-function prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost)
+function prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost, $user_type_search = null)
 {
 
     $sql = "";
-
-    if ($user_type_klass == -1) {
+// может прийти в строковом формате '-1' или true, который, сука, == -1
+    // в итоге приводим их к числовому формату
+    if ((int)$user_type_klass === -1) {
 
     } else {
 
@@ -881,6 +860,10 @@ function prepare_import_types_condition($user_type_klass, $user_type_subscriber,
         if (!is_null($user_type_repost)) {
             $user_type_repost = $user_type_repost ? 1 : 0;
             $sql .= " AND is_repost = $user_type_repost";
+        }
+        if (!is_null($user_type_search)) {
+            $user_type_search = $user_type_search ? 1 : 0;
+            $sql .= " AND is_search = $user_type_search";
         }
     }
     return $sql;
@@ -1581,9 +1564,9 @@ class Kits_Converter
                 $result[$value] = $value;
             }
         }
-        foreach ($new_numbers as $new_numbers) {
-            if ($new_numbers) {
-                $result[$new_numbers] = $new_numbers;
+        foreach ($new_numbers as $value) {
+            if ($value) {
+                $result[$value] = $value;
             }
         }
         ksort($result);

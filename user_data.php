@@ -12,40 +12,7 @@ require_once('generic/generic_functions.php');
 require_once('generic/net_functions.php');
 require_once("generic/{$net_code}_functions.php");
 include('generic/auth_control.php');
-report_init();
-$load_users_result = load_users_init();
-include('generic/header.php');
 ?>
-<?php include('generic/net_js.php'); ?>
-
-
-
-
-
-
-<div class="well p-20-sm p-10" style="text-align:center; margin-bottom:0; background-color:#<?= get_net_header_background_color(); ?> ">
-    <div class="row">
-        <div class="pull-left">
-            <a href="/odnoklassniki"><img src="/img/ok_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
-            <a href="/facebook"><img src="/img/fb_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
-            <a href="/vkontakte"><img src="/img/vk_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
-        </div>
-        <div class="pull-right">
-            <?php include('generic/user_data.php'); ?>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="pull-left mh-20-sm m-10">
-        <div class="pull-left mr-10"><img src="/img/<?= $net_code; ?>_logo.jpg" width="26" style="border-radius: 1000px; width: 24px; margin: 5px 0;"></div><div class="pull-left"><h5><b><?= get_net_title(); ?></b></h5></div><div class="clearfix"></div>
-    </div>
-    <div class="mh-20-sm m-10 pull-right">
-        <h4 style="margin:5px 0 5px 0;line-height: 24px;"><span style="font-weight:light;"><small>Категория:</small></span> <b><?php echo(get_category_name($_GET['category_id']));?></b></h4>
-    </div>
-</div>
-
-<div class="well well-lg p-10-xs" style="padding-top:10px !important; margin:0 !important;">
 
 
     <h3>Информация о пользователе</h3><br>
@@ -56,8 +23,7 @@ include('generic/header.php');
     $link = prepare_link_to_user($user['profile_id']);
     $avatar = $user['user_avatar'] ? $user['user_avatar'] : '/img/no-photo.png';
     ?>
-    <div class=row">
-        <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 pr-10-md p-0">
+
             <div class="alert alert-info" role="alert" style="max-width: 300px;">
                 <div class="media mb-0">
                     <div class="media-left">
@@ -140,7 +106,3 @@ if(!empty($hidden_links[$type_id])){
                     ?>
 
 
-        </div>
-    </div>
-    <div class="clearfix"></div>
-</div>

@@ -172,16 +172,12 @@ function publish_temp_init(){
             $categories = $stmt->fetchAll();
             foreach($categories as $category) {
                 // берем всех пользователей категории
-                $stmt2 = $connect->prepare("SELECT * FROM {$net}_collections_temp_{$category['id']}");
+                $stmt2 = $connect->prepare("SELECT * FROM {$net}_collections_temp_{$category['id']} limit 200000");
                 $stmt2->execute();
                 $users = $stmt2->fetchAll();
                 foreach($users as $user) {
                     // пишем в массив
                     $result[$net][$category['id']][] = $user;
-                }
-                // перемешиваем всех пользователей temp для каждой таблицы категории соцсети если есть данные в temp по этой категории и соцсети
-                if (!empty($result[$net][$category['id']])) {
-                    shuffle($result[$net][$category['id']]);
                 }
             }
         }
@@ -407,7 +403,7 @@ include('generic/header.php');
                 foreach ($categories as $key => $category) {
 
 
-                    if ($category['name']=='полезные советы') {/////////////////////////////////////////////////////////
+                    if ($category['name']=='полезные советы' || $category['name']=='народная медицина') {/////////////////////////////////////////////////////////
 
 
 

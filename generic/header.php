@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
     <head>
         <title><?php echo($title); ?></title>
@@ -606,6 +607,14 @@
 
 
                 @media (max-width: 767px) {
+                    .hidden-xs{
+                        display:none;
+                    }
+
+                    .no-border-bottom-xs{
+                        border-bottom:0 !important;
+                    }
+
                     .pv-0-xs {
                         padding-top:0px !important;
                         padding-bottom:0px !important;
@@ -1662,6 +1671,115 @@ opacity: 1 !important;
     vertical-align: middle;
 }
 
+
+
+
+.user_seen_label{
+    display:none;
+    position: absolute;
+    color: #13b402;
+    top: 2px;
+    right: 12px;
+    font-size: 12px;
+    line-height: 12px;
+    border: 0px solid #fff;
+    border-radius: 999px;
+    padding: 4px;
+    background-color: #fff;
+}
+
+
+
+
+.main-panel.nav{
+    border-bottom:3px solid #6085bc;
+}
+
+.main-panel.nav .active a,
+.main-panel.nav .active a:hover{
+background-color: #6085bc !important;
+color: #fff;
+border:0;
+}
+
+.main-panel.nav a{
+
+   border-bottom:0 !important;
+}
+
+.well {
+    border-radius:0;
+}
+.well-lg{
+    padding: 20px
+}
+
+
+
+
+
+.muted{
+    opacity:0.5;
+}
+
+
+.border_bottom_collection{
+    border-bottom:3px solid #6085bc;
+}
+.border_bottom_self_loaded{
+    border-bottom:3px solid #bc6060;
+}
+
+
+
+#my_base_block .nav a{
+    border: 0;
+    cursor: pointer;
+}
+.nav-tabs > li{
+    margin-bottom:0;
+}
+
+
+
+
+#my_base_block .nav > li > a:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.bg_color_collection,
+.bg_color_collection:hover{
+    background-color: #bc6060;
+}
+
+.bg_color_self_loaded,
+.bg_color_self_loaded:hover{
+    background-color: #6085bc;
+}
+
+#my_base_block .self_loaded_nav,
+#my_base_block .self_loaded_nav:hover{
+    background-color:rgb(188, 96, 96, 1) !important;
+    color:#fff;
+}
+#my_base_block .imported_nav,
+#my_base_block .imported_nav:hover{
+    background-color:rgb(96, 133, 188, 1) !important;
+    color:#fff;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #6085bc !important;
+    border-color: #597aab !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #5475a7 !important;
+    border-color: #354c6f !important;
+}
 
 
             </style>

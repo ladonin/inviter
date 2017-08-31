@@ -30,6 +30,14 @@
                 <?= get_type_name_by_id(2); ?>
             </label>
         </div>
+        <?php if (empty($for_import_status)) { ?>
+            <div class="checkbox type_3" style="display: block;">
+                <label>
+                    <input type="checkbox"  value='3' name="type_users_3" data-name="<?= get_type_name_by_id(3); ?>">
+                    <?= get_type_name_by_id(3); ?>
+                </label>
+            </div>
+        <?php } ?>
         <div class="checkbox type_0" style="display: block;">
             <label>
                 <input type="checkbox"  value='all' name="user_type_all" data-name="Любой">
@@ -38,6 +46,8 @@
         </div>
     </div>
 </div>
-<div id="collection_import_form_status" class="pl-5" style="width:100%; max-width: 400px;"></div>
-<div class="alert p-10 alert-info condition mt-10 mb-0" style="width:100%; max-width: 400px; display:none"></div>
-<div class="alert p-10 alert-warning notice mt-10 mb-0" style="width:100%; max-width: 400px;"></div>
+<?php if ($for_import_status) { ?>
+    <div id="collection_import_form_status" class="pl-5" style="width:100%; max-width: 400px;"></div>
+    <div class="alert p-10 alert-info condition mt-10 mb-0" style="width:100%; max-width: 400px; display:none"></div>
+    <div class="alert p-10 alert-warning notice mt-10 mb-0" style="width:100%; max-width: 400px;"></div>
+<?php } ?>

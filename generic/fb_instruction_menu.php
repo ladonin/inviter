@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (empty($non_instruction)) { ?>
 
@@ -17,24 +17,24 @@ if (empty($non_instruction)) { ?>
             <li><a href="/img/scheme.png" target="_blank">Наглядное описание работы</a></li>
             <li class="dropdown-header"><h4>Собираем в базу:</h4></li>
             <li><a href="/facebook/instruction1.html">своих друзей, а также друзей друзей</a></li>
-            
+
             <li class="dropdown-header"><h4>Приглашаем в группу:</h4></li>
-            
+
             <li><a href="/facebook/instruction2.html">собранных пользователей в свою группу в Facebook</a></li>
-            
+
             <li class="dropdown-header"><h4>Отчетность о проделанной работе:</h4></li>
-            
+
             <li><a href="/facebook/instruction3.html">скачиваем отчет</a></li>
-            
+
         </ul>
         <style>
         .dropdown-menu a{
-            color:#337ab7 !important;
+            color:#6085bc !important;
         }
-        
+
         </style>
-        
-        
+
+
         </div>
        <?php if (empty($non_instruction)) { ?>
         <div class="clearfix"></div>

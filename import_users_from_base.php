@@ -111,44 +111,39 @@ if (empty($result['id'])) {
 // --> заносим импорт
     //берем те, что уже загруженные нами
     $stmt = $connect->prepare("
-        SELECT ids, ids_condition, ids_not_invited
+        SELECT ids, ids_not_invited
     FROM {$net_code}_collections_imports
         WHERE user_id = $user_id AND category_id = $category_id");
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    $has_record_in_net_collections_imports = isset($result['ids_condition']) ? true : false;
-    $ids_condition_collections_imports = $result['ids_condition'] ? $result['ids_condition'] : '';
-    $ids_collections_imports = $result['ids'] ? $result['ids'] : '';
-    $old_ids_not_invited = $result['ids_not_invited'] ? $result['ids_not_invited'] : '';
+    $has_record_in_net_collections_imports = $result['ids'] ? true : false;
+    $old_ids = $result['ids'] ?: 0;
+    $old_ids_not_invited = $result['ids_not_invited'] ?: '';
 
     // берем те id-шники, которые можем добавить в {$net_code}_collections_imports
     $sql = "SELECT
                 id
             FROM
                 {$net_code}_collections_$category_id
-            WHERE 1 " . ($ids_condition_collections_imports ? (" AND " . $ids_condition_collections_imports) : '') . " " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
+            WHERE id NOT IN(" . $old_ids . ") " . prepare_import_types_condition($user_type_klass, $user_type_subscriber, $user_type_survey, $user_type_comment, $user_type_repost);
 
-    $sql .= " ORDER by id ASC LIMIT $users_count";
+    $sql .= " ORDER by RAND() LIMIT $users_count";
 
     $stmt = $connect->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $ids = array();
+    $added_ids = array();
     foreach($result as $data){
-        $ids[] = $data['id'];
+        $added_ids[] = $data['id'];
     }
 
-    // имеем
-    // $ids - новый массив из id пользователей, которых добавляем
-    // $ids_collections_imports - строка набора id - шников, которые у нас уже есть
-    // $old_ids_not_invited - строка набора id - шников, которых загрузили, но еще не пригласили
-
-$ids_conditions_array = Kits_Converter::convert_to_intenvals($ids_collections_imports, implode(',', $ids));
+// имеем
+// $added_ids - новый массив из id пользователей, которых добавляем
+// $old_ids_not_invited - строка набора id - шников, которых загрузили, но еще не пригласили
+$new_ids = Kits_Converter::add_new_numbers_to_numbers(explode(',', $old_ids), $added_ids);
 
 // добавляем их к непросмотренным нами
-
-
-$new_ids_not_invited = Kits_Converter::add_new_numbers_to_numbers(explode(',', $old_ids_not_invited), $ids);
+$new_ids_not_invited = Kits_Converter::add_new_numbers_to_numbers(explode(',', $old_ids_not_invited), $added_ids);
 
 // смотрим - есть ли у клиента строка с записанными ранее пользователями из данной категории
 if (!$has_record_in_net_collections_imports){
@@ -158,7 +153,6 @@ if (!$has_record_in_net_collections_imports){
     (
         user_id,
         ids,
-        ids_condition,
         ids_not_invited,
         category_id,
         created,
@@ -167,8 +161,7 @@ if (!$has_record_in_net_collections_imports){
     VALUES
     (
         $user_id,
-        '" . $ids_conditions_array['stroke'] . "',
-        '" . $ids_conditions_array['sql_condition'] . "',
+        '" . implode(',', $new_ids) . "',
         '" . implode(',', $new_ids_not_invited) . "',
         $category_id,
         " . time() . ",
@@ -181,8 +174,7 @@ if (!$has_record_in_net_collections_imports){
     UPDATE
         {$net_code}_collections_imports
     SET
-        ids = '" . $ids_conditions_array['stroke'] . "',
-        ids_condition = '" . $ids_conditions_array['sql_condition'] . "',
+        ids = '" . implode(',', $new_ids) . "',
         ids_not_invited = '" . implode(',', $new_ids_not_invited) . "',
         modified = " . time() . "
     WHERE user_id = $user_id AND category_id = $category_id");

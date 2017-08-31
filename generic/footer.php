@@ -58,18 +58,18 @@ color: #e6e6e6;">
 
 
 
-
+<?php require('generic/page_scrolling.php');?>
 
 
 
 <script>
 
+$(document).ready(function(){
 
-
-    var screenHeight = document.body.clientHeight;
+    var screenHeight = $(document).height();
     $('#content').css('min-height',(screenHeight - $('#footer').height() - 30) + 'px');
 
-
+});
 
 
 </script>

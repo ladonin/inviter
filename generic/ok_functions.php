@@ -113,6 +113,13 @@ function load_users_init()
 
                 $result = $stmt->fetch();
                 if (!$result) {
+
+
+                    if ($user_fio) {// иногда встречаются без имени - таких не пишем
+
+
+
+
                     //если нет, то просто записываем его клиенту
                     $i++;
 
@@ -161,6 +168,7 @@ function load_users_init()
                         'data' => $data,
                         'user_id' => $user_id
                     ));
+                    }
                 } else {
                     //если есть, то обновляем его у клиента
                     //обновляем user_type и data

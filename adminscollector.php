@@ -320,17 +320,17 @@ include('generic/header.php');
                     echo('Имя: <form method="POST"><input type="hidden" name="id" value="' . $group['id'] . '"><input type="text" style="width:50%;" name="update_name" value="' . $group['admin_name'] . '"/> <input type="submit" value="Обновить"></form>');
 
                     $link = 'https://ok.ru/group/' . $group['ok_group_id'];
-                    echo('<a target="_blank" style="color:#337ab7 !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Группа:</b> ' . $group['ok_group_name'] . '</a><script>links.push(\'' . $link . '\');</script>');
+                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Группа:</b> ' . $group['ok_group_name'] . '</a><script>links.push(\'' . $link . '\');</script>');
 
 
 
 
                     $link = 'https://ok.ru/profile/' . $group['admin_id'];
-                    echo('<a target="_blank" style="color:#337ab7 !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Профиль админа:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
+                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Профиль админа:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
 
 
                                 $link = 'https://ok.ru/messages/' . $group['admin_id'];
-                    echo('<a target="_blank" style="color:#337ab7 !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Переписка с админом:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
+                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Переписка с админом:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
 
                    $text=$header . "
 Вам, как администратору группы, хочу предложить попробовать мой новый и очень полезный интернет-сервис.

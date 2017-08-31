@@ -25,21 +25,70 @@ include('generic/header.php');
             <a href="/vkontakte"><img src="/img/vk_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
         </div>
         <div class="pull-right">
-            <?php include('generic/user_data.php'); ?>
+
+
+
+            <div class="dropdown">
+<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="border: 0;padding: 0;font-size: 30px;background-color: rgba(0, 120, 201, 0);color: #fff;">
+    <span aria-hidden="true" class="glyphicon glyphicon-menu-hamburger"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+
+
+
+            <?php //include('generic/personal_data.php'); ?>
         </div>
     </div>
 </div>
 
 <div class="row">
-    <div class="pull-left mh-20-sm m-10">
-        <div class="pull-left mr-10"><img src="/img/<?=$net_code;?>_logo.jpg" width="26" style="border-radius: 1000px; width: 24px; margin: 5px 0;"></div><div class="pull-left"><h5><b><?=get_net_title();?></b></h5></div><div class="clearfix"></div>
+    <div class="pull-left mh-20-sm mh-10 mv-10">
+        <div class="pull-left mr-10"><img src="/img/<?=$net_code;?>_logo.jpg" width="26" style="border-radius: 1000px; width: 24px; margin: 5px 0;">
+        </div>
+<div class="pull-left"><h5><b><?=get_net_title();?></b></h5></div><div class="clearfix"></div>
+
+
     </div>
-    <div class="mh-20-sm m-10">
-        <?php $non_instruction = 1; require("generic/{$net_code}_instruction_menu.php"); ?>
+    <div class="  mh-20-sm mh-10 mt-10 pull-right">
+
+
+
+
+
+
+
+
+
+
+
+        <?php //$non_instruction = 1; require("generic/{$net_code}_instruction_menu.php"); ?>
     </div>
 </div>
+    <div class="ph-20 ph-10-xs">
+<div class="row">
 
-<div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
+    <div class="col-xs-12 col-lg-6 pr-10-lg p-0">
+<ul class="nav nav-tabs main-panel  nav-justified no-border-bottom-xs">
+  <li role="presentation" class="active"><a class="pointer" id="promotion_nav">Продвижение</a></li>
+  <li role="presentation"><a class="pointer" id="import_nav">Пополнение</a></li>
+  <li role="presentation"><a class="pointer" id="my_base_nav">Моя&nbsp;база</a></li>
+    <li role="presentation"><a class="pointer" id="help_nav">Помощь</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="promotion_block" class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
     <h3>Пригласить пользователей</h3><br>
     <div class="row">
         <div id='show_users_block' class="col-xs-12 col-md-12 col-lg-12 p-0">
@@ -49,7 +98,7 @@ include('generic/header.php');
 </div>
 
 
-<div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:20px !important;">
+<div id="import_block" class="well well-lg p-10-xs" style="display:none; padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:0px !important;">
     <h3>Импорт пользователей</h3>
     <div class="pv-10"><span class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></div>
     <div class="row">
@@ -72,7 +121,7 @@ if ($load_users_result) {
 
                 <li class="list-group-item list-group-item-warning">
                     <span class="badge" style="background-color: #FFF;color:rgb(207, 38, 38);"><?php echo((count($load_users_result['users_result']) - $load_users_result['inserts_count'])); ?></span>
-                    Уже присутствующих пользователей
+                    Уже присутствующих пользователей обновлено
                 </li>
             </ul></div>
 <?php }
@@ -132,7 +181,7 @@ foreach ($categories as $key => $category) {
                     </select>
 
 
-<?php require('generic' . MY_DS . $net_code . '_users_types_checkbox.php'); ?>
+<?php $for_import_status = true; require('generic' . MY_DS . $net_code . '_users_types_checkbox.php'); $for_import_status = false;?>
 
 
                     <div id="collection_category_func_buttons" style="padding-top:5px;">
@@ -165,21 +214,187 @@ foreach ($categories as $key => $category) {
 
 
 
+<div id="help_block" class="well well-lg p-10-xs" style="display:none; padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
+    <h3>Помощь</h3><br>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12 p-0">
 
+        </div>
+    </div>
+</div>
 
 
 <?php
 $client_imported_categories = get_client_imported_categories();
 $has_loaded_users = has_loaded_users();
 $has_imported_users = $client_imported_categories ? true : false;
-if ($has_imported_users || $has_loaded_users) {
+
 ?>
-<div class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:30px !important;  margin-bottom:20px !important; margin-top:20px !important;">
-    <h3>Скачать отчет</h3>
+<div id="my_base_block" class="well well-lg p-10-xs" style="display:none;padding-top:10px !important;padding-bottom:30px !important;  margin-bottom:20px !important; margin-top:0px !important;">
+    <h3>Моя коллекция</h3>
     <br>
     <div class="row">
-        <div class="col-xs-12 col-lg-6 p-0">
-    <div style="/*width: 640px;*/">
+        <div class="col-xs-12 col-lg-6 pl-0 pr-0-xs pr-0-sm pr-10-lg">
+            <ul class="nav nav-tabs border_bottom_self_loaded">
+                <li role="presentation" class="active"><a class="self_loaded_nav" id='my_base_block_self_loaded_nav'>Загруженные мной</a></li>
+                <li role="presentation"><a class="" id='my_base_block_imported_nav'>Из коллекции</a></li>
+            </ul>
+            <form id="my_users_list_search_form" action="/load_users_base.php">
+
+
+
+                <input type="hidden" name="net_code" value="<?=$net_code;?>">
+                <input type="hidden" name="load_type" value="1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="well well-lg p-10-xs mb-10" style="border-top: 0;background-color: #fff;">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 pl-5">
+                <h4 style="margin-left:-5px">Типы пользователя:</h4>
+                <div style="margin-left:-5px"><?php require('generic' . MY_DS . $net_code . '_users_types_checkbox.php'); ?></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="col-xs-12 col-sm-6 pl-5">
+                <h4 style="margin-left:-5px">Статус пользователя:</h4>
+                <div class="radio" style="display: block;">
+                    <label>
+                        <input type="radio" required value='1' name="user_status_showed">
+                        Приглашен
+                    </label>
+                </div>
+                <div class="radio" style="display: block;">
+                    <label>
+                        <input type="radio" required value='2' name="user_status_showed">
+                        Не приглашен
+                    </label>
+                </div>
+                <div class="radio" style="display: block;">
+                    <label>
+                        <input type="radio" required checked value='3' name="user_status_showed">
+                        Все
+                    </label>
+                </div>
+
+
+                    <div class="row" style="margin-right:-20px !important; display:none;" id="my_base_block_imported_categories">
+                        <h4 style="margin-left:-5px">Категория:</h4>
+                        <?php include('generic/client_imported_enabled_categories.php'); ?>
+                    </div>
+
+
+
+
+                    <div class="row" style="margin-right: -10px !important;">
+                        <div class="col-xs-12 p-0 mb-5">
+                        <h4 style="margin-left:-5px">Имя:</h4>
+                        <input type="text" class="form-control" value='' name="user_fio">
+                        </div>
+                    </div>
+
+
+
+
+
+            </div>
+            <div class="col-xs-12 p-0">
+            <div class="alert p-10 alert-info mt-10 mb-0" id='my_users_list_type_condition_descr' style="display:none"></div>
+            </div>
+         </div>
+    </div>
+
+<div class='mb-20'>
+                    <div class='pull-left'>
+                        <select class="form-control" name="sort_type" style="margin-right: 10px;">
+                            <option value="1">Сначала новые</option>
+                            <option value="2">Сначала первые</option>
+                            <option value="3">По имени (А-Я)</option>
+                            <option value="4">По имени (Я-А)</option>
+                        </select>
+                    </div>
+
+                    <div class='pull-right'>
+
+<span class="btn btn-success" id="my_users_list_search_btn">Поиск</span>
+                       </div>
+
+<div class='clearfix'></div>
+
+                    <div class='pull-left mt-10'>
+<button class="btn btn-info">Скачать .CSV файлом</button>
+                       </div>
+
+<div class='clearfix'></div>
+
+
+
+
+
+
+
+</div>
+            </form>
+
+            <div id="my_users_list_count" class="mb-10 ml-0"><h4>Найдено: <span></span></h4></div>
+
+
+
+
+
+                    <div class="list-group col-xs-12" style="padding-right:0; display:none; /*width: 640px;*/ border-radius: 4px;border: 1px solid #ddd; padding: 10px;background-color: #fff;" id='my_users_list'>
+
+
+
+
+
+
+
+
+
+                    </div>
+<div class="alert p-10 alert-warning mt-0 mb-0" id='my_users_list_empty_descr' style="display:none;">Не найдено</div>
+
+
+                    </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<?php /*
+    <div style="">
         <ul class="nav nav-tabs">
             <?php if ($has_loaded_users) { ?>
                 <li role="presentation"><a style="cursor:pointer" id='report_self_loaded_nav'>Загруженные мной</a></li>
@@ -225,19 +440,363 @@ if ($has_imported_users || $has_loaded_users) {
                 </div>
             <?php } ?>
         </div>
+    </div>*/?>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="user_imported_dataModal" tabindex="-1" role="dialog" style="text-align:left;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius:0;">
+            <div class="modal-header" style="background-color:#4C77AF; color:#fff;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #fff;
+                        opacity: 1;
+                        border: 0;
+                        font-weight: 400;"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Данные о пользователе</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
     </div>
-</div></div></div>
-<?php } ?>
+</div>
 
 
 
 
+<script type="text/javascript">
 
 
-
-
-<script>
 $(document).ready(function(){
+$('input[type=checkbox][name=user_type_all]', '#my_base_block').change(function() {
+    $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_3],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]', '#my_base_block').removeAttr("checked");
+});
+
+$('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_3],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6],input[type=checkbox][name=user_type_all]','#my_base_block').change(function() {
+    update_my_base_types_checkboxes();
+
+
+
+
+
+
+
+
+
+});
+$('#my_base_block #my_base_block_self_loaded_nav').click(function(){
+
+    $('#my_base_block_self_loaded_nav').closest('li').addClass('active').find('a').addClass('self_loaded_nav');
+
+    $('#my_base_block_imported_nav').closest('li').removeClass('active').find('a').removeClass('imported_nav');
+    $(this).closest('.nav').removeClass('border_bottom_collection').addClass('border_bottom_self_loaded');
+    $('.checkbox.type_3', '#my_base_block').show();
+
+    $('#my_base_block_imported_categories').hide();
+
+
+
+if (my_base_block_type_users_3_was_checked==true) {
+    $('input[type=checkbox][name=type_users_3]', '#my_base_block').prop('checked', true);
+        }
+
+
+
+
+
+
+
+$('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled',false);
+$('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled',false);
+    $("#my_users_list_search_form select[name=sort_type]").val(my_base_block_sort_type_in_self_loaded);
+
+
+
+$('#my_users_list_search_form input[name=load_type]').val(1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    update_my_base_types_checkboxes();
+});
+var my_base_block_type_users_3_was_checked = false;
+var my_base_block_sort_type_in_self_loaded = 1;
+$('#my_base_block #my_base_block_imported_nav').click(function(){
+
+    $('#my_base_block_self_loaded_nav').closest('li').removeClass('active').find('a').removeClass('self_loaded_nav');
+
+    $('#my_base_block_imported_nav').closest('li').addClass('active').find('a').addClass('imported_nav');
+    $(this).closest('.nav').removeClass('border_bottom_self_loaded').addClass('border_bottom_collection');
+
+    if (typeof($('input[type=checkbox][name=type_users_3]:checked', '#my_base_block').val())=='undefined') {
+    my_base_block_type_users_3_was_checked = false;
+    } else {
+        my_base_block_type_users_3_was_checked = true;
+
+        }
+
+    $('input[type=checkbox][name=type_users_3]', '#my_base_block').removeAttr("checked");
+    $('.checkbox.type_3', '#my_base_block').hide();
+        $('#my_base_block_imported_categories').show();
+
+my_base_block_sort_type_in_self_loaded = $("#my_users_list_search_form select[name=sort_type]").val();
+if (my_base_block_sort_type_in_self_loaded < 3) {
+    $("#my_users_list_search_form select[name=sort_type]").val(3);
+}
+$('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled',true);
+$('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled',true);
+
+
+$('#my_users_list_search_form input[name=load_type]').val(2);
+
+
+    update_my_base_types_checkboxes();
+});
+
+function update_my_base_types_checkboxes(){
+
+
+
+
+        var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#my_base_block').val();
+        var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#my_base_block').val();
+        var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#my_base_block').val();
+        var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#my_base_block').val();
+        var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#my_base_block').val();
+        var user_type_search = $('input[type=checkbox][name=type_users_3]:checked', '#my_base_block').val();
+        var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#my_base_block').val();
+
+    if (user_type_klass
+    || user_type_subscriber
+    || user_type_survey
+    || user_type_comment
+    || user_type_repost
+    || user_type_search) {
+        $('input[type=checkbox][name=user_type_all]', '#my_base_block').removeAttr("checked");
+$('#my_users_list_type_condition_descr').html(prepare_user_type_condition_text(user_type_klass, user_type_repost, user_type_survey, user_type_comment, user_type_subscriber, user_type_search)).show();
+
+    } else {
+        $('input[type=checkbox][name=user_type_all]', '#my_base_block').prop('checked', true);
+$('#my_users_list_type_condition_descr').hide();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+$('input[type=checkbox][name=user_type_all]', '#my_base_block').prop('checked', true).trigger('change');
+$('#my_base_block input[name=user_status_showed]', '#my_base_block').val(3);
+
+
+
+
+
+
+
+
+        my_users_list = (function () {
+
+            var fill_my_users_list_block = false; // защита от доп. подгрузок при скроллинге
+
+            var fill_my_users_list = function(reset){
+                if (typeof(reset)=='undefined') {
+                    var reset = 0;
+        } else {
+            var reset = 1;
+        }
+
+                var form = jQuery("#my_users_list_search_form").serialize();
+
+
+                $.ajax({
+                    url: '/user_in_list.php?'+form,
+                    type: 'POST',
+                    data: {
+                        reset: reset
+                        }
+                }).done(function (data) {
+                    var data = JSON.parse(data);
+                    if (typeof(reset)!=='undefined' && reset) {
+                        $('#my_users_list').html('');
+                        $('#my_users_list_count').hide();
+                    }
+                    if (data.list_empty == '0') {
+                        $('#my_users_list_empty_descr').hide();
+                        $('#my_users_list').append(data.html).show();
+                        $('#my_users_list_count').show();
+                        $('#my_users_list_count span').html(data.count);
+                        fill_my_users_list_block = false;
+                        $('[data-toggle="tooltip"]').tooltip();
+                    } else {
+
+                        $('#my_users_list_empty_descr').show();
+                        $('#my_users_list').hide();
+                        $('#my_users_list_count').hide();
+
+    }
+                });
+            }
+
+            var interface = {
+                init: function () {
+
+                    $(window).scroll(function () {
+                        if ($('.active #my_base_nav').length) {// если мы на странице списка пользователей
+                            if (($(window).height() + $(window).scrollTop() + 300 >= $(document).height()) && !fill_my_users_list_block) {
+                                fill_my_users_list_block = true;
+                                fill_my_users_list();
+                            }
+                        }
+                    });
+                    $('#my_users_list_search_btn').click(function(){
+                        fill_my_users_list(true);
+                    });
+                    fill_my_users_list(true);
+                },
+                fill_my_users_list: function (reset) {
+                    fill_my_users_list(reset);
+                },
+                reset_scrol_blocking: function () {
+                    fill_my_users_list_block = false;
+                }
+            }
+            return interface;
+        })();
+        my_users_list.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $(document).on('click', '.user_data_type_link', function () {
+        var url=$(this).attr('data-url');
+        $.ajax({
+            url: url,
+            data: {}
+        }).done(function (data) {
+            $('#user_imported_dataModal .modal-body').html(data);
+            $('#user_imported_dataModal').modal('show');
+        });
+    });
+
+
+$('#promotion_nav').click(function(){
+    $('#promotion_block').show();
+    $('#promotion_nav').closest('li').addClass('active');
+
+    $('#import_block').hide();
+    $('#import_nav').closest('li').removeClass('active');
+
+    $('#my_base_block').hide();
+    $('#my_base_nav').closest('li').removeClass('active');
+
+
+    $('#help_block').hide();
+    $('#help_nav').closest('li').removeClass('active');
+
+});
+
+$('#import_nav').click(function(){
+    $('#promotion_block').hide();
+    $('#promotion_nav').closest('li').removeClass('active');
+
+    $('#import_block').show();
+    $('#import_nav').closest('li').addClass('active');
+
+
+    $('#my_base_block').hide();
+    $('#my_base_nav').closest('li').removeClass('active');
+
+    $('#help_block').hide();
+    $('#help_nav').closest('li').removeClass('active');
+});
+
+$('#my_base_nav').click(function(){
+    $('#promotion_block').hide();
+    $('#promotion_nav').closest('li').removeClass('active');
+
+    $('#import_block').hide();
+    $('#import_nav').closest('li').removeClass('active');
+
+
+
+    $('#my_base_block').show();
+    $('#my_base_nav').closest('li').addClass('active');
+
+    $('#help_block').hide();
+    $('#help_nav').closest('li').removeClass('active');
+});
+
+
+
+$('#help_nav').click(function(){
+    $('#promotion_block').hide();
+    $('#promotion_nav').closest('li').removeClass('active');
+
+    $('#import_block').hide();
+    $('#import_nav').closest('li').removeClass('active');
+
+
+
+    $('#my_base_block').hide();
+    $('#my_base_nav').closest('li').removeClass('active');
+
+    $('#help_block').show();
+    $('#help_nav').closest('li').addClass('active');
+});
+
+
+
 
 
     if ($('#report_self_loaded_nav').length){
@@ -301,6 +860,9 @@ $(document).ready(function(){
 
 
 function prepare_available_imported_category_types(){
+
+    var old_checkbox_is_all = $('#collection_import_form .type_users_checkbox .checkbox input[type=checkbox]:checked').val() === 'all' ? true :false;
+
     var category_id = $('#collection_category_selector').val();
     if (category_id == 0){
         $('#collection_import_form .condition').hide();
@@ -323,9 +885,10 @@ function prepare_available_imported_category_types(){
 
         var has_types = false;
         var types_count = 0;
+
         $('#collection_import_form .type_users_checkbox .checkbox').hide();
 
-        // снимаем выбор с выбранных
+        // снимаем выбор с выбранных (если all = checked, то он тут снимается, с ним работаем ниже)
         $.each($('#collection_import_form .type_users_checkbox .checkbox input[type=checkbox]:checked'), function (index, value) {
             // если чекбокс пустой, то снимаем с него checked
             if(!data[$(this).val()]) {
@@ -344,7 +907,10 @@ function prepare_available_imported_category_types(){
 
         if (types_count > 1) {
             $('#collection_import_form .type_users_checkbox .checkbox.type_0').show();
-    }
+            if (old_checkbox_is_all) {
+                $('#collection_import_form .type_users_checkbox .checkbox.type_0 input[type=checkbox]').prop("checked", true);
+            }
+        }
 
 
         if (!has_types) {
@@ -734,16 +1300,16 @@ console.log('old_type [show_imported_type_<?=$net_code;?>]:'+old_type);
 
 
 
-    $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').change(function() {
-        $('input[type=checkbox][name=user_type_all]').removeAttr("checked");
+    $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_3],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]', '#collection_import_form').change(function() {
+        $('input[type=checkbox][name=user_type_all]', '#collection_import_form').removeAttr("checked");
     });
 
-    $('input[type=checkbox][name=user_type_all]').change(function() {
-        $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]').removeAttr("checked");
+    $('input[type=checkbox][name=user_type_all]', '#collection_import_form').change(function() {
+        $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_3],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]', '#collection_import_form').removeAttr("checked");
     });
 
-    $('#collection_import_form input[type=checkbox]').change(function () {
-        var category_id = $('#collection_category_selector').val();
+    $('input[type=checkbox]', '#collection_import_form').change(function () {
+        var category_id = $('#collection_category_selector', '#collection_import_form').val();
         var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#collection_import_form').val();
         var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#collection_import_form').val();
         var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#collection_import_form').val();
@@ -754,12 +1320,20 @@ console.log('old_type [show_imported_type_<?=$net_code;?>]:'+old_type);
         if (category_id == 0 ||
                 (!user_type_klass && !user_type_survey && !user_type_comment && !user_type_subscriber && !user_type_repost && !user_type_all)) {
             $("#collection_category_func_buttons").hide();
+            $('#collection_import_form .condition').hide();
             return false;
         }
 
         if (user_type_all) {
 
         } else {
+
+
+
+
+
+
+
 
             var condition_text='';
 
@@ -778,18 +1352,61 @@ console.log('old_type [show_imported_type_<?=$net_code;?>]:'+old_type);
             if (user_type_subscriber) {
                 condition_text += get_type_name_by_id(user_type_subscriber) + ' <b>И</b> ';
             }
-            $('#collection_import_form .condition').html(condition_text.slice(0, condition_text.length -10)).show();
+            $('#collection_import_form .condition').html(prepare_user_type_condition_text(user_type_klass, user_type_repost, user_type_survey, user_type_comment, user_type_subscriber)).show();
+
+
+
+
+
+
+
+
+
+
         }
         $("#collection_category_func_buttons").show();
         calculate_price();
     });
 
 
+
+
+function prepare_user_type_condition_text(user_type_klass, user_type_repost, user_type_survey, user_type_comment, user_type_subscriber, user_type_search){
+
+        if (typeof(user_type_search) === 'undefined') {
+            user_type_search = '';
+        }
+            var condition_text='';
+
+            if (user_type_klass) {
+                condition_text += get_type_name_by_id(user_type_klass) + ' <b>И</b> ';
+            }
+            if (user_type_repost) {
+                condition_text += get_type_name_by_id(user_type_repost) + ' <b>И</b> ';
+            }
+            if (user_type_survey) {
+                condition_text += get_type_name_by_id(user_type_survey) + ' <b>И</b> ';
+            }
+            if (user_type_comment) {
+                condition_text += get_type_name_by_id(user_type_comment) + ' <b>И</b> ';
+            }
+            if (user_type_subscriber) {
+                condition_text += get_type_name_by_id(user_type_subscriber) + ' <b>И</b> ';
+            }
+            if (user_type_search) {
+                condition_text += get_type_name_by_id(user_type_search) + ' <b>И</b> ';
+            }
+            return condition_text.slice(0, condition_text.length -10);
+    }
+
+
+
+
     $('#collection_import_form #collection_category_selector').change(function () {
         prepare_available_imported_category_types();
     });
 
-
+$('input[type=checkbox]', '#collection_import_form').trigger('change');
 
 
 
@@ -830,11 +1447,11 @@ function calculate_price(){
             user_type_survey = -1;
             user_type_comment = -1;
             user_type_repost = -1;
-            $('input[type=checkbox][name=type_users_1]').removeAttr("checked");
-            $('input[type=checkbox][name=type_users_2]').removeAttr("checked");
-            $('input[type=checkbox][name=type_users_5]').removeAttr("checked");
-            $('input[type=checkbox][name=type_users_6]').removeAttr("checked");
-            $('input[type=checkbox][name=type_users_4]').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_1]', '#collection_import_form').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_2]', '#collection_import_form').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_5]', '#collection_import_form').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_6]', '#collection_import_form').removeAttr("checked");
+            $('input[type=checkbox][name=type_users_4]', '#collection_import_form').removeAttr("checked");
             $('#collection_import_form .condition').hide();
         }
 
@@ -1041,6 +1658,21 @@ prepare_imported_categories_select();
         $(this).closest('.row').find('.note_comments').toggle();
 
     });
+
+
+
+
+
+
+
+    $(document).on('click','#loaded_users_list .user_link,#my_users_list .user_link', function(){
+        $(this).closest('.list-group-item').find('.user_seen_label').show();
+    });
+
+
+
+
+
 
 
                 function get_type_name_by_id(user_type) {

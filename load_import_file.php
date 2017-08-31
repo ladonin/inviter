@@ -3,10 +3,10 @@ clearInterval(intervalLog);
 actual_html;
 
 
-
+https://ok.ru/poleznye.sovetu/topic/66661048584970
 
 // ok
-// опросы
+// опросы, классы
 var intervalLoad = setInterval(function() {
 $('.js-show-more.link-show-more').trigger('click');
 $('.modal_main').scrollTop(999999999);
@@ -30,7 +30,28 @@ var intervalLog = setInterval(function() {
 }, 10000);
 
 
+// репост
+var intervalLoad = setInterval(function() {
+$('.js-show-more.link-show-more').trigger('click');
+$('#modal_main').scrollTop(999999999);
+}, 1000);
 
+var actual_html = '';
+var count = 0;
+var intervalLog = setInterval(function() {
+
+    actual_html += $('ul.cardsList').html();
+    count += $('.cardsList_li').length;
+    $('ul.cardsList').html('');
+
+    console.log(actual_html.length + ' Bytes');
+    console.log(count);
+    if (count > 30000) {
+        console.log('Предел достигниут.....................');
+        clearInterval(intervalLoad);
+        clearInterval(intervalLog);
+    }
+}, 10000);
 
 
 
@@ -77,26 +98,28 @@ var intervalLog = setInterval(function() {
 //подписчики
 var intervalLoad = setInterval(function() {
 document.getElementById("box_layer_wrap").scrollTop=9999999;
-}, 500);
-
+}, 300);
 
 var actual_html = '';
 var count = 0;
 var intervalLog = setInterval(function() {
 
     actual_html += document.querySelector('#fans_rowsmembers').innerHTML;
+
     count += document.querySelectorAll('#fans_rowsmembers .fans_fan_row').length;
     document.querySelector('#fans_rowsmembers').innerHTML='';
-
-    console.log(actual_html.length + ' Bytes');
+    console.clear();
+    console.log('vk подписчики');
     console.log(count);
 
-    if (count > 30000) {
+    if (count > 100000) {
         console.log('Предел достигниут.....................');
         clearInterval(intervalLoad);
         clearInterval(intervalLog);
+        console.clear();
+        console.log(actual_html);
     }
-}, 10000);
+}, 5000);
 
 
 
