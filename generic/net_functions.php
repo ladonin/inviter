@@ -281,7 +281,7 @@ function get_not_invited_count()
     }
     $all_categories_list = trim($all_categories_list, ',');
 
-    $stmt = $connect->prepare("SELECT * from {$net_code}_collections_imports where user_id = $user_id and category_id IN ($all_categories_list)");
+    $stmt = $connect->prepare("SELECT ids_not_invited from {$net_code}_collections_imports where user_id = $user_id and category_id IN ($all_categories_list)");
     $stmt->execute();
     $all_categories = $stmt->fetchAll();
 
@@ -292,6 +292,56 @@ function get_not_invited_count()
     }
     return $count_non_invited_loaded + $count_non_invited_from_collection;
 }
+
+
+
+function get_all_users_count()
+{
+    global $net_code;
+    global $connect;
+    global $user_id;
+
+    // для импортнутых из html
+    $stmt = $connect->prepare("SELECT count(*) as count FROM {$net_code}_imports where user_id=$user_id");
+    $stmt->execute(array('user_id' => $user_id));
+    $count_loaded = $stmt->fetchColumn();
+
+
+    // для импортнутых из коллекции
+    $count_from_collection = 0;
+    $stmt = $connect->prepare("SELECT id from {$net_code}_collections_categories");
+    $stmt->execute();
+    $all_categories = $stmt->fetchAll();
+
+    $all_categories_list = '';
+    foreach ($all_categories as $category) {
+        $all_categories_list .= $category['id'] . ',';
+    }
+    $all_categories_list = trim($all_categories_list, ',');
+
+    $stmt = $connect->prepare("SELECT ids from {$net_code}_collections_imports where user_id = $user_id and category_id IN ($all_categories_list)");
+    $stmt->execute();
+    $all_categories = $stmt->fetchAll();
+
+    foreach ($all_categories as $category) {
+        if ($category['ids']) {
+            $count_from_collection += count(explode(',', $category['ids']));
+        }
+    }
+    return $count_loaded + $count_from_collection;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //берем доступные типы загрузки пользователей

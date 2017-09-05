@@ -483,70 +483,22 @@ $('input[type=checkbox][name=user_type_all]', '#my_base_block').change(function(
 
 $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_3],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6],input[type=checkbox][name=user_type_all]','#my_base_block').change(function() {
     update_my_base_types_checkboxes();
-
-
-
-
-
-
-
-
-
 });
 $('#my_base_block #my_base_block_self_loaded_nav').click(function(){
-
     $('#my_base_block_self_loaded_nav').closest('li').addClass('active').find('a').addClass('self_loaded_nav');
-
     $('#my_base_block_imported_nav').closest('li').removeClass('active').find('a').removeClass('imported_nav');
     $(this).closest('.nav').removeClass('border_bottom_collection').addClass('border_bottom_self_loaded');
     $('.checkbox.type_3', '#my_base_block').show();
-
     $('#my_base_block_imported_categories').hide();
 
+    if (my_base_block_type_users_3_was_checked==true) {
+        $('input[type=checkbox][name=type_users_3]', '#my_base_block').prop('checked', true);
+    }
 
-
-if (my_base_block_type_users_3_was_checked==true) {
-    $('input[type=checkbox][name=type_users_3]', '#my_base_block').prop('checked', true);
-        }
-
-
-
-
-
-
-
-$('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled',false);
-$('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled',false);
+    $('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled',false);
+    $('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled',false);
     $("#my_users_list_search_form select[name=sort_type]").val(my_base_block_sort_type_in_self_loaded);
-
-
-
-$('#my_users_list_search_form input[name=load_type]').val(1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $('#my_users_list_search_form input[name=load_type]').val(1);
     update_my_base_types_checkboxes();
 });
 var my_base_block_type_users_3_was_checked = false;
@@ -924,6 +876,45 @@ calculate_price();
     });
     }
 }
+
+
+
+
+
+
+    $(document).on('click', '#reset_promotion', function () {
+
+
+
+
+        swal({
+            title: 'Сброс на начало',
+            text: "Вы уверены, что хотите начать просмотр сначала?",
+            html: true,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#64b5f6",
+            confirmButtonText: 'Да',
+            cancelButtonText: 'Нет'
+        },
+        function (isConfirm) {
+            if (isConfirm) {
+
+
+    $.ajax({
+        url: "/reset_promotion.php?net_code=<?=$net_code;?>",
+    }).done(function (data) {
+        reset_users_list();
+    });
+
+
+
+
+
+            }
+        });
+    });
+
 
 
 

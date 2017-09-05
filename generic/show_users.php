@@ -1,13 +1,25 @@
 <div id="loaded_users_buttons_down">
 
-    <div class="col-xs-12 col-md-6 pr-10-md p-0">
-
     <?php
     $count_non_invited = get_not_invited_count();
+    $count_all_users = get_all_users_count();
     $status_types_load_users_not_changed = empty($show_type_load) ? 'null' : 'false';
     $status_self_load_users_type_not_changed = empty($show_self_load_users_types) ? 'null' : 'false';
     $status_client_imported_enabled_category_not_changed = empty($show_imported_categories) ? 'null' : 'false';
+    $count_invited = $count_all_users - $count_non_invited;
     ?>
+
+    <?php if ($count_invited) { ?>
+    <div class="col-xs-12 p-0">
+        <button class="btn btn-danger btn-sm mb-10" id="reset_promotion">Сбросить на начало</button>
+    </div>
+        <?php } ?>
+
+
+
+    <div class="col-xs-12 col-md-6 pr-10-md p-0">
+
+
     <?php if ($count_non_invited) { ?>
         <div class="row">
             <div class="alert alert-info col-xs-12" role="alert" style="/*width: 640px;*/">

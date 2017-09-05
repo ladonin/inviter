@@ -109,7 +109,7 @@ if (empty($result['id'])) {
 
 
 // --> заносим импорт
-    //берем те, что уже загруженные нами
+    //берем те, что уже загруженны нами
     $stmt = $connect->prepare("
         SELECT ids, ids_not_invited
     FROM {$net_code}_collections_imports
