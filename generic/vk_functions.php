@@ -69,15 +69,18 @@ function prepare_load_data()
 
     foreach ($users_result as $key => $user) {
 
+        $profile_id = $user[1];
+
         if ((stristr($user[2], '/images/camera_') !== FALSE)
                 || (stristr($user[2], '/images/deactivated_') !== FALSE)
                 || (stristr($user[2], '/images/community_') !== FALSE)
+                || $profile_id < 1
                 ) {
             unset($users_result[$key]);
             continue;
         }
 
-        $profile_id = $user[1];
+
         $user_avatar = strip_tags($user[2]);
 
         if ($user_avatar[0] == '/') {

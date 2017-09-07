@@ -11,7 +11,9 @@
 
     <?php if ($count_invited) { ?>
     <div class="col-xs-12 p-0">
+
         <button class="btn btn-danger btn-sm mb-10" id="reset_promotion">Сбросить на начало</button>
+
     </div>
         <?php } ?>
 
@@ -22,9 +24,9 @@
 
     <?php if ($count_non_invited) { ?>
         <div class="row">
-            <div class="alert alert-info col-xs-12" role="alert" style="/*width: 640px;*/">
-                <?php //Всего показано: <?php echo($count_invited);<br>  ?>
-                Осталось всего: <b><?php echo($count_non_invited); ?></b>
+            <div class="alert alert-info  p-10 col-xs-12" role="alert" style="/*width: 640px;*/">
+                Показано: <b><?php echo($count_invited);?></b><br>
+                Осталось: <b><?php echo($count_non_invited); ?></b>
             </div>
         </div>
     <?php } ?>
@@ -32,7 +34,7 @@
 
     <?php if (!$count_non_invited) { ?>
         <div class="row">
-            <div class="alert alert-danger col-xs-12" role="alert" style="/*width: 640px;*/">Список пользователей пуст, добавьте их через форму ниже или импортируйте из коллекции</div>
+            <div class="alert alert-danger  p-10 col-xs-12" role="alert" style="/*width: 640px;*/">Список пользователей пуст, добавьте их через форму или импортируйте из коллекции во вкладке "Пополнение"</div>
         </div>
     <?php
     }

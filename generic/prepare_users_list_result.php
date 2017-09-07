@@ -48,7 +48,7 @@ $is_loaded_status = 0;
 
 $load_type_status_name = $load_type == 1 ? 'self_loaded' : 'from_collection';
 
-$limit = $limit ?? 10;
+$limit = $limit ?? 100;
 
 
 
@@ -83,24 +83,28 @@ if (!empty($_SESSION['infinity_scroll']['my_users_list']['viewed_users']['self_l
     $viewed_condition = 0;
 }
 
+    $fio_condition = '';
+    $execute_array = array(
+        'user_id' => $user_id
+    );
+    if ($user_fio) {
+        $fio_condition = 'AND user_fio LIKE(:user_fio)';
+        $execute_array = array(
+            'user_id' => $user_id,
+            'user_fio' => '%' . $user_fio . '%'
+        );
+    }
 
-    $stmt = $connect->prepare("SELECT count(*) as count FROM {$net_code}_imports  WHERE user_id=:user_id AND user_fio LIKE(:user_fio) $user_type_condition $showed_condition");
-    $stmt->execute(
-            array(
-                'user_id' => $user_id,
-                'user_fio' => '%'.$user_fio.'%'
-    ));
+    $stmt = $connect->prepare("SELECT count(*) as count FROM {$net_code}_imports  WHERE user_id=:user_id $fio_condition $user_type_condition $showed_condition");
+    $stmt->execute($execute_array);
+
     $result = $stmt->fetchColumn();
 
     $count = $result;
 
 
-    $stmt = $connect->prepare("SELECT * FROM {$net_code}_imports  WHERE user_id=:user_id AND user_fio LIKE(:user_fio) AND  id NOT IN($viewed_condition) $user_type_condition $showed_condition $sort_condition LIMIT $limit");
-    $stmt->execute(
-            array(
-                'user_id' => $user_id,
-                'user_fio' => '%'.$user_fio.'%'
-    ));
+    $stmt = $connect->prepare("SELECT * FROM {$net_code}_imports  WHERE user_id=:user_id $fio_condition AND  id NOT IN($viewed_condition) $user_type_condition $showed_condition $sort_condition LIMIT $limit");
+    $stmt->execute($execute_array);
     $result = $stmt->fetchAll();
     /////////////////////////////////////////////////////////
     foreach ($result as $user) {
@@ -145,16 +149,32 @@ if (!empty($_SESSION['infinity_scroll']['my_users_list']['viewed_users']['self_l
         $showed_condition = "AND id IN($ids)";
     }
 
-$sql_main_condition = "WHERE 1 $user_type_condition $showed_condition AND user_fio LIKE(:user_fio)";
+
+
+
+
+
+    $fio_condition = '';
+    $execute_array = array();
+    if ($user_fio) {
+        $fio_condition = 'AND user_fio LIKE(:user_fio)';
+        $execute_array = array(
+            'user_fio' => '%' . $user_fio . '%'
+        );
+    }
+
+
+
+
+
+
+$sql_main_condition = "WHERE 1 $user_type_condition $showed_condition $fio_condition";
 
 
 
     $sql = "SELECT count(*) as count FROM {$net_code}_collections_$imported_category $sql_main_condition";
     $stmt = $connect->prepare($sql);
-    $stmt->execute(
-            array(
-                'user_fio' => '%'.$user_fio.'%'
-        ));
+    $stmt->execute($execute_array);
     $count = $stmt->fetchColumn();
 
 
@@ -166,10 +186,7 @@ if (!empty($_SESSION['infinity_scroll']['my_users_list']['viewed_users']['from_c
     $sql = "SELECT * FROM {$net_code}_collections_$imported_category $sql_main_condition  AND id NOT IN($viewed_condition) $sort_condition limit $limit";
 
     $stmt = $connect->prepare($sql);
-    $stmt->execute(
-            array(
-                'user_fio' => '%'.$user_fio.'%'
-        ));
+    $stmt->execute($execute_array);
     $result = $stmt->fetchAll();
 
     $show_imported_categories = $imported_category;

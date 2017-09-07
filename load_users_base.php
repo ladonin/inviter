@@ -22,7 +22,7 @@ include('generic/auth_control.php');
 
 
 $load_to_file_status= 1;
-$limit = 10000;
+$limit = MY_REPORT_USERS_COUNTT_LIMIT;
 require('generic/prepare_users_list_result.php');
 
             $file_name = "reports/{$net_code}_self_loaded_" . uniqid() . $user_id . '.csv';

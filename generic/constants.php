@@ -90,4 +90,5 @@ define('MY_USER_IMPORT_COST_ADDITIONAL_KOEF', 0.25);
 define('MY_USER_DAILY_FEE_COST', 3.3);
 
 
-
+// лимит пользователей в файле отчета
+define('MY_REPORT_USERS_COUNTT_LIMIT', 10000);

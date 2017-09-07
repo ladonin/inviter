@@ -26,17 +26,23 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     }
 </style>
 
-<button type="button" class="btn btn-default" style="color: #fff;
-background-color: #449d44;
-border-color: #ccc;
-" data-toggle="modal" data-target="#userDataModal">
-    <span class="glyphicon glyphicon-warning-sign" style="margin-right:5px; color: #ff6d02; <?php echo($result['email'] ? 'display:none;' : ''); ?>"></span>
-    <span class="glyphicon glyphicon-user" style="margin-right:5px;"></span>Персональные данные
-</button>
 
-<a href="/logout" class="btn btn-default" style="background-color: #6d5d71;color:#fff">
-    <span class="glyphicon glyphicon-log-out" style="margin-right:5px;"></span>Выход
-</a>
+
+
+<div class="dropdown">
+<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="outline: none; border: 0;padding: 0;font-size: 30px; line-height: 30px; background-color: rgba(0, 120, 201, 0);color: #fff; box-shadow: none;">
+    <span style="outline:none" aria-hidden="true" class="glyphicon glyphicon-menu-hamburger"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+    <li><a class="pv-10" style="cursor:pointer" data-toggle="modal" data-target="#userDataModal"><span class="glyphicon glyphicon-user" style="margin-right:5px;"></span>Персональные данные</a></li>
+    <li><a class="pv-10" href="#"><span class="glyphicon glyphicon-question-sign" style="margin-right:5px;"></span>Помощь</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a class="pv-10" href="/logout"><span class="glyphicon glyphicon-log-out" style="margin-right:5px;"></span>Выход</a></li>
+  </ul>
+</div>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="userDataModal" tabindex="-1" role="dialog" style="text-align:left;">

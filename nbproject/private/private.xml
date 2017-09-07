@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="21">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="23">
+        <file>
+            <url>ok.php</url>
+            <bookmark id="8">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+            <bookmark id="9">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
         <file>
             <url>ok_show_users.php</url>
             <bookmark id="2">
@@ -16,43 +29,43 @@
                 <line>0</line>
                 <key/>
             </bookmark>
-            <bookmark id="20">
+            <bookmark id="22">
                 <name/>
-                <line>306</line>
+                <line>270</line>
                 <key/>
             </bookmark>
-            <bookmark id="19">
+            <bookmark id="20">
                 <name/>
-                <line>579</line>
+                <line>270</line>
                 <key/>
             </bookmark>
         </file>
         <file>
-            <url>ok.php</url>
-            <bookmark id="8">
+            <url>generic/prepare_users_list_result.php</url>
+            <bookmark id="23">
                 <name/>
-                <line>0</line>
-                <key/>
-            </bookmark>
-            <bookmark id="9">
-                <name/>
-                <line>0</line>
+                <line>195</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/user_in_list.php</file>
             <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/user_in_list.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/header.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/constants.php</file>
             <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/index.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/client_imported_enabled_categories.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/net_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/constants.php</file>
             <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/get_category_type_users_count.php</file>
-            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/show_users.php</file>
             <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/generic_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/my_base_block.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/show_users.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/import_users_from_base.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/load_users_base.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/shell/cron_daily_fee.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/net_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/prepare_users_list_result.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/personal_data.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/vk_functions.php</file>
+            <file>file:/D:/openserver_5.2/OpenServer/domains/stage.inviter/generic/header.php</file>
         </group>
     </open-files>
 </project-private>

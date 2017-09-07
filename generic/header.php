@@ -10,7 +10,7 @@
         <script src="/javascript/generic/jQuery/jquery.min.js"></script>
         <script src="/javascript/generic/bootstrap.min.js"></script>
         <script src="/javascript/generic/swal.js"></script>
-        <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+        <!--<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>-->
 
 
         <meta name="webmoney" content="BB2F7E92-03EF-4B7C-801F-8B7369557CA5"/>
@@ -1661,8 +1661,7 @@ color: #c5c5c5;
 }
 
 button:disabled {
-
-opacity: 1 !important;
+opacity: 1;
 }
 
 .form-inline .form-control {
@@ -1760,12 +1759,12 @@ border:0;
 
 #my_base_block .self_loaded_nav,
 #my_base_block .self_loaded_nav:hover{
-    background-color:rgb(188, 96, 96, 1) !important;
+    background-color:rgb(188, 96, 96) !important;
     color:#fff;
 }
 #my_base_block .imported_nav,
 #my_base_block .imported_nav:hover{
-    background-color:rgb(96, 133, 188, 1) !important;
+    background-color:rgb(96, 133, 188) !important;
     color:#fff;
 }
 

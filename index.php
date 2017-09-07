@@ -28,22 +28,11 @@ include('generic/header.php');
 
 
 
-            <div class="dropdown">
-<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="border: 0;padding: 0;font-size: 30px;background-color: rgba(0, 120, 201, 0);color: #fff;">
-    <span aria-hidden="true" class="glyphicon glyphicon-menu-hamburger"></span>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
 
 
 
-            <?php //include('generic/personal_data.php'); ?>
+
+            <?php include('generic/personal_data.php'); ?>
         </div>
     </div>
 </div>
@@ -79,7 +68,7 @@ include('generic/header.php');
   <li role="presentation" class="active"><a class="pointer" id="promotion_nav">Продвижение</a></li>
   <li role="presentation"><a class="pointer" id="import_nav">Пополнение</a></li>
   <li role="presentation"><a class="pointer" id="my_base_nav">Моя&nbsp;база</a></li>
-    <li role="presentation"><a class="pointer" id="help_nav">Помощь</a></li>
+    <!--<li role="presentation"><a class="pointer" id="help_nav">Помощь</a></li>-->
 </ul>
 </div>
 </div>
@@ -88,8 +77,8 @@ include('generic/header.php');
 
 
 
-<div id="promotion_block" class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
-    <h3>Пригласить пользователей</h3><br>
+<div id="promotion_block" class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:20px !important; margin:0 !important;">
+    <h3 class="mb-20">Пригласить пользователей</h3>
     <div class="row">
         <div id='show_users_block' class="col-xs-12 col-md-12 col-lg-12 p-0">
         <?php $button_1_added_text = ''; require("generic/show_users.php"); ?>
@@ -98,7 +87,7 @@ include('generic/header.php');
 </div>
 
 
-<div id="import_block" class="well well-lg p-10-xs" style="display:none; padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:0px !important;">
+<div id="import_block" class="well well-lg p-10-xs" style="display:none; padding-top:10px !important;padding-bottom:20px !important;  margin-bottom:0px !important; margin-top:0px !important;">
     <h3>Импорт пользователей</h3>
     <div class="pv-10"><span class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></div>
     <div class="row">
@@ -213,7 +202,7 @@ foreach ($categories as $key => $category) {
 </div>
 
 
-
+<!--
 <div id="help_block" class="well well-lg p-10-xs" style="display:none; padding-top:10px !important;padding-bottom:10px !important; margin:0 !important;">
     <h3>Помощь</h3><br>
     <div class="row">
@@ -222,225 +211,64 @@ foreach ($categories as $key => $category) {
         </div>
     </div>
 </div>
-
+-->
 
 <?php
-$client_imported_categories = get_client_imported_categories();
-$has_loaded_users = has_loaded_users();
-$has_imported_users = $client_imported_categories ? true : false;
-
+//$client_imported_categories = get_client_imported_categories();
+//$has_loaded_users = has_loaded_users();
+//$has_imported_users = $client_imported_categories ? true : false;
 ?>
-<div id="my_base_block" class="well well-lg p-10-xs" style="display:none;padding-top:10px !important;padding-bottom:30px !important;  margin-bottom:20px !important; margin-top:0px !important;">
-    <h3>Моя коллекция</h3>
-    <br>
-    <div class="row">
-        <div class="col-xs-12 col-lg-6 pl-0 pr-0-xs pr-0-sm pr-10-lg">
-            <ul class="nav nav-tabs border_bottom_self_loaded">
-                <li role="presentation" class="active"><a class="self_loaded_nav" id='my_base_block_self_loaded_nav'>Загруженные мной</a></li>
-                <li role="presentation"><a class="" id='my_base_block_imported_nav'>Из коллекции</a></li>
-            </ul>
-            <form id="my_users_list_search_form" action="/load_users_base.php">
-
-
-
-                <input type="hidden" name="net_code" value="<?=$net_code;?>">
-                <input type="hidden" name="load_type" value="1">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="well well-lg p-10-xs mb-10" style="border-top: 0;background-color: #fff;">
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 pl-5">
-                <h4 style="margin-left:-5px">Типы пользователя:</h4>
-                <div style="margin-left:-5px"><?php require('generic' . MY_DS . $net_code . '_users_types_checkbox.php'); ?></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </div>
-            <div class="col-xs-12 col-sm-6 pl-5">
-                <h4 style="margin-left:-5px">Статус пользователя:</h4>
-                <div class="radio" style="display: block;">
-                    <label>
-                        <input type="radio" required value='1' name="user_status_showed">
-                        Приглашен
-                    </label>
-                </div>
-                <div class="radio" style="display: block;">
-                    <label>
-                        <input type="radio" required value='2' name="user_status_showed">
-                        Не приглашен
-                    </label>
-                </div>
-                <div class="radio" style="display: block;">
-                    <label>
-                        <input type="radio" required checked value='3' name="user_status_showed">
-                        Все
-                    </label>
-                </div>
-
-
-                    <div class="row" style="margin-right:-20px !important; display:none;" id="my_base_block_imported_categories">
-                        <h4 style="margin-left:-5px">Категория:</h4>
-                        <?php include('generic/client_imported_enabled_categories.php'); ?>
-                    </div>
-
-
-
-
-                    <div class="row" style="margin-right: -10px !important;">
-                        <div class="col-xs-12 p-0 mb-5">
-                        <h4 style="margin-left:-5px">Имя:</h4>
-                        <input type="text" class="form-control" value='' name="user_fio">
-                        </div>
-                    </div>
-
-
-
-
-
-            </div>
-            <div class="col-xs-12 p-0">
-            <div class="alert p-10 alert-info mt-10 mb-0" id='my_users_list_type_condition_descr' style="display:none"></div>
-            </div>
-         </div>
-    </div>
-
-<div class='mb-20'>
-                    <div class='pull-left'>
-                        <select class="form-control" name="sort_type" style="margin-right: 10px;">
-                            <option value="1">Сначала новые</option>
-                            <option value="2">Сначала первые</option>
-                            <option value="3">По имени (А-Я)</option>
-                            <option value="4">По имени (Я-А)</option>
-                        </select>
-                    </div>
-
-                    <div class='pull-right'>
-
-<span class="btn btn-success" id="my_users_list_search_btn">Поиск</span>
-                       </div>
-
-<div class='clearfix'></div>
-
-                    <div class='pull-left mt-10'>
-<button class="btn btn-info">Скачать .CSV файлом</button>
-                       </div>
-
-<div class='clearfix'></div>
-
-
-
-
-
-
-
-</div>
-            </form>
-
-            <div id="my_users_list_count" class="mb-10 ml-0"><h4>Найдено: <span></span></h4></div>
-
-
-
-
-
-                    <div class="list-group col-xs-12" style="padding-right:0; display:none; /*width: 640px;*/ border-radius: 4px;border: 1px solid #ddd; padding: 10px;background-color: #fff;" id='my_users_list'>
-
-
-
-
-
-
-
-
-
-                    </div>
-<div class="alert p-10 alert-warning mt-0 mb-0" id='my_users_list_empty_descr' style="display:none;">Не найдено</div>
-
-
-                    </div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<?php /*
-    <div style="">
-        <ul class="nav nav-tabs">
-            <?php if ($has_loaded_users) { ?>
-                <li role="presentation"><a style="cursor:pointer" id='report_self_loaded_nav'>Загруженные мной</a></li>
-            <?php } ?>
-
-            <?php if ($has_imported_users) { ?>
-                <li role="presentation"><a style="cursor:pointer"  id='report_collection_loaded_nav'>Из коллекции</a></li>
-            <?php } ?>
-        </ul>
-        <div class="bs-block">
-            <?php if ($has_loaded_users) { ?>
-            <div id="report_self_loaded_block">
-                <!--<div style="display:inline-block; width:200px; margin-right: 10px;margin-bottom: 5px;">Формат файла</div>
-                <br>-->
-                <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
-                    <input type="hidden" name="load_type" value="1">
-                    <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
-                        <option value="1">для Excel</option>
-                        <option value="2">для CSV редакторов</option>
-                    </select><button
-                        name='export_users' type="submit" class="btn btn-info mt-10-xs"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
-                </form>
-            </div>
-            <?php } ?>
-            <?php if ($has_imported_users) { ?>
-                <div id="report_collection_loaded_block">
-                    <!--<div style="display:inline-block; width:200px; margin-right: 10px;;margin-bottom: 5px;">Формат файла</div>
-                    <div style="display:inline-block;;margin-bottom: 5px;">Категория</div>
-                    <br>-->
-                    <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
-                        <input type="hidden" name="load_type" value="2">
-                        <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
-                            <option value="1">для Excel</option>
-                            <option value="2">для CSV редакторов</option>
-                        </select><select
-                            class="form-control mt-10-xs" name="category" style="width:200px; margin-right: 10px;">
-                            <?php foreach ($client_imported_categories as $client_imported_category) { ?>
-                                <option value='<?php echo($client_imported_category['category_id']); ?>'><?php echo($client_imported_category['name']); ?></option>
-                            <?php } ?>
-                        </select><button
-                            name='export_users' type="submit" class="btn btn-info mt-10-xs"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
-                    </form>
-                </div>
-            <?php } ?>
-        </div>
-    </div>*/?>
+<div id="my_base_block" class="well well-lg p-10-xs" style="display:none;padding-top:10px !important;padding-bottom:20px !important;  margin:0 !important;">
+
+
+    <?php /*
+      <div style="">
+      <ul class="nav nav-tabs">
+      <?php if ($has_loaded_users) { ?>
+      <li role="presentation"><a style="cursor:pointer" id='report_self_loaded_nav'>Загруженные мной</a></li>
+      <?php } ?>
+
+      <?php if ($has_imported_users) { ?>
+      <li role="presentation"><a style="cursor:pointer"  id='report_collection_loaded_nav'>Из коллекции</a></li>
+      <?php } ?>
+      </ul>
+      <div class="bs-block">
+      <?php if ($has_loaded_users) { ?>
+      <div id="report_self_loaded_block">
+      <!--<div style="display:inline-block; width:200px; margin-right: 10px;margin-bottom: 5px;">Формат файла</div>
+      <br>-->
+      <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
+      <input type="hidden" name="load_type" value="1">
+      <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
+      <option value="1">для Excel</option>
+      <option value="2">для CSV редакторов</option>
+      </select><button
+      name='export_users' type="submit" class="btn btn-info mt-10-xs"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+      </form>
+      </div>
+      <?php } ?>
+      <?php if ($has_imported_users) { ?>
+      <div id="report_collection_loaded_block">
+      <!--<div style="display:inline-block; width:200px; margin-right: 10px;;margin-bottom: 5px;">Формат файла</div>
+      <div style="display:inline-block;;margin-bottom: 5px;">Категория</div>
+      <br>-->
+      <form action='' method="post" style="margin-bottom: 0px;" class="form-inline">
+      <input type="hidden" name="load_type" value="2">
+      <select class="form-control" name="report_type" style="width:200px; margin-right: 10px;">
+      <option value="1">для Excel</option>
+      <option value="2">для CSV редакторов</option>
+      </select><select
+      class="form-control mt-10-xs" name="category" style="width:200px; margin-right: 10px;">
+      <?php foreach ($client_imported_categories as $client_imported_category) { ?>
+      <option value='<?php echo($client_imported_category['category_id']); ?>'><?php echo($client_imported_category['name']); ?></option>
+      <?php } ?>
+      </select><button
+      name='export_users' type="submit" class="btn btn-info mt-10-xs"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Скачать</button>
+      </form>
+      </div>
+      <?php } ?>
+      </div>
+      </div> */ ?>
 </div>
 
 
@@ -477,90 +305,110 @@ $has_imported_users = $client_imported_categories ? true : false;
 
 
 $(document).ready(function(){
-$('input[type=checkbox][name=user_type_all]', '#my_base_block').change(function() {
+
+
+
+
+
+
+
+
+
+
+
+
+var my_base_block_type_users_3_was_checked = false;
+var my_base_block_sort_type_in_self_loaded = 1;
+
+
+function update_my_base_types_checkboxes() {
+    var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#my_base_block').val();
+    var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#my_base_block').val();
+    var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#my_base_block').val();
+    var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#my_base_block').val();
+    var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#my_base_block').val();
+    var user_type_search = $('input[type=checkbox][name=type_users_3]:checked', '#my_base_block').val();
+    var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#my_base_block').val();
+
+    if (user_type_klass
+            || user_type_subscriber
+            || user_type_survey
+            || user_type_comment
+            || user_type_repost
+            || user_type_search) {
+        $('input[type=checkbox][name=user_type_all]', '#my_base_block').removeAttr("checked");
+        $('#my_users_list_type_condition_descr').html(prepare_user_type_condition_text(user_type_klass, user_type_repost, user_type_survey, user_type_comment, user_type_subscriber, user_type_search)).show();
+
+    } else {
+        $('input[type=checkbox][name=user_type_all]', '#my_base_block').prop('checked', true);
+        $('#my_users_list_type_condition_descr').hide();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+$(document).on('change', '#my_base_block input[type=checkbox][name=user_type_all]', function () {
     $('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_3],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6]', '#my_base_block').removeAttr("checked");
 });
 
-$('input[type=checkbox][name=type_users_1],input[type=checkbox][name=type_users_3],input[type=checkbox][name=type_users_4],input[type=checkbox][name=type_users_2],input[type=checkbox][name=type_users_5],input[type=checkbox][name=type_users_6],input[type=checkbox][name=user_type_all]','#my_base_block').change(function() {
+$(document).on('change', '#my_base_block input[type=checkbox][name=type_users_1],#my_base_block input[type=checkbox][name=type_users_3],#my_base_block input[type=checkbox][name=type_users_4],#my_base_block input[type=checkbox][name=type_users_2],#my_base_block input[type=checkbox][name=type_users_5],#my_base_block input[type=checkbox][name=type_users_6],#my_base_block input[type=checkbox][name=user_type_all]', function () {
     update_my_base_types_checkboxes();
 });
-$('#my_base_block #my_base_block_self_loaded_nav').click(function(){
+$(document).on('click', '#my_base_block #my_base_block_self_loaded_nav', function () {
     $('#my_base_block_self_loaded_nav').closest('li').addClass('active').find('a').addClass('self_loaded_nav');
     $('#my_base_block_imported_nav').closest('li').removeClass('active').find('a').removeClass('imported_nav');
     $(this).closest('.nav').removeClass('border_bottom_collection').addClass('border_bottom_self_loaded');
     $('.checkbox.type_3', '#my_base_block').show();
     $('#my_base_block_imported_categories').hide();
 
-    if (my_base_block_type_users_3_was_checked==true) {
+    if (my_base_block_type_users_3_was_checked == true) {
         $('input[type=checkbox][name=type_users_3]', '#my_base_block').prop('checked', true);
     }
 
-    $('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled',false);
-    $('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled',false);
+    $('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled', false);
+    $('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled', false);
     $("#my_users_list_search_form select[name=sort_type]").val(my_base_block_sort_type_in_self_loaded);
     $('#my_users_list_search_form input[name=load_type]').val(1);
     update_my_base_types_checkboxes();
 });
-var my_base_block_type_users_3_was_checked = false;
-var my_base_block_sort_type_in_self_loaded = 1;
-$('#my_base_block #my_base_block_imported_nav').click(function(){
+$(document).on('click', '#my_base_block #my_base_block_imported_nav', function () {
 
     $('#my_base_block_self_loaded_nav').closest('li').removeClass('active').find('a').removeClass('self_loaded_nav');
 
     $('#my_base_block_imported_nav').closest('li').addClass('active').find('a').addClass('imported_nav');
     $(this).closest('.nav').removeClass('border_bottom_self_loaded').addClass('border_bottom_collection');
 
-    if (typeof($('input[type=checkbox][name=type_users_3]:checked', '#my_base_block').val())=='undefined') {
-    my_base_block_type_users_3_was_checked = false;
+    if (typeof ($('input[type=checkbox][name=type_users_3]:checked', '#my_base_block').val()) == 'undefined') {
+        my_base_block_type_users_3_was_checked = false;
     } else {
         my_base_block_type_users_3_was_checked = true;
 
-        }
+    }
 
     $('input[type=checkbox][name=type_users_3]', '#my_base_block').removeAttr("checked");
     $('.checkbox.type_3', '#my_base_block').hide();
-        $('#my_base_block_imported_categories').show();
+    $('#my_base_block_imported_categories').show();
 
-my_base_block_sort_type_in_self_loaded = $("#my_users_list_search_form select[name=sort_type]").val();
-if (my_base_block_sort_type_in_self_loaded < 3) {
-    $("#my_users_list_search_form select[name=sort_type]").val(3);
-}
-$('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled',true);
-$('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled',true);
-
-
-$('#my_users_list_search_form input[name=load_type]').val(2);
+    my_base_block_sort_type_in_self_loaded = $("#my_users_list_search_form select[name=sort_type]").val();
+    if (my_base_block_sort_type_in_self_loaded < 3) {
+        $("#my_users_list_search_form select[name=sort_type]").val(3);
+    }
+    $('#my_users_list_search_form select[name=sort_type] option[value=1]').attr('disabled', true);
+    $('#my_users_list_search_form select[name=sort_type] option[value=2]').attr('disabled', true);
 
 
+    $('#my_users_list_search_form input[name=load_type]').val(2);
     update_my_base_types_checkboxes();
 });
 
-function update_my_base_types_checkboxes(){
-
-
-
-
-        var user_type_klass = $('input[type=checkbox][name=type_users_1]:checked', '#my_base_block').val();
-        var user_type_subscriber = $('input[type=checkbox][name=type_users_2]:checked', '#my_base_block').val();
-        var user_type_survey = $('input[type=checkbox][name=type_users_5]:checked', '#my_base_block').val();
-        var user_type_comment = $('input[type=checkbox][name=type_users_6]:checked', '#my_base_block').val();
-        var user_type_repost = $('input[type=checkbox][name=type_users_4]:checked', '#my_base_block').val();
-        var user_type_search = $('input[type=checkbox][name=type_users_3]:checked', '#my_base_block').val();
-        var user_type_all = $('input[type=checkbox][name=user_type_all]:checked', '#my_base_block').val();
-
-    if (user_type_klass
-    || user_type_subscriber
-    || user_type_survey
-    || user_type_comment
-    || user_type_repost
-    || user_type_search) {
-        $('input[type=checkbox][name=user_type_all]', '#my_base_block').removeAttr("checked");
-$('#my_users_list_type_condition_descr').html(prepare_user_type_condition_text(user_type_klass, user_type_repost, user_type_survey, user_type_comment, user_type_subscriber, user_type_search)).show();
-
-    } else {
-        $('input[type=checkbox][name=user_type_all]', '#my_base_block').prop('checked', true);
-$('#my_users_list_type_condition_descr').hide();
-    }
 
 
 
@@ -572,91 +420,123 @@ $('#my_users_list_type_condition_descr').hide();
 
 
 
+var my_users_list = (function () {
 
+    var fill_my_users_list_block = false; // защита от доп. подгрузок при скроллинге
 
-
-
-
-}
-$('input[type=checkbox][name=user_type_all]', '#my_base_block').prop('checked', true).trigger('change');
-$('#my_base_block input[name=user_status_showed]', '#my_base_block').val(3);
-
-
-
-
-
-
-
-
-        my_users_list = (function () {
-
-            var fill_my_users_list_block = false; // защита от доп. подгрузок при скроллинге
-
-            var fill_my_users_list = function(reset){
-                if (typeof(reset)=='undefined') {
-                    var reset = 0;
+    var fill_my_users_list = function (reset) {
+        if (typeof (reset) == 'undefined') {
+            var reset = 0;
         } else {
             var reset = 1;
         }
 
-                var form = jQuery("#my_users_list_search_form").serialize();
+        var form = $("#my_users_list_search_form").serialize();
 
 
-                $.ajax({
-                    url: '/user_in_list.php?'+form,
-                    type: 'POST',
-                    data: {
-                        reset: reset
-                        }
-                }).done(function (data) {
-                    var data = JSON.parse(data);
-                    if (typeof(reset)!=='undefined' && reset) {
-                        $('#my_users_list').html('');
-                        $('#my_users_list_count').hide();
-                    }
-                    if (data.list_empty == '0') {
-                        $('#my_users_list_empty_descr').hide();
-                        $('#my_users_list').append(data.html).show();
-                        $('#my_users_list_count').show();
-                        $('#my_users_list_count span').html(data.count);
-                        fill_my_users_list_block = false;
-                        $('[data-toggle="tooltip"]').tooltip();
-                    } else {
-
-                        $('#my_users_list_empty_descr').show();
-                        $('#my_users_list').hide();
-                        $('#my_users_list_count').hide();
-
-    }
-                });
+        $.ajax({
+            url: '/user_in_list.php?' + form,
+            type: 'POST',
+            data: {
+                reset: reset
             }
-
-            var interface = {
-                init: function () {
-
-                    $(window).scroll(function () {
-                        if ($('.active #my_base_nav').length) {// если мы на странице списка пользователей
-                            if (($(window).height() + $(window).scrollTop() + 300 >= $(document).height()) && !fill_my_users_list_block) {
-                                fill_my_users_list_block = true;
-                                fill_my_users_list();
-                            }
-                        }
-                    });
-                    $('#my_users_list_search_btn').click(function(){
-                        fill_my_users_list(true);
-                    });
-                    fill_my_users_list(true);
-                },
-                fill_my_users_list: function (reset) {
-                    fill_my_users_list(reset);
-                },
-                reset_scrol_blocking: function () {
+        }).done(function (data) {
+            if (data) {
+                var data = JSON.parse(data);
+                if (typeof (reset) !== 'undefined' && reset) {
+                    $('#my_users_list').html('');
+                    $('#my_users_list_count').hide();
+                }
+                if (data.list_empty == '0') {
+                    $('#my_users_list_empty_descr').hide();
+                    $('#my_users_list').append(data.html).show();
+                    $('#my_users_list_count').show();
+                    $('#my_users_list_count span').html(data.count);
                     fill_my_users_list_block = false;
+                    $('[data-toggle="tooltip"]').tooltip();
+                } else {
+
+                    $('#my_users_list_empty_descr').show();
+                    $('#my_users_list').hide();
+                    $('#my_users_list_count').hide();
+
                 }
             }
-            return interface;
-        })();
-        my_users_list.init();
+        });
+    }
+
+    var interface = {
+        init: function () {
+
+            $(window).scroll(function () {
+                if ($('.active #my_base_nav').length) {// если мы на странице списка пользователей
+                    if (($(window).height() + $(window).scrollTop() + 2000 >= $(document).height()) && !fill_my_users_list_block) {
+                        fill_my_users_list_block = true;
+                        fill_my_users_list();
+                    }
+                }
+            });
+            $(document).on('click','#my_users_list_search_btn', function () {
+                fill_my_users_list(true);
+            });
+            fill_my_users_list(true);
+        },
+        fill_my_users_list: function (reset) {
+            fill_my_users_list(reset);
+        },
+        reset_scrol_blocking: function () {
+            fill_my_users_list_block = false;
+        }
+    }
+    return interface;
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+function load_my_base_block(){
+                $.ajax({
+                    url: '/my_base_block.php?net_code=<?= $net_code; ?>',
+                }).done(function (data) {
+                        $('#my_base_block').html(data);
+
+
+
+
+
+                        $('input[type=checkbox][name=user_type_all]', '#my_base_block').prop('checked', true).trigger('change');
+$('#my_base_block input[name=user_status_showed]', '#my_base_block').val(3);
+
+
+                });
+
+}
+
+load_my_base_block();
+my_users_list.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -824,8 +704,13 @@ function prepare_available_imported_category_types(){
         $('#collection_import_form .notice').html('Выберите категорию выше').show();
     } else {
 
-    $('#collection_import_form_status').html('загрузка...');
+    $('#collection_import_form_status').html('<div class="mt-10">загрузка...</div>');
 
+    $('#collection_import_form .condition').css('opacity', 0.5);
+    $('#collection_import_form .notice').hide();
+    $('#collection_import_form .type_users_checkbox').css('opacity', 0.5);
+    $('#collection_import_form #collection_category_func_buttons').css('opacity', 0.5);
+$("#collection_importer_count").prop('disabled', true);
     $.ajax({
         url: "/get_available_collection_imported_types_from_base_for_import.php?net_code=<?= $net_code; ?>",
         data: {category_id: category_id}
@@ -871,7 +756,10 @@ function prepare_available_imported_category_types(){
         } else {
                 $('#collection_import_form .notice').hide();
             }
-
+            $("#collection_importer_count").prop('disabled', false);
+    $('#collection_import_form .condition').css('opacity', 1);
+    $('#collection_import_form .type_users_checkbox').css('opacity', 1);
+    $('#collection_import_form #collection_category_func_buttons').css('opacity', 1);
 calculate_price();
     });
     }
@@ -1466,6 +1354,14 @@ function calculate_price(){
             $('#collection_category_func_buttons').css('opacity', 1);
             $("#collection_importer_count").prop('disabled', false);
             $('#get_category_type_users_count').html('Доступно: ' + data);
+
+            if (data == 0) {
+                $('#collection_importer').css('opacity', 0.5);
+            } else {
+                $('#collection_importer').css('opacity', 1);
+            }
+
+
             $('#get_category_type_users_count').attr('data-count', data);
 
 var cost = round_cost(get_import_collection_request_cost_per_one_user());
@@ -1504,6 +1400,25 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
 
 
         $('#collection_importer').attr('disabled', true);
+        $("#collection_importer_count").prop('disabled', true);
+        $("#collection_category_func_buttons").css('opacity', 0.5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         var users_count = $('#collection_importer_count').val();
         var category_id = $('#collection_category_selector').val();
@@ -1608,6 +1523,13 @@ $('#get_category_type_user_cost').html('Стоимость: ' + cost + ' руб.
                     type: "success"
                 });
                 $('#collection_importer').attr('disabled', false);
+        $("#collection_importer_count").prop('disabled', false);
+        $("#collection_category_func_buttons").css('opacity', 1);
+
+
+load_my_base_block();
+
+
             }
         });
 
@@ -1684,10 +1606,9 @@ prepare_imported_categories_select();
                     }
                 }
 
-
-
-
-
+    <?php if ($load_users_result) { ?>
+        $('#import_nav').trigger('click');
+    <?php } ?>
 
 });
 

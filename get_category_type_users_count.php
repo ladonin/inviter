@@ -12,7 +12,7 @@ include('generic/auth_control.php');
 if (auth_control() !==1){
     exit();
 }
-
+//sleep(5);
 $category_id = isset($_GET['category_id']) ? (int)$_GET['category_id'] : 0;
 $user_type_klass = !empty($_GET['user_type_1']) ? $_GET['user_type_1'] : null;
 $user_type_subscriber = !empty($_GET['user_type_2']) ? $_GET['user_type_2'] : null;
