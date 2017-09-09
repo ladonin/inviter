@@ -135,7 +135,6 @@ if ($load_users_result) {
                 </form>
 
 </div>
-</div>
     </div>
 </div>
 
