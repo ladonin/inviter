@@ -1,7 +1,7 @@
 <script type="text/javascript">
    swal({
       title: "Добро пожаловать!",
-      text: "<input style='display:block' type='email' placeholder='Email' id='email_swal' reguired><input style='display:block' type='password' placeholder='Пароль' id='password_swal' reguired><div style='text-align:center;' id='forgot_code_button' class='btn btn-link btn-sm'>забыл пароль</div>",
+      text: "<input style='display:block' type='email' placeholder='Email' id='email_swal' reguired><input style='display:block' type='password' placeholder='Пароль' id='password_swal' reguired><div style='text-align:center;' id='forgot_code_button' class='btn btn-warning btn-sm'>забыли пароль?</div><div style='text-align:center;'><a href='/registration' class='btn btn-link mt-10 btn-md'>регистрация</div><div style='text-align:center;'><a href='/' class='btn btn-default btn-md'>отмена</div>",
       confirmButtonText: "Войти",
       showCancelButton: false,
       closeOnConfirm: false,
