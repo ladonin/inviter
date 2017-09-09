@@ -407,16 +407,20 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 
 
 <script>
-var screenHeight = document.body.clientHeight;
+
+
+
+
+var screenHeight = $(window).height();
     $('.panel-1').height(screenHeight);
 
 
 $('.nav-down div, #title').click(function(){
-    $('body').animate({scrollTop:screenHeight}, '500');
+    $('body,html').animate({scrollTop:screenHeight}, '500');
 });
 
 $('.nav-up div').click(function(){
-    $('body').animate({scrollTop:0}, '500');
+    $('body,html').animate({scrollTop:0}, '500');
 });
 
 
