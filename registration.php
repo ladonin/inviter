@@ -31,7 +31,7 @@ include('generic/header.php');
 
 swal({
       title: "Регистрация",
-      text: "<input style='display:block' type='email' placeholder='Ваш email' id='email_swal' reguired><input style='display:block' type='text' placeholder='Придумайте пароль' id='password_swal' reguired><div style='text-align:center;' class='btn btn-sm btn-success' id='generate_password'>сгенерировать пароль автоматически</div><div style='text-align:center;'><a href='/enter' class='btn btn-link mt-10 btn-md'>вход</div><div style='text-align:center;'><a href='/' class='btn btn-default btn-md'>отмена</div>",
+      text: "<input style='display:block' type='email' placeholder='Ваш email' id='email_swal' reguired><input style='display:block' type='text' placeholder='Придумайте пароль' id='password_swal' reguired><div style='text-align:center;' class='btn btn-sm btn-success' id='generate_password'>сгенерировать пароль автоматически</div><div style='text-align:center;'><a href='/enter' class='btn btn-link mt-10 btn-md'>вход</div><div style='text-align:center;'><a href='/' class='btn btn-link btn-md'>на главную</div>",
       confirmButtonText: "Готово",
       closeOnConfirm: false,
       showLoaderOnConfirm: true,
