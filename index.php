@@ -118,24 +118,23 @@ if ($load_users_result) {
 
 
 
-    <table width="100%">
-        <tr>
-            <td width="50%" align="left" valign="top">
                 <h4>HTML код</h4>
-                <form action='' method="post" class="form-inline">
+                <form action='' method="post">
+
                     <textarea cols="80" rows="5" name="html_text" class="form-control"></textarea>
                     <br>
                     <h4>Откуда взят HTML код:</h4>
+                    <div class="form-inline">
                     <?php require('generic' . MY_DS . $net_code . '_users_types.php'); ?>
+                    </div>
                     <br>
                     <h4>Комментарий:</h4>
-                    <input type="text"  maxlength="200" name="comment" class="form-control" style="max-width:500px">
+                    <input type="text"  maxlength="200" name="comment" class="form-control">
                     <br>
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Импорт</button>
                 </form>
-            </td>
-        </tr>
-    </table>
+
+</div>
 </div>
     </div>
 </div>
