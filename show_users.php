@@ -68,7 +68,7 @@ if (!$show_users_reset) {
         <div class="col-xs-12 p-0">
 
 
-    <div class="alert alert-warning" role="alert" style="/*width: 640px;*/">Осталось пользователей по данному критерию: <b><?php echo($count_reserve);?></b></div>
+    <div class="alert alert-warning p-10" role="alert" style="/*width: 640px;*/">Осталось пользователей по данному критерию: <b><?php echo($count_reserve);?></b></div>
 
 
 
