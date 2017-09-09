@@ -37,7 +37,7 @@ include('generic/auth_control.php');
                 <li role="presentation" class="active"><a class="self_loaded_nav" id='my_base_block_self_loaded_nav'>Загруженные мной</a></li>
                 <li role="presentation"><a class="" id='my_base_block_imported_nav'>Из коллекции</a></li>
             </ul>
-            <form id="my_users_list_search_form" action="/load_users_base.php">
+            <form id="my_users_list_search_form" class="form-inline" action="/load_users_base.php">
                 <input type="hidden" name="net_code" value="<?= $net_code; ?>">
                 <input type="hidden" name="load_type" value="1">
                 <div class="well well-lg p-10-xs mb-10" style="border-top: 0;background-color: #fff;">
