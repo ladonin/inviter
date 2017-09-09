@@ -12,7 +12,8 @@
         <script src="/javascript/generic/swal.js"></script>
         <!--<script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>-->
 
-
+        <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
         <meta name="webmoney" content="BB2F7E92-03EF-4B7C-801F-8B7369557CA5"/>
         <meta name="verification" content="a6c7a5fbe48026d388b77d21c61830" />
 
