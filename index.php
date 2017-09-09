@@ -129,7 +129,7 @@ if ($load_users_result) {
                     </div>
                     <br>
                     <h4>Комментарий:</h4>
-                    <input type="text"  maxlength="200" name="comment" class="form-control">
+                    <input type="text"  maxlength="200" placeholder="любой комменарий, ссылка и т.д." name="comment" class="form-control">
                     <br>
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Импорт</button>
                 </form>
