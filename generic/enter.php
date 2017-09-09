@@ -1,7 +1,7 @@
 <script type="text/javascript">
    swal({
       title: "Добро пожаловать!",
-      text: "<input style='display:block' type='email' placeholder='Email' id='email_swal' reguired><input style='display:block' type='password' placeholder='Пароль' id='password_swal' reguired><div style='text-align:center;' id='forgot_code_button' class='btn btn-warning btn-sm'>забыли пароль?</div><div style='text-align:center;'><a href='/registration' class='btn btn-link mt-10 btn-md'>регистрация</div><div style='text-align:center;'><a href='/' class='btn btn-default btn-md'>отмена</div>",
+      text: "<input style='display:block' type='email' placeholder='Email' id='email_swal' reguired><input style='display:block' type='password' placeholder='Пароль' id='password_swal' reguired><div style='text-align:center;' id='forgot_code_button' class='btn btn-link btn-sm'>забыли пароль?</div><div style='text-align:center;'><a href='/registration' class='btn btn-link mt-10 btn-md'>регистрация</div><div style='text-align:center;'><a href='/' class='btn btn-default btn-md'>отмена</div>",
       confirmButtonText: "Войти",
       showCancelButton: false,
       closeOnConfirm: false,
@@ -50,12 +50,13 @@
 $('#forgot_code_button').click(function(){
 swal({
   title: "Введите свой Email",
-  text: "",
+  text: "<a href='/enter' class='btn btn-link btn-md'>вернуться</div>",
   type: "input",
-  showCancelButton: true,
+  showCancelButton: false,
   closeOnConfirm: false,
   showLoaderOnConfirm: true,
-  inputPlaceholder: ""
+  inputPlaceholder: "",
+      html: true
 },
 function(inputValue){
   if (inputValue === false) return false;
