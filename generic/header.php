@@ -335,11 +335,14 @@
 
 
                 select option{
-                    padding:5px;
+                    padding:5px !important;
                     cursor:pointer;
                 }
                 select{
                     cursor:pointer;
+                    padding-left:5px !important;
+                    padding-right:5px !important;
+                    text-indent:5px;
                 }
 
 

@@ -122,7 +122,7 @@ if ($load_users_result) {
         <tr>
             <td width="50%" align="left" valign="top">
                 <h4>HTML код</h4>
-                <form action='' method="post">
+                <form action='' method="post" class="form-inline">
                     <textarea cols="80" rows="5" name="html_text" class="form-control"></textarea>
                     <br>
                     <h4>Откуда взят HTML код:</h4>
