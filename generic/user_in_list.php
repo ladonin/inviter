@@ -40,7 +40,7 @@ foreach ($data_comments as $key_type => $data_comment) {
     $type_comments .= '<span style="color:#333">' . $data_comment . '</span></div>';
 }
 $avatar = $user['user_avatar'] ? $user['user_avatar'] : '/img/no-photo.png';
-$border_color = $from_collection_status ? '#6085bc' : '#bc6060';
+$border_color = $from_collection_status ? '#4380be' : '#bc6060';
 if ($buffer === true) {
     ob_start();
 }

@@ -17,49 +17,41 @@ $load_users_result = load_users_init();
 include('generic/header.php');
 ?>
 <?php include('generic/net_js.php'); ?>
-<div class="well p-20-sm p-10" style="text-align:center; margin-bottom:0; background-color:#<?=get_net_header_background_color();?> ">
+
+<div class="p-20-sm p-10" style="text-align:center; margin-bottom:0; background: linear-gradient(135deg, rgba(42,81,122,1) 0%, rgba(67,129,191,1) 100%);">
     <div class="row">
         <div class="pull-left">
-            <a href="/odnoklassniki"><img src="/img/ok_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
-            <a href="/facebook"><img src="/img/fb_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
-            <a href="/vkontakte"><img src="/img/vk_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
+            <a href="/vkontakte" class="mr-5"><img src="/img/vk_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a><a href="/odnoklassniki" class="mr-5"><img src="/img/ok_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a><a class="mr-5" href="/facebook"><img src="/img/fb_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
+
         </div>
         <div class="pull-right">
-
-
-
-
-
-
-
             <?php include('generic/personal_data.php'); ?>
         </div>
     </div>
 </div>
 
+
+
+
 <div class="row">
-    <div class="pull-left mh-20-sm mh-10 mv-10">
-        <div class="pull-left mr-10"><img src="/img/<?=$net_code;?>_logo.jpg" width="26" style="border-radius: 1000px; width: 24px; margin: 5px 0;">
+    <div class="col-xs-12 col-sm-6 p-0 mb-20">
+<div class="row" style="background: linear-gradient(90deg, #<?=get_net_header_background_color();?> 0%, #fff 100%); color:#fff; border-top:3px solid #f5f5f5">
+    <div class="pull-left mh-20-sm mh-10 mv-5">
+        <div class="pull-left mr-10"><img src="/img/<?=$net_code;?>_logo.jpg" style="border-radius: 1000px; width: 24px; margin: 5px 0;">
         </div>
 <div class="pull-left"><h5><b><?=get_net_title();?></b></h5></div><div class="clearfix"></div>
-
-
     </div>
     <div class="  mh-20-sm mh-10 mt-10 pull-right">
-
-
-
-
-
-
-
-
-
-
 
         <?php //$non_instruction = 1; require("generic/{$net_code}_instruction_menu.php"); ?>
     </div>
 </div>
+</div>
+</div>
+
+
+
+
     <div class="ph-20 ph-10-xs">
 <div class="row">
 
@@ -851,7 +843,7 @@ function alert_about_change_selection_users_view(step,status){
             if (show_type_load==1) {
                 swal({
                     title: "Внимание",
-                    text: 'Пользователи, <b style="color: #bc6060;">загруженные из коллекции</b> закончились.<br><br>Далее будут показываться пользователи, <br><b style="color: #6085bc;">загруженные вами</b>. <br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_self_load_users_types_text + '</b>',
+                    text: 'Пользователи, <b style="color: #bc6060;">загруженные из коллекции</b> закончились.<br><br>Далее будут показываться пользователи, <br><b style="color: #4380be;">загруженные вами</b>. <br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_self_load_users_types_text + '</b>',
                     html: true,
                     type: "warning"
                 });
@@ -890,7 +882,7 @@ function alert_about_change_selection_users_view(step,status){
 
                 swal({
                     title: "Внимание",
-                    text: 'Пользователи, <b style="color: #6085bc;">загруженные вами</b> закончились.<br><br>Далее будут показываться пользователи,<br> <b style="color: #bc6060;">загруженные из коллекции</b>.<br><br>Выбранная по умолчанию категория: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
+                    text: 'Пользователи, <b style="color: #4380be;">загруженные вами</b> закончились.<br><br>Далее будут показываться пользователи,<br> <b style="color: #bc6060;">загруженные из коллекции</b>.<br><br>Выбранная по умолчанию категория: <br><b>' + show_imported_categories_text + '</b><br><br>Выбранный по умолчанию тип пользователей: <br><b>' + show_imported_types_text + '</b>',
                     html: true,
                     type: "warning"
                 });

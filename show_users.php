@@ -13,9 +13,6 @@ if (auth_control() !== 1) {
     exit();
 }
 
-
-
-
 $show_type_load = @(int) $_GET['show_type_load'];
 $show_self_load_users_types = @(int) $_GET['show_self_load_users_types'];
 $show_imported_categories = @(int) $_GET['show_imported_categories'];
@@ -85,14 +82,14 @@ if (!$show_users_reset) {
 <div class="collapse" id="collapseExample">
 
             <div class="row">
-                <div class="list-group col-xs-12" style="padding-right:0; /*width: 640px;*/ border-radius: 4px;border: 1px solid #6085bc; padding: 10px;background-color: #fff;">
+                <div class="list-group col-xs-12" style="padding-right:0; /*width: 640px;*/ border-radius: 4px;border: 1px solid #4380be; padding: 10px;background-color: #fff;">
                     <?php
                     foreach ($_SESSION[$net_code]['last_viewed_users'] as $last_viewed_user) {
                         echo($last_viewed_user);
                     }
                     ?>
                     <div class="pull-left"><i class="glyphicon glyphicon-arrow-up"></i><span style='margin-left:10px;'>Предыдущие пользователи</span></div>
-                    <div class="pull-right" style="cursor:pointer" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span style='margin-left:10px; color:#6085bc'>свернуть</span></div>
+                    <div class="pull-right" style="cursor:pointer" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span style='margin-left:10px; color:#4380be'>свернуть</span></div>
                     <div class="clearfix"></div>
                 </div>
             </div>

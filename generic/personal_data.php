@@ -35,7 +35,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
   </button>
   <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
     <li><a class="pv-10" style="cursor:pointer" data-toggle="modal" data-target="#userDataModal"><span class="glyphicon glyphicon-user" style="margin-right:5px;"></span>Персональные данные</a></li>
-    <li><a class="pv-10" href="#"><span class="glyphicon glyphicon-question-sign" style="margin-right:5px;"></span>Помощь</a></li>
+    <li><a class="pv-10" href="/help"><span class="glyphicon glyphicon-question-sign" style="margin-right:5px;"></span>Помощь</a></li>
     <li role="separator" class="divider"></li>
     <li><a class="pv-10" href="/logout"><span class="glyphicon glyphicon-log-out" style="margin-right:5px;"></span>Выход</a></li>
   </ul>

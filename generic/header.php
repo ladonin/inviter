@@ -1698,12 +1698,12 @@ opacity: 1;
 
 
 .main-panel.nav{
-    border-bottom:3px solid #6085bc;
+    border-bottom:3px solid #4380be ;
 }
 
 .main-panel.nav .active a,
 .main-panel.nav .active a:hover{
-background-color: #6085bc !important;
+background-color: #4380be  !important;
 color: #fff;
 border:0;
 }
@@ -1730,7 +1730,7 @@ border:0;
 
 
 .border_bottom_collection{
-    border-bottom:3px solid #6085bc;
+    border-bottom:3px solid #4380be;
 }
 .border_bottom_self_loaded{
     border-bottom:3px solid #bc6060;
@@ -1761,7 +1761,7 @@ border:0;
 
 .bg_color_self_loaded,
 .bg_color_self_loaded:hover{
-    background-color: #6085bc;
+    background-color: #4380be ;
 }
 
 #my_base_block .self_loaded_nav,
@@ -1777,7 +1777,7 @@ border:0;
 
 .btn-primary {
     color: #fff;
-    background-color: #6085bc !important;
+    background-color: #4380be  !important;
     border-color: #597aab !important;
 }
 

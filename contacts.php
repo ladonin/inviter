@@ -32,7 +32,7 @@ include('generic/header.php');?>
 
 <div style="margin-bottom:10px;">
     <div class="pull-left" style="width:130px"><img src="/img/mail.png" style="margin-right:10px;border-radius: 5px;" width="30"> Email:</div>
-    <div class="pull-left" style="color: #6085bc; line-height:30px">service@inviter.biz</div>
+    <div class="pull-left" style="color: #4380be ; line-height:30px">service@inviter.biz</div>
     <div class="clearfix"></div>
 </div>
 <div style="margin-bottom:10px;">
@@ -44,7 +44,7 @@ include('generic/header.php');?>
 
 <div style="margin-bottom:20px;">
     <div class="pull-left" style="width:130px"><img src="/img/skype.png" style="margin-right:10px;border-radius: 5px;" width="30"> Skype:</div>
-    <div class="pull-left" style="color: #6085bc; line-height:30px">ladoninsasha</div>
+    <div class="pull-left" style="color: #4380be ; line-height:30px">ladoninsasha</div>
     <div class="clearfix"></div>
 </div>
 
