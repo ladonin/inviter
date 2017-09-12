@@ -58,23 +58,25 @@ include('generic/header.php');
 
 
 
-                <h3>Берем пользователей из соцсети</h3>
+                <h2 class="mb-20">Пополнение</h2>
+                <div class="ml-20">
+                <h3>1. <a href="https://youtu.be/lOqnHtNgT0A" target="blank">Импорт из готовой коллекции</a></h3>
+
+
+
+
+
+
+                <h3 class="mb-20">2. Загружаем пользователей из соцсети</h3>
 
                 <ul>
                     <li style="margin-left:-20px"><h4>Опросы, голосования</h4>
                     <ul>
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/DeyPGxDsgM8" target="blank">Вконтакте</a></h5></li>
-
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/oFfHvm6IU9U" target="blank">Одноклассники</a></h5></li>
-
-
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/r7Y_Z5pST7g" target="blank">Facebook</a></h5></li>
-
-
-
                     </ul>
                     </li>
-
 
                     <li style="margin-left:-20px"><h4>Подписчики</h4>
                     <ul>
@@ -92,7 +94,6 @@ include('generic/header.php');
                     </ul>
                     </li>
 
-
                     <li style="margin-left:-20px"><h4>Репосты</h4>
                     <ul>
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/DNC6NeXVbr4" target="blank">Вконтакте</a></h5></li>
@@ -100,7 +101,6 @@ include('generic/header.php');
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/aKCRf8bhag8" target="blank">Facebook</a></h5></li>
                     </ul>
                     </li>
-
 
                     <li style="margin-left:-20px"><h4>Like, "Мне нравится", "Класс!"</h4>
                     <ul>
@@ -110,7 +110,6 @@ include('generic/header.php');
                     </ul>
                     </li>
 
-
                     <li style="margin-left:-20px"><h4>Комментарии</h4>
                     <ul>
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/HyKajEtkUP0" target="blank">Вконтакте</a></h5></li>
@@ -119,8 +118,16 @@ include('generic/header.php');
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/XrtudIvyplw" target="blank">Facebook</a></h5></li>
                     </ul>
                     </li>
-
                 </ul>
+
+
+                </div>
+
+
+
+
+
+
 
             </td>
         </tr>

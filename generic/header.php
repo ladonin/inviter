@@ -1673,7 +1673,7 @@ opacity: 1;
 
 .form-inline .form-control {
     display: inline-block;
-    width: auto;
+    width: 100%;
     vertical-align: middle;
 }
 

@@ -506,13 +506,13 @@ function load_my_base_block(){
                         $('input[type=checkbox][name=user_type_all]', '#my_base_block').prop('checked', true).trigger('change');
 $('#my_base_block input[name=user_status_showed]', '#my_base_block').val(3);
 
-
+                my_users_list.init();
                 });
 
 }
 
 load_my_base_block();
-my_users_list.init();
+
 
 
 
