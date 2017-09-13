@@ -25,9 +25,9 @@ foreach ($user_types as $user_type) {
     if ($user_type_link) {
         $type_images .= '<a class="pointer user_data_type_link" data-url="' . $user_type_link . '">';
     }
-    $type_images .= '<span style="margin-right:10px; margin-bottom:0px;"><img style="margin-right:5px;" src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '">' . $count_imported_type_links . '</span>';
+    $type_images .= '<span style="white-space: nowrap;margin-right:10px; margin-bottom:0px;"><img style="margin-right:5px; margin-top:5px;" src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '">' . $count_imported_type_links . '</span>';
     if ($user_type_link) {
-        $type_images .= '</a>';
+        $type_images .= '</a> ';
     }
 }
 $type_comments = '';
@@ -61,7 +61,7 @@ if ($buffer === true) {
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" style="margin-top: 0px;"><a class="user_link" href="<?= $link; ?>" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=900, height=800');
+                    <h4 class="media-heading mb-0" style="margin-top: 0px;"><a class="user_link" style="line-height:21px" href="<?= $link; ?>" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=900, height=800');
                                                     return false;"><?= ($user['user_fio'] ? unescapeUTF8EscapeSeq($user['user_fio']) : $user['profile_id']); ?></a></h4>
                     <?= $type_images; ?>
                     <?php if ($type_comments) { ?>

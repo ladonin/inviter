@@ -1,5 +1,5 @@
 <?php
-include('generic/functions.php');
+
 
 
 
@@ -26,9 +26,9 @@ include('generic/header.php');?>
 
 <div class="col-xs-10 col-sm-4">
 
-<a href="/" style="border:0; text-decoration:none;"><img src="/img/logo.png"></a>
+    <div class="text-center"><a href="/" style="border:0; text-decoration:none;"><img src="/img/logo.png"></a></div>
 
-<h1 class="page-header" id="glyphicons">Контакты</h1>
+<h1 class="page-header mt-20" id="glyphicons">Контакты</h1>
 
 <div style="margin-bottom:10px;">
     <div class="pull-left" style="width:130px"><img src="/img/mail.png" style="margin-right:10px;border-radius: 5px;" width="30"> Email:</div>
@@ -37,7 +37,7 @@ include('generic/header.php');?>
 </div>
 <div style="margin-bottom:10px;">
     <div class="pull-left" style="width:130px"><img src="/img/phone.png" style="margin-right:10px;border-radius: 5px;" width="30"> Телефон:</div>
-    <div class="pull-left" style="color: #333; line-height:30px">8(919)022-56-20</div>
+    <div class="pull-left" style="color: #333; line-height:30px">+79190225620</div>
     <div class="clearfix"></div>
 </div>
 
@@ -58,11 +58,18 @@ include('generic/header.php');?>
 <a href="https://ok.ru/profile/509040024720" target="_blank"><img src="/img/ok_circle.png" width="30" style="border-radius: 1000px;"/></a>
 
     </div>
-    <div class="pull-left">
+    <div class="pull-left" style="margin-right:10px;">
 
 <a href="https://www.facebook.com/alexander.ladonin" target="_blank"><img src="/img/facebook_circle.png" width="30" style="border-radius: 1000px;"/></a>
 
     </div>
+    <div class="pull-left">
+
+<a href="https://vk.com/ladonin" target="_blank"><img src="/img/vk_logo.jpg" width="30" style="border-radius: 1000px;"/></a>
+
+    </div>
+
+
     <div class="clearfix"></div>
 </div>
 

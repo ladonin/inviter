@@ -22,26 +22,26 @@ $code = my_create_password();
     <tr>
         <td valign="middle" align="center">
             <div class="pv-20">
-    <div class="logo">
-        <img src="/img/logo.png"/>
-    </div>
+                <div class="logo">
+                    <img src="/img/logo.png"/>
+                </div>
 
-    <div class="slogan mt-20">
-        Собирать подписчиков теперь станет проще
-    </div>
+                <div class="slogan mt-20">
+                    Собирать подписчиков теперь станет проще
+                </div>
 
 
-    <div class="mt-20">
-    <a class="button-register btn btn-info dropdown-toggle" href="/registration"></span>Создать аккаунт</a>
-    </div>
-    <div class="mt-20">
-    <a class="button-login btn btn-success dropdown-toggle" href="/enter">Войти</a>
-      </div>
-    <div class="nav-down mt-20">
-        <div>
-            подробнее <br><i class="glyphicon glyphicon-triangle-bottom"></i>
-        </div>
-    </div> </div>
+                <div class="mt-20">
+                    <a class="button-register btn btn-info dropdown-toggle" href="/registration"></span>Создать аккаунт</a>
+                </div>
+                <div class="mt-20">
+                    <a class="button-login btn btn-success dropdown-toggle" href="/enter">Войти</a>
+                </div>
+                <div class="nav-down mt-20">
+                    <div>
+                        подробнее <br><i class="glyphicon glyphicon-triangle-bottom"></i>
+                    </div>
+                </div> </div>
         </td>
     </tr>
 </table>
@@ -88,6 +88,20 @@ $code = my_create_password();
         position:relative;
         width:100%;
         font-size: 21px;z-index:3;
+
+
+
+
+
+
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 400;-webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+
+
+
     }
 
 
@@ -154,8 +168,8 @@ $code = my_create_password();
 
 
 
-<div class="panel-2" style="padding: 20px;
-     background-color: #fff; font-family: 'Segoe UI',Helvetica,Arial,sans-serif;">
+<div class="panel-2 p-10-xs  p-20-sm" style="
+     background-color: #fff;">
 
 
 
@@ -165,133 +179,188 @@ $code = my_create_password();
 
     <div class="clearfix"></div>
 
-    <table width="100%">
-        <tr>
-            <td align="center" >
-
-                <h3 id="title"><?php echo($title); ?> </h3>
-                <br>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" valign="top">
-
-                <img src='/img/scheme.png' width="100%" style="max-width:800px;">
-
-            </td>
-        </tr>
-
-
-        <tr>
-            <td align="center" valign="top">
-
-            </td>
-        </tr>
-
-        <tr>
-            <td align="left" valign="top">
-
-
-
-                <h3>Для кого этот проект?</h3>
-
-                <ul>
-                    <li style='margin-left:-20px'>Данный проект идеально подходит администраторам и владельцам групп в сети Одноклассники и Facebook.</li>
-
-                </ul>
 
 
 
 
 
 
-                <h3>Кого я могу пригласить?</h3>
 
-                <h4>Facebook</h4>
-                <ul>
-                    <li style='margin-left:-20px'>Ваши друзья или люди, связанные с вами через ваших друзей.</li>
-                </ul>
-
-                <h4>Одноклассники</h4>
-                <ul>
-                    <li style='margin-left:-20px'>Тех, кто ставит "Классы" к постам в какой-нибудь другой уже раскрученной группе (желательно соответствующей вашей по тематике).</li>
-                    <li style='margin-left:-20px'>Тех, кто принимает участие в опросах.</li>
-                    <li style='margin-left:-20px'>Просто подписчиков другой группы.</li>
-                    <li style='margin-left:-20px'>Пользователей из результата поиска (например, вам нужны подписчики из города Саратов в возрасте от 18 лет, только девушки и т.д.).</li>
-                </ul>
+    <div  style="max-width:1118px; margin:0 auto; font-size: 15px;    line-height: 23px;">
 
 
 
 
 
+        <div class="row">
 
-                <h3>Как все это работает?</h3>
-                <ul>
-                    <li style='margin-left:-20px'>Процесс ручной, не автоматизированный, так что вы не нарушите <b>Регламент</b> вышеупомянутых соцсетей.</li>
-                    <li style='margin-left:-20px'>Вы сохраняете в своей базе пользователей из самой доходящей на ваш взгляд категории (см. п. "Кого я могу пригласить?")</li>
-                    <li style='margin-left:-20px'>Затем приглашаете их к себе, но делаете это на порядок быстрее, если бы делали это самостоятельно.</li>
+            <div class="col-xs-12 mb-20 text-center p-0">
+                <img src='/img/index_image.png' style="max-width: 100%;" >
 
-                </ul>
+            </div>
+            <div class="col-xs-12 mb-20 p-0 text-center" >
+                <h3 id="title" style="color:#36689b;           font-size: 32px;
+                    line-height: 40px;
+                    font-weight: 400;-webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-rendering: optimizeLegibility;    "><?php echo($title); ?> </h3>
 
+            </div>
 
+        </div>
 
+        <div class="row">
 
-                <h3>Преимущества проекта:</h3>
-                <ul>
-                    <li style='margin-left:-20px'>Вы никогда не вышлите приглашение пользователю два и более раз, тем самым обезопасите себя от лишних жалоб и вероятных санкций от администрации соцсети.</li>
-                    <li style='margin-left:-20px'>Вы храните всех пользователей каждой соцсети в одной базе.</li>
-                    <li style='margin-left:-20px'>Программа ведет подробный отчет о собранных пользователях и при необходимости предоставляет его в виде CSV файла.</li>
-                </ul>
-
-
-
-                <h3>Сколько подписчиков можно получить в день?</h3>
-                <ul>
-                    <li style='margin-left:-20px'>Столько, сколько разрешают правила соцсети, в которой ваша группа находится.</li>
-                    <li style='margin-left:-20px'>Если у вас несколько аккаунтов или просто есть друзья, готовые вам помочь, то в разы больше.</li>
-                </ul>
+            <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
+                <h3 style="color:#36689b;">Что проект делает?</h3>
+                <div class="text-left pb-20">Проект предоставляет, а также позволяет самостоятельно загружать активных пользователей социальных сетей <b>Одноклассники</b>, <b>Facebook</b> и <b>Вконтакте</b>.</div>
 
 
-                <h3>Как я могу пригласить пользователей из свой базы?</h3>
-                <div class="dropup">
-                    <div class="btn-group" style="margin-bottom:10px;">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Инструкции по пользованию проектом <span class="caret"></span></button>
 
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header"><h4>Как собрать, а затем пригласить в свою группу в Одноклассниках:</h4></li>
-                            <li><a href="/odnoklassniki/instruction1.html" target="_blank">участников группы, релевантной вашей</a></li>
-                            <li><a href="/odnoklassniki/instruction2.html" target="_blank">пользователей, поставивших "Kласс!"</a></li>
-                            <li><a href="/odnoklassniki/instruction3.html" target="_blank">пользователей из результата поиска</a></li>
-                            <li class="dropdown-header"><h4>Как собрать, а затем пригласить в свою группу в Facebook:</h4></li>
-                            <li><a href="/facebook/instruction1.html" target="_blank">своих друзей, а также друзей ваших друзей</a></li>
-                        </ul>
+                <h3 style="color:#36689b;">Зачем это нужно?</h3>
+                <div class="text-left">Раскрутка групп, сообществ, персональных страниц.</div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
+                <h3 style="color:#36689b;">Какие бывают пользователи?</h3>
+
+                <div class="text-left">Пользователя можно загрузить вручную из нужного поста или другого источника (как загружать - можно посмотреть в <a href="/help?noaccount=1" target="_blank">инструкции</a>, п.2) или приобрести из готовой коллекции. <div class="mv-10">Все пользователи делятся на категории по интересам.</div>
+                    <div class="mb-10">
+                        Каждый пользователь имеет свои набор "атрибутов активности":</div>
+
+                    <div style="color:#36689b;" class="mv-10">
+                        <div class="text-left mt-10"><img style="margin-right:10px;" src="/img/klass.png" width="25">ставит Like, "Класс" или "Мне нравится"</div>
+                        <div class="text-left mt-10"><img style="margin-right:10px;" src="/img/repost.png" width="25">делает репост</div>
+                        <div class="text-left mt-10"><img style="margin-right:10px;" src="/img/comment.png" width="25">оставляет комментарии в постах</div>
+                        <div class="text-left mt-10"><img style="margin-right:10px;" src="/img/survey.png" width="25">учавствует в опросах, голосованиях</div>
+                        <div class="text-left mt-10"><img style="margin-right:10px;" src="/img/subscribe.png" width="25">подписывается на группы, сообщества</div>
                     </div>
+
+                    Также есть дополнительный атрибут:
+                    <div style="color:#36689b;" class="mv-10">
+                        <img style="margin-right:10px;" src="/img/search.png" width="25">пользователи из результата поиска
+                    </div>
+                    Он доступен для тех, кто загружен вручную.
+
+
                 </div>
 
+            </div>
+
+            <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
+                <h3 style="color:#36689b;">Преимущества проекта:</h3>
+
+                <div class="text-left mb-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Вы никогда не вышлите приглашение пользователям два и более раз подряд, тем самым обезопасите себя от лишних жалоб и вероятных санкций от администрации соцсети.</div>
+                <div class="text-left mb-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Можно работать сразу с 3 соцсетями - <b>Одноклассники</b>, <b>Facebook</b> и <b>Вконтакте</b>.</div>
+                <div class="text-left"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Программа ведет подробный отчет о собранных пользователях и при необходимости предоставляет его в виде CSV файла.</div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
 
 
 
-                <h3>Сколько времени тратится на все?</h3>
-                <ul>
-                    <li style='margin-left:-20px'>На сбор 1000 пользователей - до 5 минут, учитывая, что вы уже нашли источник.</li>
-                    <li style='margin-left:-20px'>На приглашение в группу пользователей в количестве 40 человек - требуется в среднем 5 минут. Однако рекомендуется приглашать пользователей в течение дня, а не всех сразу.</li>
-                </ul>
-                <h3>На каком браузере лучше всего работать? </h3>
-                <ul>
-                    <li style='margin-left:-20px'>На любом, но приглашать лучше через Chrome (т.к. он быстрее всех открывает окошки с профилем)</li>
-                </ul>
-
-
-                <h3>Стоимость:</h3>
-                <ul>
-                    <li style='margin-left:-20px'>Первый месяц - бесплатно, далее - 100 рублей в месяц.</li>
-                </ul>
+            <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
+                <h3 style="color:#36689b;">Как все это работает?</h3>
+                <div class="text-left mt-10">Процесс ручной, не автоматизированный, так что вы не нарушите Регламент вышеупомянутых соцсетей.</div>
+                <div class="text-left mt-10">Вы сохраняете в своей базе пользователей из самой подходящей на ваш взгляд категории и с нужными "атрибутами активности".</div>
+                <div class="text-left mt-10">Затем приглашаете их к себе, но делаете это на порядок быстрее, если бы делали это самостоятельно.</div>
+            </div>
 
 
 
+
+
+
+
+
+            <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
+                <h3 style="color:#36689b;">Сколько подписчиков можно получить в день?</h3>
+
+                <div class="text-left mt-10">Столько, сколько разрешают правила соцсети.</div>
+                <div class="text-left mt-10">Если у вас несколько аккаунтов или просто есть друзья, готовые вам помочь, то намного больше.</div>
+            </div>
+
+
+
+
+            <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
+                <h3 style="color:#36689b;">Стоимость:</h3>
+
+                <div class="text-left"><img style="margin-right:10px;" src="/img/balance.png" width="25">При регистрации сейчас:
+
+                    <div class="text-left mt-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span><b>вы получаете 2000 рублей в подарок</b></div>
+                    <div class="text-left mt-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span><b>никакой абонентской платы</b></div>
+
+<div class="text-left mt-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span><b>загрузка пользователей самостоятельно - бесплатно</b></div>
+
+<div class="text-left mt-10">Платный только импорт пользователей из готовой коллекции</div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <table style="display:none;">
+        <tr>
+            <td align="center" valign="top" style="padding-top:10px;">
+
+
+                <!--LiveInternet counter--><script type="text/javascript">
+                    document.write("<a href='//www.liveinternet.ru/click' " +
+                            "target=_blank><img src='//counter.yadro.ru/hit?t26.1;r" +
+                            escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
+                            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+                            ";" + Math.random() +
+                            "' alt='' title='LiveInternet: показано число посетителей за" +
+                            " сегодня' " +
+                            "border='0' width='88' height='15'><\/a>")
+                </script><!--/LiveInternet-->
 
             </td>
         </tr>
+
+
+
+
+
+
+
 
 
     </table>
@@ -305,60 +374,11 @@ $code = my_create_password();
 
 
 
-
-
-
-
-
-</table>
-
-
-
-
-<table style="display:none;">
-    <tr>
-        <td align="center" valign="top" style="padding-top:10px;">
-
-
-            <!--LiveInternet counter--><script type="text/javascript">
-                document.write("<a href='//www.liveinternet.ru/click' " +
-                        "target=_blank><img src='//counter.yadro.ru/hit?t26.1;r" +
-                        escape(document.referrer) + ((typeof (screen) == "undefined") ? "" :
-                        ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
-                                screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
-                        ";" + Math.random() +
-                        "' alt='' title='LiveInternet: показано число посетителей за" +
-                        " сегодня' " +
-                        "border='0' width='88' height='15'><\/a>")
-            </script><!--/LiveInternet-->
-
-        </td>
-    </tr>
-
-
-
-
-
-
-
-
-
-</table>
-
-
-
-
-
-
-
-
-
-
-<div class="nav-up">
-    <div>
-        <i class="glyphicon glyphicon-triangle-top"></i><br>наверх
+    <div class="nav-up">
+        <div>
+            <i class="glyphicon glyphicon-triangle-top"></i><br>наверх
+        </div>
     </div>
-</div>
 
 
 

@@ -9,10 +9,13 @@ require_once('generic' . MY_DS . 'connection.php');
 require_once('generic' . MY_DS . 'actions.php');
 
 require_once('generic/generic_functions.php');
-
+if (empty($_GET['noaccount'])) {
 include('generic/auth_control.php');
+}
 
 include('generic/header.php');
+
+if (empty($_GET['noaccount'])) {
 ?>
 
 
@@ -28,7 +31,7 @@ include('generic/header.php');
         </div>
     </div>
 </div>
-
+<?php } ?>
 <div class="row">
     <div class="col-xs-12 col-sm-6 p-0">
 <div class="row" style="background: linear-gradient(90deg, #24adc2 0%, #fff 100%); color:#fff; border-top:3px solid #f5f5f5">
@@ -62,14 +65,9 @@ include('generic/header.php');
                 <div class="ml-20">
                 <h3>1. <a href="https://youtu.be/lOqnHtNgT0A" target="blank">Импорт из готовой коллекции</a></h3>
 
+                <h3 class="mb-20" onclick="$('#load_users').toggleClass('hidden2');">2. <a class="pointer">Загружаем пользователей из соцсети</a></h3>
 
-
-
-
-
-                <h3 class="mb-20">2. Загружаем пользователей из соцсети</h3>
-
-                <ul>
+                <ul id="load_users" class="hidden2">
                     <li style="margin-left:-20px"><h4>Опросы, голосования</h4>
                     <ul>
                         <li style="margin-left:-20px"><h5><a href="https://youtu.be/DeyPGxDsgM8" target="blank">Вконтакте</a></h5></li>
@@ -119,6 +117,36 @@ include('generic/header.php');
                     </ul>
                     </li>
                 </ul>
+
+
+
+
+
+
+
+
+
+                <h3 class="mb-20" onclick="$('#promotion').toggleClass('hidden2');">3. <a class="pointer">Вкладка "Продвижение"</a></h3>
+
+                <ul id="promotion" class="hidden2">
+                    <li style="margin-left:0px"><h4 onclick="$('#promotion1').toggleClass('hidden2');"><a class="pointer">Общее описание</a></h4>
+                        <div class="hidden2" id="promotion1" style="margin-left:0px">
+<img src="/img/promotion_describe.png" style="border:1px solid #333">
+                        </div>
+                    </li>
+
+                    <li style="margin-left:0px"><h4 onclick="$('#promotion2').toggleClass('hidden2');"><a class="pointer">Прикрепленные комментарии при самостоятельной загрузке</a></h4>
+                        <div class="hidden2" id="promotion2" style="margin-left:0px">
+<img src="/img/ok_search_load_users_comment_example.png" style="border:1px solid #333">
+                        </div>
+                    </li>
+                    </ul>
+
+
+
+
+
+
 
 
                 </div>
