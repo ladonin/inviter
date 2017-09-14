@@ -45,7 +45,17 @@ $code = my_create_password();
         </td>
     </tr>
 </table>
+<script>
 
+
+
+
+    var screenHeight = $(window).height();
+    $('.panel-1').height(screenHeight);
+
+
+
+</script>
 
 
 
@@ -57,7 +67,7 @@ $code = my_create_password();
         cursor:pointer;
     }
     .panel-1{
-
+     
         width: 100%;
         background-image: url('/img/background.jpg');
         background-repeat: repeat;
@@ -413,9 +423,6 @@ $code = my_create_password();
 
 
 
-
-    var screenHeight = $(window).height();
-    $('.panel-1').height(screenHeight);
 
 
     $('.nav-down div, #title').click(function () {
