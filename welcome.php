@@ -188,29 +188,33 @@ $code = my_create_password();
 
     <div  style="max-width:1118px; margin:0 auto; font-size: 15px;    line-height: 23px;">
 
-
-
-
-
         <div class="row">
-
             <div class="col-xs-12 mb-20 text-center p-0">
                 <img src='/img/index_image.png' style="max-width: 100%;" >
-
             </div>
-            <div class="col-xs-12 mb-20 p-0 text-center" >
-                <h3 id="title" style="color:#36689b;           font-size: 32px;
+            <div class="col-xs-12 mb-20 p-0 text-center"  style="    border-bottom: 1px solid #dadfe8;
+    padding-bottom: 30px !important;">
+                <h3 id="title" style="color:#36689b;
+                    font-size: 32px;
                     line-height: 40px;
-                    font-weight: 400;-webkit-font-smoothing: antialiased;
+                    font-weight: 400;
+                    -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
-                    text-rendering: optimizeLegibility;    "><?php echo($title); ?> </h3>
+                    text-rendering: optimizeLegibility;"><?php echo($title); ?> </h3>
 
+
+
+                  <div class="alert alert-info mt-20 p-10" role="alert" style=" margin:0 auto;max-width: 680px; background-color: #f5f5f5; border:0">
+                      <h3 style="color:#36689b; margin-top:10px"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Уже более <b style="color: #5c6e80;">1 000 000</b> активных пользователей в базе</h3>
             </div>
 
+
+
+
+            </div>
         </div>
 
         <div class="row">
-
             <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
                 <h3 style="color:#36689b;">Что проект делает?</h3>
                 <div class="text-left pb-20">Проект предоставляет, а также позволяет самостоятельно загружать активных пользователей социальных сетей <b>Одноклассники</b>, <b>Facebook</b> и <b>Вконтакте</b>.</div>
@@ -304,9 +308,9 @@ $code = my_create_password();
                     <div class="text-left mt-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span><b>вы получаете 2000 рублей в подарок</b></div>
                     <div class="text-left mt-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span><b>никакой абонентской платы</b></div>
 
-<div class="text-left mt-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span><b>загрузка пользователей самостоятельно - бесплатно</b></div>
+                    <div class="text-left mt-10"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span><b>загрузка пользователей самостоятельно - бесплатно</b></div>
 
-<div class="text-left mt-10">Платный только импорт пользователей из готовой коллекции</div>
+                    <div class="text-left mt-10">Платный только импорт пользователей из готовой коллекции</div>
 
 
                 </div>
