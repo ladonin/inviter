@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 set_time_limit(9999999);
 define('MY_DS', DIRECTORY_SEPARATOR);
-$title = $page_name = 'Online сервис, существенно упрощающий процесс привлечения новых подписчиков через прямые приглашения.';
+$title = $page_name = 'База активных пользователей.';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 $invite_table = 'odnoklassniki_group_admins_collector';
@@ -67,7 +67,7 @@ $code = my_create_password();
         cursor:pointer;
     }
     .panel-1{
-     
+
         width: 100%;
         background-image: url('/img/background.jpg');
         background-repeat: repeat;
