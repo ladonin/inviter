@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 set_time_limit(9999999);
 define('MY_DS', DIRECTORY_SEPARATOR);
-$title = $page_name = 'База активных пользователей.';
+$title = $page_name = 'Inviter.biz - база активных пользователей.';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 $invite_table = 'odnoklassniki_group_admins_collector';
