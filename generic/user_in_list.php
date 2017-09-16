@@ -25,7 +25,7 @@ foreach ($user_types as $user_type) {
     if ($user_type_link) {
         $type_images .= '<a class="pointer user_data_type_link" data-url="' . $user_type_link . '">';
     }
-    $type_images .= '<span style="white-space: nowrap;margin-right:10px; margin-bottom:0px;"><img style="margin-right:5px; margin-top:5px;" src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '">' . $count_imported_type_links . '</span>';
+    $type_images .= '<span style="white-space: nowrap;margin-right:10px; margin-bottom:0px;"><img style="margin-right:5px; margin-top:5px;" src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '"><span style="position:relative; top:3px;">' . $count_imported_type_links . '</span></span>';
     if ($user_type_link) {
         $type_images .= '</a> ';
     }
