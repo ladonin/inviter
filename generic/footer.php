@@ -78,12 +78,10 @@ screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
 
 <script>
 
-$(document).ready(function(){
 
     var screenHeight = $(document).height();
     $('#content').css('min-height',(screenHeight - $('#footer').height() - 30) + 'px');
 
-});
 
 
 </script>
