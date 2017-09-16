@@ -25,7 +25,7 @@ foreach ($user_types as $user_type) {
     if ($user_type_link) {
         $type_images .= '<a class="pointer user_data_type_link" data-url="' . $user_type_link . '">';
     }
-    $type_images .= '<span style="white-space: nowrap;margin-right:10px; margin-bottom:0px;"><img style="margin-right:5px; margin-top:10px;" src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '"><span style="position:relative; top:8px;">' . $count_imported_type_links . '</span></span>';
+    $type_images .= '<span style="white-space: nowrap;margin-right:10px; margin-bottom:0px;"><img style="margin-right:5px; margin-top:10px;" src="/img/' . get_type_code_by_id($user_type) . '.png" width="25" data-toggle="tooltip" data-placement="top" title="' . get_type_name_by_id($user_type) . '"><span style="position:relative; top:6px;">' . $count_imported_type_links . '</span></span>';
     if ($user_type_link) {
         $type_images .= '</a> ';
     }
@@ -57,7 +57,7 @@ if ($buffer === true) {
                     <div class="user_seen_label" data-toggle="tooltip" data-container="body" data-placement="top" title="Просмотрен"><i class="glyphicon glyphicon-ok" style="/*! width: 30px; */"></i></div>
                     <a href="<?= $link; ?>" class="user_link" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=900, height=800');
                                                     return false;">
-                        <img class="media-object" style="width:55px; border-radius:5px;" src="<?= $avatar; ?>" title="<?= $user['user_fio']; ?>">
+                        <img class="media-object" style="width:60px; border-radius:5px;" src="<?= $avatar; ?>" title="<?= $user['user_fio']; ?>">
                     </a>
                 </div>
                 <div class="media-body">
