@@ -1820,4 +1820,13 @@
                 body, html{
                         font-family: Roboto,sans-serif !important;
                 }
+
+
+            .radio label, .checkbox label{
+                line-height: 21px;
+            }
+
+
+
+
             </style>
