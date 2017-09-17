@@ -69,8 +69,8 @@ include('generic/header.php');
 
 
 
-<div id="promotion_block" class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:20px !important; margin:0 !important;">
-    <h3 class="mb-20">Пригласить пользователей</h3>
+<div id="promotion_block" class="well well-lg p-10-xs" style="padding-top:10px !important; margin:0 !important;">
+    <h3 class="mt-10-xs mb-20 mt-20-sm">Пригласить пользователей</h3>
     <div class="row">
         <div id='show_users_block' class="col-xs-12 col-md-12 col-lg-12 p-0">
         <?php $button_1_added_text = ''; require("generic/show_users.php"); ?>
@@ -79,8 +79,8 @@ include('generic/header.php');
 </div>
 
 
-<div id="import_block" class="well well-lg p-10-xs" style="display:none; padding-top:10px !important;padding-bottom:20px !important;  margin-bottom:0px !important; margin-top:0px !important;">
-    <h3>Импорт пользователей</h3>
+<div id="import_block" class="well well-lg p-10-xs" style="display:none; padding-top:10px !important;  margin-bottom:0px !important; margin-top:0px !important;">
+    <h3 class="mt-10-xs mb-20 mt-20-sm">Импорт пользователей</h3>
     <div class="pv-10"><span class="btn btn-primary" data-toggle="modal" data-target="#collectionsModal">Взять из готовой коллекции</span></div>
     <div class="row">
         <div class="col-xs-12 col-md-6 pr-10-md p-0">
@@ -208,7 +208,7 @@ foreach ($categories as $key => $category) {
 //$has_loaded_users = has_loaded_users();
 //$has_imported_users = $client_imported_categories ? true : false;
 ?>
-<div id="my_base_block" class="well well-lg p-10-xs" style="display:none;padding-top:10px !important;padding-bottom:20px !important;  margin:0 !important;">
+<div id="my_base_block" class="well well-lg p-10-xs" style="display:none;padding-top:10px !important; margin:0 !important;">
 
 
     <?php /*
