@@ -12,7 +12,7 @@
     <?php if ($count_invited) { ?>
         <div class="col-xs-12 p-0">
 
-            <button class="btn btn-danger btn-sm mb-10" id="reset_promotion">Сбросить на начало</button>
+            <button class="btn btn-danger btn-sm mb-20" id="reset_promotion">Сбросить на начало</button>
 
         </div>
     <?php } ?>

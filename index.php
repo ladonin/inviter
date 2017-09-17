@@ -69,7 +69,7 @@ include('generic/header.php');
 
 
 
-<div id="promotion_block" class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:20px !important; margin:0 !important;">
+<div id="promotion_block" class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:0px !important; margin:0 !important;">
     <h3 class="mb-20">Пригласить пользователей</h3>
     <div class="row">
         <div id='show_users_block' class="col-xs-12 col-md-12 col-lg-12 p-0">
