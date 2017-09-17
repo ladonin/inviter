@@ -30,7 +30,16 @@
                     Осталось: <b><?php echo($count_non_invited); ?></b>
                 </div>
             </div>
+        <?php } else if (!empty($_SESSION[$net_code]['showed_count'][date('z')])) { ?>
+            <div class="row">
+                <div class="alert alert-info  p-10 col-xs-12" role="alert" style="/*width: 640px;*/">
+                    Показано за сегодня: <b><?php echo($_SESSION[$net_code]['showed_count'][date('z')] ?? 0); ?></b>
+                </div>
+            </div>
         <?php } ?>
+
+
+
         <span class="btn btn-primary" style="margin-bottom:20px; display:none" id='reset_users_list'>Обновить</span>
 
         <?php if (!$count_non_invited) { ?>
