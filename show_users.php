@@ -126,10 +126,6 @@ if (!$show_users_reset) {
                 <div class="list-group col-xs-12" style="padding-right:0; /*width: 640px;*/ border-radius: 4px;border: 1px solid #ddd; padding: 10px;background-color: #fff;">
         <?php
 
-
-
-unset($_SESSION[$net_code]['showed_count']);
-
 $_SESSION[$net_code]['showed_count'][date('z')] = $_SESSION[$net_code]['showed_count'][date('z')] ?? 0;
 
 
