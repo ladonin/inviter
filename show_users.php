@@ -128,7 +128,7 @@ if (!$show_users_reset) {
 
 
 
-
+unset($_SESSION[$net_code]['showed_count']);
 
 $_SESSION[$net_code]['showed_count'][date('z')] = $_SESSION[$net_code]['showed_count'][date('z')] ?? 0;
 
