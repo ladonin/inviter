@@ -130,12 +130,12 @@ if (!$show_users_reset) {
 
 
 
-$_SESSION[$net_code]['showed_count'] = $_SESSION[$net_code]['showed_count'] ?? 0;
+$_SESSION[$net_code]['showed_count'][date('z')] = $_SESSION[$net_code]['showed_count'][date('z')] ?? 0;
 
 
         foreach ($result as $user) {
 
-$_SESSION[$net_code]['showed_count']++;
+$_SESSION[$net_code]['showed_count'][date('z')]++;
 
 $buffer = true;
 

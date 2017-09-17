@@ -25,7 +25,7 @@
         <?php if ($count_non_invited) { ?>
             <div class="row">
                 <div class="alert alert-info  p-10 col-xs-12" role="alert" style="/*width: 640px;*/">
-                    Показано в рамках сессии: <b><?php echo($_SESSION[$net_code]['showed_count'] ?? 0); ?></b><br>
+                    Показано в рамках сессии: <b><?php echo($_SESSION[$net_code]['showed_count'][date('z')] ?? 0); ?></b><br>
                     Показано всего: <b><?php echo($count_invited); ?></b><br>
                     Осталось: <b><?php echo($count_non_invited); ?></b>
                 </div>
