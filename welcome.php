@@ -23,7 +23,7 @@ $code = my_create_password();
         <td valign="middle" align="center">
             <div class="pv-20">
                 <div class="logo">
-                    <img src="/img/logo.png"/>
+                    <img src="/img/logo3.png"/>
                 </div>
 
                 <div class="slogan mt-20">
@@ -141,11 +141,15 @@ $code = my_create_password();
     .logo{
         padding: 15px;
         background-color: #fff;
-        width: 180px;
+        width: 230px;
+        border-radius: 1000px;
+    }
+        .logo img{
+        width: 200px;
         border-radius: 1000px;
 
-    }
 
+        }
     .button-register,
     .button-login{
         width:170px;
