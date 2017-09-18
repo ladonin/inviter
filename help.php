@@ -61,8 +61,16 @@ if (empty($_GET['noaccount'])) {
 
 
 
-                <h2 class="mb-20">Пополнение</h2>
+                <h2 class="mb-20">FAQ</h2>
                 <div class="ml-20">
+
+
+
+
+
+
+
+
                 <h3>1. <a href="https://youtu.be/lOqnHtNgT0A" target="blank">Импорт из готовой коллекции</a></h3>
 
                 <h3 class="mb-20" onclick="$('#load_users').toggleClass('hidden2');">2. <a class="pointer">Загружаем пользователей из соцсети</a></h3>
