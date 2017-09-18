@@ -123,7 +123,7 @@
                         <div class="col-xs-12 col-sm-7 pr-10-sm  p-0 mb-10">
 
 
-                            <select class="form-control" id="show_users_number">
+                            <select class="form-control" id="show_users_number" name="show_users_number">
                                 <option value='5' <?php if (!empty($show_users_number) && $show_users_number == 5) { ?>selected<?php } ?>>5 человек</option>
                                 <option value='10'<?php if (!empty($show_users_number) && $show_users_number == 10) { ?>selected<?php } ?>>10 человек</option>
                             </select>
