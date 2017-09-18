@@ -23,7 +23,7 @@ $code = my_create_password();
         <td valign="middle" align="center">
             <div class="pv-20">
                 <div class="logo">
-                    <img src="/img/logo3.png"/>
+                    <img src="/img/logo.png"/>
                 </div>
 
                 <div class="slogan mt-20">
@@ -141,15 +141,14 @@ $code = my_create_password();
     .logo{
         padding: 15px;
         background-color: #fff;
-        width: 230px;
-        border-radius: 1000px;
-    }
-        .logo img{
         width: 200px;
         border-radius: 1000px;
 
+    }
+    .logo img{
+        width:170px;
+    }
 
-        }
     .button-register,
     .button-login{
         width:170px;
@@ -238,8 +237,8 @@ $code = my_create_password();
 
         <div class="row">
             <div class="col-xs-12 col-md-4 mb-20 p-0-xs p-0-sm p-10-md text-center">
-                <h3 style="color:#36689b;">Что проект делает?</h3>
-                <div class="text-left pb-20">Проект предоставляет, а также позволяет самостоятельно загружать активных пользователей социальных сетей <b>Одноклассники</b>, <b>Facebook</b> и <b>Вконтакте</b>.</div>
+                <h3 style="color:#36689b;">Суть проекта</h3>
+                <div class="text-left pb-20">Проект предоставляет доступ к персональным страницам активных пользователей социальных сетей <b>Одноклассники</b>, <b>Facebook</b> и <b>Вконтакте</b> с целью прямого взаимодействия с ними - выслать приглашение в группу, написать сообщение и т.д.</div>
 
 
 
