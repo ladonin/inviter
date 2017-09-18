@@ -75,12 +75,12 @@ define('MY_IMPORT_USER_CORRECTION_FB', 0.05);
 
 // стоимость 1 импортированного пользователя
 define('MY_USER_IMPORT_COST', array(
-    'GENERIC'       => 0.25,
-    'COMMENT'       => 0.30,
-    'SURVEY'        => 0.25,
-    'SUBSCRIBER'    => 0.15,
-    'KLASS'         => 0.20,
-    'REPOST'        => 0.30,
+    'GENERIC'       => 0.18,
+    'COMMENT'       => 0.18,
+    'SURVEY'        => 0.18,
+    'SUBSCRIBER'    => 0.20,
+    'KLASS'         => 0.15,
+    'REPOST'        => 0.22,
     'SEARCH'        => 0.15));
 
 // коэффициент суммы 1 дополнительного типа к самому дорогому типу в составной цене
