@@ -25,7 +25,7 @@ include('generic/auth_control.php');
 
 
 
-<h3 class="mt-10-xs mb-20 mt-20-sm">Моя коллекция</h3>
+<h3 class="mt-10-xs mb-20 mt-20-sm">Моя база</h3>
     <div class="row pr-20">
         <div class="alert alert-info  p-10 col-xs-12 col-sm-6" role="alert" style="/*width: 640px;*/">
             Всего: <b><?php echo($count_invited + $count_non_invited); ?></b><br>
