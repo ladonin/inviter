@@ -4,6 +4,7 @@
         <title><?php echo($title); ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width" />
+        <meta name="yandex-verification" content="520262480be4c1e2" />
         <link rel="stylesheet" href="/css/generic/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="/css/generic/swal.css"/>
         <link rel="stylesheet" type="text/css" href="/css/desctop/generic.css"/>
