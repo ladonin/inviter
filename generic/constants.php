@@ -6,7 +6,7 @@ ini_set("display_errors", 1);
 ini_set('post_max_size', '64M');
 ini_set('upload_max_filesize', '64M');
 
-date_default_timezone_set('UTC');
+
 
 
 define('MY_DOCROOT', realpath(dirname(__FILE__)));
