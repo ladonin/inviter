@@ -4,6 +4,7 @@ php_value memory_limit 2048M
 php_value max_execution_time 30000
 php_value max_input_time 30000
 php_value session.gc_maxlifetime 120000
+php_value date.timezone 'Europe/Moscow'
 
 AddDefaultCharset UTF-8
 Options -Indexes

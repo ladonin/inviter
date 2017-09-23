@@ -226,7 +226,7 @@ $code = my_create_password();
                     text-rendering: optimizeLegibility;
                     ">Работает с Facebook, Одноклассники и Вконтакте. Скоро и с Telegram.</h4>
                   <div class="alert alert-info mt-20 p-10" role="alert" style=" margin:0 auto;max-width: 680px; background-color: #f5f5f5; border:0">
-                      <h3 style="color:#36689b; margin-top:10px"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Уже более <b style="color: #5c6e80;">1 000 000</b> активных пользователей в базе</h3>
+                      <h3 style="color:#36689b; margin-top:10px"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Уже более <b style="color: #5c6e80;">1 000 000</b> активных пользователей</h3>
             </div>
 
 
