@@ -1,4 +1,7 @@
 <?php
+
+//\home\q\quitecorg\public_html\instorage\public_html\map\public_html\application\services\landmarks\blocks\desctop\_pages\generic\bottom_side.php
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 set_time_limit(9999999);
