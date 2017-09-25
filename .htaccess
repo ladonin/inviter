@@ -85,9 +85,9 @@ RewriteRule ^robokassa_cw54ub6e5unb_success  robokassa_cw54ub6e5unb_success.php 
 
 
 
-
-
-
+RewriteRule ^articles/(.+)$  articles.php?url_name=$1&%{QUERY_STRING} [L]
+RewriteRule ^articles/(.+)$  articles.php?url_name=$1 [L]
+RewriteRule ^articles  articles.php [L]
 
 
 

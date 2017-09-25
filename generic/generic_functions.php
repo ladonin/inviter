@@ -253,3 +253,30 @@ function write_to_log($message)
     $file = MY_DOCROOT . '/../log/log.txt';
     file_put_contents($file, date(DATE_RFC2822) . ': ' . $message . "\n\r", FILE_APPEND);
 }
+
+
+
+
+
+function get_articles($besides = '')
+{
+    global $connect;
+
+    $sql = "SELECT * FROM seo_articles WHERE url_name != :url_name";
+
+    $stmt = $connect->prepare($sql);
+    $stmt->execute(['url_name'=>$besides]);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
+
+
+function get_article($url_name)
+{    global $connect;
+    $stmt = $connect->prepare("SELECT * FROM seo_articles WHERE url_name=:url_name");
+    $stmt->execute(['url_name'=>$url_name]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $result;
+}

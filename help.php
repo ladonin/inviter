@@ -31,7 +31,34 @@ if (empty($_GET['noaccount'])) {
         </div>
     </div>
 </div>
-<?php } ?>
+<?php } else { ?>
+
+
+<div class="p-20-sm p-10" style="text-align:center; margin-bottom:0; background: linear-gradient(135deg, rgba(42,81,122,1) 0%, rgba(67,129,191,1) 100%);">
+    <div class="row">
+        <div class="pull-left">
+            <a href="/" class="mr-5"><img src="/img/vk_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a><a href="/" class="mr-5"><img src="/img/ok_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a><a class="mr-5" href="/"><img src="/img/fb_logo.jpg" width="35" style="opacity:1; border-radius: 1000px;border: 2px solid #fff;"></a>
+
+        </div>
+        <div class="pull-right">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="outline: none; border: 0;padding: 0;font-size: 30px; line-height: 30px; background-color: rgba(0, 120, 201, 0);color: #fff; box-shadow: none;">
+                    <span style="outline:none" aria-hidden="true" class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                    <li><a class="pv-10" style="cursor:pointer" href="/enter" ><span class="glyphicon glyphicon-log-in" style="margin-right:10px;"></span>Войти</a></li>
+<li><a href="/registration" class="pv-10" style="cursor:pointer"><span class="glyphicon glyphicon-user" style="margin-right:10px;"></span>Регистрация</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a class="pv-10" href="/help"><span class="glyphicon glyphicon-question-sign" style="margin-right:10px;"></span>Помощь</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <?php
+}
+?>
 <div class="row">
     <div class="col-xs-12 col-sm-6 p-0">
 <div class="row" style="background: linear-gradient(90deg, #24adc2 0%, #fff 100%); color:#fff; border-top:3px solid #f5f5f5">
@@ -59,18 +86,8 @@ if (empty($_GET['noaccount'])) {
         <tr>
             <td valign="top" align="left">
 
-
-
                 <h2 class="mb-20">FAQ</h2>
                 <div class="ml-20">
-
-
-
-
-
-
-
-
                 <h3>1. <a href="https://youtu.be/lOqnHtNgT0A" target="blank">Импорт из готовой коллекции</a></h3>
 
                 <h3 class="mb-20" onclick="$('#load_users').toggleClass('hidden2');">2. <a class="pointer">Загружаем пользователей из соцсети</a></h3>
