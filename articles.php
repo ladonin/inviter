@@ -1,6 +1,15 @@
 <?php
 
 //\home\q\quitecorg\public_html\instorage\public_html\map\public_html\application\services\landmarks\blocks\desctop\_pages\generic\bottom_side.php
+//http://mutagen.ru/?key=%D0%BD%D0%B0%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0+%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%BE%D0%B2+%D0%B2+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%83+%D0%B2%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B5&form_id=form_key
+//https://wordstat.yandex.ru/#!/?geo=&text_geo=&words=%D0%BD%D0%B0%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0%20%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D1%87%D0%B8%D0%BA%D0%BE%D0%B2%20%D0%B2%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%83
+
+//https://www.textsale.ru/raskrutka-i-prodvijenie-saytov/vkontakte-besplatnye-sposoby-raskrutki-prodvijeniya-gruppy-v-quotvkontaktequot-tov3980686.html
+//https://www.etxt.ru/articles/?search_words=%EF%EE%E4%EF%E8%F1%F7%E8%EA+%E2%EA&price_from=&price_to=&size_from=&size_to=&uniq_from=&uniq_to=&rate_from=&sort=date&order=desc&id_language=15&id_subtype=0&tmoder=0&search=1
+
+//https://webmaster.yandex.ru/site/http:inviter.biz:80/indexing/reindex/
+//https://www.google.com/webmasters/tools/googlebot-fetch?hl=ru&authuser=1&siteUrl=http://inviter.biz/
+
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
