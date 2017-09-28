@@ -10,9 +10,12 @@ color: #e6e6e6;">
 
     <div class="pull-left" style="width:100px;">
         <div class="text-left contacts" style="margin-bottom:5px"><a href="/" style="color:#fff">На главную</a></div>
+        <?php if(isSearchBot()) { ?>
+        <div class="text-left contacts" style="margin-bottom:5px"><a href="/articles<?=!empty($user_id) ? '?account=1' : ''?>" target="_blank" style="color:#fff">Статьи</a></div>
+        <?php } ?>
         <div class="text-left contacts" style="margin-bottom:5px"><a href="/help?noaccount=1" target="_blank" style="color:#fff">Помощь</a></div>
-        <div class="text-left contacts" style="margin-bottom:5px"><a href="/contacts" target="_blank" style="color:#fff">Контакты</a></div>
-        <div class="text-left contacts" style="margin-bottom:10px"><a href="/articles<?=!empty($user_id) ? '?account=1' : ''?>" target="_blank" style="color:#fff">Статьи</a></div>
+        <div class="text-left contacts" style="margin-bottom:10px"><a href="/contacts" target="_blank" style="color:#fff">Контакты</a></div>
+
 
     </div>
 
