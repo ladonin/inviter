@@ -129,7 +129,7 @@ if (!empty($article)) {
 
 
 
-<div  class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:20px !important;  margin-bottom:0px !important; margin-top:0px !important;">
+<div  class="well well-lg p-10-xs" style="padding-top:10px !important;padding-bottom:10px !important;  margin-bottom:0px !important; margin-top:0px !important;">
 
 
 
@@ -148,7 +148,7 @@ if (empty($_GET['account'])) {?>
 
 
 
-
+        <?php if(isSearchBot()) { ?>
             <tr>
                 <td valign="top" align="left">
 
@@ -167,9 +167,9 @@ if (empty($_GET['account'])) {?>
                         $i = 0;
                         foreach ($articles as $article) {
                             $i++;
-                            ?>
-                            <span style="font-size:17px"><?= $i; ?>.</span> <a style="font-size:17px" href="/articles/<?= $article['url_name']; ?><?=!empty($user_id) ? '?account=1' : ''?>"><b><?= $article['title']; ?></b></a>
-                        <?php } ?>
+                            ?><div class="mb-10">
+                            <a style="font-size:17px" href="/articles/<?= $article['url_name']; ?><?=!empty($user_id) ? '?account=1' : ''?>"><b><?= $article['title']; ?></b></a><
+                        </div><?php } ?>
 
 
 
@@ -185,7 +185,7 @@ if (empty($_GET['account'])) {?>
 
                 </td>
             </tr>
-
+        <?php } ?>
         </tbody></table>
 
 </div>
