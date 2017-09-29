@@ -168,7 +168,7 @@ if (empty($_GET['account'])) {?>
                         foreach ($articles as $article) {
                             $i++;
                             ?><div class="mb-10">
-                            <a style="font-size:17px" href="/articles/<?= $article['url_name']; ?><?=!empty($user_id) ? '?account=1' : ''?>"><b><?= $article['title']; ?></b></a><
+                            <a style="font-size:17px" href="/articles/<?= $article['url_name']; ?><?=!empty($user_id) ? '?account=1' : ''?>"><b><?= $article['title']; ?></b></a>
                         </div><?php } ?>
 
 
