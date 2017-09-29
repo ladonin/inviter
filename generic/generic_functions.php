@@ -323,10 +323,10 @@ function real_ip()
 }
 
 function isSearchBot($ip=''){
-global $user_id;
 
 
-echo($user_id);
+
+echo($COOKIE['du']);
 
 
     if (!$ip) {
