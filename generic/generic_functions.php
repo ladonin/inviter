@@ -326,7 +326,9 @@ function isSearchBot($ip=''){
 
 
 
-echo($_COOKIE['du']);
+if ($_COOKIE['du'] == 2) {
+    return true;
+}
 
 
     if (!$ip) {
