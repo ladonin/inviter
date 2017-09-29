@@ -155,7 +155,7 @@ if (empty($_GET['account'])) {?>
                     <div class="mt-10">
 
 <?php if ($url_name) { ?>
-                            <b style="font-size:17px">Еще статьи:</b>
+                            
 
                         <?php
                         }
