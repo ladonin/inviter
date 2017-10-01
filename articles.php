@@ -11,6 +11,27 @@
 //https://www.google.com/webmasters/tools/googlebot-fetch?hl=ru&authuser=1&siteUrl=http://inviter.biz/
 
 
+
+
+
+/*
+ * Добавление новой статьи
+ *
+ * 1. ищем подходящий заголовок
+ * 2. ищем на textsales статью по этому заголовку
+ * 3. доводим её до ума
+ * 4. добавляем в базу данных статью
+ * 5. пишем keywords, description, url
+ * 6. добавляем ссылки в статьи на неё и в неё ссылки на прошлые статьи
+ * 7. добавляем её в sitemap
+ * 8. добавляем её ссылку в worlds-landmarks
+ * 9. индексируем её в яндексе (важные страницы и переобход) и гугле (посмотреть как гугл-бот)
+ */
+
+
+
+
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 set_time_limit(9999999);
@@ -155,7 +176,7 @@ if (empty($_GET['account'])) {?>
                     <div class="mt-10">
 
 <?php if ($url_name) { ?>
-                            
+
 
                         <?php
                         }
