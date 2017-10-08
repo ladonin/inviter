@@ -11,7 +11,7 @@ $title = $page_name = 'Контакты';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
 
-
+require_once('generic/generic_functions.php');
 
 
 include('generic/header.php');?>
