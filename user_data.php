@@ -28,7 +28,7 @@ include('generic/auth_control.php');
                 <div class="media mb-0">
                     <div class="media-left">
 
-                        <a href="<?= $link; ?>" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=1000, height=800');
+                        <a href="<?= $link; ?>" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=1050, height=800');
                     return false;">
                             <img class="media-object" style="width:50px; border-radius:5px;" src="<?= $avatar; ?>" title="<?= $user['user_fio']; ?>">
                         </a>

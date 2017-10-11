@@ -55,7 +55,7 @@ if ($buffer === true) {
             <div class="media">
                 <div class="media-left" style="position: relative;">
                     <div class="user_seen_label" data-toggle="tooltip" data-container="body" data-placement="top" title="Просмотрен"><i class="glyphicon glyphicon-ok" style="/*! width: 30px; */"></i></div>
-                    <a href="<?= $link; ?>" class="user_link" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=1000, height=800');
+                    <a href="<?= $link; ?>" class="user_link" onclick="window.open('<?= $link; ?>', '_blank', 'left=300, top=100, width=1050, height=800');
                                                     return false;">
                         <img class="media-object" style="width:60px; border-radius:5px;" src="<?= $avatar; ?>" title="<?= $user['user_fio']; ?>">
                     </a>
