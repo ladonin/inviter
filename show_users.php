@@ -161,7 +161,7 @@ require('generic/user_in_list.php');
                             for (index = 0; index < links.length; index++) {
                                 var url = links[index];
                                 setTimeout(function (url) {
-                                    window.open(url, '_blank', 'left=300, top=100, width=900, height=800');
+                                    window.open(url, '_blank', 'left=300, top=100, width=1000, height=800');
                                 }, time, url);
                                 time += 500;
                             }
