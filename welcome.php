@@ -13,6 +13,7 @@ require_once('generic/generic_functions.php');
 include('generic/header.php');
 
 $code = my_create_password();
+$total_data_of_collect_users = get_total_data_of_collect_users();
 ?>
 
 
@@ -226,8 +227,43 @@ $code = my_create_password();
                     text-rendering: optimizeLegibility;
                     ">Работает с Facebook, Одноклассники и Вконтакте. Скоро и с Telegram.</h4>
                   <div class="alert alert-info mt-20 p-10" role="alert" style=" margin:0 auto;max-width: 680px; background-color: #f5f5f5; border:0">
-                      <h3 style="color:#36689b; margin-top:10px"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Уже более <b style="color: #5c6e80;">1 000 000</b> активных пользователей</h3>
-            </div>
+                      <h3 style="color:#36689b; margin-top:10px"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Уже <b style="color: #5c6e80;"><?=number_format($total_data_of_collect_users['number'], 0, ',', ' ');?></b> активных пользователей</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="text-left mt-10">
+<div class="row">
+<?php foreach($total_data_of_collect_users['data'] as $net_title => $net_data) {
+    echo("<div class='col-sm-6 col-xs-12 pb-10'><b>".mb_ucfirst($net_title)."</b><br>");
+    foreach($net_data as $category_name => $users_count) {
+
+        echo($category_name.": <span style='color: #5c6e80;'>" .number_format($users_count, 0, ',', ' ')."</span><br>");
+
+    }
+
+
+echo('</div>');
+
+    ?>
+
+
+
+
+
+
+    <?php } ?>
+</div></div></div>
+
+
 
 
 

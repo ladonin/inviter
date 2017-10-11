@@ -1,5 +1,17 @@
 <?php
 
+
+
+
+
+
+
+
+
+
+
+
+
 $types_fields = array(
     'is_comment' => 6,
     'is_survey' => 5,
@@ -21,6 +33,39 @@ $nets = array(
     2 => NET_CODE_FB,
     3 => NET_CODE_VK
 );
+
+
+
+
+
+
+function get_total_data_of_collect_users()
+{
+    global $nets;
+    global $connect;
+    $count_total = 0;
+    $data = array();
+    foreach ($nets as $net) {
+        $net_title = constant('NET_TITLE_' . strtoupper($net));
+        $stmt = $connect->prepare("SELECT * FROM {$net}_collections_categories");
+        $stmt->execute();
+        $categories = $stmt->fetchAll();
+        foreach ($categories as $category) {
+
+            $stmt = $connect->prepare("SELECT count(*) as count FROM {$net}_collections_{$category['category_id']}");
+            $stmt->execute();
+            $count = $stmt->fetchColumn();
+            if ($count > 0) {
+                $data[$net_title][$category['name']] = $count;
+            }
+            $count_total += $count;
+        }
+    }
+    return array(
+        'number' => $count_total,
+        'data' => $data
+    );
+}
 
 
 function unescapeUTF8EscapeSeq($str) {
@@ -451,4 +496,22 @@ if (isset($_COOKIE['du']) && $_COOKIE['du'] == 2) {
         $pattern = str_replace('.', '\.', $pattern);
 
         return (boolean)preg_match("#$pattern#", $ip);
+}
+
+
+if (!function_exists('mb_ucfirst') && extension_loaded('mbstring'))
+{
+    /**
+     * mb_ucfirst - преобразует первый символ в верхний регистр
+     * @param string $str - строка
+     * @param string $encoding - кодировка, по-умолчанию UTF-8
+     * @return string
+     */
+    function mb_ucfirst($str, $encoding='UTF-8')
+    {
+        $str = mb_ereg_replace('^[\ ]+', '', $str);
+        $str = mb_strtoupper(mb_substr($str, 0, 1, $encoding), $encoding).
+               mb_substr($str, 1, mb_strlen($str), $encoding);
+        return $str;
+    }
 }
