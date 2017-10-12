@@ -253,7 +253,7 @@ include('generic/header.php');
 
 
                     $link = 'https://ok.ru' . $group['admin_id'];
-                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Профиль админа:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
+                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=1050, height=800\'); return false"><b>Профиль админа:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
 
                    $text=$header . "
 Вам, как администратору группы, хочу предложить попробовать мой новый и очень полезный интернет-сервис.
