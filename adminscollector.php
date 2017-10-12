@@ -272,10 +272,10 @@ include('generic/header.php');
 Сайт проекта: http://inviter.mapstore.org.
 
 Если будут вопросы, пишите. Буду рад помочь.";
-                    echo('<textarea class="col-xs-12" style="margin-top:10px" rows="19">'.$text . '</textarea>');
+                    //echo('<textarea class="col-xs-12" style="margin-top:10px" rows="19">'.$text . '</textarea>');
 
 
-
+echo('<br><br>');
 
 
 
