@@ -144,6 +144,11 @@ function load_users_collection_init()
             }
         }
         return array(
+            'info' => array(
+                'category' => get_category_name($category_id),
+                'user_type' => get_type_name($user_type),
+                'url' => $url
+                ),
             'users_result' => $users_result,
             'inserts_count' => $i
         );
@@ -360,6 +365,9 @@ include('generic/header.php');
     <h3>Импорт пользователей</h3><br>
     <?php
     if ($load_users_collection_result) {
+            echo('Категория: ' . $load_users_collection_result['info']['category']."<br>");
+            echo('Тип пользователя: ' . $load_users_collection_result['info']['user_type']."<br>");
+            echo('Url: ' . $load_users_collection_result['info']['url']."<br>");
         ?>
 
         <div class="col-md-4" style="padding-left:0 !important">
