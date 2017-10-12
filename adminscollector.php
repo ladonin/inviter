@@ -213,7 +213,7 @@ include('generic/header.php');
 
     if (isset($_POST['show_group'])) {
 
-        $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE status=0 order by id ASC limit 1");
+        $stmt = $connect->prepare("SELECT * FROM $invite_table WHERE status=0 order by id ASC limit 5");
         $stmt->execute();
         $result = $stmt->fetchAll();
         ?>
