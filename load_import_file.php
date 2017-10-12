@@ -1,16 +1,3 @@
-mysqldump -u root -p  quitecorg_invite fb_collections_temp_1 fb_collections_temp_2 fb_collections_temp_3 fb_collections_temp_4 fb_collections_temp_5 fb_collections_temp_6 fb_collections_temp_7 fb_collections_temp_8 ok_collections_temp_1 ok_collections_temp_2 ok_collections_temp_3 ok_collections_temp_4 ok_collections_temp_5 ok_collections_temp_6 ok_collections_temp_7 ok_collections_temp_8 ok_collections_temp_9 ok_collections_temp_10 ok_collections_temp_11 vk_collections_temp_1 vk_collections_temp_2 vk_collections_temp_3 vk_collections_temp_4 vk_collections_temp_5 vk_collections_temp_6 vk_collections_temp_7 vk_collections_temp_8  > d:\TEMP\quitecorg_invite.sql
-
-mysql -u quitecorg_invite -pneirvaafem quitecorg_invite < путь до файла
-
-
-
-
-
-
-
-
-
-
 clearInterval(intervalLoad);
 clearInterval(intervalLog);
 actual_html;
@@ -125,7 +112,7 @@ var intervalLog = setInterval(function() {
     console.log('vk подписчики');
     console.log(count);
 
-    if (count > 100000) {
+    if (count > 75000) {
         console.log('Предел достигниут.....................');
         clearInterval(intervalLoad);
         clearInterval(intervalLog);
