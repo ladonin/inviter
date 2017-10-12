@@ -140,11 +140,14 @@ $i = 0;
             $stmt->execute(array('ok_group_id' => $group_id));
             $result = $stmt->fetchColumn();
             if (!$result) {
+                $content = file_get_contents('https://ok.ru/group/' . $group_id);
 
-                $html = file_get_contents('https://ok.ru/group/' . $group_id);
-                sleep(1);
-                preg_match_all("#<a data-l=\"t,uL\" href=\"\/profile\/([0-9]+)\?st\._aid=GroupMain_RightColumn_GroupMember\" (?:.*?)>(.+?)<\/a><\/span>#", $html, $admin_result, PREG_SET_ORDER);
+                $html = $content;
+                //sleep(1);
+
+                preg_match_all("#<a data-l=\"t,uL\"(?:.+?)href=\"(.+?)\"(?:.+?)>(.+?)<\/a><\/span>#", $html, $admin_result, PREG_SET_ORDER);
                 $admin_id = @$admin_result[0][1];
+                //$admin_id = preg_replace('/\?(.+?)/', '', $admin_id);
 
                 if ($admin_id) {
                     $i++;
@@ -152,8 +155,8 @@ $i = 0;
                     $admin_fio = $admin_result[0][2];
                     $admin_name = explode(' ', $admin_fio);
                     $admin_name = $admin_name[0];
-                    preg_match_all("#groupMembersCntEl\">(.+?)<\/span>#", $html, $number_result, PREG_SET_ORDER);
-                    $group_users_number = str_replace('&nbsp;','',$number_result[0][1]);
+                    //preg_match_all("#<div class=\"mt-x\">(.+?)участников<\/div>#", $html, $number_result, PREG_SET_ORDER);
+                    //$group_users_number = str_replace('&nbsp;','',$number_result[0][1]);
 
                     //echo('<br>admin_id:');my_pre($admin_id, false);
                     //echo('<br>admin_fio:');my_pre($admin_fio, false);
@@ -189,7 +192,7 @@ $i = 0;
                     'admin_fio' => $admin_fio,
                     'admin_name' => $admin_name,
                     'admin_id' => $admin_id,
-                    'group_users_number' => $group_users_number,
+                    'group_users_number' => 0,
                     'code' => $code
                     )
                     );
@@ -241,7 +244,7 @@ include('generic/header.php');
 
 
 
-                    echo('Имя: <form method="POST"><input type="hidden" name="id" value="' . $group['id'] . '"><input type="text" style="width:50%;" name="update_name" value="' . $group['admin_name'] . '"/> <input type="submit" value="Обновить"></form>');
+                    //echo('Имя: <form method="POST"><input type="hidden" name="id" value="' . $group['id'] . '"><input type="text" style="width:50%;" name="update_name" value="' . $group['admin_name'] . '"/> <input type="submit" value="Обновить"></form>');
 
                     $link = 'https://ok.ru/group/' . $group['ok_group_id'];
                     echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Группа:</b> ' . $group['ok_group_name'] . '</a><script>links.push(\'' . $link . '\');</script>');
@@ -249,12 +252,8 @@ include('generic/header.php');
 
 
 
-                    $link = 'https://ok.ru/profile/' . $group['admin_id'];
+                    $link = 'https://ok.ru' . $group['admin_id'];
                     echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Профиль админа:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
-
-
-                                $link = 'https://ok.ru/messages/' . $group['admin_id'];
-                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Переписка с админом:</b> ' . $group['admin_fio'] . '</a><script>links.push(\'' . $link . '\');</script>');
 
                    $text=$header . "
 Вам, как администратору группы, хочу предложить попробовать мой новый и очень полезный интернет-сервис.
@@ -355,12 +354,12 @@ if($count_non_invited){
 
 
 
-
+<!--
 <div class="row">
     <form action='' method="post">
         <button name='export' type="submit" class="btn btn-info"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Экспорт всех групп</button>
     </form>
-</div>
+</div>-->
 
 
 <?php } ?>
