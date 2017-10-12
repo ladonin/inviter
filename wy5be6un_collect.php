@@ -172,7 +172,7 @@ function publish_temp_init(){
             $categories = $stmt->fetchAll();
             foreach($categories as $category) {
                 // берем всех пользователей категории
-                $stmt2 = $connect->prepare("SELECT * FROM {$net}_collections_temp_{$category['id']} limit 200000");
+                $stmt2 = $connect->prepare("SELECT * FROM {$net}_collections_temp_{$category['id']} limit 10000");
                 $stmt2->execute();
                 $users = $stmt2->fetchAll();
                 foreach($users as $user) {
