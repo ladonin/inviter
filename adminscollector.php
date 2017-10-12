@@ -110,6 +110,7 @@ define('MY_DS', DIRECTORY_SEPARATOR);
 $title = $page_name = 'Собрать/показать админов групп из одноклассников';
 require_once('generic' . MY_DS . 'constants.php');
 require_once('generic' . MY_DS . 'connection.php');
+require_once('generic/generic_functions.php');
 $invite_table = 'odnoklassniki_group_admins_collector';
 
 
