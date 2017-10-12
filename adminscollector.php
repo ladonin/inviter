@@ -2,88 +2,11 @@
 
 
 
-function my_pre($data = null, $exit = true)
-{
-    if (is_string($data) && strlen($data) > 0)
-        $data = 'string(' . strlen($data) . ') "' . $data . '"';
-
-    if (is_bool($data)) {
-        if ($data === true)
-            $data = 'boolean (true)';
-        else
-            $data = 'boolean (false)';
-    }
-
-    if (is_null($data))
-        $data = 'null';
-
-    if (is_string($data) && strlen($data) === 0)
-        $data = 'string(o) ""';
-
-    if (PHP_SAPI === 'cli') {
-        if ($return)
-            return print_r($data, true);
-        else
-            return print_r($data) . PHP_EOL;
-    }
-
-
-        echo '<pre style="white-space: pre-wrap; border: 1px solid #c1c1c1; border-radius: 10px; margin: 10px; padding: 10px; background-color: #fff; font-size: 11px; font-family: Tahoma; line-height: 15px;">' . htmlspecialchars(print_r($data, true)) . '</pre>';
-    if ($exit) exit();
-}
 
 
 
 
 
-
-
-
-function my_create_password()
-{
-    $gl = array(
-        'a',
-        'e',
-        'i',
-        'o',
-        'u',
-    );
-
-    $so = array(
-        'b',
-        //'c',
-        'd',
-        'f',
-        'g',
-        'h',
-        //'j',
-        'k',
-        'l',
-        'm',
-        'n',
-        'p',
-        //'q',
-        'r',
-        's',
-        't',
-        'v',
-        //'w',
-        'x',
-        //'y',
-        'z',
-    );
-
-    $result = '';
-    for ($i = 0; $i < 12; $i++) {
-        if ($i % 2 == 0) {
-            $result .= $so[rand(0, 15)];
-        } else {
-            $result .= $gl[rand(0, 4)];
-        }
-    }
-
-    return $result;
-}
 
 
 
