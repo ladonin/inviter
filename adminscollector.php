@@ -226,7 +226,7 @@ include('generic/header.php');
 
 
             <div class="row">
-            <script>var links = new Array();</script>
+            <script>var links,linksgroups = new Array();</script>
             <div class="list-group col-md-6" style="padding-right:0;">
                 <?php
 
@@ -247,7 +247,7 @@ include('generic/header.php');
                     //echo('Имя: <form method="POST"><input type="hidden" name="id" value="' . $group['id'] . '"><input type="text" style="width:50%;" name="update_name" value="' . $group['admin_name'] . '"/> <input type="submit" value="Обновить"></form>');
 
                     $link = 'https://ok.ru/group/' . $group['ok_group_id'];
-                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Группа:</b> ' . $group['ok_group_name'] . '</a><script>links.push(\'' . $link . '\');</script>');
+                    echo('<a target="_blank" style="color:#6085bc !important" class="list-group-item" href="' . $link . '" onclick="window.open(\'' . $link . '\',\'_blank\',\'left=300, top=100, width=900, height=800\'); return false"><b>Группа:</b> ' . $group['ok_group_name'] . '</a><script>linksgroups.push(\'' . $link . '\');</script>');
 
 
 
@@ -312,7 +312,7 @@ echo('<br><br>');
             $stmt->execute();
             $count_non_invited = $stmt->fetchColumn();
     ?>
-
+<a style="cursor:pointer; border-radius:0; margin:10px 0; border:0; text-align:center;" class="list-group-item list-group-item-success" onclick='open_users();'>Открыть всех</a>
             <div class="row">
                 <div class="alert alert-success col-md-6" role="alert">
                 Всего показано: <?php echo($count_invited);?><br>
@@ -418,4 +418,5 @@ if($count_non_invited){
         </tr>
     </table>
 </div>
+                    
 <?php include('generic/footer.php'); ?>
