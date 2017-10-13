@@ -30,8 +30,8 @@ $types_fields_inv = array(
 );
 $nets = array(
     1 => NET_CODE_OK,
-    2 => NET_CODE_FB,
-    3 => NET_CODE_VK
+    3 => NET_CODE_VK,
+    2 => NET_CODE_FB
 );
 
 
