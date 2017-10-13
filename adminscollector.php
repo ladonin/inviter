@@ -226,7 +226,7 @@ include('generic/header.php');
 
 
             <div class="row">
-            <script>var links =  = new Array();
+            <script>var links =  new Array();
                 var linksgroups = new Array();</script>
             <div class="list-group col-md-6" style="padding-right:0;">
                 <?php
