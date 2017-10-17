@@ -119,17 +119,67 @@ var intervalLog = setInterval(function() {
         console.clear();
         console.log(actual_html);
     }
+}, 2000);
+
+
+
+
+
+
+// vk
+//нравится
+var intervalLoad = setInterval(function() {
+document.getElementById("wk_layer_wrap").scrollTop=9999999;
+}, 300);
+
+var actual_html = '';
+var count = 0;
+var intervalLog = setInterval(function() {
+
+    actual_html += document.querySelector('#wk_likes_rows').innerHTML;
+
+    count += document.querySelectorAll('#wk_likes_rows .fans_fan_row').length;
+    document.querySelector('#wk_likes_rows').innerHTML='';
+    console.clear();
+    console.log('vk подписчики');
+    console.log(count);
+
+    if (count > 75000) {
+        console.log('Предел достигниут.....................');
+        clearInterval(intervalLoad);
+        clearInterval(intervalLog);
+        console.clear();
+        console.log(actual_html);
+    }
 }, 5000);
 
 
+// vk
+//репост
+var intervalLoad = setInterval(function() {
+document.getElementById("wk_layer_wrap").scrollTop=9999999;
+}, 300);
 
+var actual_html = '';
+var count = 0;
+var intervalLog = setInterval(function() {
 
+    actual_html += document.querySelector('#wk_likes_content').innerHTML;
 
+    count += document.querySelectorAll('#wk_likes_content ._post_content').length;
+    document.querySelector('#wk_likes_content .fans_rows').innerHTML='';
+    console.clear();
+    console.log('vk подписчики');
+    console.log(count);
 
-
-
-
-
+    if (count > 75000) {
+        console.log('Предел достигниут.....................');
+        clearInterval(intervalLoad);
+        clearInterval(intervalLog);
+        console.clear();
+        console.log(actual_html);
+    }
+}, 1000);
 
 
 
