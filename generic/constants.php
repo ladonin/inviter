@@ -70,18 +70,18 @@ define('MY_REPORT_USERS_COLLECTION_LIMIT', 5000);
 
 //разница от осноной стоимости тип пользователя относительно типа соцсети
 define('MY_IMPORT_USER_CORRECTION_OK', 0);
-define('MY_IMPORT_USER_CORRECTION_VK', 0.05);
-define('MY_IMPORT_USER_CORRECTION_FB', 0.03);
+define('MY_IMPORT_USER_CORRECTION_VK', 0.03);
+define('MY_IMPORT_USER_CORRECTION_FB', 0.02);
 
 // стоимость 1 импортированного пользователя
 define('MY_USER_IMPORT_COST', array(
-    'GENERIC'       => 0.10,
-    'COMMENT'       => 0.10,
-    'SURVEY'        => 0.10,
-    'SUBSCRIBER'    => 0.12,
-    'KLASS'         => 0.07,
-    'REPOST'        => 0.15,
-    'SEARCH'        => 0.07));
+    'GENERIC'       => 0.07,
+    'COMMENT'       => 0.09,
+    'SURVEY'        => 0.07,
+    'SUBSCRIBER'    => 0.09,
+    'KLASS'         => 0.05,
+    'REPOST'        => 0.09,
+    'SEARCH'        => 0.05));
 
 // коэффициент суммы 1 дополнительного типа к самому дорогому типу в составной цене
 define('MY_USER_IMPORT_COST_ADDITIONAL_KOEF', 0.25);
