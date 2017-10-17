@@ -228,7 +228,7 @@ $total_data_of_collect_users = get_total_data_of_collect_users();
                     ">Работает с Facebook, Одноклассники и Вконтакте. Скоро и с Telegram.</h4>
 
 
-<h5 style="
+<h4 style="
                     color: #36689b;
                     /* font-size: 32px; */
                     line-height: 40px;
@@ -236,7 +236,7 @@ $total_data_of_collect_users = get_total_data_of_collect_users();
                     -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
                     text-rendering: optimizeLegibility;
-                    ">Стоимость от 1 до 9 копеек за человека.</h5>
+                    ">Стоимость от 1 до 9 копеек за человека</h4>
 
                   <div class="alert alert-info mt-20 p-10" role="alert" style=" margin:0 auto;max-width: 680px; background-color: #f5f5f5; border:0">
                       <h3 style="color:#36689b; margin-top:10px"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Уже <b style="color: #5c6e80;"><?=number_format($total_data_of_collect_users['number'], 0, ',', ' ');?></b> активных пользователей</h3>
