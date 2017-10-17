@@ -231,12 +231,22 @@ $total_data_of_collect_users = get_total_data_of_collect_users();
 <h4 style="
                     color: #36689b;
                     /* font-size: 32px; */
-                    line-height: 40px;
+                    line-height: 30px;
                     font-weight: 800;
                     -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
                     text-rendering: optimizeLegibility;
                     ">Стоимость от 1 до 9 копеек за человека</h4>
+<h4 style="
+                    color: #5c6e80;
+                    /* font-size: 32px; */
+                    line-height: 30px;
+                    font-weight: 400;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-rendering: optimizeLegibility;
+                    ">Загрузка самостоятельно - бесплатно</h4>
+
 
                   <div class="alert alert-info mt-20 p-10" role="alert" style=" margin:0 auto;max-width: 680px; background-color: #f5f5f5; border:0">
                       <h3 style="color:#36689b; margin-top:10px"><span class="glyphicon glyphicon-ok mr-10" aria-hidden="true" style="color:#5cb85c"></span>Уже <b style="color: #5c6e80;"><?=number_format($total_data_of_collect_users['number'], 0, ',', ' ');?></b> активных пользователей</h3>
