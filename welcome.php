@@ -237,7 +237,7 @@ $total_data_of_collect_users = get_total_data_of_collect_users();
                     -moz-osx-font-smoothing: grayscale;
                     text-rendering: optimizeLegibility;
                     ">Стоимость от 1 до 9 копеек за человека</h4>
-<h4 style="
+<h5 style="
                     color: #5c6e80;
                     /* font-size: 32px; */
                     line-height: 30px;
@@ -245,7 +245,7 @@ $total_data_of_collect_users = get_total_data_of_collect_users();
                     -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
                     text-rendering: optimizeLegibility;
-                    ">Загрузка самостоятельно - бесплатно</h4>
+                    ">Загрузка самостоятельно - бесплатно</h5>
 
 
                   <div class="alert alert-info mt-20 p-10" role="alert" style=" margin:0 auto;max-width: 680px; background-color: #f5f5f5; border:0">
