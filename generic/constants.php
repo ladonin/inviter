@@ -78,7 +78,7 @@ define('MY_USER_IMPORT_COST', array(
     'GENERIC'       => 0.07,
     'COMMENT'       => 0.09,
     'SURVEY'        => 0.07,
-    'SUBSCRIBER'    => 0.09,
+    'SUBSCRIBER'    => 0.04,
     'KLASS'         => 0.05,
     'REPOST'        => 0.09,
     'SEARCH'        => 0.05));
